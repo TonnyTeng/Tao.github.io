@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://tao1010.github.io">
   <title>iOS第三方库-SDK开发 | Tao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、创建静态库 二、创建framework 三、打包(Bundle)资源 参考资料:1.SDK开发2.创建SDK">
+  <meta name="description" content="一、SDK开发准备1.规则: 文件组织方式清晰明了； 类名前缀和包命令或缩写要一致； 代码风格一定要一致； 函数命令遵循共性，不要出现歧义或违背常识； 代码注释规范、清楚； SDK功能正确，编译无警告、错误，支持最新特性； 2.设计: 易用     SDK集成成本： cocoapods；     API调用简单；     功能可以定制；     便于调试： debug 日志；     API回调参">
 <meta name="keywords" content="iOS第三方库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS第三方库-SDK开发">
 <meta property="og:url" content="http://tao1010.github.io/2018/05/17/iOS/iOS第三方库/iOS第三方库-SDK开发/index.html">
 <meta property="og:site_name" content="Tao的博客">
-<meta property="og:description" content="一、创建静态库 二、创建framework 三、打包(Bundle)资源 参考资料:1.SDK开发2.创建SDK">
+<meta property="og:description" content="一、SDK开发准备1.规则: 文件组织方式清晰明了； 类名前缀和包命令或缩写要一致； 代码风格一定要一致； 函数命令遵循共性，不要出现歧义或违背常识； 代码注释规范、清楚； SDK功能正确，编译无警告、错误，支持最新特性； 2.设计: 易用     SDK集成成本： cocoapods；     API调用简单；     功能可以定制；     便于调试： debug 日志；     API回调参">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-20T13:23:58.399Z">
+<meta property="og:updated_time" content="2018-07-02T12:22:04.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS第三方库-SDK开发">
-<meta name="twitter:description" content="一、创建静态库 二、创建framework 三、打包(Bundle)资源 参考资料:1.SDK开发2.创建SDK">
+<meta name="twitter:description" content="一、SDK开发准备1.规则: 文件组织方式清晰明了； 类名前缀和包命令或缩写要一致； 代码风格一定要一致； 函数命令遵循共性，不要出现歧义或违背常识； 代码注释规范、清楚； SDK功能正确，编译无警告、错误，支持最新特性； 2.设计: 易用     SDK集成成本： cocoapods；     API调用简单；     功能可以定制；     便于调试： debug 日志；     API回调参">
   
     <link rel="alternative" href="/atom.xml" title="Tao的博客" type="application/atom+xml">
   
@@ -220,10 +220,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、创建静态库</p>
-<p>二、创建framework</p>
-<p>三、打包(Bundle)资源</p>
-<p>参考资料:<br>1.<a href="https://www.jianshu.com/p/c131baae4307" target="_blank" rel="noopener">SDK开发</a><br>2.<a href="https://www.jianshu.com/p/65b1c1326c50" target="_blank" rel="noopener">创建SDK</a></p>
+        <p>一、SDK开发准备<br><br>1.规则:</p>
+<pre><code>文件组织方式清晰明了；
+类名前缀和包命令或缩写要一致；
+代码风格一定要一致；
+函数命令遵循共性，不要出现歧义或违背常识；
+代码注释规范、清楚；
+SDK功能正确，编译无警告、错误，支持最新特性；
+</code></pre><p>2.设计:</p>
+<pre><code>易用
+    SDK集成成本： cocoapods；
+    API调用简单；
+    功能可以定制；
+    便于调试： debug 日志；
+    API回调参数明确；
+    API稳定；
+API设计
+    参数命名明确无歧义；
+    自足自给(SDK自己获取如BundleID、appName、appVersion等信息)；
+    SDK配置参数、接入参数分开；
+    SDK参数:拼接的字符串如支付宝的支付orderString；
+    同一类参数，封装成model，隐藏属性，通过方法构造；
+    API功能单一，减少类似enum 的入参设计；
+    用于查询的属性，绝对不能直接设置；
+    API回调:delegate 和 block
+</code></pre><p>3.工程搭建<br><br>建议使用cocoapods和<a href="https://github.com/CocoaPods/cocoapods-packager" target="_blank" rel="noopener">cocoapods-packager</a></p>
+<pre><code>搭建开发工具:
+    pod lib create xxx   #xxx为工程名
+打包:
+    pod package xxx.spec
+
+SDK打包形式：
+    Static Library
+    Dynamic Framework
+    Universal Framework
+版本控制:
+    (major).(minor).(patch)
+    eg:3.0.1
+发布渠道:
+    cocoapods
+    邮件
+    网站
+</code></pre><p>4.注意事项：</p>
+<pre><code>减少对其他库的依赖：能用系统API解决就不用第三方；
+OC没有命名空间，类命名和类别方法加上前缀；
+多考虑第三方带来的影响: 键盘处理、UIKit的UIAppearance等；
+依赖其他SDK的，别打包在一起，否则出现符号表重复；
+使用OC类别打包时，加上-ObjC；
+尽量不使用 单例；
+核心代码安全性；
+资源文件使用 bundle 进行管理，尽量不使用Xib；
+</code></pre><p>二、创建静态库</p>
+<p>三、创建framework</p>
+<p>四、打包(Bundle)资源</p>
+<p>参考资料:<br>1.<a href="https://www.jianshu.com/p/dd8d1b7ce1e4" target="_blank" rel="noopener">SDK开发规则</a><br>1.<a href="https://www.jianshu.com/p/c131baae4307" target="_blank" rel="noopener">SDK开发</a><br>2.<a href="https://www.jianshu.com/p/65b1c1326c50" target="_blank" rel="noopener">创建SDK</a></p>
 
       
 
@@ -505,10 +555,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS面试</a>
               </li>
              
@@ -517,11 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,7 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,6 +584,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,19 +627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +635,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,6 +652,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

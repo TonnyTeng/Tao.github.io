@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://tao1010.github.io/2018/03/27/iOS/iOS模块/iOS模块-网络/https1.jpg">
 <meta property="og:image" content="http://tao1010.github.io/2018/03/27/iOS/iOS模块/iOS模块-网络/https2.png">
 <meta property="og:image" content="http://tao1010.github.io/2018/03/27/iOS/iOS模块/iOS模块-网络/socket.jpg">
-<meta property="og:updated_time" content="2018-06-20T13:23:58.393Z">
+<meta property="og:updated_time" content="2018-06-27T14:28:07.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS模块-网络">
 <meta name="twitter:description" content="一、OSI七层模型">
@@ -516,6 +516,8 @@ HTTPS连接缓存不如HTTP高效，会增加数据开销和功耗，甚至已�
 SSL证书需要钱，功能越强大的证书费用越高，个人网站、小网站没有必要一般不会用。
 SSL证书通常需要绑定IP，不能在同一IP上绑定多个域名，IPv4资源不可能支撑这个消耗。
 HTTPS协议的加密范围也比较有限，在黑客攻击、拒绝服务攻击、服务器劫持等方面几乎起不到什么作用。最关键的，SSL证书的信用链体系并不安全，特别是在某些国家可以控制CA根证书的情况下，中间人攻击一样可行
+</code></pre><p>6.Https请求的过程    </p>
+<pre><code>eg:客户端输入账号、密码后，点击登录，通过https请求直到客户端收到服务器返回的数据前，描述这个过程:
 </code></pre><p>六、Socket<br><br>1.概念</p>
 <pre><code>socket(套接字)是通信的基石，是支持TCP/IP协议的网络通信的基本操作单元，包含网络通信的五种信息：
     1.连接使用的协议
@@ -630,7 +632,7 @@ XML:
 </tr>
 </tbody>
 </table>
-<p>参考资料：<br>1.<a href="https://www.jianshu.com/p/c2cbf6dc09a2" target="_blank" rel="noopener">TCP</a><br><br>2.<a href="http://www.cnblogs.com/SanMaoSpace/p/3139186.html" target="_blank" rel="noopener">XML和JSON区别</a><br><br>3.<a href="https://blog.csdn.net/zeng622peng/article/details/5546384" target="_blank" rel="noopener">Socket和Http的区别</a><br><br>4.<a href="https://www.jianshu.com/p/45c30b593872" target="_blank" rel="noopener">GET和POST区别</a><br><br>  <a href="https://blog.csdn.net/heyddo/article/details/37561005" target="_blank" rel="noopener">GET和POST区别+Demo</a><br><br>5.<a href="https://www.jianshu.com/p/56618fa1a7e6" target="_blank" rel="noopener">TCP和UDP</a><br><br>6.<a href="http://www.cocoachina.com/ios/20160602/16572.html" target="_blank" rel="noopener">Socket</a><br><br>7.<a href="https://www.jianshu.com/p/2dbb360886a8" target="_blank" rel="noopener">Socket-IM</a><br><br>8.<a href="https://www.jianshu.com/p/ba231a6b5ac4" target="_blank" rel="noopener">Https双向认证</a><br><br>9.<a href="https://www.cnblogs.com/wqhwe/p/5407468.html" target="_blank" rel="noopener">Http和Https区别</a></p>
+<p>参考资料：<br>1.<a href="https://www.jianshu.com/p/c2cbf6dc09a2" target="_blank" rel="noopener">TCP</a><br><br>2.<a href="http://www.cnblogs.com/SanMaoSpace/p/3139186.html" target="_blank" rel="noopener">XML和JSON区别</a><br><br>3.<a href="https://blog.csdn.net/zeng622peng/article/details/5546384" target="_blank" rel="noopener">Socket和Http的区别</a><br><br>4.<a href="https://www.jianshu.com/p/45c30b593872" target="_blank" rel="noopener">GET和POST区别</a><br><br>  <a href="https://blog.csdn.net/heyddo/article/details/37561005" target="_blank" rel="noopener">GET和POST区别+Demo</a><br><br>5.<a href="https://www.jianshu.com/p/56618fa1a7e6" target="_blank" rel="noopener">TCP和UDP</a><br><br>6.<a href="http://www.cocoachina.com/ios/20160602/16572.html" target="_blank" rel="noopener">Socket</a><br><br>7.<a href="https://www.jianshu.com/p/2dbb360886a8" target="_blank" rel="noopener">Socket-IM</a><br><br>8.<a href="https://www.jianshu.com/p/ba231a6b5ac4" target="_blank" rel="noopener">Https双向认证</a><br><br>9.<a href="https://www.cnblogs.com/wqhwe/p/5407468.html" target="_blank" rel="noopener">Http和Https区别</a><br><br>10.<a href="https://www.jianshu.com/p/db9c716c3558" target="_blank" rel="noopener">Https请求过程描述</a><br></p>
 
       
 
@@ -767,7 +769,7 @@ XML:
   
   
     <a href="/2018/03/27/iOS/iOS模块/iOS模块-多线程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS多线程</div>
+      <div class="article-nav-title">iOS模块 - 多线程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -912,10 +914,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS面试</a>
               </li>
              
@@ -924,11 +922,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,7 +934,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,6 +943,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -976,19 +986,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,7 +994,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1005,6 +1011,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://tao1010.github.io">
   <title>iOS知识巩固-延展类目协议代理 | Tao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.代理delegate 定义:一种通用的设计模式  代理主要由三部分组成： 协议：用来指定代理双方可以做什么，必须做什么。协议的内容一般是方法列表、属性。 代理：根据指定的协议，完成委托方需要实现的功能。 委托：根据指定的协议，指定代理去完成什么功能。 作用:实现消息传递(消息传递的其他方式:通知、KVO、Block、属性等) 优点: 非常严格的语法。所有将听到的事件必须是在delegate协议">
+  <meta name="description" content="1.代理delegate">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS知识巩固-延展类目协议代理">
 <meta property="og:url" content="http://tao1010.github.io/2018/03/13/iOS/iOS巩固/iOS知识巩固-延展类目协议代理/index.html">
 <meta property="og:site_name" content="Tao的博客">
-<meta property="og:description" content="1.代理delegate 定义:一种通用的设计模式  代理主要由三部分组成： 协议：用来指定代理双方可以做什么，必须做什么。协议的内容一般是方法列表、属性。 代理：根据指定的协议，完成委托方需要实现的功能。 委托：根据指定的协议，指定代理去完成什么功能。 作用:实现消息传递(消息传递的其他方式:通知、KVO、Block、属性等) 优点: 非常严格的语法。所有将听到的事件必须是在delegate协议">
+<meta property="og:description" content="1.代理delegate">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://tao1010.github.io/2018/03/13/iOS/iOS巩固/iOS知识巩固-延展类目协议代理/delegate.png">
-<meta property="og:updated_time" content="2018-06-20T13:23:58.375Z">
+<meta property="og:updated_time" content="2018-06-27T14:28:07.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS知识巩固-延展类目协议代理">
-<meta name="twitter:description" content="1.代理delegate 定义:一种通用的设计模式  代理主要由三部分组成： 协议：用来指定代理双方可以做什么，必须做什么。协议的内容一般是方法列表、属性。 代理：根据指定的协议，完成委托方需要实现的功能。 委托：根据指定的协议，指定代理去完成什么功能。 作用:实现消息传递(消息传递的其他方式:通知、KVO、Block、属性等) 优点: 非常严格的语法。所有将听到的事件必须是在delegate协议">
+<meta name="twitter:description" content="1.代理delegate">
 <meta name="twitter:image" content="http://tao1010.github.io/2018/03/13/iOS/iOS巩固/iOS知识巩固-延展类目协议代理/delegate.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao的博客" type="application/atom+xml">
@@ -223,7 +223,42 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.代理delegate</p>
-<p>定义:一种通用的设计模式</p>
+<a id="more"></a>
+<p>eg:</p>
+<pre><code>创建一个类：NetworkFetcher
+NetworkFetcher.h
+    @protocol NetworkFetcherDelegate &lt;NSObject&gt;
+
+    @required //必须执行的方法
+
+    - (void)printHello;
+
+    @optional //可选执行的方法
+
+    - (void)didReceiveData:(NSData *)data;
+    - (void)didFailWithError:(NSError *)error;
+    - (void)didUpdateProgressTo:(CGFloat)progress;
+
+    @end
+
+    @interface GRHNetworkFetcher : NSObject
+
+    @property (nonatomic, assign)id&lt;NetworkFetcherDelegate&gt; delegate;
+
+    @end
+NetworkFetcher.m
+    //不实现协议方法
+
+创建一个使用协议方法的类：A
+A.m
+    - (void)doSometing {
+        if ([self.delegate respondsToSelector:@selector(didReceiveData:)]) {
+            [self.delegate didReceiveData:nil];
+        }
+    }
+    解析：
+        respondsToSelector: 来判断委托对象是否实现了相关方法。如果实现了，就调用；如果没有实现，就不执行任何操作；
+</code></pre><p>定义:一种通用的设计模式</p>
 <p><img src="delegate.png" alt="delegate"></p>
 <p>代理主要由三部分组成：</p>
 <pre><code>协议：用来指定代理双方可以做什么，必须做什么。协议的内容一般是方法列表、属性。
@@ -277,7 +312,7 @@
 方便代码的书写(每次声明一个全局变量或属性都会到.h文件，此时使用延展更方便);
 </code></pre><p>tips:当在定义延展的时候不提供类目名时，延展中定义的方法即被视为“必须实现”的API，在此情况下，如果没有实现代码，编译器会报警告。</p>
 <p>参考资料：</p>
-<p>1.<a href="http://www.cocoachina.com/ios/20160317/15696.html" target="_blank" rel="noopener">代理设计模式</a></p>
+<p>1.<a href="http://www.cocoachina.com/ios/20160317/15696.html" target="_blank" rel="noopener">代理设计模式</a><br><br>2.<a href="https://www.jianshu.com/p/4abaf1d1f044" target="_blank" rel="noopener">iOS 协议(protocol)和代理(delegate)模式详解</a></p>
 
       
 
@@ -559,10 +594,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS面试</a>
               </li>
              
@@ -571,11 +602,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,7 +614,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,6 +623,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,19 +666,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +674,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,6 +691,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

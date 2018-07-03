@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="Tao的博客">
 <meta property="og:description" content="一、补齐Cell的分割线 只有左右间距可用,如果想将两边都补齐则设置为UIEdgeInsetsMake(0, 0, 0, 0)即可; 1234567891011121314151617-(void)viewDidLayoutSubviews &amp;#123;    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-20T13:23:58.378Z">
+<meta property="og:image" content="http://tao1010.github.io/2018/03/25/iOS/iOS模块/iOS模块-UITableView/cell.png">
+<meta property="og:updated_time" content="2018-07-03T13:30:45.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS模块-UITableView">
 <meta name="twitter:description" content="一、补齐Cell的分割线 只有左右间距可用,如果想将两边都补齐则设置为UIEdgeInsetsMake(0, 0, 0, 0)即可; 1234567891011121314151617-(void)viewDidLayoutSubviews &amp;#123;    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]">
+<meta name="twitter:image" content="http://tao1010.github.io/2018/03/25/iOS/iOS模块/iOS模块-UITableView/cell.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao的博客" type="application/atom+xml">
   
@@ -234,21 +236,67 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setSelected:(<span class="built_in">BOOL</span>)selected animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取 contentView 所有子控件</span></span><br><span class="line">    <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIView</span> *&gt; *subViews = <span class="keyword">self</span>.contentView.subviews;</span><br><span class="line">    <span class="comment">// 创建颜色数组</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *colors = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *view <span class="keyword">in</span> subViews) &#123;</span><br><span class="line">        <span class="comment">// 获取所有子控件颜色</span></span><br><span class="line">        [colors addObject:view.backgroundColor ?: [<span class="built_in">UIColor</span> clearColor]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用super</span></span><br><span class="line">    [<span class="keyword">super</span> setSelected:selected animated:animated];</span><br><span class="line">    <span class="comment">// 修改控件颜色</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; subViews.count; i++) &#123;</span><br><span class="line">        subViews[i].backgroundColor = colors[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setHighlighted:(<span class="built_in">BOOL</span>)highlighted animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取 contentView 所有子控件</span></span><br><span class="line">    <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIView</span> *&gt; *subViews = <span class="keyword">self</span>.contentView.subviews;</span><br><span class="line">    <span class="comment">// 创建颜色数组</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *colors = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *view <span class="keyword">in</span> subViews) &#123;</span><br><span class="line">        <span class="comment">// 获取所有子控件颜色</span></span><br><span class="line">        [colors addObject:view.backgroundColor ?: [<span class="built_in">UIColor</span> clearColor]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用super</span></span><br><span class="line">    [<span class="keyword">super</span> setHighlighted:highlighted animated:animated];</span><br><span class="line">    <span class="comment">// 修改控件颜色</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; subViews.count; i++) &#123;</span><br><span class="line">        subViews[i].backgroundColor = colors[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Swift: </p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setSelected</span><span class="params">(<span class="number">_</span> selected: Bool, animated: Bool)</span></span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// 获取 contentView 所有子控件</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 创建颜色数组</span></span><br><span class="line">        <span class="keyword">let</span> colors = <span class="type">NSMutableArray</span>.<span class="keyword">init</span>();</span><br><span class="line">        <span class="comment">// 获取所有子控件颜色</span></span><br><span class="line">        <span class="keyword">for</span> view <span class="keyword">in</span> <span class="keyword">self</span>.contentView.subviews &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> view.backgroundColor != <span class="literal">nil</span> &#123;</span><br><span class="line">                </span><br><span class="line">                 colors .add(view.backgroundColor!);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            </span><br><span class="line">                 colors .add(<span class="type">UIColor</span>.clear);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 调用super</span></span><br><span class="line">         <span class="keyword">super</span>.setSelected(selected, animated: animated)</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// 修改控件颜色</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="keyword">self</span>.contentView.subviews.<span class="built_in">count</span>&#123;</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">self</span>.contentView.subviews[i].backgroundColor = colors[i] <span class="keyword">as</span>? <span class="type">UIColor</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setHighlighted</span><span class="params">(<span class="number">_</span> highlighted: Bool, animated: Bool)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取 contentView 所有子控件</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 创建颜色数组</span></span><br><span class="line">        <span class="keyword">let</span> colors = <span class="type">NSMutableArray</span>.<span class="keyword">init</span>();</span><br><span class="line">        <span class="comment">// 获取所有子控件颜色</span></span><br><span class="line">        <span class="keyword">for</span> view <span class="keyword">in</span> <span class="keyword">self</span>.contentView.subviews &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> view.backgroundColor != <span class="literal">nil</span> &#123;</span><br><span class="line">                </span><br><span class="line">                colors .add(view.backgroundColor!);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                </span><br><span class="line">                colors .add(<span class="type">UIColor</span>.clear);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 调用super</span></span><br><span class="line">        <span class="keyword">super</span>.setHighlighted(highlighted, animated: animated);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 修改控件颜色</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="keyword">self</span>.contentView.subviews.<span class="built_in">count</span>&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">self</span>.contentView.subviews[i].backgroundColor = colors[i] <span class="keyword">as</span>? <span class="type">UIColor</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>四、Cell的重用机制和刷新</p>
-<p>1.关键字:</p>
-<pre><code>self.tableView.visibleCells 可见的数组,数组中放置屏幕上可见的UITableViewCell对象
-</code></pre><p>2.如果不同重用标志符reuseIdentifier会发生什么？</p>
-<pre><code>tableView每一次显示row时，都会配置一个全新的cell,会不断的开辟内存，这将非常消耗资源，并且影响tableView滚动的效率，导致用户体验很差。
-</code></pre><p>3.重用   </p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSString</span> *Cell = <span class="string">@"MyCell"</span>;  </span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:Cell];  </span><br><span class="line">    <span class="keyword">if</span> (!cell) &#123;  </span><br><span class="line">        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:Cell];  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> cell;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解析:</p>
-<pre><code>• dequeueReusableCellWithIdentifier方法就是去一个队列里面需找有没有相同ID的的Cell:
-        如果有，就提出来重用。
-        如果没有就跳进if里面去创建。所以我们在if里面创建的时候，不会改变的内容都可以在里面创建，这样就只用创建一次。需要改变的内容我们就放到if后面去写。
-• dequeueReusableCellWithIdentifier方法 就是用来创建几个有限的cell。重用已经创建的Cell， 只需要填充不同的数据即可。
+<p>四、Cell的重用机制和刷新<br><br>1.为什么重用？</p>
+<pre><code>实现显示和数据分离，通过重用单元格来节省内存；
+避免频繁的alloc和delloc cell对象；
+不重用会重复初始化已经初始化的cell，不断的开辟内存，这将非常消耗资源；
+影响tableView滚动的效率，出现卡顿现象，导致用户体验很差；
+</code></pre><p>2.重用原理:<br><br><img src="cell.png" alt="cell"></p>
+<pre><code>可变数组visibleCells - readonly，保存当前显示的Cells(UITableViewCell);
+重用池：存储 有 重用标志符identifier 的cell
+
+初始显示：Cell一定未创建
+    重用池中无数据;
+    cell = nil;
+    创建cell,下一次创建Cell时，会将上一次创建的cell放入 visibleCells 中
+        创建cell数量问题:  -- 待研究
+            n - tableView高度能显示 Cell 的个数
+            row - 每组需要显示的行数(定义) numberOfRowsInSection (row ! = 0)
+        当row &lt; 2n + 1时,  创建cell的数量: row,  visibleCells个数: row - 1;
+        当row &gt;= 2n + 1时, 创建cell的数量: 2n+2, visibleCells个数: 2n + 1;
+滚动显示：
+       通过 dequeueReusableCellWithIdentifier 方法从重用池 获取有对应标志符 identifier 的cell；
+           若cell存在
+           若cell = nil，则创建一个新的cell
+    显示在屏幕上，同时放入 visibleCells 数组最后位置，是否移除 visibleCells 中第一个位置的数据，根据屏幕显示而定；
+        若 visibleCells 有移除cell，则放入重用池中
+</code></pre><p>3.Cell的差异性问题<br><br>情形描述:</p>
+<pre><code>在indexPath.row = 1 设置Cell imageView 的背景颜色，可能导致其他 row 也能看见 设置Cell imageView 的背景颜色
+</code></pre><p>解决方法：</p>
+<pre><code>方法一:针对每个cell设置一个tag，对cell进行差异性判断：
+    cell.tag = indexPath.row;
+    if(cell.tag ==1){
+        ...
+    }else{
+        ...
+    }
+
+方法二:将cell的identifier设为唯一的, 保证了唯一性
+    NSString *identifier = [NSString stringWithFormat:@&quot;%ld%ldcell&quot;, indexPath.section, indexPath.row];
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+
+方法三:不使用重用机制 - 强烈建议不使用，此方法会造成内存大量使用尤其数据较大时
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+方法四:删除将要重用的cell上的所有子视图, 得到一个没有内容的cel
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+</code></pre><p>tips:</p>
+<pre><code>重用池取出来的Cell，可能已经捆绑过数据或者加载过子视图，所以要做必要的数据和视图清除处理    
 </code></pre><p>4.刷新</p>
 <pre><code>对于只有少数Cell内容变化的，可以针对性的去刷新对应的cell，可以提高效率；
 reloadData会刷新整个tableView；
+
+reloadData刷新：
+    reloadData 调用后
+        将 visibleCells 数组中所有数据 移动到 重用池，然后清空 visibleCells；
+    cellForRowAtIndexPath调用后
+        将 重用池 中的Cell数据取出，放入到 visibleCells 中，显示数据；
+
+reloadRowsAtIndexPaths 刷新:
+
+    reloadRowsAtIndexPaths 调用时，
+    若 重用池 为空，则在cellForRowAtIndexPath调用后，新创建cell，并且将创建的cell 放入 visibleCells 中，将最底层 visibleCells 中cell数据移除到 重用池；
+    若 重用池 取到相关数据， 将取到的数据放入 放入 visibleCells 中对应位置的cell数据，并将其移除到 重用池；
 </code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UITableView</span>刷新方法:</span><br><span class="line">- (<span class="keyword">void</span>)beginUpdates;  </span><br><span class="line">- (<span class="keyword">void</span>)endUpdates;  </span><br><span class="line"> </span><br><span class="line">- (<span class="keyword">void</span>)insertSections:(<span class="built_in">NSIndexSet</span> *)sections withRowAnimation:(<span class="built_in">UITableViewRowAnimation</span>)animation;  </span><br><span class="line">- (<span class="keyword">void</span>)deleteSections:(<span class="built_in">NSIndexSet</span> *)sections withRowAnimation:(<span class="built_in">UITableViewRowAnimation</span>)animation;  </span><br><span class="line">- (<span class="keyword">void</span>)reloadSections:(<span class="built_in">NSIndexSet</span> *)sections withRowAnimation:(<span class="built_in">UITableViewRowAnimation</span>)animation;  </span><br><span class="line">   </span><br><span class="line">- (<span class="keyword">void</span>)insertRowsAtIndexPaths:(<span class="built_in">NSArray</span> *)indexPaths withRowAnimation: (<span class="built_in">UITableViewRowAnimation</span>)animation;  </span><br><span class="line">- (<span class="keyword">void</span>)deleteRowsAtIndexPaths:(<span class="built_in">NSArray</span> *)indexPaths withRowAnimation: (<span class="built_in">UITableViewRowAnimation</span>)animation;  </span><br><span class="line">- (<span class="keyword">void</span>)reloadRowsAtIndexPaths:(<span class="built_in">NSArray</span> *)indexPaths withRowAnimation:(<span class="built_in">UITableViewRowAnimation</span>)animation;</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
 <p>eg:刷新某行代码</p>
 <pre><code>NSIndexPath *row_1=[NSIndexPath indexPathForRow:1 inSection:0];
@@ -267,8 +315,24 @@ NSArray *indexArray=[NSArray arrayWithObject:row_1];
 不要做多余的绘制工作；
 预渲染图像；
 不要阻塞主线程；
-</code></pre><p>参考资料：</p>
-<p>1.<a href="https://blog.csdn.net/lea__dongyang/article/details/72303579" target="_blank" rel="noopener">UITableViewCell点击, 子控件背景颜色不变</a></p>
+</code></pre><p>七、UITableView 代理 执行的顺序</p>
+<pre><code>self.tableView.delegate = UITableViewDelegate
+self.tableView.dataSource = UITableViewDataSource
+
+DataSource
+1.确定组数:...numberOfSectionsInTableView...
+2.确定每组行数:...numberOfRowsInSection...
+3.创建Cell内存:...cellForRowAtIndexPath... 
+    每次执行(初始和刷新) cellForRowAtIndexPath 方法后，均会执行步骤4的 heightForRowAtIndexPath 方法；
+    因此若cell高度固定，采用 tableView.rowHeight = 50 这种方式更好
+
+Delegate
+4.确定行高:...heightForRowAtIndexPath...
+5.确定Header高度:...heightForHeaderInSection...
+6.确定Footer高度:...heightForFooterInSection...
+7.创建HeaderView:...viewForHeaderInSection...
+8.创建FooterView:...viewForFooterInSection...
+</code></pre><p>参考资料:<br><br>1.<a href="https://blog.csdn.net/lea__dongyang/article/details/72303579" target="_blank" rel="noopener">UITableViewCell点击, 子控件背景颜色不变</a><br><br>2.<a href="https://www.jianshu.com/p/1e36643a1aa9" target="_blank" rel="noopener">UITableViewCells重用机制</a><br><br>3.<a href="https://blog.csdn.net/qq_30513483/article/details/79723088" target="_blank" rel="noopener">iOS - 40题</a></p>
 
       
 
@@ -550,10 +614,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS面试</a>
               </li>
              
@@ -562,11 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,7 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,6 +643,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,19 +686,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">web-build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +694,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,6 +711,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">
