@@ -192,6 +192,1082 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HTML/Html基础知识-调试HTML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/12/HTML/Html基础知识-调试HTML/">HTML基础知识-调试HTML</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/12/HTML/Html基础知识-调试HTML/" class="archive-article-date">
+  	<time datetime="2018-03-12T03:32:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、HTML和调试</p>
+<p>浏览器是以宽松模式来运行，即使出现语法错误浏览器仍然会运行(浏览器通常都要自己的规则来解析语法错误的标记语言)。</p>
+<p>1.宽容模式代码</p>
+<pre><code>语法错误：由于拼写错误导致程序无法运行；
+
+逻辑错误：语法正确，代码不是想要的代码导致程序运行不正确；
+</code></pre><p>2.宽容式代码风格</p>
+<p>3.工具</p>
+<p>浏览器开发工具</p>
+<p>开发者模式中的审查器件</p>
+<p>4.HTML验证</p>
+<p><a href="https://validator.w3.org/" target="_blank" rel="noopener">Markup Validation Service </a></p>
+<p>将HTML文档作为输入并运行，然后给你一个报告(关于你的HTML有哪些错误)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/12/HTML/Html基础知识-调试HTML/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-网站结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/12/HTML/Html基础知识-网站结构/">HTML基础知识-网站结构</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/12/HTML/Html基础知识-网站结构/" class="archive-article-date">
+  	<time datetime="2018-03-12T01:16:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、文档的基本部分</p>
+<p>一个典型的网站可能会这样布局：</p>
+<p><img src="Web-site.png" alt="网站结构"></p>
+<p>1.标题: &lt;header&gt;</p>
+<p>通常在顶部有一个大标题和（或）图标。 这是一个网站的主要常见信息，通常存在于每一个网页。</p>
+<pre><code>&lt;header&gt;展现一系列介绍性内容。如果它是&lt;body&gt;的子元素，它就定义了网站的全局页眉,如果它是&lt;article&gt;或&lt;section&gt;的子元素,它就定义了这些部分的特定页眉。(不要与title and headings混淆)。
+</code></pre><p>2.导航:&lt;nav&gt;</p>
+<p>链接到网站的主要部分；通常由菜单按钮、链接或选项卡表示。与标题一样，这些内容通常在一个网页与另一个网页之间保持一致——在您的网站上导航不一致只会使人疑惑和恼火。许多网页设计师认为导航栏是标题的一部分，而不是独立的组件，但这并不是一个硬性规定；实际上有些人认为，两个独立的会有更好的可访问性，因为如果它们互相独立，屏幕阅读器可以更好地阅读两个功能。</p>
+<pre><code>&lt;nav&gt;包含了页面主要的导航功能,二级链接等，不会进入导航功能部分。
+</code></pre><p>3.主要内容:&lt;main&gt;具有代表性的内容段落主题可以使用&lt;article&gt;,&lt;section&gt;,&lt;div&gt;元素。</p>
+<p>中心的一个大区域，包含给定网页的大部分独特内容，例如您要观看的视频，或您正在阅读的主要故事，或您要查看的地图，或新闻标题等……这是网站的一部分，绝对会因页面而异。</p>
+<pre><code>&lt;main&gt;展现了页面内容的独特性。只可以在每一个页面上使用一次&lt;main&gt;,直接把它放到&lt;body&gt;中，在理想情况下，不应该把它嵌套进其他的元素中。
+
+&lt;article&gt;闭合一块与自身相关的内容，这块内容能够解释它自身而不是页面上其他的内容(eg:一篇单独的博客)。
+
+&lt;section&gt;近似于&lt;article&gt;，但是它更多的是伴随着一个单独功能构成的页面(eg:小型地图或一组文章的标题和摘要)。最好的实际应用是用标题作为每一部分(section)的开头，tips：可以把不同的&lt;article&gt;分到不同的&lt;section&gt;中，或者把不同的&lt;section&gt;分到不同的 &lt;article&gt;中，这取决于内容。
+
+有时候你可能只想仅仅用CSS或JavaScript将一组元素作为一个单独的实体来修饰。为了应对这种情况，HTML提供了&lt;div&gt;和&lt;span&gt;元素:
+
+&lt;div&gt;是一个块级无语义元素，仅仅当找不到更好的块级元素时使用，或者不想增加特定的意义。最好使用class属性来提供一些标签(eg:浏览电商网站，有一个购物车部件一直都可以选择的地方)。
+
+&lt;span&gt;是一个行内无语义元素，仅仅当无法找到更好的语义元素包含内容时使用，或者不想增加特定的含义(最好使用class属性来提供一些标签)。
+
+eg:
+&lt;div class=&quot;shopping-cart&quot;&gt;
+  &lt;h2&gt;Shopping cart&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;&quot;&gt;&lt;strong&gt;Silver earrings&lt;/strong&gt;&lt;/a&gt;: $99.95.&lt;/p&gt;
+      &lt;img src=&quot;../products/3333-0985/&quot; alt=&quot;Silver earrings&quot;&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      ...
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;Total cost: $237.89&lt;/p&gt;
+&lt;/div&gt;
+
+这并不是一个&lt;aside&gt;,因为它和主要内容并没有必要的联系（你想在任何地方都能看到它）。它甚至不能用&lt;section&gt;来特定的指定，因为它不是页面上主要内容的一部分。所以在这种情况下用&lt;div&gt;是合适的。我们已经把它包含进head标签里作为帮助屏幕阅读者找到它的引导.
+</code></pre><p>4.侧栏：&lt;aside&gt; ；经常嵌套在&lt;main&gt;中</p>
+<p>一些次要信息、链接、引言、广告等。通常这是与主要内容中包含的内容相关（例如在新闻文章页面上，侧边栏可能包含作者的个人信息或相关文章的链接），但有在一些情况下，你会发现一些重复的元素，如辅助导航系统。</p>
+<pre><code>&lt;aside&gt;包含了内容并不与主要内容有直接的联系，但是它可以提供额外的不直接由=有联系的信息(术语条目，作者简介，相关链接等) 。
+</code></pre><p>5.页脚:&lt;footer&gt;</p>
+<p>横跨页面底部的条纹，通常包含精美的打印、版权通知或联系信息。 它是一个放置公共信息（如标题）的地方，但通常该信息对网站来说不是特别重要。 通过提供用于快速访问热门内容的链接，页脚有时也用于SEO目的。</p>
+<pre><code>&lt;footer&gt;包含了页面的页脚部分。
+</code></pre><p>警告: div用起来非常便利以至于很容易被滥用。因为它们不携带语义值，所以会让你的HTML代码变的混乱。要小心的使用它们，只有当没有更好的语义解决方案才能使用，而且要尽可能把它的使用量降到最低，否则，当你升级和维护你的文档时会非常困难。</p>
+<p>二、换行与水平分割线</p>
+<p>1.&lt;br&gt;</p>
+<p>在一个段落中创建一个换行；在你想要生成一系列的短行的地方，&lt;br&gt;是唯一能够生成这种结构的元素。</p>
+<p>eg:一个邮寄地址或一首诗。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>There once was a girl called Nell<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">Who loved to write HTML<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">But her structure was bad, her semantics were sad<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">and her markup didn't read very well.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.&lt;hr&gt;</p>
+<p>&lt;hr&gt;元素在文档中生成一条水平分割线，表示文本中主题的变化(eg：主题或场景的变化)看起来就是一条水平线。</p>
+<p>eg：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Ron was backed into a corner by the marauding netherbeasts. Scared, but determined to protect his friends, he raised his wand and prepared to do battle, hoping that his distress call had made it through.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Meanwhile, Harry was sitting at home, staring at his royalty statement and pondering when the next spin off series would come out, when an enchanted distress letter flew through his window and landed in his lap. He read it hasily, and lept to his feet; "better get back to work then", he mused.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>三、设计一个网站：</p>
+<p>在一个结构庞大、复杂的网站里，大多数设计都可以参照上述的 information architecture（信息架构：一旦你设计好了一个简单网站的所有内容，按照正常的逻辑思维，我们应该尝试制定出你想要放在整个网站上的内容，哪些页面是你需要的，这些页面应该如何排列，以及如何互相链接，带给用户最好的使用体验。）</p>
+<p>1.如果在你的设计中，每个页面都有一些内容是重复的，你可以先把这些重复的内容记录下来。</p>
+<p><img src="1.png" alt="1"></p>
+<p>2.接下来，你可以通过画一个草图的方式来说明你希望的每个页面的结构的样子，（或许你画出来的草图和我们上文中提到的示例页面比较像），在空白段落上做上标记，来说明之后要填充在这里的内容。</p>
+<p><img src="2.png" alt="2"></p>
+<p>3.现在，所有的网站设计人员可以一起讨论，还希望网站上显示哪些内容 （不包括每个页面的重复页面）— 以列表的形式写下来。</p>
+<p><img src="3.png" alt="3"></p>
+<p>4.接着，尝试把这些内容进行分组，这样可以让你了解哪些内容可以放在一个相同的页面上。这种做法和 Card sorting 非常相似。</p>
+<p><img src="4.png" alt="4"></p>
+<p>5.现在，尝试着再画一个网站的草图 — 每个气泡代表网站的一个页面，在气泡与气泡之间用连线的方式，来说明它们之间的联系。主页面可能位于中心位置，并且链接到其他的大多数页面；对于一个小型网站，大多数页面都可以从主页的导航栏中链接跳转，虽然也存在例外。你可能也希望记录下内容将如何显示的笔记。</p>
+<p><img src="5.png" alt="5"></p>
+<p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/en-US/Learn/HTML/Howto/Set_up_a_proper_title_hierarchy" target="_blank" rel="noopener">标题</a></p>
+<p>2.<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_a_title" target="_blank" rel="noopener">title and headings</a></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML/文件和网站结构" target="_blank" rel="noopener">文件和网站结构</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/12/HTML/Html基础知识-网站结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-高级文本排版" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/09/HTML/Html基础知识-高级文本排版/">HTML基础知识-高级文本排版</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/09/HTML/Html基础知识-高级文本排版/" class="archive-article-date">
+  	<time datetime="2018-03-09T03:59:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、描述列表</p>
+<p>1.<a href="https://tao1010.github.io/2018/03/08/Html基础知识-文本结构和内容/">标记基本列表</a></p>
+<p>2.描述列表(description list)</p>
+<pre><code>目的是标记一组项目及其相关描述，例如术语和定义，或者是问题和答案等。
+使用与其他列表类型不同的闭合标签— &lt;dl&gt; (描述列表：description list);
+每一项都用  &lt;dt&gt; (描述术语：description term)  元素闭合。 
+每个描述都用 &lt;dd&gt; (描述部分：description description) 元素闭合。
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>question1?<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dd</span>&gt;</span>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process relaying them to the audience (but not to other characters.)</span><br><span class="line">		<span class="tag">&lt;/<span class="name">dd</span>&gt;</span>        </span><br><span class="line">	<span class="tag">&lt;<span class="name">dt</span>&gt;</span>question2?<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dd</span>&gt;</span>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters present.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>aside<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dd</span>&gt;</span>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought or piece of additional background information.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>tips:</p>
+<pre><code>一个术语&lt;dt&gt;可以同时有多个描述&lt;dd&gt;
+</code></pre><p>浏览器的默认样式会在描述列表的描述部分（description description）和描述术语（description terms）之间产生缩进。MDN非常严密地遵循这一惯例，同时也鼓励关于术语的其他更多的定义.</p>
+<p>二、标记引文</p>
+<p>1.块引用</p>
+<p>如果一个块级内容(一个段落、多个段落、一个列表)从其他地方被引用，你应该把它用<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote" target="_blank" rel="noopener">&lt;blockquote&gt;</a>元素包裹起来表示,并且在<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote#attr-cite" target="_blank" rel="noopener">&lt;cite&gt;</a>属性里用URL来指向引用的资源。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">cite</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">p</span>&gt;</span>The <span class="tag">&lt;<span class="name">strong</span>&gt;</span>HTML <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;blockquote&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> Element<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> (or <span class="tag">&lt;<span class="name">em</span>&gt;</span>HTML Block</span><br><span class="line">            Quotation Element<span class="tag">&lt;/<span class="name">em</span>&gt;</span>) indicates that the enclosed text is an extended quotation.</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器在渲染块引用时默认会增加缩进，作为引用的一个指示符；MDN是这样做的，但是也增加了额外的样式：</p>
+<p>2.行内引用</p>
+<p>行内元素用同样的方式工作，除了使用&lt;q&gt;元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The quote element — <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;q&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> — is <span class="tag">&lt;<span class="name">q</span> <span class="attr">cite</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"</span>&gt;</span>intended</span><br><span class="line">for short quotations that don't require paragraph breaks.<span class="tag">&lt;/<span class="name">q</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>浏览器默认将其作为普通文本放入引号内表示引用;
+&lt;q&gt;元素旨在用于不需要分段的短引用
+</code></pre><p>3.引文</p>
+<p>引文默认的字体样式为斜体。浏览器、屏幕阅读器等等不会真的关心它，如果不使用JavaScript或CSS，浏览器不会显示cite的内容。如果你想要确保引用的资源在页面上是可用的，更好的方法是把<cite>元素放到引用元素旁边。这就意味着包含引用资源的名称——即引用的书的名字，或人的名字——但并不表示你不可以用同样的方式把要链接的文本放到<cite>元素中：</cite></cite></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>According to the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"</span>&gt;</span> <span class="tag">&lt;<span class="name">cite</span>&gt;</span>MDN blockquote page<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">cite</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">p</span>&gt;</span>The <span class="tag">&lt;<span class="name">strong</span>&gt;</span>HTML <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;blockquote&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> Element<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> (or <span class="tag">&lt;<span class="name">em</span>&gt;</span>HTML Block Quotation Element<span class="tag">&lt;/<span class="name">em</span>&gt;</span>) indicates that the enclosed text is an extended quotation.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>The quote element — <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;q&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> — is <span class="tag">&lt;<span class="name">q</span> <span class="attr">cite</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"</span>&gt;</span>intended for short quotations that don't require paragraph breaks.<span class="tag">&lt;/<span class="name">q</span>&gt;</span> -- <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>MDN q page<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>三、缩略语</p>
+<p>&lt;abbr&gt;常常用来包裹一个缩略语或缩写，并提供缩写的解释(包含在title属性中,当光标移动到项目上时会出现提示)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>We use <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"Hypertext Markup Language"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> to structure our web documents.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I think <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"Reverend"</span>&gt;</span>Rev.<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> Green did it in the kitchen with the chainsaw.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>四、标记联系方式</p>
+<p>HTML有个用于标记联系方式的元素——&lt;address&gt;。它仅仅包含你的联系方式:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Chris Mills, Manchester, The Grim North, UK<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">address</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;address&gt;元素是为了标记编写HTML文档的人的联系方式，而不是任何其他的内容.
+</code></pre><p>五、上标和下标</p>
+<p>当你使用日期、化学方程式、和数学方程式时会偶尔使用上标和下标。 &lt;sup&gt; 和&lt;sub&gt;元素可以解决这样的问题。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My birthday is on the 25<span class="tag">&lt;<span class="name">sup</span>&gt;</span>th<span class="tag">&lt;/<span class="name">sup</span>&gt;</span> of May 2001.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Caffeine's chemical formula is C<span class="tag">&lt;<span class="name">sub</span>&gt;</span>8<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>10<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>N<span class="tag">&lt;<span class="name">sub</span>&gt;</span>4<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>O<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>If x<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span> is 9, x must equal 3 or -3.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>六、展示计算机代码</p>
+<p>有大量的HTML元素可以来标记计算机代码：</p>
+<pre><code>&lt;code&gt;: 用于标记计算机通用代码。
+&lt;pre&gt;: 用于标记固定宽度的文本块，其中保留空格（通常是代码块）。
+&lt;var&gt;: 用于标记具体变量名。
+&lt;kbd&gt;: 用于标记输入电脑的键盘（或其他类型）输入。
+&lt;samp&gt;: 用于标记计算机程序的输出。
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>var para = document.querySelector('p');</span><br><span class="line"></span><br><span class="line">para.onclick = function() &#123;</span><br><span class="line">  alert('Owww, stop poking me!');</span><br><span class="line">&#125;<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>You shouldn't use presentational elements like <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;font&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> and <span class="tag">&lt;<span class="name">code</span>&gt;</span>&amp;lt;center&amp;gt;<span class="tag">&lt;/<span class="name">code</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>In the above JavaScript example, <span class="tag">&lt;<span class="name">var</span>&gt;</span>para<span class="tag">&lt;/<span class="name">var</span>&gt;</span> represents a paragraph element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Select all the text with <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>Ctrl<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span>/<span class="tag">&lt;<span class="name">kbd</span>&gt;</span>Cmd<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span> + <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>A<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span>$ <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>ping mozilla.org<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">samp</span>&gt;</span>PING mozilla.org (63.245.215.20): 56 data bytes</span><br><span class="line">64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms<span class="tag">&lt;/<span class="name">samp</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>七、标记事件和日期</p>
+<p>HTML 还支持将时间和日期标记为可供机器识别的格式的 &lt;time&gt; 元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Standard simple date --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2016-01-20"</span>&gt;</span>20 January 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Just year and month --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2016-01"</span>&gt;</span>January 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Just month and day --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"01-20"</span>&gt;</span>20 January<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Just time, hours and minutes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"19:30"</span>&gt;</span>19:30<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- You can do seconds and milliseconds too! --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"19:30:01.856"</span>&gt;</span>19:30:01.856<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Date and time --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2016-01-20T19:30"</span>&gt;</span>7.30pm, 20 January 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Date and time with timezone offset--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2016-01-20T19:30+01:00"</span>&gt;</span>7.30pm, 20 January 2016 is 8.30pm in France<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Calling out a specific week number--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">"2016-W04"</span>&gt;</span>The fourth week of 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting" target="_blank" rel="noopener">HTML高级文本排版</a></p>
+<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/address" target="_blank" rel="noopener">Address</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/09/HTML/Html基础知识-高级文本排版/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-超链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/09/HTML/Html基础知识-超链接/">HTML基础知识-超链接</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/09/HTML/Html基础知识-超链接/" class="archive-article-date">
+  	<time datetime="2018-03-09T02:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、什么是超链接</p>
+<p>是互联网的一个功能，使互联网成为互联的网络。超链接使我们能够将我们的文档链接到任何其他文档（或其他资源），也可以链接到文档的指定部分，我们可以在一个简单的网址上提供应用程序（与必须先安装的本地应用程序或其他东西相比）。几乎任何网络内容都可以转换为链接，点击（或激活）超链接将使网络浏览器转到另一个网址（URL）。</p>
+<p>tips:</p>
+<pre><code>URL可以指向HTML文件、文本文件、图像、文本文档、视频和音频文件以及可以在网络上保存的任何其他内容。 
+如果浏览器不知道如何显示或处理文件，它会询问您是否要打开文件（需要选择合适的本地应用来打开或处理文件）或下载文件（以后处理它）。
+</code></pre><p>二、链接的解析</p>
+<p>通过将文本（或其他内容，见<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#块级链接" target="_blank" rel="noopener">块级链接</a>)转换为&lt;a&gt;元素内的链接来创建基本链接， 给它一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-href" target="_blank" rel="noopener">href</a>属性（也称为目标），它将包含您希望链接指向的网址。</p>
+<p>1.文本链接：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm creating a link to </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.mozilla.org/en-US/"</span>&gt;</span>the Mozilla homepage<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用title属性添加支持信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm creating a link to </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.mozilla.org/en-US/"</span> <span class="attr">title</span>=<span class="string">"The best place"</span>&gt;</span>the Mozilla homepage<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>包含关于链接的补充有用信息;
+当链接悬停在其上时，标题将作为工具提示出现;
+</code></pre><p>tips:</p>
+<pre><code>连接的标题仅当鼠标悬停在其上时才会显示，这意味着使用键盘来导航网页的人很难获取到标题信息。如果标题信息对于页面非常重要，你应该使用所有用户能都方便获取的方式来呈现，例如放在常规文本中。
+</code></pre><p>2.块级链接：</p>
+<p>可以将一些内容转换为链接，甚至是 块级元素。</p>
+<p>eg1：如果你想要将一个图像转换为链接，你只需把图像放到&lt;a&gt;&lt;/a&gt;标签中间.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://baidu.com"</span> <span class="attr">title</span>=<span class="string">"这是百度网站"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1520485528900&amp;di=f29017b61829b0780d22a298835b046a&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.lgstatic.com%2Fthumbnail_160x160%2Fi%2Fimage%2FM00%2F00%2FDE%2FCgqKkVZYK2-AHWKrAAJZ0aVbFEA607.png"</span> <span class="attr">alt</span>=<span class="string">"网络图片"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>eg2:多个段落的内容为链接，你只需把该段内容放到&lt;a&gt;&lt;/a&gt;标签中间.</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://baidu.com"</span> <span class="attr">title</span>=<span class="string">"这是百度网站"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>It was a dark night. Somewhere, the ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Chapter 2: The eternal silence<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Our protagonist out of the shadowy figure ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>三、统一资源定位器(URL)与路径(path)快速入门</p>
+<p>1.统一资源定位器（Uniform Resource Locator,简写URL）是一个定义了在网络上的位置的一个文本字符串。URL使用路径查找文件。路径指定文件系统中您感兴趣的文件所在的位置。</p>
+<p>eg:目录结构</p>
+<p><img src="directory-structure.png" alt="目录结构"></p>
+<pre><code>此目录结构的根目录称为creation-hyperlinks。当在网站上工作时， 你会有一个包含整个网站的目录。
+
+在根目录，我们有一个index.html和一个contacts.html文件。在真实的网站上，index.html 将会成为我们的主页或登录页面。
+
+根目录还有两个目录—— pdfs 和projects，它们分别包含一个 PDF (project-brief.pdf) 文件和一个index.html 文件。请注意你可以有两个index.html文件，前提是他们在不同的目录下，许多网站就是如此。第二个index.html或许是项目相关信息的主登录界面。
+
+    指向相同目录：
+        如果index.html（顶层的index.html）想要包含一个超链接指向contacts.html，你只需要指定想要链接的文件名，因为它与当前文件是在同一个目录的. 所以你应该使用的URL是contacts.html:
+        &lt;p&gt;Want to contact a specific staff member?Find details on our &lt;a href=&quot;contacts.html&quot;&gt;contacts page&lt;/a&gt;.&lt;/p&gt;
+
+    指向子目录：
+        如果你想要包含一个超链接到index.html （顶层index.html)）指向 projects/index.html，您需要进入项目目录，然后指明要链接到的文件。 通过指定目录的名称，然后是正斜杠，然后是文件的名称。因此您要使用的URL是projects / index.html：
+        &lt;p&gt;Visit my &lt;a href=&quot;projects/index.html&quot;&gt;project homepage&lt;/a&gt;.&lt;/p&gt;
+
+    指向上级目录：
+        如果你想在projects/index.html中包含一个指向pdfs/project-brief.pdf的超链接，你必须返回上级目录，然后再回到pdf目录。“返回上一个目录级”使用两个英文点号表示 — .. — 所以你应该使用的URL是 ../pdfs/project-brief.pdf：
+        &lt;p&gt;A link to my &lt;a href=&quot;../pdfs/project-brief.pdf&quot;&gt;project brief&lt;/a&gt;.&lt;/p&gt;
+</code></pre><p>tips：</p>
+<pre><code>如果需要的话，你可以将这些功能的多个例子和复杂的url结合起来。例如：../../../complex/path/to/my/file.html.
+</code></pre><p>2.文档片段</p>
+<p>超链接可以链接到html文档的特定部分（被称为文档片段），而不仅仅是文件的顶部。步骤：</p>
+<pre><code>1.首先分配一个id属性的元素到链接。通常链接到一个特定的标题是有意义的，所以这看起来像下面的内容：
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">"Mailing_address"</span>&gt;</span>Mailing address<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>2.然后链接到那个特定的id，您可以在URL的结尾包含它，前面是一个井号（#），例如：
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Want to write us a letter? Use our <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"contacts.html#Mailing_address"</span>&gt;</span>mailing address<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以用它自己的文档片段参考链接到同一份文件的另一部分:(跳转到指定位置)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#Mailing_address"</span>&gt;</span>company mailing address<span class="tag">&lt;/<span class="name">a</span>&gt;</span> can be found at the bottom of this page.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.绝对链接和相对链接</p>
+<p>绝对URL：</p>
+<pre><code>指向由其在Web上的绝对位置定义的位置，包括 协议 and 域名.
+总是指向相同的位置，不管它在哪里使用；
+</code></pre><p>eg：</p>
+<pre><code>如果index.html 页面上传到projects这一个目录 。project位于web服务站点的根目录, web站点的域名为http://www.example.com, 这个页面可以通过http://www.example.com/projects/index.html访问 ( 或者仅仅通过http://www.example.com/projects/来访问, 因为大多数web服务通过访问index.html这样的页面来加载，如果没有特定的URL的话)
+</code></pre><p>相对URL：</p>
+<pre><code>指向与您链接的文件相关的位置，更像我们在前面一节中所看到的位置。
+eg :
+    如果我们想从示例文件链接http://www.example.com/projects/index.html转到相同目录下的一个PDF文件, URL就是文件名URL — 例如 project-brief.pdf —没有其他的信息要求. 如果PDF文件能够在projects的子目录pdfs中访问到, 相对路径就是pdfs/project-brief.pdf (对应的绝对URL就是 http://www.example.com/projects/pdfs/project-brief.pdf.)
+
+一个相对URL将指向不同的位置，这取决于它所在的文件所在的位置。
+eg:
+    如果我们把index.html 文件 从 projects 目录移动出来并进入Web站点的根目录（最高级别，而不是任何目录中），  pdfs/project-brief.pdf 的相对URL将会指向http://www.example.com/pdfs/project-brief.pdf, 而不是http://www.example.com/projects/pdfs/project-brief.pdf.
+</code></pre><p>4.用清晰的链接措辞</p>
+<pre><code>使用屏幕阅读器的用户喜欢从页面上的一个链接跳到另一个链接，并且脱离上下文来阅读链接。
+搜索引擎使用链接文本为索引目标文件所以，在链接文本中包含关键词是一个很好的主意，以有效地描述与之相关的信息。
+读者往往会浏览页面而不是阅读每一个字，他们的眼睛会被页面的特征所吸引，比如链接。他们会找到描述性的链接。
+</code></pre><p>tips：</p>
+<pre><code>不要重复URL作为链接文本的一部分 — URL看起来很丑，当屏幕朗读器一个字母一个字母的读出来的时候听起来就更丑了。
+不要在链接文本中说“link”或“links to”——它只是噪音。屏幕阅读器告诉人们有一个链接。可视化用户也会知道有一个链接，因为链接通常是用不同的颜色设计的，并且存在下划线（这个惯例一般不应该被打破，因为用户习惯了它。）
+保持你的链接标签尽可能短-长链接尤其惹恼屏幕阅读器用户，他们必须听到整件事读出来。
+</code></pre><p>5.尽可能使用相对链接</p>
+<p>当链接到同一网站的其他位置时，你应该使用相关链接（当链接到另一个网站时，你需要使用绝对链接）；</p>
+<pre><code>首先，检查代码要容易得多——相对URL通常比绝对URL短得多，这使得阅读代码更容易。
+其次，在可能的情况下使用相对URL更有效。当使用绝对URL时，浏览器首先通过查询域名（使用“DNS”）}查找服务器的真实位置，然后再转到该服务器并查找所请求的文件。另一方面，相对URL，浏览器只在同一服务器上查找被请求的文件。因此，如果你使用相对URL做的绝对URL，你就不断地让你的浏览器做额外的工作，这意味着它的效率会降低。
+</code></pre><p>6.链接到非html资源-留下清晰的指示</p>
+<p>当链接到一个需要下载的资源（如PDF或Word文档）或流媒体（如视频或音频）或有另一个潜在的意想不到的效果（打开一个弹出窗口，或加载Flash电影），你应该添加明确的措辞，以减少任何混乱。</p>
+<pre><code>如果你是在低带宽连接，点击一个链接，然后就开始下载大文件。
+如果你没有安装Flash播放器，点击一个链接，然后突然被带到一个需要Flash的页面。
+</code></pre><p>7.下载链接时使用下载属性</p>
+<p>当您链接到要下载的资源而不是在浏览器中打开时，您可以使用下载属性来提供一个默认的保存文件名。下面是一个下载链接到Firefox 39 Windows版本的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://download.mozilla.org/?product=firefox-39.0-SSL&amp;os=win&amp;lang=en-US"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">download</span>=<span class="string">"firefox-39-installer.exe"</span>&gt;</span></span><br><span class="line">  Download Firefox 39 for Windows</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>四、电子邮件链接</p>
+<p>当点击一个链接或按钮时，打开一个新的电子邮件发送信息而不是连接到一个资源或页面，这种情况是可能做到的。这样做是使用&lt;a&gt;元素和mailto：URL的方案。<br>其最基本和最常用的使用形式为一个mailto:link （链接），链接简单说明收件人的电子邮件地址。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:nowhere@mozilla.org"</span>&gt;</span>Send email to nowhere<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>邮件地址甚至是可选的。如果你忘记了（也就是说，你的href仅仅只是简单的&quot;mailto:&quot;），一个新的发送电子邮件的窗口也会被用户的邮件客户端打开，只是没有收件人的地址信息，这通常在“分享”链接是很有用的，用户可以发送给他们选择的地址邮件.
+</code></pre><p>1.具体细节</p>
+<p>任何标准的邮件头字段可以被添加到邮件的URL你提供。 其中最常用的是主题(subject)、抄送(cc)和主体(body) (这不是一个真正的头字段，但允许您为新邮件指定一个短内容消息)。 每个字段及其值被指定为查询项。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&amp;bcc=name3@rapidtables.com&amp;amp;subject=The%20subject%20of%20the%20email &amp;amp;body=The%20body%20of%20the%20email"</span>&gt;</span></span><br><span class="line">  Send mail with cc, bcc, subject and body</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:dengtao_dev@163.com?cc=1083683360@qq.com&amp;subject=this is mail&amp;body=hellowrld"</span>&gt;</span>email<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>tips:</p>
+<pre><code>每个字段的值必须是URL编码的。 也就是说，不能有非打印字符（不可见字符比如制表符、换行符、分页符）和空格 percent-escaped. 同时注意使用问号（?）来分隔主URL与参数值，以及使用&amp;符来分隔mailto:中的各个参数。 这是标准的URL查询标记方法。
+
+mailto:
+
+mailto:nowhere@mozilla.org
+
+mailto:nowhere@mozilla.org,nobody@mozilla.org
+
+mailto:nowhere@mozilla.org?cc=nobody@mozilla.org
+
+mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&amp;subject=This%20is%20the%20subject
+</code></pre><p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" target="_blank" rel="noopener">超链接</a></p>
+<p>2.<a href="http://en.wikipedia.org/wiki/Percent-encoding" target="_blank" rel="noopener">Percent-encoding</a></p>
+<p>3.<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data#The_GET_method" target="_blank" rel="noopener">The GET method</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/09/HTML/Html基础知识-超链接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-文本结构和内容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/HTML/Html基础知识-文本结构和内容/">HTML基础知识-文本结构和内容</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/08/HTML/Html基础知识-文本结构和内容/" class="archive-article-date">
+  	<time datetime="2018-03-08T05:33:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、标题和段落</p>
+<p>1.段落 &lt;p&gt;段落内容&lt;/p&gt;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am a paragraph, oh yes I am.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.标题 </p>
+<p>每个标题（Heading）是通过“标题标签”进行定义的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>I am the title of the story.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>这里有六个标题元素标签— &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;,&lt;h6&gt;. 
+每个元素代表文档中不同级别的内容; &lt;h1&gt;表示主标题（the main heading），&lt;h2&gt;表示二级子标题（subheadings），&lt;h3&gt;表示三级子标题（sub-subheadings），等等。
+</code></pre><p>3.编辑结构层次</p>
+<p>eg:</p>
+<pre><code>在一个故事中，&lt;h1&gt;表示故事的名字，&lt;h2&gt;表示每个章节的标题， &lt;h3&gt;表示每个章节下的子标题，以此类推。
+</code></pre><p>所涉及的元素具体代表什么，完全取决于作者编辑的内容，只要层次结构是合理的。在创建此类结构时，您只需要记住一些最佳实践：</p>
+<pre><code>1.优选地，您应该只对每个页面使用一次&lt;h1&gt; — 这是顶级标题，所有其他标题位于层次结构中的下方。
+2.请确保在层次结构中以正确的顺序使用标题。不要使用&lt;h3&gt;来表示副标题，后面跟&lt;h2&gt;来表示副副标题 - 这是没有意义的，会导致奇怪的结果。
+3.在可用的六个标题级别中，您应该旨在每页使用不超过三个，除非您认为有必要使用更多。具有许多级别的文档（即，较深的标题层次结构）变得难以操作并且难以导航。在这种情况下，如果可能，建议将内容分散在多个页面上。
+</code></pre><p>二、列表(Lists)</p>
+<p>1.无序(Unordered) - &lt;ul&gt;unordered lists&lt;/ul&gt;</p>
+<p>无序的列表被用来标记每个项目。在这里，项目的顺序并不重要.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>牛奶<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>鸡蛋<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>面包<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.有序(Ordered) - &lt;ol&gt;ordered lists&lt;/ol&gt;</p>
+<p>有序的列表是根据项目的顺序列出来的.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>行驶到这条路的尽头<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>向右转<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>直行穿过第一个双环形交叉路<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>在第三个环形交叉路左转<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>学校就在你的右边，300米处<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.嵌套列表Nesting lists</p>
+<p>将一个列表嵌入到另一个列表是完全可以的，</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第一步<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第二步<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第三步<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第四步</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span> AAAAAA<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span> BBBBBB<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4.重点强调</p>
+<p>强调</p>
+<p>在HTML中我们用<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/em" target="_blank" rel="noopener">&lt;em&gt;（emphasis）</a>元素来标记这样的情况。这样做既可以让文档读起来更有趣，也可以被屏幕阅读器识别出来，并以不同的语调发出。浏览器默认风格为斜体，但你不应该纯粹使用这个标签来获得斜体风格，为了获得斜体风格，你应该使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/span" target="_blank" rel="noopener">&lt;span&gt;</a>元素和一些CSS，或者是<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/i" target="_blank" rel="noopener">&lt;i&gt;</a>元素（见下文）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am <span class="tag">&lt;<span class="name">em</span>&gt;</span>glad<span class="tag">&lt;/<span class="name">em</span>&gt;</span> you weren't <span class="tag">&lt;<span class="name">em</span>&gt;</span>late<span class="tag">&lt;/<span class="name">em</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&lt;em&gt;和&lt;i&gt;的区别：</p>
+<pre><code>在 默认情况下，视觉效果是一样的 - 这两个标签都把内容呈现为斜体. 
+语义是不同的： &lt;em&gt; 标签表示着重强调其内容，而 &lt;i&gt; 标签表示从正常的散文中区分出的文本, 如电影或书籍的名字，一个外来词, 或者当文本指的是一个字的定义，而不是其自身代表的语义。
+</code></pre><p>&lt;span&gt;和&lt;div&gt;的区别：</p>
+<pre><code>&lt;span&gt; 元素是行内元素，是短语内容的通用行内容器，并没有任何特殊语义。可以使用它来编组元素以达到某种样式意图（通过使用类或者Id属性），或者这些元素有着共同的属性，比如lang。应该在没有其他合适的语义元素时才使用它。
+
+&lt;div&gt; 是块元素
+
+不允许省略标签（开始，结束都不能省略）
+</code></pre><p>非常重要</p>
+<p>在文字方面则是用粗体字来达到强调的效果。&lt;strong&gt;(strong importance) 元素来标记这样的请况。浏览器默认风格为粗体，但你不应该纯粹使用这个标签来获得粗体风格，为了获得粗体风格，你应该使用&lt;span&gt;元素和一些CSS，或者是&lt;b&gt; 元素 (见下文)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This liquid is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>highly toxic<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am counting on you. <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Do not<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> be late!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>斜体、粗体、下划线…</p>
+<pre><code>这里是最好的经验法则：使用&lt;b&gt;,&lt;i&gt;,&lt;u&gt; 来传达传统意义上的粗体，斜体或下划线是合适的
+&lt;i&gt; 被用来传达传统上用斜体表达的意义：外国文字，分类名称，技术术语，一种思想……
+&lt;b&gt; 被用来传达传统上用粗体表达的意义：关键字，产品名称，引导句……
+&lt;u&gt; 被用来传达传统上用下划线表达的意义：专有名词，拼写错误……
+&lt;q&gt;引号 &lt;/q&gt;   &quot;引号&quot;
+</code></pre><p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" target="_blank" rel="noopener">文本结构和内容</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/08/HTML/Html基础知识-文本结构和内容/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-Head" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/HTML/Html基础知识-Head/">HTML基础知识-Head</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/08/HTML/Html基础知识-Head/" class="archive-article-date">
+  	<time datetime="2018-03-08T03:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML" target="_blank" rel="noopener">Head中有什么？HTML中的元数据</a></p>
+<p>在页面加载完成的时候，标签head里的内容，是不会在页面中显示出来的。它的作用是包含一些页面的元数据:页面的&lt;title&gt;(标题) ,CSS(如果你想用CSS来美化页面内容)，图标和其他的元数据(比如 作者，关键词，摘要)。</p>
+<p>1.增加一个标题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Mozilla is cool<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>当被加载到浏览器中的时候，元素 &lt;h1&gt;  会出现在页面中 —— 通常它应该在一个页面中只被使用一次, 它被用来标记你的页面内容的标题(故事的标题，新闻标题或者任何适当的方式）
+
+元素 &lt;title&gt; 是用来表示整个HTML文档大致内容的元数据(不是文档的内容.),也被以其他的方式使用着. 比如说，如果你尝试为某个页面添加书签，(Bookmarks &gt; Bookmark This Page, 在火狐浏览器中), 你会看到 &lt;title&gt; 的内容被作为建议的书签名.
+</code></pre><p>2.元数据：&lt;meta&gt;元素</p>
+<p>元数据就是描述数据的数据，而HTML有一个“官方的”方式来为一个文档添加元数据，——  <meta> 元素. 当然，其他在这篇文章中提到的东西也可以被当作元数据。 有很多不同种类的 <meta> 元素可以被包含进你的页面的<head>元素。</head></p>
+<p>eg1：指定文档中字符的编码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>utf-8 是一个通用的字符集，它包含了任何人类语言中的大部分的字符。 这意味着你的web页面可以显示任意的语言; 所以对于你的每一个页面，使用这个设置是很好的! 比如说，你的页面可以很好的处理英语和日语.
+</code></pre><p>eg2:添加作者和描述</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"Chris Mills"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>name 特性指定了meta 元素的类型; 说明该元素包含了什么类型的信息。
+content 指定了实际的元数据内容。
+
+指定作者在某些情况下是很有用的：如果你需要联系页面的作者，问一些关于页面内容的问题。 一些内容管理系统能够自动获取页面作者的信息，然后用于某种目的。
+
+指定包含关于页面内容的关键字的页面内容的描述是很有用的，因为它可能或让你的页面在搜索引擎的相关的搜索出现得更多 (这些行为术语上被称为 Search Engine Optimization, or SEO.)
+</code></pre><p>3.在站点增加自定义图标</p>
+<p>16 x 16 像素是这种图标的第一种类型;这些图标出现在浏览器每一个打开的页面中的标签页中中以及在书签面板中的书签页面中。页面添加图标的方式:</p>
+<pre><code>1.将其保存在与网站的索引页面相同的目录中，以.ico格式保存（大多数浏览器将支持更通用的格式，如.gif或.png，但使用ICO格式将确保它能在如Internet Explorer 6一样久远的浏览器显示）
+
+2.将以下行添加到HTML &lt;head&gt;中以引用它:
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;
+</code></pre><p>4.在HTML中应用CSS和JavaScript</p>
+<p>几乎你使用的所有网站都会使用 CSS 让网页更加炫酷, 使用JavaScript让网页有交互功能, 比如视频播放器，地图，游戏以及更多功能。这些应用在网页中很常见，它们分别使用 &lt;link&gt;元素以及 &lt;script&gt;元素。</p>
+<p>&lt;link&gt; 元素经常位于文档的头部，它有2个属性， rel=”stylesheet”，表明这是文档的样式表，而 href,包含了样式表文件的路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"my-css-file.css"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> &lt;script&gt; 部分没必要非要放在文档头部; 实际上，把它放在文档的尾部（在 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30});</script>标签之前）是一个更好的选择 ，这样可以确保在加载脚本之前浏览器已经解析了HTML内容（如果脚本加载某个不存在的元素，浏览器会报错）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"my-js-file.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>tips：&lt;script&gt;元素看起来像一个空元素，但它并不是，因此需要一个结束标记。您还可以选择将脚本放入&lt; script &gt;元素中，而不是指向外部脚本文件</p>
+<p>5.为文档设定主语言</p>
+<p>为你的站点设定语言， 这个可以通过添加lang属性到HTML开始标签中来实现 (参考 <a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/the-html-head/meta-example.html" target="_blank" rel="noopener">meta-example.html</a>)，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en-US"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>还可以将文档的分段设置为不同的语言。例如， 我们可以把日语部分设置为日语， 如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Japanese example: <span class="tag">&lt;<span class="name">span</span> <span class="attr">lang</span>=<span class="string">"jp"</span>&gt;</span>ご飯が熱い。<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/en-US/docs/Learn/Discover_browser_developer_tools" target="_blank" rel="noopener">Head包含的元数据</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/08/HTML/Html基础知识-Head/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html基础知识-Html入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/HTML/Html基础知识-Html入门/">HTML基础知识-HTML入门</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/08/HTML/Html基础知识-Html入门/" class="archive-article-date">
+  	<time datetime="2018-03-08T01:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank" rel="noopener">HTML入门</a></p>
+<p>1.<a href="https://tao1010.github.io/2018/03/05/Html概述/#hell_world_1">剖析一个HTML元素</a></p>
+<p>2.斜体强调标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>这是一个斜体<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.<a href="https://tao1010.github.io/2018/03/05/Html概述/#hell_world_2">嵌套元素</a></p>
+<p>4.块级元素和内联元素</p>
+<p>块级元素</p>
+<pre><code>在页面中以块的形式展现 —— 相对与其前面的内容它会出现在新的一行，其后的内容也会被挤到下一行展现。
+
+块级元素通常用于展示页面上结构化的内容，例如段落、列表、导航菜单、页脚等等。
+
+一个以block形式展现的块级元素不会被嵌套进内联元素中，但可以嵌套在其它块级元素中。
+</code></pre><p>eg：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>fourth<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>fifth<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>sixth<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>内联元素</p>
+<pre><code>通常出现在块级元素中并包裹文档内容的一小部分，而不是一整个段落或者一组内容。
+
+内联元素不会导致文本换行：它通常出现在一堆文字之间例如超链接元素&lt;a&gt;或者强调元素&lt;em&gt;和 &lt;strong&gt;。
+</code></pre><p>eg:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>first<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span>second<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span>third<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>5.<a href="https://tao1010.github.io/2018/03/05/Html概述/#hell_world_3">空元素</a></p>
+<p>不是所有元素都拥有开始标签，内容和结束标记. 一些元素只有一个标签，通常用来在此元素所在位置插入/嵌入一些东西 。</p>
+<pre><code>例如：元素&lt;img&gt;是用来在元素&lt;img&gt;所在位置插入一张指定的图片。
+</code></pre><p>6.属性</p>
+<p>一个属性必须包含如下内容：</p>
+<pre><code>在元素和属性之间有个空格space (如果有一个或多个已存在的属性，就与前一个属性之间有一个空格.)
+
+属性后面紧跟着一个“=”符号.
+
+有一个属性值,由一对引号“ ”引起来. 
+    - 否则会引起浏览器的误解析。
+    - 所以属性可以是双引号&quot;&quot;,也可以是单引号‘’,但不能混用，可以嵌套。
+</code></pre><p>eg1：属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.mozilla.org/"</span> <span class="attr">title</span>=<span class="string">"The Mozilla homepage"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>这是一个超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>href: 这个属性声明超链接的web地址，当这个链接被点击浏览器会跳转至href声明的web地址。例如： href=&quot;https://www.mozilla.org/&quot;。
+
+title: 标题title 属性为超链接声明额外的信息，比如你将链接至那个页面。例如： title=&quot;The Mozilla homepage&quot;。当鼠标悬浮时，将出现一个工具提示。
+
+target: 目标target 属性指定将用于显示链接的浏览上下文。 例如， target=&quot;_blank&quot; 将在新标签页中显示链接。如果你希望在目前标签页显示链接，只需忽略这个属性。 
+</code></pre><p>eg2:属性引号</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com"</span>&gt;</span>A link to my example.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'http://www.example.com'</span>&gt;</span>A link to my example.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com"</span> <span class="attr">title</span>=<span class="string">"Isn't this fun?"</span>&gt;</span>A link to my example.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>6.1布尔属性:</p>
+<p>有时你会看到没有值的属性，它是合法的。这些属性被称为布尔属性，他们只能有跟它的属性名一样的属性值。</p>
+<pre><code>例如 disabled 属性，他们可以标记表单输入使之变为不可用(变灰色)，此时用户不能向他们输入任何数据
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>&gt;</span>	//输入框不可用</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">disabled</span>&gt;</span>			//输入框不可用</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span>						//输入框可用</span><br><span class="line"></span><br><span class="line">```	</span><br><span class="line">7.分析HTML文档</span><br><span class="line"></span><br><span class="line">完整的HTML页面：</span><br><span class="line"></span><br><span class="line">``` html</span><br><span class="line">	<span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is my page<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>分析如下：</p>
+<pre><code>1.&lt;!DOCTYPE html&gt;: 声明文档类型
+2.&lt;html&gt;&lt;/html&gt;: &lt;html&gt;元素。这个元素包裹了整个完整的页面，是一个根元素。    
+3.&lt;head&gt;&lt;/head&gt;: &lt;head&gt;元素. 这个元素是一个容器，它包含了所有你想包含在HTML页面中但不想在HTML页面中显示的内容。这些内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等等。
+4.&lt;meta charset=&quot;utf-8&quot;&gt;: 这个元素设置文档使用utf-8字符集编码，utf-8字符集包含了人类大部分的文字。基本上他能识别你放上去的所有文本内容。毫无疑问要使用它，并且它能在以后避免很多其他问题。
+5.&lt;title&gt;&lt;/title&gt;: 设置页面标题，出现在浏览器标签上，当你标记/收藏页面时它可用来描述页面。
+6.&lt;body&gt;&lt;/body&gt;: &lt;body&gt;元素。 包含了你访问页面时所有显示在页面上的内容，文本，图片，音频，游戏等等。
+</code></pre><p>HTML中的空白</p>
+<pre><code>无论你用了多少空白(包括空白字符，包括换行), 当渲染这些代码的时候，HTML解释器会将连续出现的空白字符减少为一个单独的空格符。
+那么为什么我们会使用那么多的空白呢? 答案就是为了可读性 —— 如果你的代码被很好地进行格式化，那么就很容易理解你的代码是怎么回事, 反之就只有聚做一团的混乱. 
+在我们的HTML代码中，我们让每一个嵌套的元素以两个空格缩进。 你使用什么风格来格式化你的代码取决于你 (比如所对于每层缩进使用多少个空格),但是你应该坚持使用某种风格。
+</code></pre><p>8.实体引用：在HTML中包含特殊字符</p>
+<p>在HTML中，字符 &lt;, &gt;,”,’ 和 &amp; 是特殊字符. 我们必须使用字符引用 —— 表示字符的特殊编码, 它们可以在那些情况下使用. 每个字符引用以符号&amp;开始, 以分号(;)结束.</p>
+<p><img src="Html-basic.png" alt="Html基础知识"></p>
+<p>9.HTML注释</p>
+<p>为了将一段HTML中的内容置为注释，你需要将其用特殊的记号<!--和-->包括起来。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm not inside a comment<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- &lt;p&gt;I am!&lt;/p&gt; --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p>1.<a href="http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references" target="_blank" rel="noopener">XML和HTML字符实体引用列表</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/08/HTML/Html基础知识-Html入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-Web/发布Web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/07/Web/发布Web/">发布Web及工作原理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/07/Web/发布Web/" class="archive-article-date">
+  	<time datetime="2018-03-07T06:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-07</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、发布网站的方法</p>
+        
+          <a class="article-more-a" href="/2018/03/07/Web/发布Web/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">web-build</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/07/Web/发布Web/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-JavaScript/JavaScript基础1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -372,932 +1448,9 @@
 
        
   
-    <article id="post-CSS/CSS基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/CSS/CSS基础/">CSS基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/06/CSS/CSS基础/" class="archive-article-date">
-  	<time datetime="2018-03-06T05:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、CSS(层叠样式表)简介</p>
-<p>CSS不是真正的编程语言，它是样式语言，允许你有选择地为HTML文档的元素添加样式。</p>
-<p>HTML用于定义内容的结构和语义；CSS用于设计风格和布局（更改内容字体、颜色、大小、间距，将内容分为多列，添加动画，其他装饰效果）。</p>
-<p>二、CSS使用</p>
-<p>在html文件中，head之中加入下列代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"styles/style.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>保存html文件，浏览器打开即可生效</p>
-<p>三、解析CSS</p>
-<p><img src="css-declaration-small.png" alt="解析CSS"></p>
-<p>整个结构称为 CSS 的规则，注意里面单独的部分也是一样：</p>
-<p>1.选择符（Selector）</p>
-<p>HTML 元素放在规则最开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 p 元素）。要给不同元素添加样式只需要改变选择符就行了。</p>
-<p>2.声明（Declaration）</p>
-<p>一个单独的规则比如 color: red; 这指定了你想要添加样式元素的属性。</p>
-<p>3.属性（Properties）</p>
-<p>这是你改变 HTML 元素样式的方法。（在这个例子中 color 就是 p 元素的属性。）在 CSS 中，你通过选择合适的属性来改变你的规则。</p>
-<p>4.属性值（Property value）</p>
-<p>在属性的右边，冒号后面，我们拥有属性值，用于从指定的属性里的非常多的外观中选择一个值（我们除了 red 之外还有很多颜色的值可以选择）。</p>
-<p>注意其他重要的语法：</p>
-<pre><code>规则里除了选择器的部分都应该包含在成对的大括号里({}).。
-在声明里，你应该用冒号分离开属性与属性值。
-在规则里，你应该用分号分离开各个声明。
-如果要同时修改多个属性，你只需要将它们用分号隔开，就像这样：
-</code></pre><p>eg1:修改多个属性：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	color:red;</span><br><span class="line">	width:500px;</span><br><span class="line">	border:1px solod black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>eg2:选择多个元素：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p,li,h1&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>四、字体和文本</p>
-<p>（ font-family 意味着你想要你的文本使用的字体。）这条规则首先为整个页面设定了一个全局字体和字体尺寸（因为 <html> 是整个页面的父元素，而且它所有的子元素都会继承相同的 font-size 和 font-family）</html></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">html &#123;</span><br><span class="line">    font-size: 10px; /* px 意为“像素（pixels）”: 这个基础字体的尺寸现在是10像素  */</span><br><span class="line">    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>五、盒模型</p>
-<p>写 CSS 时会发现大部分都是关于盒模型的——设置它们的尺寸，颜色，位置等等。大部分 HTML 元素都可以被看作一个一个层叠的盒子。CSS 布局就是基于盒模型的。每个占据你页面空间的块级元素都有相似的属性：</p>
-<pre><code>内边距（padding）, 围绕着内容的空间（比如围绕段落的空间）
-边框（border）, 紧接着内边距的实体线段
-外边距(margin), 围绕元素外部的空间
-
-width (属于一个元素的)
-background-color, 元素内容和内边距之后的颜色
-color, 元素内容的颜色（通常是文本）
-text-shadow: 为元素内的文本设置阴影
-display: 设置元素的显示模式（暂时不用担心这部分内容）
-</code></pre><p>eg1:优化布局</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line"></span><br><span class="line">    width: 600px;/* 强制页面永远保持600像素宽*/</span><br><span class="line">    margin: 0 auto; /*当你在 margin 或 padding 中设置两个值时，第一个值代表元素的上方和下方（在这个例子中设置为 0），而第二个值代表左边和右边（在这里，auto 是一个特殊的值，意思是水平方向上左右对称）。你也可以使用一个，三个或四个值，查看 */</span><br><span class="line">    background-color: #ff9500;/*指定元素的背景颜色*/</span><br><span class="line">    padding: 0 20px 20px 20px;/*我们给内边距设置了四个值来让内容四周产生一点空间。这一次我们不设置上方的内边距，设置右边，下方，左边的内边距为20像素。值以上、右、下、左的顺序排列*/</span><br><span class="line">    border: 5px solid black;/*简单地为页面四周设置了5像素的黑色实线边框*/</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin#Values" target="_blank" rel="noopener">margin更多设置看这里</a></p>
-<p>eg2:阴影设置</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">   font-size: 60px;</span><br><span class="line">   text-align: center;</span><br><span class="line">   margin: 0;</span><br><span class="line">   padding: 20px 0;    </span><br><span class="line">   color: #00539F;</span><br><span class="line">   text-shadow: 3px 3px 1px black;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>text-shadow ，它为元素内容的字体提供了阴影。它的四个值如下：</p>
-<pre><code>第一个像素值设置了水平方向的阴影值
-第二个像素值设置了垂直方向的阴影值
-第三个像素值设置了阴影模糊的距离（越大的值表示越模糊）
-第四个值设置了阴影的颜色
-</code></pre><p>eg3: 图像居中</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">	display: block;</span><br><span class="line">	margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后，我们将使图像居中来让它变得更美观。我们可以重新使用 margin: 0 auto 一次，但是我们还要做其他调整。body 元素是块级元素，意味着它占据了页面的空间并且能够赋予外边距和其他改变间距的值。与之对应的是行内元素，则不能。所以为了使图像有外边距，我们必须使用 display: block 将其改成块级元素</p>
-<p>参考资料：</p>
-<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener">CSS基础</a></p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS" target="_blank" rel="noopener">CSS简介</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/06/CSS/CSS基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-HTML/Html概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/HTML/Html概述/">HTML概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/HTML/Html概述/" class="archive-article-date">
-  	<time datetime="2018-03-05T08:10:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、HTML简介</p>
-<p>HTML(Hypertext Markup Language)并不是真正的编程语言，是一种用来结构化Web网页及其内容的标记语言。<br>HTML由一系列的元素所组成，这些元素可以用来封装不同部分的内容，使其以某种方式呈现或者工作。</p>
-<p>二、元素</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> My cat is very grumpy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="grumpy-cat-small.png" alt="解析元素"></p>
-<p id="hell_world_1">1.解析HTML元素：</p>
-
-<pre><code>开始标签（The opening tag）：这里包含了元素的名称（本例为 p），被开、闭尖括号所包围。这表示元素从此开始或者开始起作用——在本例中即段落由此开始。
-
-闭合标签（The closing tag）：与开始标签相似，只是其在元素名之前包含了一个斜杠。这表示着元素的结尾——在本例中，就是这一段落的结尾。
-
-内容（The content）：这是一个元素的内容，这个例子中就是所输入的文本本身。
-
-元素（The element）：开标签、闭标签与内容相结合，便是一个完整的元素。
-</code></pre><p><img src="grumpy-cat-attribute-small.png" alt="解析属性"></p>
-<p>2.解析属性：</p>
-<p>属性（Attribute）包含了关于元素的一些额外的信息，这些信息本身并不需要被显现在内容（Content）中。在这个例子中，class 是一个属性名称（name），editor-note 是属性的值(value) 。class 属性允许你为元素提供一个标识名称，以便进一步为元素指定样式或进行其他操作时使用。</p>
-<p>一个属性应该包含：</p>
-<pre><code>在属性与元素名称或上一个属性（如果有超过一个属性的话）之间的空格符
-
-属性的名称，并接上一个等号
-
-由引号所包围的属性值
-</code></pre><p id="hell_world_2">3.嵌套元素</p>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My cat is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>grumpy.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将一个元素置于其他元素之中——这被称作嵌套.<br>ps:必须保证你的元素被正确地嵌套.</p>
-<p id="hell_world_3">4.空元素</p>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/firefox-icon.png"</span> <span class="attr">alt</span>= <span class="string">"My test image"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这里并没有  闭合标签，也没有内部内容。因为 image 元素不包含内容是有效果的，它的作用是向其所在的位置嵌入一个图像。</p>
-<p>包括 alt (alternative) 属性 —— 这个属性应该是图像的描述内容，当图像不能被某些用户看见时，可能是因为：他们是盲人或者有视觉障碍。某些有严重视觉损伤的用户经常使用屏幕阅读器来为他们读出 alt 属性里的内容。</p>
-<p>有些代码里的错误让图像不能被展示出来。举个例子，故意将 src 属性里的路径改错。如果你保存并且重新加载页面，你应该能在图像的位置看到”alt”对应的内容；</p>
-<p>alt 属性的关键就是要“可以描述图像的文本”。当被读出来时， alt 里面的内容应该向用户传递足够图像表达的意思。</p>
-<p>三、标记文本</p>
-<p>1.标题</p>
-<p>HTML包括六个级别的标题,h1-h6,虽然你可能只会用到3-4最多.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My main title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>My top level heading<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>My subheading<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>My sub-subheading<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.段落</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a single paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>3.列表</p>
-<p>最常用的列表类型是有序列表（ ordered lists）和无序列表（ unordered lists）：</p>
-<pre><code>无序列表 中项目的顺序并不重要，就像购物列表。这些内容被包括在一个 &lt;ul&gt; 元素里。
-
-有序列表 中项目的顺序很重要，就像一个食谱。这些内容被包括在一个 &lt;ol&gt; 元素里。
-</code></pre><p>列表内的每个项目被包括在一个 <li> (list item)元素里。</li></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>At Mozilla, we’re a global community of<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>technologists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>thinkers<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>builders<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>technologists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>thinkers<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>builders<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>4.链接</p>
-<p>文本添加链接的步骤：</p>
-<pre><code>1.添加一些文本。我们选择“Mozilla Manifesto”。
-
-2.将文本包含在“尖括号a”元素内，就像这样：
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<pre><code>3.赋予 &lt;a&gt; 元素一个 href 属性，就像这样：
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<pre><code>4.把你想要链接的网址放到 href 属性内：
-</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.mozilla.org/en-US/about/manifesto/"</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>ps:一些文件路径的通用规则：</p>
-<pre><code>1.要引用一个位于同级目录的 HTML 文件，只需直接使用文件名，比如  my-image.jpg。
-2.要引用一下子目录的文件，在路径前写下目录名并加一个斜杠，比如 subdirectory/my-image.jpg。
-3.要引用一个父目录的 HTML 文件，加上两个点。举个例子，如果 index.html 在  test-site 子目录而 my-image.png 与  test-site 处于同级目录，你可以使用 ../my-image.png 在 index.html 内引用 my-image.png 。
-</code></pre><p>你可以组合随意以上方法，比如 ../subdirectory/another-subdirectory/my-image.png.</p>
-<p>参考资料：</p>
-<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" target="_blank" rel="noopener">HTML教程</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/HTML/Html概述/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-Web/Web框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/Web/Web框架/">Web前端</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/Web/Web框架/" class="archive-article-date">
-  	<time datetime="2018-03-05T07:59:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>web前端知识框架</p>
-        
-          <a class="article-more-a" href="/2018/03/05/Web/Web框架/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/Web/Web框架/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-Hexo/Hexo的常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/Hexo/Hexo的常用命令/">hexo的常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/Hexo/Hexo的常用命令/" class="archive-article-date">
-  	<time datetime="2018-03-05T06:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.建站</p>
-        
-          <a class="article-more-a" href="/2018/03/05/Hexo/Hexo的常用命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/Hexo/Hexo的常用命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-Hexo/博客主题和文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/Hexo/博客主题和文章/">博客主题和文章</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/Hexo/博客主题和文章/" class="archive-article-date">
-  	<time datetime="2018-03-05T06:18:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、文章插入图片  </p>
-        
-          <a class="article-more-a" href="/2018/03/05/Hexo/博客主题和文章/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/Hexo/博客主题和文章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-Hexo/Hexo+Github搭建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/">Hexo+Github搭建自己的博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2018-03-02T03:32:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、本地化</p>
-        
-          <a class="article-more-a" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-其他/BAT等知名IT公司Github" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/其他/BAT等知名IT公司Github/">BAT知名公司Github</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/26/其他/BAT等知名IT公司Github/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:53:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="open-source-team"><a href="#open-source-team" class="headerlink" title="open_source_team"></a>open_source_team</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>想跟着大神走吗,想学习大神的步伐吗,想使自己的项目变得简单吗,那就看一看个大公司团队的代码吧,下面主要写的就是各大公司团队的开源地址,可以尽情的学习,现在是单纯的中国的团队,有时间把外国的团队补上,欢迎持续关注,欢迎 “Star”</p>
-<h2 id="此页面会持续更新-如果您发现还有的团队可以提出来告诉我"><a href="#此页面会持续更新-如果您发现还有的团队可以提出来告诉我" class="headerlink" title="此页面会持续更新, 如果您发现还有的团队可以提出来告诉我"></a>此页面会持续更新, 如果您发现还有的团队可以提出来告诉我</h2><h2 id="目录-中国"><a href="#目录-中国" class="headerlink" title="目录(中国)"></a>目录(中国)</h2><h3 id="1-阿里巴巴"><a href="#1-阿里巴巴" class="headerlink" title="1.阿里巴巴"></a>1.阿里巴巴</h3><ul>
-<li><a href="https://github.com/alibaba/" target="_blank" rel="noopener">阿里巴巴主团队</a></li>
-<li><a href="https://github.com/thx" target="_blank" rel="noopener">阿里巴巴前端团队</a></li>
-</ul>
-<h3 id="2-腾讯"><a href="#2-腾讯" class="headerlink" title="2.腾讯"></a>2.腾讯</h3><ul>
-<li><a href="https://github.com/AlloyTeam" target="_blank" rel="noopener">QQ团队</a></li>
-<li><a href="https://github.com/tencent-wechat" target="_blank" rel="noopener">微信团队</a></li>
-<li><a href="https://github.com/tencent" target="_blank" rel="noopener">主团队</a></li>
-<li><a href="https://github.com/WechatFE" target="_blank" rel="noopener">前端</a></li>
-<li><a href="https://github.com/TencentOpen" target="_blank" rel="noopener">后台</a></li>
-<li><a href="https://github.com/frozenui" target="_blank" rel="noopener">腾讯移动端UI</a><h3 id="3-百度"><a href="#3-百度" class="headerlink" title="3.百度"></a>3.百度</h3></li>
-<li><a href="https://github.com/baidu" target="_blank" rel="noopener">主团队</a></li>
-<li><a href="https://github.com/ecomfe" target="_blank" rel="noopener">主团队2</a></li>
-<li><a href="https://github.com/fex-team" target="_blank" rel="noopener">web前端1</a></li>
-<li><a href="https://github.com/baidufe" target="_blank" rel="noopener">web前端2</a></li>
-<li><a href="https://github.com/ecomfe" target="_blank" rel="noopener">web前端3</a></li>
-<li><a href="https://github.com/baidu-research" target="_blank" rel="noopener">人工智能</a><h3 id="4-华为"><a href="#4-华为" class="headerlink" title="4. 华为"></a>4. 华为</h3></li>
-<li><a href="https://github.com/Huawei" target="_blank" rel="noopener">主团队</a></li>
-<li><p><a href="https://github.com/HuaweiBigData" target="_blank" rel="noopener">大数据团队</a></p>
-<h3 id="5-360"><a href="#5-360" class="headerlink" title="5. 360"></a>5. 360</h3></li>
-<li><p><a href="https://github.com/Qihoo360" target="_blank" rel="noopener">主团队</a></p>
-<h3 id="6-小米"><a href="#6-小米" class="headerlink" title="6. 小米"></a>6. 小米</h3></li>
-<li><p><a href="https://github.com/xiaomi" target="_blank" rel="noopener">主团队</a></p>
-</li>
-</ul>
-<h3 id="7-58同城"><a href="#7-58同城" class="headerlink" title="7. 58同城"></a>7. 58同城</h3><ul>
-<li><a href="https://github.com/58code" target="_blank" rel="noopener">主团队</a><h3 id="8-美团"><a href="#8-美团" class="headerlink" title="8. 美团"></a>8. 美团</h3></li>
-<li><a href="https://github.com/Meituan" target="_blank" rel="noopener">美团点评(老)</a></li>
-<li><a href="https://github.com/Meituan-Dianping" target="_blank" rel="noopener">美团点评(新)</a></li>
-<li><a href="https://github.com/dianping" target="_blank" rel="noopener">大众点评(老)</a><h3 id="9-滴滴出行"><a href="#9-滴滴出行" class="headerlink" title="9. 滴滴出行"></a>9. 滴滴出行</h3></li>
-<li><a href="https://github.com/didi" target="_blank" rel="noopener">主团队</a> </li>
-<li><a href="https://github.com/DDFE" target="_blank" rel="noopener">FE前端团队</a> </li>
-</ul>
-<h3 id="10-知乎"><a href="#10-知乎" class="headerlink" title="10. 知乎"></a>10. 知乎</h3><ul>
-<li><a href="https://github.com/zhihu" target="_blank" rel="noopener">主团队</a><h3 id="11-哔哩哔哩"><a href="#11-哔哩哔哩" class="headerlink" title="11. 哔哩哔哩"></a>11. 哔哩哔哩</h3></li>
-<li><a href="https://github.com/Bilibili" target="_blank" rel="noopener">主团队</a><h3 id="12-新浪微博"><a href="#12-新浪微博" class="headerlink" title="12. 新浪微博"></a>12. 新浪微博</h3></li>
-<li><a href="https://github.com/weibocom" target="_blank" rel="noopener">主团队</a><h3 id="13-搜狐"><a href="#13-搜狐" class="headerlink" title="13. 搜狐"></a>13. 搜狐</h3></li>
-<li><a href="https://github.com/SOHUDBA" target="_blank" rel="noopener">主团队</a><h3 id="14-极光开发者-Jpush"><a href="#14-极光开发者-Jpush" class="headerlink" title="14. 极光开发者(Jpush)"></a>14. 极光开发者(Jpush)</h3></li>
-<li><a href="https://github.com/jpush" target="_blank" rel="noopener">主团队</a><h3 id="15-开源中国"><a href="#15-开源中国" class="headerlink" title="15. 开源中国"></a>15. 开源中国</h3></li>
-<li><a href="https://github.com/oschina" target="_blank" rel="noopener">主团队</a> <h3 id="16-唯品会"><a href="#16-唯品会" class="headerlink" title="16. 唯品会"></a>16. 唯品会</h3></li>
-<li><a href="https://github.com/vipshop" target="_blank" rel="noopener">主团队</a><h3 id="17-当当"><a href="#17-当当" class="headerlink" title="17. 当当"></a>17. 当当</h3></li>
-<li><a href="https://github.com/dangdangdotcom" target="_blank" rel="noopener">主团队</a><h3 id="18-豆瓣"><a href="#18-豆瓣" class="headerlink" title="18. 豆瓣"></a>18. 豆瓣</h3></li>
-<li><a href="https://github.com/douban" target="_blank" rel="noopener">主团队</a></li>
-</ul>
-<h3 id="19-饿了么"><a href="#19-饿了么" class="headerlink" title="19. 饿了么"></a>19. 饿了么</h3><ul>
-<li><a href="https://github.com/eleme" target="_blank" rel="noopener">主团队</a><h3 id="20-当当"><a href="#20-当当" class="headerlink" title="20. 当当"></a>20. 当当</h3></li>
-<li><a href="https://github.com/dangdangdotcom" target="_blank" rel="noopener">主团队</a> <h3 id="21-有道词典"><a href="#21-有道词典" class="headerlink" title="21. 有道词典"></a>21. 有道词典</h3></li>
-<li><a href="https://github.com/netease" target="_blank" rel="noopener">主团队</a><h3 id="22-网易"><a href="#22-网易" class="headerlink" title="22.网易"></a>22.网易</h3></li>
-<li><a href="https://github.com/netease" target="_blank" rel="noopener">主团队</a><h3 id="23-七牛"><a href="#23-七牛" class="headerlink" title="23.七牛"></a>23.七牛</h3></li>
-<li><a href="https://github.com/qiniu" target="_blank" rel="noopener">主团队</a><h3 id="23-芒果TV-or-湖南卫视"><a href="#23-芒果TV-or-湖南卫视" class="headerlink" title="23.芒果TV(or 湖南卫视)"></a>23.芒果TV(or 湖南卫视)</h3></li>
-<li><a href="https://github.com/HunanTV" target="_blank" rel="noopener">主团队</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/github//" class="article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/26/其他/BAT等知名IT公司Github/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
-    <article id="post-其他/iOS基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/其他/iOS基础/">iOS基础</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/26/其他/iOS基础/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:53:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1 UI</p>
-<ol>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/52022330" target="_blank" rel="noopener">UIScroolView</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/52024819" target="_blank" rel="noopener">UICollectionView</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/52021586" target="_blank" rel="noopener">UITableView</a></li>
-</ol>
-<h2 id="滑动卡顿优化"><a href="#滑动卡顿优化" class="headerlink" title="滑动卡顿优化"></a>滑动卡顿优化</h2><p><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="noopener">iOS 保持界面流畅的技巧</a></p>
-<h2 id="三大布局"><a href="#三大布局" class="headerlink" title="三大布局"></a>三大布局</h2><p>sizeClass autoLayout layoutSubviews</p>
-<p>#2 存储</p>
-<ol>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/52815990" target="_blank" rel="noopener">NSFileManager</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/category/6475388" target="_blank" rel="noopener">CoreData</a></li>
-</ol>
-<p>#3 多线程</p>
-<ol>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/50836823" target="_blank" rel="noopener">NSOperationQueue</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/50836813" target="_blank" rel="noopener">NSOperation</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/50836819" target="_blank" rel="noopener">NSBlockOperation</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/50612230" target="_blank" rel="noopener">NSThread</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/52385222" target="_blank" rel="noopener">Grand Central Dispatch (GCD) Reference</a></li>
-<li><a href="http://www.dreamingwish.com/article/gcdgrand-central-dispatch-jiao-cheng.html" target="_blank" rel="noopener">GCD(Grand Central Dispatch)教程</a></li>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/62430893" target="_blank" rel="noopener">iOS同步锁</a></li>
-<li><a href="http://lib.csdn.net/article/ios/57715" target="_blank" rel="noopener">iOS多线程编程详情（GCD、NSThread、NSOperation）</a></li>
-</ol>
-<p>#4 底层</p>
-<ol>
-<li><a href="https://opensource.apple.com/tarballs/" target="_blank" rel="noopener">源码jar</a><ol>
-<li><a href="https://opensource.apple.com/tarballs/libdispatch/" target="_blank" rel="noopener">GCD</a></li>
-<li><a href="https://opensource.apple.com/tarballs/libclosure/" target="_blank" rel="noopener">Block</a></li>
-<li><a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="noopener">RunLoop(在CF框架内)</a></li>
-<li><a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="noopener">NSObject</a></li>
-</ol>
-</li>
-<li><a href="https://opensource.apple.com/source/" target="_blank" rel="noopener">源码在线看</a><ol>
-<li><a href="https://opensource.apple.com/source/libdispatch/" target="_blank" rel="noopener">GCD</a></li>
-<li><a href="https://opensource.apple.com/source/libclosure/" target="_blank" rel="noopener">Block</a></li>
-<li><a href="https://opensource.apple.com/source/CF/" target="_blank" rel="noopener">RunLoop(在CF框架内)</a></li>
-<li><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">NSObject</a></li>
-</ol>
-</li>
-</ol>
-<p><a href="https://opensource.apple.com/source/CF/CF-855.17/" target="_blank" rel="noopener">https://opensource.apple.com/source/CF/CF-855.17/</a></p>
-<p>属性<a href="http://blog.csdn.net/y550918116j/article/details/48968955" target="_blank" rel="noopener">Objective-C对象属性设置</a></p>
-<p>Block<a href="http://blog.ibireme.com/2013/11/27/objc-block/" target="_blank" rel="noopener">objc 中的 block</a></p>
-<p><a href="http://lib.csdn.net/article/embeddeddevelopment/60828" target="_blank" rel="noopener">网络Socket编程及应用实例</a></p>
-<p>runtime<a href="http://www.jianshu.com/p/f900de4a1495" target="_blank" rel="noopener">【OC刨根问底】-Runtime简单粗暴理解</a></p>
-<p>runloop<a href="http://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="noopener">深入理解RunLoop</a></p>
-<p>项目优化<br><a href="http://www.dreamingwish.com/articlelist/tag/block" target="_blank" rel="noopener">如何优化 App 的启动时间</a><br><a href="https://raw.githubusercontent.com/937447974/Blog/master/Resources/2017031401.png" target="_blank" rel="noopener">项目瘦身</a></p>
-<p>#5 架构</p>
-<ol>
-<li><a href="http://blog.csdn.net/y550918116j/article/details/50072719" target="_blank" rel="noopener">23设计模式之目录</a></li>
-</ol>
-<p>#6 算法</p>
-<p>树</p>
-<p>#7 其他</p>
-<p>git<br>pod<br>Cocoapods</p>
-<p>#7 开源框架</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/26/其他/iOS基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -1401,11 +1554,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1421,11 +1574,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,7 +1586,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1449,10 +1606,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -1461,11 +1614,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1473,7 +1630,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,10 +1639,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1501,15 +1654,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
             
             <div class="clearfix"></div>

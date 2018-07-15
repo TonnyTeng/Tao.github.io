@@ -19,7 +19,12 @@
 <meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/list_method.png">
 <meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-is.png">
 <meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-find.png">
-<meta property="og:updated_time" content="2018-07-03T13:30:45.115Z">
+<meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-change.png">
+<meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-just.png">
+<meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-strip.png">
+<meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/str-split.png">
+<meta property="og:image" content="http://tao1010.github.io/2018/06/29/Python/Python基础/Python-python基础-高级变量/commonmethod.png">
+<meta property="og:updated_time" content="2018-07-05T15:07:41.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-python基础-高级变量">
 <meta name="twitter:description" content="非数字型 数据类型 的特点： 都是一个序列，可以看成容器； 取值 [] 遍历 for in 计算长度、最大/最小值、比较、删除 链接 + 和 重复 * 切片 一、列表 - List">
@@ -355,18 +360,83 @@ for k in xiaoming:
 循环遍历:
     for char in 字符串1:
         print(char)
-</code></pre><p>3.方法分类<br><br><img src="str-is.png" alt="str-is"><br><img src="str-find.png" alt="str-find"></p>
+</code></pre><p>3.方法分类<br><br><img src="str-is.png" alt="判断类型"><br><br><img src="str-find.png" alt="文本查找和替换"><br><br><img src="str-change.png" alt="大小写转换"><br><br><img src="str-just.png" alt="文本对齐"><br><br><img src="str-strip.png" alt="去除空白字符"><br><br><img src="str-split.png" alt="拆分连接"><br></p>
 <pre><code>判断类型 - 9
-    str.isspace() #判断是否只包含空白或空格字符
 查找和替换 - 7
-    str.startwith() #大小写有区别
 大小写转换 - 5
 文本对齐 - 3
 去除空白字符 - 3
 拆分和连接 - 5
-</code></pre><p>五、公共方法</p>
-<p>六、高级变量</p>
-<p>参考资料:<br><br>1.<a href="">黑马视频</a><br><br>2.<a href="https://www.w3cschool.cn/python/" target="_blank" rel="noopener">W3C-Python</a></p>
+</code></pre><p>4.字符串切片</p>
+<pre><code>切片：使用索引来限定范围，从一个大的字符串中切出小的 字符串
+格式:
+    字符串[开始索引:结束索引:步长]
+tips:
+    不包括结束索引的元素
+    顺序索引 0 1 2...
+    倒序索引(从右到左) -1 -2 -3 ... 
+eg: 
+    num = &apos;0123456789&apos;
+    print(num[2:6]) #2345
+    print(num[2:])  #23456789
+    print(num[:3])    #012
+    print(num[0:3])    #012
+    print(num[0::2]) #02468
+    print(num[2:-1]) #2345678
+    print(num[-1::-1]) #9876543210 倒序
+    print(num[::-1])      #9876543210 倒序
+</code></pre><p>五、公共方法<br><br>1.定义</p>
+<pre><code>公共方法:列表、元祖、字典、字符串等共有的方法;
+</code></pre><p>2.Python常用函数</p>
+<pre><code>len(item) #元素个数
+del(item)    #删除变量
+    a = [1,2,3,4]
+    del a[0]#删除列表中下标为0的元素
+    print(a)
+    del(a[0])#删除列表中下标为0的元素
+    print(a)
+    del(a) #删除a列表
+max(item) #返回容器中元素的最大值 如果是字典，比较key,返回key
+min(item)    #返回容器中元素的最小值 如果是字典，比较key,返回key
+    t_dic = {&quot;a&quot;:&quot;1&quot;,&quot;b&quot;:&quot;2&quot;,&quot;c&quot;:&quot;3&quot;}
+    print(max(t_dic))
+    print(min(t_dic))
+
+cmp(item1,item2) #Python3.x取消的此函数 比较大小 -1 &lt; | 0 = | 1 &gt;
+    Python3.x中可以用比较运算符比较
+</code></pre><p>3.切片</p>
+<pre><code>使用对象：字符串、元祖、列表
+    &quot;1234&quot;[1:3]         #字符串
+    [1,2,3,4][1:3]    #列表
+    (1,2,3,4)[1:3]    #元祖
+字典不能切片 - 键值对形式存在，没有索引
+</code></pre><p>4.运算符<br><br><img src="commonmethod.png" alt="commonmethod"></p>
+<pre><code>t_list = [1,2,3,4]
+
+# .extend 方法会将括号内的列表元素分别插入列表中
+t_list.extend([8,9]) #[1,2,3,4,8,9]
+
+# .append方法会将括号内的对象作为一个元素插入
+t_list.append([8,9]) #[1,2,3,4,[8,9]]
+t_list.append(0)         #[1,2,3,4,0]
+
+in 和 not in 在判断字典时，判断的是字典的key
+成员运算符(in 和 not in) 用于测试序列中是否包含指定的成员 
+</code></pre><p>5.完整的for循环</p>
+<pre><code>for 变量 in 集合:
+    ...
+else: #上面的for 循环集合中的每个元素都遍历了，就会执行else代码
+    没有通过break 退出循环，循环结束后，会执行的代码
+
+eg：
+    for num in [1,2,3,4]:
+        print(num)
+        if num == 2:
+            print(&quot;不执行else代码&quot;)
+            break;
+    else:
+        print(&quot;循环结束!&quot;)
+</code></pre><p>参考资料:<br><br>1.<a href="">黑马视频</a><br><br>2.<a href="https://www.w3cschool.cn/python/" target="_blank" rel="noopener">W3C-Python</a></p>
 
       
 
@@ -652,11 +722,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,11 +742,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,7 +754,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,10 +774,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -712,11 +782,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,7 +798,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,10 +807,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,15 +822,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
             
             <div class="clearfix"></div>

@@ -192,6 +192,788 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS/CSS基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/CSS/CSS基础/">CSS基础</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/CSS/CSS基础/" class="archive-article-date">
+  	<time datetime="2018-03-06T05:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、CSS(层叠样式表)简介</p>
+<p>CSS不是真正的编程语言，它是样式语言，允许你有选择地为HTML文档的元素添加样式。</p>
+<p>HTML用于定义内容的结构和语义；CSS用于设计风格和布局（更改内容字体、颜色、大小、间距，将内容分为多列，添加动画，其他装饰效果）。</p>
+<p>二、CSS使用</p>
+<p>在html文件中，head之中加入下列代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"styles/style.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存html文件，浏览器打开即可生效</p>
+<p>三、解析CSS</p>
+<p><img src="css-declaration-small.png" alt="解析CSS"></p>
+<p>整个结构称为 CSS 的规则，注意里面单独的部分也是一样：</p>
+<p>1.选择符（Selector）</p>
+<p>HTML 元素放在规则最开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 p 元素）。要给不同元素添加样式只需要改变选择符就行了。</p>
+<p>2.声明（Declaration）</p>
+<p>一个单独的规则比如 color: red; 这指定了你想要添加样式元素的属性。</p>
+<p>3.属性（Properties）</p>
+<p>这是你改变 HTML 元素样式的方法。（在这个例子中 color 就是 p 元素的属性。）在 CSS 中，你通过选择合适的属性来改变你的规则。</p>
+<p>4.属性值（Property value）</p>
+<p>在属性的右边，冒号后面，我们拥有属性值，用于从指定的属性里的非常多的外观中选择一个值（我们除了 red 之外还有很多颜色的值可以选择）。</p>
+<p>注意其他重要的语法：</p>
+<pre><code>规则里除了选择器的部分都应该包含在成对的大括号里({}).。
+在声明里，你应该用冒号分离开属性与属性值。
+在规则里，你应该用分号分离开各个声明。
+如果要同时修改多个属性，你只需要将它们用分号隔开，就像这样：
+</code></pre><p>eg1:修改多个属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	color:red;</span><br><span class="line">	width:500px;</span><br><span class="line">	border:1px solod black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eg2:选择多个元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p,li,h1&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>四、字体和文本</p>
+<p>（ font-family 意味着你想要你的文本使用的字体。）这条规则首先为整个页面设定了一个全局字体和字体尺寸（因为 <html> 是整个页面的父元素，而且它所有的子元素都会继承相同的 font-size 和 font-family）</html></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">html &#123;</span><br><span class="line">    font-size: 10px; /* px 意为“像素（pixels）”: 这个基础字体的尺寸现在是10像素  */</span><br><span class="line">    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>五、盒模型</p>
+<p>写 CSS 时会发现大部分都是关于盒模型的——设置它们的尺寸，颜色，位置等等。大部分 HTML 元素都可以被看作一个一个层叠的盒子。CSS 布局就是基于盒模型的。每个占据你页面空间的块级元素都有相似的属性：</p>
+<pre><code>内边距（padding）, 围绕着内容的空间（比如围绕段落的空间）
+边框（border）, 紧接着内边距的实体线段
+外边距(margin), 围绕元素外部的空间
+
+width (属于一个元素的)
+background-color, 元素内容和内边距之后的颜色
+color, 元素内容的颜色（通常是文本）
+text-shadow: 为元素内的文本设置阴影
+display: 设置元素的显示模式（暂时不用担心这部分内容）
+</code></pre><p>eg1:优化布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line"></span><br><span class="line">    width: 600px;/* 强制页面永远保持600像素宽*/</span><br><span class="line">    margin: 0 auto; /*当你在 margin 或 padding 中设置两个值时，第一个值代表元素的上方和下方（在这个例子中设置为 0），而第二个值代表左边和右边（在这里，auto 是一个特殊的值，意思是水平方向上左右对称）。你也可以使用一个，三个或四个值，查看 */</span><br><span class="line">    background-color: #ff9500;/*指定元素的背景颜色*/</span><br><span class="line">    padding: 0 20px 20px 20px;/*我们给内边距设置了四个值来让内容四周产生一点空间。这一次我们不设置上方的内边距，设置右边，下方，左边的内边距为20像素。值以上、右、下、左的顺序排列*/</span><br><span class="line">    border: 5px solid black;/*简单地为页面四周设置了5像素的黑色实线边框*/</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin#Values" target="_blank" rel="noopener">margin更多设置看这里</a></p>
+<p>eg2:阴影设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">   font-size: 60px;</span><br><span class="line">   text-align: center;</span><br><span class="line">   margin: 0;</span><br><span class="line">   padding: 20px 0;    </span><br><span class="line">   color: #00539F;</span><br><span class="line">   text-shadow: 3px 3px 1px black;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>text-shadow ，它为元素内容的字体提供了阴影。它的四个值如下：</p>
+<pre><code>第一个像素值设置了水平方向的阴影值
+第二个像素值设置了垂直方向的阴影值
+第三个像素值设置了阴影模糊的距离（越大的值表示越模糊）
+第四个值设置了阴影的颜色
+</code></pre><p>eg3: 图像居中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">	display: block;</span><br><span class="line">	margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，我们将使图像居中来让它变得更美观。我们可以重新使用 margin: 0 auto 一次，但是我们还要做其他调整。body 元素是块级元素，意味着它占据了页面的空间并且能够赋予外边距和其他改变间距的值。与之对应的是行内元素，则不能。所以为了使图像有外边距，我们必须使用 display: block 将其改成块级元素</p>
+<p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener">CSS基础</a></p>
+<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS" target="_blank" rel="noopener">CSS简介</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/CSS/CSS基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-HTML/Html概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/HTML/Html概述/">HTML概述</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/HTML/Html概述/" class="archive-article-date">
+  	<time datetime="2018-03-05T08:10:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、HTML简介</p>
+<p>HTML(Hypertext Markup Language)并不是真正的编程语言，是一种用来结构化Web网页及其内容的标记语言。<br>HTML由一系列的元素所组成，这些元素可以用来封装不同部分的内容，使其以某种方式呈现或者工作。</p>
+<p>二、元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> My cat is very grumpy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="grumpy-cat-small.png" alt="解析元素"></p>
+<p id="hell_world_1">1.解析HTML元素：</p>
+
+<pre><code>开始标签（The opening tag）：这里包含了元素的名称（本例为 p），被开、闭尖括号所包围。这表示元素从此开始或者开始起作用——在本例中即段落由此开始。
+
+闭合标签（The closing tag）：与开始标签相似，只是其在元素名之前包含了一个斜杠。这表示着元素的结尾——在本例中，就是这一段落的结尾。
+
+内容（The content）：这是一个元素的内容，这个例子中就是所输入的文本本身。
+
+元素（The element）：开标签、闭标签与内容相结合，便是一个完整的元素。
+</code></pre><p><img src="grumpy-cat-attribute-small.png" alt="解析属性"></p>
+<p>2.解析属性：</p>
+<p>属性（Attribute）包含了关于元素的一些额外的信息，这些信息本身并不需要被显现在内容（Content）中。在这个例子中，class 是一个属性名称（name），editor-note 是属性的值(value) 。class 属性允许你为元素提供一个标识名称，以便进一步为元素指定样式或进行其他操作时使用。</p>
+<p>一个属性应该包含：</p>
+<pre><code>在属性与元素名称或上一个属性（如果有超过一个属性的话）之间的空格符
+
+属性的名称，并接上一个等号
+
+由引号所包围的属性值
+</code></pre><p id="hell_world_2">3.嵌套元素</p>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My cat is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>grumpy.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将一个元素置于其他元素之中——这被称作嵌套.<br>ps:必须保证你的元素被正确地嵌套.</p>
+<p id="hell_world_3">4.空元素</p>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/firefox-icon.png"</span> <span class="attr">alt</span>= <span class="string">"My test image"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里并没有  闭合标签，也没有内部内容。因为 image 元素不包含内容是有效果的，它的作用是向其所在的位置嵌入一个图像。</p>
+<p>包括 alt (alternative) 属性 —— 这个属性应该是图像的描述内容，当图像不能被某些用户看见时，可能是因为：他们是盲人或者有视觉障碍。某些有严重视觉损伤的用户经常使用屏幕阅读器来为他们读出 alt 属性里的内容。</p>
+<p>有些代码里的错误让图像不能被展示出来。举个例子，故意将 src 属性里的路径改错。如果你保存并且重新加载页面，你应该能在图像的位置看到”alt”对应的内容；</p>
+<p>alt 属性的关键就是要“可以描述图像的文本”。当被读出来时， alt 里面的内容应该向用户传递足够图像表达的意思。</p>
+<p>三、标记文本</p>
+<p>1.标题</p>
+<p>HTML包括六个级别的标题,h1-h6,虽然你可能只会用到3-4最多.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My main title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>My top level heading<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>My subheading<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>My sub-subheading<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.段落</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a single paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.列表</p>
+<p>最常用的列表类型是有序列表（ ordered lists）和无序列表（ unordered lists）：</p>
+<pre><code>无序列表 中项目的顺序并不重要，就像购物列表。这些内容被包括在一个 &lt;ul&gt; 元素里。
+
+有序列表 中项目的顺序很重要，就像一个食谱。这些内容被包括在一个 &lt;ol&gt; 元素里。
+</code></pre><p>列表内的每个项目被包括在一个 <li> (list item)元素里。</li></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>At Mozilla, we’re a global community of<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>technologists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>thinkers<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>builders<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>technologists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>thinkers<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>builders<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4.链接</p>
+<p>文本添加链接的步骤：</p>
+<pre><code>1.添加一些文本。我们选择“Mozilla Manifesto”。
+
+2.将文本包含在“尖括号a”元素内，就像这样：
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>3.赋予 &lt;a&gt; 元素一个 href 属性，就像这样：
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>4.把你想要链接的网址放到 href 属性内：
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.mozilla.org/en-US/about/manifesto/"</span>&gt;</span>Mozilla Manifesto<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ps:一些文件路径的通用规则：</p>
+<pre><code>1.要引用一个位于同级目录的 HTML 文件，只需直接使用文件名，比如  my-image.jpg。
+2.要引用一下子目录的文件，在路径前写下目录名并加一个斜杠，比如 subdirectory/my-image.jpg。
+3.要引用一个父目录的 HTML 文件，加上两个点。举个例子，如果 index.html 在  test-site 子目录而 my-image.png 与  test-site 处于同级目录，你可以使用 ../my-image.png 在 index.html 内引用 my-image.png 。
+</code></pre><p>你可以组合随意以上方法，比如 ../subdirectory/another-subdirectory/my-image.png.</p>
+<p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" target="_blank" rel="noopener">HTML教程</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/HTML/Html概述/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-Web/Web框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/Web/Web框架/">Web前端</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/Web/Web框架/" class="archive-article-date">
+  	<time datetime="2018-03-05T07:59:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>web前端知识框架</p>
+        
+          <a class="article-more-a" href="/2018/03/05/Web/Web框架/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/Web/Web框架/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-Hexo/Hexo的常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/Hexo/Hexo的常用命令/">hexo的常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/Hexo/Hexo的常用命令/" class="archive-article-date">
+  	<time datetime="2018-03-05T06:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.建站</p>
+        
+          <a class="article-more-a" href="/2018/03/05/Hexo/Hexo的常用命令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/Hexo/Hexo的常用命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-Hexo/博客主题和文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/Hexo/博客主题和文章/">博客主题和文章</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/Hexo/博客主题和文章/" class="archive-article-date">
+  	<time datetime="2018-03-05T06:18:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、文章插入图片  </p>
+        
+          <a class="article-more-a" href="/2018/03/05/Hexo/博客主题和文章/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/Hexo/博客主题和文章/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-Hexo/Hexo+Github搭建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/">Hexo+Github搭建自己的博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/" class="archive-article-date">
+  	<time datetime="2018-03-02T03:32:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、本地化</p>
+        
+          <a class="article-more-a" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/02/Hexo/Hexo+Github搭建自己的博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-iOS/iOS第三方库/iOS库-SDK开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/19/iOS/iOS第三方库/iOS库-SDK开发/">iOS库-SDK开发</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/19/iOS/iOS第三方库/iOS库-SDK开发/" class="archive-article-date">
+  	<time datetime="2017-07-19T14:44:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、SDK开发准备<br><br>1.规则:</p>
+<pre><code>文件组织方式清晰明了；
+类名前缀和包命令或缩写要一致；
+代码风格一定要一致；
+函数命令遵循共性，不要出现歧义或违背常识；
+代码注释规范、清楚；
+SDK功能正确，编译无警告、错误，支持最新特性；
+</code></pre><p>2.设计:</p>
+<pre><code>易用
+    SDK集成成本： cocoapods；
+    API调用简单；
+    功能可以定制；
+    便于调试： debug 日志；
+    API回调参数明确；
+    API稳定；
+API设计
+    参数命名明确无歧义；
+    自足自给(SDK自己获取如BundleID、appName、appVersion等信息)；
+    SDK配置参数、接入参数分开；
+    SDK参数:拼接的字符串如支付宝的支付orderString；
+    同一类参数，封装成model，隐藏属性，通过方法构造；
+    API功能单一，减少类似enum 的入参设计；
+    用于查询的属性，绝对不能直接设置；
+    API回调:delegate 和 block
+</code></pre><p>3.工程搭建<br><br>建议使用cocoapods和<a href="https://github.com/CocoaPods/cocoapods-packager" target="_blank" rel="noopener">cocoapods-packager</a></p>
+<pre><code>搭建开发工具:
+    pod lib create xxx   #xxx为工程名
+打包:
+    pod package xxx.spec
+
+SDK打包形式：
+    Static Library
+    Dynamic Framework
+    Universal Framework
+版本控制:
+    (major).(minor).(patch)
+    eg:3.0.1
+发布渠道:
+    cocoapods
+    邮件
+    网站
+</code></pre><p>4.注意事项：</p>
+<pre><code>减少对其他库的依赖：能用系统API解决就不用第三方；
+OC没有命名空间，类命名和类别方法加上前缀；
+多考虑第三方带来的影响: 键盘处理、UIKit的UIAppearance等；
+依赖其他SDK的，别打包在一起，否则出现符号表重复；
+使用OC类别打包时，加上-ObjC；
+尽量不使用 单例；
+核心代码安全性；
+资源文件使用 bundle 进行管理，尽量不使用Xib；
+</code></pre><p>二、创建静态库</p>
+<p>三、创建framework</p>
+<p>四、打包(Bundle)资源</p>
+<p>参考资料:<br>1.<a href="https://www.jianshu.com/p/dd8d1b7ce1e4" target="_blank" rel="noopener">SDK开发规则</a><br>1.<a href="https://www.jianshu.com/p/c131baae4307" target="_blank" rel="noopener">SDK开发</a><br>2.<a href="https://www.jianshu.com/p/65b1c1326c50" target="_blank" rel="noopener">创建SDK</a>      </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">iOS第三方库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/19/iOS/iOS第三方库/iOS库-SDK开发/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-其他/iOS、mac开源项目及库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1640,9 +2422,303 @@
 
        
   
+    <article id="post-其他/iOS基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/其他/iOS基础/">iOS基础</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/26/其他/iOS基础/" class="archive-article-date">
+  	<time datetime="2017-06-26T03:53:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#1 UI</p>
+<ol>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/52022330" target="_blank" rel="noopener">UIScroolView</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/52024819" target="_blank" rel="noopener">UICollectionView</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/52021586" target="_blank" rel="noopener">UITableView</a></li>
+</ol>
+<h2 id="滑动卡顿优化"><a href="#滑动卡顿优化" class="headerlink" title="滑动卡顿优化"></a>滑动卡顿优化</h2><p><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="noopener">iOS 保持界面流畅的技巧</a></p>
+<h2 id="三大布局"><a href="#三大布局" class="headerlink" title="三大布局"></a>三大布局</h2><p>sizeClass autoLayout layoutSubviews</p>
+<p>#2 存储</p>
+<ol>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/52815990" target="_blank" rel="noopener">NSFileManager</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/category/6475388" target="_blank" rel="noopener">CoreData</a></li>
+</ol>
+<p>#3 多线程</p>
+<ol>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/50836823" target="_blank" rel="noopener">NSOperationQueue</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/50836813" target="_blank" rel="noopener">NSOperation</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/50836819" target="_blank" rel="noopener">NSBlockOperation</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/50612230" target="_blank" rel="noopener">NSThread</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/52385222" target="_blank" rel="noopener">Grand Central Dispatch (GCD) Reference</a></li>
+<li><a href="http://www.dreamingwish.com/article/gcdgrand-central-dispatch-jiao-cheng.html" target="_blank" rel="noopener">GCD(Grand Central Dispatch)教程</a></li>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/62430893" target="_blank" rel="noopener">iOS同步锁</a></li>
+<li><a href="http://lib.csdn.net/article/ios/57715" target="_blank" rel="noopener">iOS多线程编程详情（GCD、NSThread、NSOperation）</a></li>
+</ol>
+<p>#4 底层</p>
+<ol>
+<li><a href="https://opensource.apple.com/tarballs/" target="_blank" rel="noopener">源码jar</a><ol>
+<li><a href="https://opensource.apple.com/tarballs/libdispatch/" target="_blank" rel="noopener">GCD</a></li>
+<li><a href="https://opensource.apple.com/tarballs/libclosure/" target="_blank" rel="noopener">Block</a></li>
+<li><a href="https://opensource.apple.com/tarballs/CF/" target="_blank" rel="noopener">RunLoop(在CF框架内)</a></li>
+<li><a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="noopener">NSObject</a></li>
+</ol>
+</li>
+<li><a href="https://opensource.apple.com/source/" target="_blank" rel="noopener">源码在线看</a><ol>
+<li><a href="https://opensource.apple.com/source/libdispatch/" target="_blank" rel="noopener">GCD</a></li>
+<li><a href="https://opensource.apple.com/source/libclosure/" target="_blank" rel="noopener">Block</a></li>
+<li><a href="https://opensource.apple.com/source/CF/" target="_blank" rel="noopener">RunLoop(在CF框架内)</a></li>
+<li><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">NSObject</a></li>
+</ol>
+</li>
+</ol>
+<p><a href="https://opensource.apple.com/source/CF/CF-855.17/" target="_blank" rel="noopener">https://opensource.apple.com/source/CF/CF-855.17/</a></p>
+<p>属性<a href="http://blog.csdn.net/y550918116j/article/details/48968955" target="_blank" rel="noopener">Objective-C对象属性设置</a></p>
+<p>Block<a href="http://blog.ibireme.com/2013/11/27/objc-block/" target="_blank" rel="noopener">objc 中的 block</a></p>
+<p><a href="http://lib.csdn.net/article/embeddeddevelopment/60828" target="_blank" rel="noopener">网络Socket编程及应用实例</a></p>
+<p>runtime<a href="http://www.jianshu.com/p/f900de4a1495" target="_blank" rel="noopener">【OC刨根问底】-Runtime简单粗暴理解</a></p>
+<p>runloop<a href="http://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="noopener">深入理解RunLoop</a></p>
+<p>项目优化<br><a href="http://www.dreamingwish.com/articlelist/tag/block" target="_blank" rel="noopener">如何优化 App 的启动时间</a><br><a href="https://raw.githubusercontent.com/937447974/Blog/master/Resources/2017031401.png" target="_blank" rel="noopener">项目瘦身</a></p>
+<p>#5 架构</p>
+<ol>
+<li><a href="http://blog.csdn.net/y550918116j/article/details/50072719" target="_blank" rel="noopener">23设计模式之目录</a></li>
+</ol>
+<p>#6 算法</p>
+<p>树</p>
+<p>#7 其他</p>
+<p>git<br>pod<br>Cocoapods</p>
+<p>#7 开源框架</p>
+<h1 id="LearningMaterials"><a href="#LearningMaterials" class="headerlink" title="LearningMaterials"></a>LearningMaterials</h1><p>学习资料</p>
+<h2 id="1-git学习"><a href="#1-git学习" class="headerlink" title="1 git学习"></a>1 git学习</h2><p><a href="https://developer.github.com" target="_blank" rel="noopener">git 官网</a></p>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
+<p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
+<p><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="noopener">http://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></p>
+<p>git个性化log：<a href="http://www.tuicool.com/articles/Ab6Nru" target="_blank" rel="noopener">http://www.tuicool.com/articles/Ab6Nru</a></p>
+<h2 id="2-私人博客文章"><a href="#2-私人博客文章" class="headerlink" title="2 私人博客文章"></a>2 私人博客文章</h2><p><a href="http://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></p>
+<p><a href="http://onevcat.com" target="_blank" rel="noopener">王巍</a></p>
+<h2 id="3-第三方库"><a href="#3-第三方库" class="headerlink" title="3 第三方库"></a>3 第三方库</h2><h3 id="3-1-ReactiveCocoa-函数响应式编程（FRP）框架。"><a href="#3-1-ReactiveCocoa-函数响应式编程（FRP）框架。" class="headerlink" title="3.1 ReactiveCocoa:函数响应式编程（FRP）框架。"></a>3.1 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="noopener">ReactiveCocoa</a>:函数响应式编程（FRP）框架。</h3><ol>
+<li><a href="http://www.cocoachina.com/ios/20150123/10994.html" target="_blank" rel="noopener">ReactiveCocoa入门教程：第一部分</a>。</li>
+<li><a href="http://www.cocoachina.com/ios/20160211/15020.html" target="_blank" rel="noopener">ReactiveCocoa入门教程：第二部分</a>。</li>
+</ol>
+<h3 id="3-2-UITableView-FDTemplateLayoutCell-利用AutoLayout自动计算UITableViewCell高度。"><a href="#3-2-UITableView-FDTemplateLayoutCell-利用AutoLayout自动计算UITableViewCell高度。" class="headerlink" title="3.2 UITableView-FDTemplateLayoutCell: 利用AutoLayout自动计算UITableViewCell高度。"></a>3.2 <a href="https://github.com/forkingdog/UITableView-FDTemplateLayoutCell" target="_blank" rel="noopener">UITableView-FDTemplateLayoutCell</a>: 利用AutoLayout自动计算UITableViewCell高度。</h3><p><a href="http://www.cocoachina.com/ios/20150518/11854.html" target="_blank" rel="noopener">优化UITableViewCell高度计算的那些事 附源码</a></p>
+<h3 id="3-3-WYPopoverController-弹出框。"><a href="#3-3-WYPopoverController-弹出框。" class="headerlink" title="3.3 WYPopoverController:弹出框。"></a>3.3 <a href="https://github.com/937447974/WYPopoverController" target="_blank" rel="noopener">WYPopoverController</a>:弹出框。</h3><h3 id="3-4-iCarousel-幻灯片切换照片。"><a href="#3-4-iCarousel-幻灯片切换照片。" class="headerlink" title="3.4 iCarousel: 幻灯片切换照片。"></a>3.4 <a href="https://github.com/nicklockwood/iConsole" target="_blank" rel="noopener">iCarousel</a>: 幻灯片切换照片。</h3><h2 id="4-其它"><a href="#4-其它" class="headerlink" title="4 其它"></a>4 其它</h2><p><a href="http://www.jianshu.com/p/d333cf6ae4b0" target="_blank" rel="noopener">iOS开发经验总结</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/26/其他/iOS基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
+    <article id="post-其他/BAT等知名IT公司Github" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/其他/BAT等知名IT公司Github/">BAT知名公司Github</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/26/其他/BAT等知名IT公司Github/" class="archive-article-date">
+  	<time datetime="2017-06-26T03:53:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="open-source-team"><a href="#open-source-team" class="headerlink" title="open_source_team"></a>open_source_team</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>想跟着大神走吗,想学习大神的步伐吗,想使自己的项目变得简单吗,那就看一看个大公司团队的代码吧,下面主要写的就是各大公司团队的开源地址,可以尽情的学习,现在是单纯的中国的团队,有时间把外国的团队补上,欢迎持续关注,欢迎 “Star”</p>
+<h2 id="此页面会持续更新-如果您发现还有的团队可以提出来告诉我"><a href="#此页面会持续更新-如果您发现还有的团队可以提出来告诉我" class="headerlink" title="此页面会持续更新, 如果您发现还有的团队可以提出来告诉我"></a>此页面会持续更新, 如果您发现还有的团队可以提出来告诉我</h2><h2 id="目录-中国"><a href="#目录-中国" class="headerlink" title="目录(中国)"></a>目录(中国)</h2><h3 id="1-阿里巴巴"><a href="#1-阿里巴巴" class="headerlink" title="1.阿里巴巴"></a>1.阿里巴巴</h3><ul>
+<li><a href="https://github.com/alibaba/" target="_blank" rel="noopener">阿里巴巴主团队</a></li>
+<li><a href="https://github.com/thx" target="_blank" rel="noopener">阿里巴巴前端团队</a></li>
+</ul>
+<h3 id="2-腾讯"><a href="#2-腾讯" class="headerlink" title="2.腾讯"></a>2.腾讯</h3><ul>
+<li><a href="https://github.com/AlloyTeam" target="_blank" rel="noopener">QQ团队</a></li>
+<li><a href="https://github.com/tencent-wechat" target="_blank" rel="noopener">微信团队</a></li>
+<li><a href="https://github.com/tencent" target="_blank" rel="noopener">主团队</a></li>
+<li><a href="https://github.com/WechatFE" target="_blank" rel="noopener">前端</a></li>
+<li><a href="https://github.com/TencentOpen" target="_blank" rel="noopener">后台</a></li>
+<li><a href="https://github.com/frozenui" target="_blank" rel="noopener">腾讯移动端UI</a><h3 id="3-百度"><a href="#3-百度" class="headerlink" title="3.百度"></a>3.百度</h3></li>
+<li><a href="https://github.com/baidu" target="_blank" rel="noopener">主团队</a></li>
+<li><a href="https://github.com/ecomfe" target="_blank" rel="noopener">主团队2</a></li>
+<li><a href="https://github.com/fex-team" target="_blank" rel="noopener">web前端1</a></li>
+<li><a href="https://github.com/baidufe" target="_blank" rel="noopener">web前端2</a></li>
+<li><a href="https://github.com/ecomfe" target="_blank" rel="noopener">web前端3</a></li>
+<li><a href="https://github.com/baidu-research" target="_blank" rel="noopener">人工智能</a><h3 id="4-华为"><a href="#4-华为" class="headerlink" title="4. 华为"></a>4. 华为</h3></li>
+<li><a href="https://github.com/Huawei" target="_blank" rel="noopener">主团队</a></li>
+<li><p><a href="https://github.com/HuaweiBigData" target="_blank" rel="noopener">大数据团队</a></p>
+<h3 id="5-360"><a href="#5-360" class="headerlink" title="5. 360"></a>5. 360</h3></li>
+<li><p><a href="https://github.com/Qihoo360" target="_blank" rel="noopener">主团队</a></p>
+<h3 id="6-小米"><a href="#6-小米" class="headerlink" title="6. 小米"></a>6. 小米</h3></li>
+<li><p><a href="https://github.com/xiaomi" target="_blank" rel="noopener">主团队</a></p>
+</li>
+</ul>
+<h3 id="7-58同城"><a href="#7-58同城" class="headerlink" title="7. 58同城"></a>7. 58同城</h3><ul>
+<li><a href="https://github.com/58code" target="_blank" rel="noopener">主团队</a><h3 id="8-美团"><a href="#8-美团" class="headerlink" title="8. 美团"></a>8. 美团</h3></li>
+<li><a href="https://github.com/Meituan" target="_blank" rel="noopener">美团点评(老)</a></li>
+<li><a href="https://github.com/Meituan-Dianping" target="_blank" rel="noopener">美团点评(新)</a></li>
+<li><a href="https://github.com/dianping" target="_blank" rel="noopener">大众点评(老)</a><h3 id="9-滴滴出行"><a href="#9-滴滴出行" class="headerlink" title="9. 滴滴出行"></a>9. 滴滴出行</h3></li>
+<li><a href="https://github.com/didi" target="_blank" rel="noopener">主团队</a> </li>
+<li><a href="https://github.com/DDFE" target="_blank" rel="noopener">FE前端团队</a> </li>
+</ul>
+<h3 id="10-知乎"><a href="#10-知乎" class="headerlink" title="10. 知乎"></a>10. 知乎</h3><ul>
+<li><a href="https://github.com/zhihu" target="_blank" rel="noopener">主团队</a><h3 id="11-哔哩哔哩"><a href="#11-哔哩哔哩" class="headerlink" title="11. 哔哩哔哩"></a>11. 哔哩哔哩</h3></li>
+<li><a href="https://github.com/Bilibili" target="_blank" rel="noopener">主团队</a><h3 id="12-新浪微博"><a href="#12-新浪微博" class="headerlink" title="12. 新浪微博"></a>12. 新浪微博</h3></li>
+<li><a href="https://github.com/weibocom" target="_blank" rel="noopener">主团队</a><h3 id="13-搜狐"><a href="#13-搜狐" class="headerlink" title="13. 搜狐"></a>13. 搜狐</h3></li>
+<li><a href="https://github.com/SOHUDBA" target="_blank" rel="noopener">主团队</a><h3 id="14-极光开发者-Jpush"><a href="#14-极光开发者-Jpush" class="headerlink" title="14. 极光开发者(Jpush)"></a>14. 极光开发者(Jpush)</h3></li>
+<li><a href="https://github.com/jpush" target="_blank" rel="noopener">主团队</a><h3 id="15-开源中国"><a href="#15-开源中国" class="headerlink" title="15. 开源中国"></a>15. 开源中国</h3></li>
+<li><a href="https://github.com/oschina" target="_blank" rel="noopener">主团队</a> <h3 id="16-唯品会"><a href="#16-唯品会" class="headerlink" title="16. 唯品会"></a>16. 唯品会</h3></li>
+<li><a href="https://github.com/vipshop" target="_blank" rel="noopener">主团队</a><h3 id="17-当当"><a href="#17-当当" class="headerlink" title="17. 当当"></a>17. 当当</h3></li>
+<li><a href="https://github.com/dangdangdotcom" target="_blank" rel="noopener">主团队</a><h3 id="18-豆瓣"><a href="#18-豆瓣" class="headerlink" title="18. 豆瓣"></a>18. 豆瓣</h3></li>
+<li><a href="https://github.com/douban" target="_blank" rel="noopener">主团队</a></li>
+</ul>
+<h3 id="19-饿了么"><a href="#19-饿了么" class="headerlink" title="19. 饿了么"></a>19. 饿了么</h3><ul>
+<li><a href="https://github.com/eleme" target="_blank" rel="noopener">主团队</a><h3 id="20-当当"><a href="#20-当当" class="headerlink" title="20. 当当"></a>20. 当当</h3></li>
+<li><a href="https://github.com/dangdangdotcom" target="_blank" rel="noopener">主团队</a> <h3 id="21-有道词典"><a href="#21-有道词典" class="headerlink" title="21. 有道词典"></a>21. 有道词典</h3></li>
+<li><a href="https://github.com/netease" target="_blank" rel="noopener">主团队</a><h3 id="22-网易"><a href="#22-网易" class="headerlink" title="22.网易"></a>22.网易</h3></li>
+<li><a href="https://github.com/netease" target="_blank" rel="noopener">主团队</a><h3 id="23-七牛"><a href="#23-七牛" class="headerlink" title="23.七牛"></a>23.七牛</h3></li>
+<li><a href="https://github.com/qiniu" target="_blank" rel="noopener">主团队</a><h3 id="23-芒果TV-or-湖南卫视"><a href="#23-芒果TV-or-湖南卫视" class="headerlink" title="23.芒果TV(or 湖南卫视)"></a>23.芒果TV(or 湖南卫视)</h3></li>
+<li><a href="https://github.com/HunanTV" target="_blank" rel="noopener">主团队</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/github//" class="article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/26/其他/BAT等知名IT公司Github/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span>
+      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
     </nav>
   
 
@@ -1746,11 +2822,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1766,11 +2842,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1782,7 +2854,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1794,10 +2874,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -1806,11 +2882,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1818,7 +2898,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1827,10 +2907,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1846,15 +2922,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
             
             <div class="clearfix"></div>
