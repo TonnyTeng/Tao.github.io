@@ -192,6 +192,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue框架/vue框架-基础-介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/vue框架/vue框架-基础-介绍/">vue框架-基础-介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/13/vue框架/vue框架-基础-介绍/" class="archive-article-date">
+  	<time datetime="2018-06-13T03:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.声明式渲染<br></p>
+        
+          <a class="article-more-a" href="/2018/06/13/vue框架/vue框架-基础-介绍/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/13/vue框架/vue框架-基础-介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-iOS/iOS逆向/iOS逆向-砸壳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2200,283 +2288,6 @@ movable-view 默认为绝对定位，top和left属性为0px;
 
        
   
-    <article id="post-iOS/iOS问题/iOS问题-控件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/05/iOS/iOS问题/iOS问题-控件/">iOS问题-控件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/05/iOS/iOS问题/iOS问题-控件/" class="archive-article-date">
-  	<time datetime="2018-06-05T07:53:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、UIButton<br>1.实现按钮倒计时文本闪烁        </p>
-<pre><code>一般和NSTimer结合使用容易出现;
-
-解决方法：
-UIButtonTypeSystem --&gt; UIButtonTypeCustom
-</code></pre><p>2.图文排序<br>UIEdgeInsets insets = {top, left, bottom, right};<br>正数就是距相应的边的距离增加，负数就是距相应的距离减少;<br><img src="edgeinsets.png" alt="edgeinsets">         </p>
-<pre><code>蓝色标识为可变区域， 绿色标识为不变区域。
-UIEdgeInsets结构体的属性top与bottom为一对，用来指定纵向可变区域（黑色虚线矩形），left与right为一对，用来指定横向可变区域(白色虚线矩形)。
-当UIButton/UIImageView的size大于UIImage的size时，会调整图片中可变区域大小以铺满整个控件,具体调整规则如下：
-    (1)控件宽度大于图片宽度，拉伸白色虚线矩形
-    (2)控件高度大于图片高度，拉伸黑色虚线矩形
-    (3)控制宽度小于图片宽度时，横向整体缩小(可变区与不变区比例不变)
-    (4)控制高度小于图片高度时，纵向整体缩小(可变区与不变区比例不变)
-</code></pre><p>eg:<br>UIEdgeInsets insets = {top, left, bottom, right}<br>正数就是距相应的边的距离增加，负数就是距相应的距离减少<br><img src="button1.png" alt="button1"></p>
-<pre><code>1.图左文右 - 默认状态:
-    UIButton *button1 = [buttonArray objectAtIndex:0];
-    [button1 setImageEdgeInsets:UIEdgeInsetsMake(0,0,0,0)];
-    [button1 setTitleEdgeInsets:UIEdgeInsetsMake(0,0,0,0)];
-2.图片文字同时居中：
-    图 右移Label Width
-    文 左移ImageView Height
-    UIButton *button2 = [buttonArray objectAtIndex:1];
-    [button2 setImageEdgeInsets:UIEdgeInsetsMake(0,0,0,-button2.titleLabel.intrinsicContentSize.width)];
-    [button2 setTitleEdgeInsets:UIEdgeInsetsMake(0,-button2.currentImage.size.width,0,0)];
-3.图右 文左
-    图 右移Label Width + 右移Label Width  
-    文 左移ImageView Height + 左移ImageView Height
-    UIButton *button3 = [buttonArray objectAtIndex:2];
-    [button3 setImageEdgeInsets:UIEdgeInsetsMake(0,0,0,-button3.titleLabel.intrinsicContentSize.width * 2)];
-    [button3 setTitleEdgeInsets:UIEdgeInsetsMake(0,-button3.currentImage.size.width * 2,0,0)];
-
-4.图上 文下    
-    图 右移Label Width，上移Label Height
-    文 左移ImageView Width，下移ImageView Height
-    UIButton *button4 = [buttonArray objectAtIndex:3];
-    [button4 setImageEdgeInsets:UIEdgeInsetsMake(-button4.titleLabel.intrinsicContentSize.height,0,0,-button4.titleLabel.intrinsicContentSize.width)];
-    [button4 setTitleEdgeInsets:UIEdgeInsetsMake(0,-button4.currentImage.size.width,-button4.currentImage.size.height,0)];
-5.图文显示其一:
-    图 或 文 居中显示    
-    UIButton *button5 = [buttonArray objectAtIndex:4];
-6.图下 文上
-    图 右移Label Width，下移Label Height
-    文 左移ImageView Width，上移ImageView Height
-    UIButton *button6 = [buttonArray objectAtIndex:5];
-[button6 setImageEdgeInsets:UIEdgeInsetsMake(0,0,-button6.titleLabel.intrinsicContentSize.height,-button6.titleLabel.intrinsicContentSize.width)];
-[button6 setTitleEdgeInsets:UIEdgeInsetsMake(-button6.currentImage.size.height,-button6.currentImage.size.width,0,0)];
-</code></pre><p>二、UITableView<br>1.最后一个Cell不显示分割线        </p>
-<pre><code>解决方法：
-
-//Objective-C
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    for (UIView *subview in self.contentView.superview.subviews) {
-        if ([NSStringFromClass(subview.class) hasSuffix:@&quot;SeparatorView&quot;]) {
-            subview.hidden = NO;
-            CGRect frame = subview.frame;
-            frame.origin.x += self.separatorInset.left;
-            frame.size.width -= self.separatorInset.right;
-            subview.frame =frame;
-        }
-    }
-}
-//Swift
-override func layoutSubviews() {
-
-    super.layoutSubviews()
-    for item in self.contentView.superview!.subviews {
-        var subview = item as! UIView
-        if NSStringFromClass(subview.classForCoder).hasSuffix(&quot;SeparatorView&quot;) {
-            subview.hidden = false
-            var frame = subview.frame
-            frame.origin.x += self.separatorInset.left
-            frame.size.width -= self.separatorInset.right
-            subview.frame  = frame
-        }
-    }
-}
-</code></pre><p>2.delegate执行的先后顺序：</p>
-<pre><code>- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-</code></pre><p>三、UINavigationBar<br>1.导航栏渐变    </p>
-<pre><code>方法一:
-思路: 
-    向下、上滑动时分别对navigationBar的alpha进行更新;
-tips:
-    如果你不希望自己 navigationBar 上的按钮也被改变透明度，可以通过自定义 UINavigationController 实现。
-    用系统的 navigationBar 时，navigationBar上的按钮的透明度也会被更改;
-eg:
-    #pragma mark - UIScrollViewDelegate
-    - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-        self.currentPostion = scrollView.contentOffset.y;
-
-        if (self.currentPostion &gt; 0) {
-            if (self.currentPostion - self.lastPosition &gt;= 0) {
-                if (self.topBool) {
-                    self.topBool = NO;
-                    self.bottomBool = YES;
-                    self.stopPosition = self.currentPostion + 64;
-                }
-                self.lastPosition = self.currentPostion;
-                self.navigationController.navigationBar.alpha = 1 - self.currentPostion / 500;
-            } else {
-                if (self.bottomBool) {
-                    self.bottomBool = NO;
-                    self.topBool = YES;
-                    self.stopPosition = self.currentPostion + 64;
-                }
-                self.lastPosition = self.currentPostion;
-                self.navigationController.navigationBar.alpha = (self.stopPosition - self.currentPostion) / 200;
-            }
-        }
-    }
-方法二:
-思路:
-    在 navigationBar 上加一个 view，然后设置 view 的 alpha;
-eg:
-    #pragma mark - UIScrollViewDelegate
-    - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-        self.currentPostion = scrollView.contentOffset.y;
-
-        if (self.currentPostion &gt; 0) {
-            if (self.currentPostion - self.lastPosition &gt;= 0) {
-                if (self.topBool) {
-                    self.topBool = NO;
-                    self.bottomBool = YES;
-                    self.stopPosition = self.currentPostion + 64;
-                }
-                self.lastPosition = self.currentPostion;
-                self.customView.alpha = 1 - self.currentPostion / 500;
-            } else {
-                if (self.bottomBool) {
-                    self.bottomBool = NO;
-                    self.topBool = YES;
-                    self.stopPosition = self.currentPostion + 64;
-                }
-                self.lastPosition = self.currentPostion;
-                self.customView.alpha = (self.stopPosition - self.currentPostion) / 200;
-            }
-        }
-    }
-
-方法三：
-思路：
-    自定义导航控制器实现
-</code></pre><p>四、UIImageView<br>1.动画实现        </p>
-<pre><code>UIImageView *imageView = [UIImageView alloc] init];
-//设置动画帧
-imageView.animationImages=[NSArray arrayWithObjects:
-     [UIImage imageNamed:@&quot;gc_service_0&quot;],
-     [UIImage imageNamed:@&quot;gc_service_1&quot;],
-     [UIImage imageNamed:@&quot;gc_service_2&quot;],
-     [UIImage imageNamed:@&quot;gc_service_3&quot;],
-     [UIImage imageNamed:@&quot;gc_service_4&quot;],
-     [UIImage imageNamed:@&quot;gc_service_5&quot;],nil ];
-imageView.animationDuration = 1.0//设置动画总时间
-imageView.animationRepeatCount = 0;//设置重复次数,0表示不重复
-[imageView startAnimating];   //开始动画
-</code></pre><p>五、指定位置圆角<br>以UIButton为例:</p>
-<pre><code>UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-
-按钮 底部 - 左边 - 圆角
-UIRectCorner corners =  UIRectCornerBottomLeft;
-按钮 底部 - 左边+右边 - 圆角
-UIRectCorner corners =  UIRectCornerBottomLeft | UIRectCornerBottomRight;
-按钮  底部(左) + 顶(右) - 圆角
-UIRectCorner corners =  UIRectCornerBottomLeft | UIRectCornerTopRight;
-...    
-
-UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(10, 10)];
-
-CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-maskLayer.frame = button.bounds;
-maskLayer.path = maskPath.CGPath;
-button.layer.mask = maskLayer;
-
-枚举：
-typedef NS_OPTIONS(NSUInteger, UIRectCorner) {
-    UIRectCornerTopLeft     = 1 &lt;&lt; 0,
-    UIRectCornerTopRight    = 1 &lt;&lt; 1,
-    UIRectCornerBottomLeft  = 1 &lt;&lt; 2,
-    UIRectCornerBottomRight = 1 &lt;&lt; 3,
-    UIRectCornerAllCorners  = ~0UL
-};
-</code></pre><p>参考资料:<br>1.<a href="http://www.cnblogs.com/lancely/p/5782784.html" target="_blank" rel="noopener">有footerView时最后一个cell不显示分割线</a><br>2.<a href="http://blog.cocoachina.com/article/57383" target="_blank" rel="noopener">导航栏渐变</a><br>3.<a href="https://www.jianshu.com/p/3052a3b14a4e" target="_blank" rel="noopener">UIButton的图文排序</a><br>4.<a href="https://www.jianshu.com/p/0d3dbc30fad5" target="_blank" rel="noopener">UIEdgeInsetsMake-重要</a>     </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/05/iOS/iOS问题/iOS问题-控件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -2583,11 +2394,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">HBuilder基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2603,7 +2422,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2615,23 +2438,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2643,11 +2458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2655,11 +2470,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2679,10 +2494,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
@@ -2692,6 +2503,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
               </li>
              
               <li class="article-tag-list-item">

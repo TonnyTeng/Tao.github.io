@@ -192,6 +192,183 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS/CSS-样式框-背景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/CSS/CSS-样式框-背景/">CSS-样式框-背景</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/CSS/CSS-样式框-背景/" class="archive-article-date">
+  	<time datetime="2018-03-20T03:19:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、框模型(盒子模型)概要 - 回顾</p>
+<p>1.盒子的属性</p>
+<pre><code>width/height
+padding - 内边距(top/right/bottom/left) 
+border - 边界(宽度、样式、颜色)
+margin - 外边距(top/right/bottom/left)，外边距塌陷
+</code></pre><p>2.<a href="https://developer.mozilla.org/zh-CN/Learn/CSS/Introduction_to_CSS/Box_model#Overflow" target="_blank" rel="noopener">溢流-overflow</a></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Boxes" target="_blank" rel="noopener">背景裁剪 - background clip</a></p>
+<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline" target="_blank" rel="noopener">轮廓 - outline</a></p>
+<p>5.高级属性</p>
+<pre><code>设置width和height的约束;
+完全改变盒模型;
+</code></pre><p>6.盒子显示(display)类型</p>
+<pre><code>常见的display类型:block/inline/inline-block
+不常见的display类型:table/flex/grid
+</code></pre><p>二、背景</p>
+<p>1.概述</p>
+<p>元素的背景是指，在元素内容、内边距和边界下层的区域。默认情况下就是这样——在新的浏览器中，你可以使用 background-clip属性改变背景所占用的区域。</p>
+<p>背景并不在外边距下层——外边距不是元素区域的一部分，而是元素外面的区域。</p>
+<pre><code>background-color: 为背景设置一个纯色。
+background-image: 指定在元素的背景中出现的背景图像。
+这可以是静态文件，也可以是生成的渐变。
+background-position:指定背景应该出现在元素背景中的位置。
+background-repeat: 指定背景是否应该被重复(平铺)。
+background-attachment: 当内容滚动时，指定元素背景的行为，例如，它是滚动的内容，还是固定的?
+background: 在一行中指定以上五个属性的缩写。
+background-size: 允许动态调整背景图像的大小。
+</code></pre><p>2.基本内容:</p>
+<pre><code>背景颜色background-color
+</code></pre><p>背景图像background-image </p>
+<pre><code>属性指定了在元素背景中显示的背景图像。该属性最简单的用法是使用 url() 函数——它以一个参数的路径作为参数——获取一个静态图像文件来插入;
+    eg:background-image: url(https://xxx/xxx/xxx.png)
+</code></pre><p>背景重复background-repeat</p>
+<pre><code>允许您指定背景图像是如何重复的。默认值是repeat;
+
+background-repeat: no-repeat;    
+no-repeat: 图像将不会重复:它只会显示一次。
+repeat-x: 图像将在整个背景中水平地重复。
+repeat-y: 图像会在背景下垂直地重复。
+</code></pre><p>背景位置background-position</p>
+<pre><code>允许我们在背景中任意位置放置背景图像。通常，该属性将使用两个通过空格分隔的值，该空间指定了图像的水平(x)和垂直(y)坐标。图像的左上角是原点(0,0)。把背景想象成一个图形，x坐标从左到右，y坐标从上到下。
+该属性可以接受许多不同的值类型，最常用的是:
+    •像px这样的绝对值——比如 background-position: 200px 25px.
+    •像rems 这样的相对值——比如 background-position: 20rem 2.5rem.
+    •百分比 ——比如 background-position: 90% 25%.
+    •关键字——比如 background-position: right center. 这两个值是直观的，可以分别取值比如 left，center， right和 top，center， bottom。
+</code></pre><p>3.背景图像：渐变</p>
+<p>background-image:linear-gradient();</p>
+<pre><code>linear-gradient()渐变函数
+函数至少需要用逗号分隔的三个参数——背景中渐变的方向，开始的颜色和结尾的颜色.
+</code></pre><p>3.1线性渐变:（一条直线到一条直线）</p>
+<pre><code>div {
+    background-image: linear-gradient(to bottom, orange, yellow);
+    //渐变将从上到下，从顶部的橙色开始，然后平稳过渡到底部的黄色
+}
+</code></pre><p><span>            </span></p>
+<pre><code>//使用关键字来指定方向 （to bottom，to right， to bottom right等）， 或角度值 (0deg相当于 to top，90deg 相当于 to right，直到 360deg，它再次相当于 to top ）
+eg:linear-gradient(to bottom, yellow, orange 40%, yellow);
+
+//也可以在颜色定义的渐变中指定其他的点——这些被称为颜色站点(color stops)，浏览器会计算出每一组颜色站点之间的颜色渐变
+eg:repeating-linear-gradient(to right, yellow, orange 25px, yellow 50px);
+</code></pre><p>3.2径向渐变：(从一个点发散出来)</p>
+<p>4.背景附着background-attachment</p>
+<pre><code>scroll将把背景修改为页面视图，因此它将在页面滚动时滚动。注意，我们说的是视图，而不是元素——如果你滚动实际的背景设置的元素，而不是页面，背景不会滚动
+fixed可以在页面的位置上固定背景，所以当页面滚动时，它不会滚动，不管你是滚动页面还是背景设置的元素，它都会保持在相同的位置
+local将背景设置为它所设置的元素的背景，因此当您滚动元素时，背景会随之滚动。
+</code></pre><p>5.背景简写<br>        background: yellow linear-gradient(to bottom, orange, yellow) no-repeat left center scroll;         </p>
+<p>6.多个背景:(图片+渐变同时显示)</p>
+<p>IE9+已经具备了将多个背景连接到单个元素的能力:</p>
+<pre><code>div {
+    background: url(image.png) no-repeat 99% center,
+                url(background-tile.png),
+                linear-gradient(to bottom, yellow, #dddd00 50%, orange);
+    background-color: yellow;
+}
+
+这些背景都是堆叠在一起的，第一个出现在顶部，第二个在下面，第三个，等等。这可能不是你所期待的，所以要小心。
+</code></pre><p>也可以将多个值放入到普通写法的 background-*属性中:</p>
+<pre><code>background-image: url(image.png), url(background-tile.png);
+background-repeat: no-repeat, repeat;
+</code></pre><p>7.背景尺寸background-size:</p>
+<p>允许你动态地改变背景图像的大小，使它更适合你的设计.</p>
+<p>对于每个背景图像，您需要包含两个背景大小值，一个用于水平维度，另一个用于垂直方向：</p>
+<pre><code>background-image: url(myimage.png);
+background-size: 16px 16px;
+
+可以使用你期望的所有长度单位来指定你想要的值——px，百分比， rem等.
+</code></pre><p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_boxes" target="_blank" rel="noopener">样式框</a></p>
+<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_boxes/背景" target="_blank" rel="noopener">样式框-背景</a></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/Learn/CSS/Introduction_to_CSS/Box_model#Background_clip" target="_blank" rel="noopener">background-clip coverage</a></p>
+<p>4.<a href="https://dev.opera.com/articles/css3-radial-gradients/" target="_blank" rel="noopener">CSS3 Radial Gradients</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/CSS/CSS-样式框-背景/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-CSS/CSS-文本样式-网络字体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2127,229 +2304,6 @@ e)最后一个规则选择了在元素上使用类 unset 的所有链接然后�
 
        
   
-    <article id="post-CSS/CSS-值和单位" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/16/CSS/CSS-值和单位/">CSS-值和单位</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/16/CSS/CSS-值和单位/" class="archive-article-date">
-  	<time datetime="2018-03-16T02:50:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-16</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、CSS的值</p>
-<p>1.数值: 长度值，用于指定例如元素宽度、边框（border）宽度或字体大小；以及无单位整数。用于指定例如相对线宽或运行动画的次数。</p>
-<p>1.1长度和尺寸:<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" target="_blank" rel="noopener">lenght</a></p>
-<pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;
-
-CSS
-p {
-  margin: 5px;
-  padding: 10px;
-  border: 2px solid black;
-  background-color: cyan;
-}
-
-p:nth-child(1) {
-  width: 150px;
-  font-size: 18px;
-}
-
-p:nth-child(2) {
-  width: 250px;
-  font-size: 24px;
-}
-
-p:nth-child(3) {
-  width: 350px;
-  font-size: 30px;
-}
-</code></pre><p>字号(font-size)代表字体/字形的高度;<br><br>绝对单位:</p>
-<pre><code>像素-px(pixels)
-mm, cm, in: 毫米（Millimeters），厘米（centimeters），英寸（inches = 2.54cm）
-pt, pc: 点（Points - 1pt=1/72in）， 十二点活字（ picas - 1pc=12pt）
-
-1in 总是（等于）96px
-3pt 总是（等于）4px
-25.4mm 总是（等于）96px
-</code></pre><p>相对单位 - 相对于当前元素的字号（ font-size ）或者视口（viewport ）尺寸:    </p>
-<pre><code>em:1em与当前元素的字体大小相同（更具体地说，一个大写字母M的宽度）。CSS样式被应用之前，浏览器给网页设置的默认基础字体大小是16像素，这意味着对一个元素来说1em的计算值默认为16像素。但是em单位是会继承父元素的字体大小，所以如果在父元素上设置了不同的字体大小，em的像素值就会变得复杂。em是Web开发中最常用的相对单位。
-ex, ch: 分别是小写x的高度和数字0的宽度。这些并不像em那样被普遍使用或很好地被支持;
-rem: REM（root em）和em以同样的方式工作，但它总是等于默认基础字体大小的尺寸；继承的字体大小将不起作用，这听起来像一个更好的选择比em，虽然在旧版本的IE上不被支持（查看关于跨浏览器支持 Debugging CSS.)
-vw, vh: 分别是视口宽度的1/100和视口高度的1/100，其次，它不像rem那样被广泛支持。
-</code></pre><p>使用相对单位是非常有用的-调整HTML元素大小相对于字体或视口大小，这意味着布局将保持看起来正确.</p>
-<p>1.2无单位的值</p>
-<p>eg1:边框(内/外)</p>
-<pre><code>一个元素完全去除外边框和内边框，你可以只使用无单位的0 —0就是0，不管前面设置的单位是什么！
-margin: 0
-</code></pre><p>eg2:无单位的行高</p>
-<pre><code> line-height,设置元素中每行文本的高度。你可以使用单位设置特定的行的高度，但使用一个无量纲的值往往更容易，它就像一个简单的乘法因子。
-p {
-      line-height: 1.5;//这里默认字号16px;行高为1.5或24px（1.5x16）;
-}
-</code></pre><p>eg3:动画数值-角度、时间、时长、次数</p>
-<pre><code>&lt;p&gt;Hello&lt;/p&gt;
-
-CSS
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-p {
-  color: red;
-  width: 100px;
-  font-size: 40px;
-  transform-origin: center;
-}
-
-p:hover {
-  animation-name: rotate;
-  animation-duration: 0.6s;
-  animation-timing-function: linear;
-  animation-iteration-count: 5;
-}    
-</code></pre><p>2.百分比: 可以用于指定尺寸或长度——例如取决于父容器的长度或高度，或默认的字体大小。</p>
-<pre><code>&lt;div&gt;
-  &lt;div class=&quot;boxes&quot;&gt;Fixed width layout with pixels&lt;/div&gt;
-  &lt;div class=&quot;boxes&quot;&gt;Liquid layout with percentages&lt;/div&gt;
-&lt;/div&gt;
-
-CSS
-div .boxes {
-  margin: 10px;
-  font-size: 200%;//字号为父容器的200%（默认字号16px）
-  color: white;
-  height: 150px;
-  border: 2px solid black;
-}
-
-.boxes:nth-child(1) {//第一个框红色背景-固定宽高
-  background-color: red;
-  width: 650px;
-}
-
-.boxes:nth-child(2) {//第二个框蓝色背景-固定高，动态宽(视口宽度75%)
-  background-color: blue;
-  width: 75%;
-}
-</code></pre><p>动态布局(流体布局)–随浏览器视口大小的变化;<br>固定宽度布局–不管怎样都保持不变;</p>
-<pre><code>可以使用动态布局来确保标准文档始终适合于屏幕，并且可以在不同的移动设备屏幕大小上表现良好。
-一个固定宽度的布局可以用来保持在线地图的大小相同；浏览器视口可以在地图上滚动，只在一个时间内查看一定数量的地图。您可以立即看到的量取决于您的视口有多大。
-</code></pre><p>3.颜色: 用于指定背景颜色，字体颜色等。</p>
-<p>颜色的描述方式:</p>
-<pre><code>使用关键字
-    red/green/yellow...
-    eg:    background-color: red;
-
-使用RGB立体坐标（RGB cubic-coordinate）系统（以“#”加十六进制或者 rgb() 和 rgba() 函数表达式的形式）；
-    eg:background-color: #ff0000;
-       background-color: rgb(255,0,0);
-        background-color: rgba(255,0,0,0.5);
-使用HSL圆柱坐标（HSL cylindrical-coordinate）系统（以 hsl() 和 hsla() 函数表达式的形式）-- 包含r、g、b、色相、饱和度、明度值；
-    色调：颜色的底色调。这个值在0到360之间，表示色轮周围的角度。
-    饱和度：饱和度是多少？这需要一个价值从0-100%，其中0是没有颜色（它将显示为灰色），100%是全彩色饱和度。
-    明度：颜色有多亮或明亮？这需要一个价值从0-100%，其中0是无光（它会出现全黑的），100%是充满光的（它会出现全白）
-    eg:background-color: hsl(240,100%,50%);//蓝
-        background-color: hsla(240,100%,50%,0.5);
-</code></pre><p>通过CSS——opacity 属性设置不透明度和使用alpha通道设置不透明度的区别：</p>
-<pre><code>alpha通道：0是完全透明的,1是完全不透明的；
-opacity属性：一切元素都是opacity的透明度；
-
-例如,当您想创建一个图片覆盖的标题，图片能透过标题显示，且标题的文本显示不受影响，此时应该使用RGBA修改标题背景色的透明度；另一方面,当您想要创建一个动画效果,整个UI元素从完全隐藏到可见，此时应该使用不透明度（Opacity）。
-</code></pre><p>4.坐标位置: 例如，以屏幕的左上角为坐标原点定位元素的位置。</p>
-<p>5.函数: 例如，用于指定背景图片或背景图片渐变。</p>
-<pre><code>函数通常与JavaScript，Python，C++语言相关联，但它也作为属性值存在于CSS中。
-eg:
-background-color: hsla(240,100%,50%,0.5);
-transform: translate(50px, 60px);
-background-image: url(&apos;myimage.png&apos;);
-</code></pre><p>参考资料：</p>
-<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference" target="_blank" rel="noopener">CSS手册</a></p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations" target="_blank" rel="noopener">CSS动画</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value#Color_keywords" target="_blank" rel="noopener">颜色描述</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/16/CSS/CSS-值和单位/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -2456,11 +2410,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">HBuilder基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2476,7 +2438,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2488,23 +2454,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2516,11 +2474,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2528,11 +2486,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2552,10 +2510,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
@@ -2565,6 +2519,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tao1010.github.io/"/>
-  <updated>2018-07-15T13:46:27.341Z</updated>
+  <updated>2018-07-16T14:31:27.010Z</updated>
   <id>http://tao1010.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HBuilder入门-环境</title>
+    <link href="http://tao1010.github.io/2018/07/16/HBuilder/HBuilder%E5%85%A5%E9%97%A8-%E7%8E%AF%E5%A2%83/"/>
+    <id>http://tao1010.github.io/2018/07/16/HBuilder/HBuilder入门-环境/</id>
+    <published>2018-07-16T07:42:44.000Z</published>
+    <updated>2018-07-16T14:31:27.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、HBuilder</p><a id="more"></a><p>二、5+App<br>1.概念</p><pre><code>HTML5 Plus 移动app的简称5+App。mobile web项目在浏览器运行appmobile web 打包成 app</code></pre><p>2.语言</p><pre><code>HTML、JS、CSS</code></pre><p>3.打包</p><pre><code>本地打包云打包证书：    android：使用DCloud生成的公用证书或自己生成的证书，两者不影响安装包的发布，唯一的差别就是证书中开发者和企业信息不同。</code></pre><p>三、wap2app<br>1.概念</p><pre><code>将移动站点，快速发布成App的增强方案；</code></pre><p>四、流应用</p><p>参考资料:<br>1.<a href="http://ask.dcloud.net.cn/article/88" target="_blank" rel="noopener">5+ App开发Native.js入门指南</a><br>2.<a href="http://www.dcloud.io/" target="_blank" rel="noopener">HBuilder架构</a><br>3.<a href="http://ask.dcloud.net.cn/article/91" target="_blank" rel="noopener">HBuilder中的UI-mui</a><br><a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">MUI</a><br>4.<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="noopener">HTML5+规范</a>     </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一、HBuilder&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HBuilder" scheme="http://tao1010.github.io/categories/HBuilder/"/>
+    
+    
+      <category term="HBuilder基础" scheme="http://tao1010.github.io/tags/HBuilder%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-android环境配置</title>
@@ -445,28 +467,6 @@
       &lt;p&gt;一、PyCharm简介&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;版本号：2016.2.3
 &lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://tao1010.github.io/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://tao1010.github.io/tags/python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python-python基础-第一个程序</title>
-    <link href="http://tao1010.github.io/2018/06/26/Python/Python%E5%9F%BA%E7%A1%80/Python-python%E5%9F%BA%E7%A1%80-%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://tao1010.github.io/2018/06/26/Python/Python基础/Python-python基础-第一个程序/</id>
-    <published>2018-06-26T02:27:11.000Z</published>
-    <updated>2018-06-26T15:42:29.386Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.基本概念</p><a id="more"></a><pre><code>Python程序文件扩展名 通常是 .py；Pyhton源程序是一个特殊格式的文本文件，可用任意文本编辑软件做Python的开发；</code></pre><p>2.创建python程序<br><br>方法一：终端</p><pre><code>打开终端工具,在桌面创建文件夹python demo    cd /Users/xxx/Desktop #切换到桌面    mkdir python demo      #创建文件夹创建python1.py文件    cd python demo    touch python1.py     #创建python1文件    vim python1.py       #开始编辑文件    i                        #切换到编辑模式    #编辑python程序代码        print(&quot;Hello python&quot;)        print(&quot;Hello world&quot;)    ################    esc                        #退出编辑模式    :wq                        #保存并退出python1.py文件执行python1.py文件    python python1.py    #执行python1.py文件此时可在终端看到输出的内容</code></pre><p>3.常见错误</p><pre><code>语法错误 SyntaxError    拼写错误    一行代码多件事情的处理的情况 --- 每行代码执行一个动作python2.x默认不支持中文缩进错误 IndentationError    每行代码顶格输入</code></pre><p>4.python2.x和3.x区别</p><pre><code>python2.x 的解释器名称 python - 不支持中文python3.x 的解释器名称 python3 - 支持中文    只是在2.0的基础上修改了底层实现代码，所以2.x--&gt;3.x工作量不大建议使用3.0的语法，设计2.0的时候不考虑向下兼容如果开发时，无法立即使用Pyhon3.0，建议使用Python3.0开发，然后使用Python2.6、2.7执行，并且做一些兼容处理。</code></pre><p>5.执行Python程序的三种方式<br><br>解释器运行Python程序</p><pre><code>Python解释器    python xxx.py    #使用python 2.x 解释器    python3 xxx.py #使用python 3.x 解释器其他解释器    CPython 官方版本的C语言实现    Jython 可以运行在JAVA平台    IronPython 可以运行在.NET和Mono平台    PyPy Python实现，支持JIT即时编译</code></pre><p>交互式运行Python程序    </p><pre><code>步骤：    终端输入:python #进入Python2.x Shell环境    输入命令代码：        print(&quot;Hello world&quot;) # 回车    退出：        方式一: exit()        方式二: control + d特点：    直接在终端中运行解释器，不输入要执行的文件名；    在python的Shell中直接输入Python代码，会立即看到程序执行的结果；适用：    学习和验证python语法或局部代码缺点：    代码不能保存；    不适合运行太大的程序；IPython    IPython(interactive python)是一个python的交互式shell    特点：        支持自动补全；        自动缩进；        支持bash shell命令；        内置了许多有用的功能和函数；    版本：        ipyhton #python2.x        ipyhton3 # python3.x    退出：        control + d 或者 exit</code></pre><p>Python的IDE - PyCharm</p><pre><code>集成开发环境(IDE,intergrated development environment)    图形用户界面；    代码编辑器；(支持 代码补全，自动缩进)    编辑器/解释器；    调试器；(断点/单步执行)    ...PyCharm特点:    可以在Windows、Linux、macOS 下使用；    适合开发大型项目；</code></pre><p>参考资料:<br><br>1.<a href="">黑马视频</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.基本概念&lt;/p&gt;
     
     </summary>
     

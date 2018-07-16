@@ -192,6 +192,135 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-其他/云盘链接导出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/其他/云盘链接导出/">云盘链接导出下载</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/其他/云盘链接导出/" class="archive-article-date">
+  	<time datetime="2018-04-17T08:55:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>针对谷歌浏览器的XX云盘</p>
+<p>1.资源准备<br>安装Homebrew</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><p>安装aria2</p>
+<pre><code>brew install aria2
+</code></pre><p><a href="https://link.jianshu.com/?t=https%3A%2F%2Fpan.baidu.com%2Fs%2F1sYWQYOU4ZJnPTOmuApw-yQ" target="_blank" rel="noopener">下载Aria2配置文件</a>    密码：h1ep<br>解压文件内容：<br><img src="1.png" alt="1">    </p>
+<p>2.配置Aria2<br>打开目标文件夹(command + shift + g)后粘贴一下内容：</p>
+<pre><code>/usr/local/Cellar/aria2/1.33.1/bin
+或
+/usr/local/Cellar/aria2 进入文件夹选择自己的版本之下的bin文件夹
+</code></pre><p>移动:</p>
+<pre><code>A.bin文件夹下的aria2c    --&gt;aria2c.bak;   
+
+B.将之前解压的文件夹Aria2中的         
+    aria2.conf        
+    aria2.log        
+    aria2.session        
+    com.aria2c.plist        
+    com.google.Chrome.mobileconfig 
+5个文件拷贝到路径：/usr/local/Cellar/aria2的文件夹下    
+
+C.将之前解压的文件夹Aria2中的 Aria2GUI.app 移到 /Applications 目录下    
+</code></pre><p>拷贝:</p>
+<pre><code>将之前解压的文件夹Aria2中的aria2c文件拷贝到bin文件夹中;
+</code></pre><p>编辑:（/usr/local/Cellar/aria2文件夹中）</p>
+<pre><code>aria2.conf 中替换所有hsuyelin(他人电脑名)--&gt;xxx(自己电脑名) 保存关闭
+com.aria2c.plist 中替换所有hsuyelin(他人电脑名)--&gt;xxx(自己电脑名) 保存关闭
+</code></pre><p>验证: </p>
+<pre><code>aria2c 未报错 正常        
+未验证：报错情况        
+报错6800:修改aria2.conf 文件内容rpc-listen-port=6800(RPC端口, 仅当默认端口被占用时修改)
+</code></pre><p><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2Facgotaku%2FBaiduExporter" target="_blank" rel="noopener">谷歌插件下载</a></p>
+<p>谷歌浏览器输入:</p>
+<pre><code>chrome://extensions/
+</code></pre><p>将下载的插件拖入浏览器上述页面中，打开开发者模式,在插件详情中复制id</p>
+<p>核对安装:    </p>
+<pre><code>打开(/usr/local/Cellar/aria2文件夹中）com.google.Chrome.mobileconfig 文件,核对白名单是否一致，反之则粘贴之前内容
+
+   &lt;key&gt;ExtensionInstallWhitelist&lt;/key&gt;
+   &lt;array&gt;
+       &lt;string&gt;xxxxxxxxxxxxx&lt;/string&gt;
+   &lt;/array&gt;
+</code></pre><p>双击 com.google.Chrome.mobileconfig 文件 直到完成<br>3.设置开机自启动<br>将下载的解压文件夹中的com.aria2c.plist文件 拷贝至  文件夹(command + shift + g : /Library/LaunchAgents) 中,以管理员身份确认即可。</p>
+<p>参考资料：<br>1.<a href="https://yalv.me/aria2/" target="_blank" rel="noopener">Mac配置Aria2，高速下载百度云</a><br>2.<a href="https://ziahamza.github.io/webui-aria2/" target="_blank" rel="noopener">推荐 - Aria2 WebUI</a><br>3.<a href="https://www.jianshu.com/p/74ab7c2053ac" target="_blank" rel="noopener">Mac下Aria2安装及其配置并设置开机启动</a><br>4.<a href="https://www.jianshu.com/p/29819b9ee40c?from=groupmessage" target="_blank" rel="noopener">Mac配置Aria2</a>    </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">下载</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/其他/云盘链接导出/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-JavaScript/JavaScript基础-JS代码块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1110,94 +1239,6 @@ eg:对于列宽，上下文是一个960px的容器，目标宽度是60px；
 
        
   
-    <article id="post-JavaScript/JavaScript基础-JS第一步-定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/11/JavaScript/JavaScript基础-JS第一步-定义/">JavaScript基础-JS第一步-定义</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/11/JavaScript/JavaScript基础-JS第一步-定义/" class="archive-article-date">
-  	<time datetime="2018-04-11T05:40:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、JavaScript的定义</p>
-        
-          <a class="article-more-a" href="/2018/04/11/JavaScript/JavaScript基础-JS第一步-定义/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/11/JavaScript/JavaScript基础-JS第一步-定义/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
@@ -1304,11 +1345,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">HBuilder基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,7 +1373,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,23 +1389,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1364,11 +1409,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1376,11 +1421,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1400,10 +1445,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
@@ -1413,6 +1454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
               </li>
              
               <li class="article-tag-list-item">
