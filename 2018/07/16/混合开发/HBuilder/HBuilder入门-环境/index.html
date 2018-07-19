@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Tao的博客">
 <meta property="og:description" content="一、HBuilder">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-17T09:38:49.934Z">
+<meta property="og:updated_time" content="2018-07-19T05:15:16.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HBuilder入门-环境">
 <meta name="twitter:description" content="一、HBuilder">
@@ -224,6 +224,7 @@
 <a id="more"></a>
 <p>1.概念</p>
 <pre><code>主要用于开发html、js、css，同时配合HTML的后端脚本语言如php、jsp也可以适用，还有前端的预编译语言如less以及markdown都可以良好的编辑.
+HBuilder是基于eclipse 3.7 开发的，不兼容eclipse4.x版本的插件
 </code></pre><p>2.快捷方式</p>
 <pre><code>连续单词的首字母; dg--&gt;document.get
 整段HTML一般使用tag的名称; sc/st--&gt;script/style
@@ -247,8 +248,33 @@ js的关键字代码块，是在关键字最后加一个重复字母;
     @example     提示代码示例
     @extends    标识继承于某个类型
     @param    描述参数和参数类型
-    @property    描述对象的属性    
-</code></pre><p>二、5+App(Html 5 Plus app)<br>1.概念</p>
+    @property    描述对象的属性
+</code></pre><p>4.扩展语法提示、自定义语法</p>
+<pre><code>JS部分：
+    1.基于sdocml的框架与法库
+        选中工程，点击右键，引入框架语法；
+        常用框架语法库，包括jquery、zepto、mui等
+    2.jsdoc
+    3.js代码块
+HTML部分：
+    标签和属性
+</code></pre><p>5.引入JQ等扩展框架语法库</p>
+<pre><code>强烈不推荐使用：jquery mobile是非常卡顿的；
+在手机端的ui框架，推荐使用mui。
+</code></pre><p>6.插件</p>
+<pre><code>HBuilder的工具→插件安装中已经集成了svn、git、php等常用的插件；
+</code></pre><p>二、HTML5 plus 和 Native.js<br>1.HTML5+</p>
+<pre><code>是HBuilder对原生组件的封装，主要展示HBuilder中对各类组件的用法(方法、对象、属性、权限等)
+</code></pre><p>2.Native.js</p>
+<pre><code>封装一条通道(通过JS语法直接调用Native API
+    Android -- JAVA
+    iOS -- Objective C
+Android调用方法：plus.android
+iOS调用方法：plus.ios
+</code></pre><p>3.Native.js - iOS<br>方法</p>
+<p>对象</p>
+<p>权限</p>
+<p>三、5+App(Html 5 Plus app)<br>1.概念</p>
 <pre><code>HTML5 Plus 移动app的简称5+App。
 
 mobile web项目在浏览器运行
@@ -266,7 +292,7 @@ mobile web 打包成 app
 </code></pre><p>三、wap2app<br>1.概念</p>
 <pre><code>将移动站点，快速发布成App的增强方案；
 </code></pre><p>四、流应用</p>
-<p>参考资料:<br>1.<a href="http://ask.dcloud.net.cn/article/88" target="_blank" rel="noopener">5+ App开发Native.js入门指南</a><br>2.<a href="http://www.dcloud.io/" target="_blank" rel="noopener">HBuilder架构</a><br>3.<a href="http://ask.dcloud.net.cn/article/91" target="_blank" rel="noopener">HBuilder中的UI-mui</a><br><a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">MUI</a><br>4.<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="noopener">HTML5+规范</a><br>5.<a href="http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/104" target="_blank" rel="noopener">HTML5+ SDK</a>     </p>
+<p>参考资料:<br>1.<a href="http://ask.dcloud.net.cn/article/88" target="_blank" rel="noopener">5+ App开发Native.js入门指南</a><br>2.<a href="http://www.dcloud.io/" target="_blank" rel="noopener">HBuilder架构</a><br>3.<a href="http://ask.dcloud.net.cn/article/91" target="_blank" rel="noopener">HBuilder中的UI-mui</a><br>  <a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">MUI</a><br>4.<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="noopener">HTML5+规范</a><br>5.<a href="http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/104" target="_blank" rel="noopener">HTML5+ SDK</a><br>6.<a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">HBuilder-MUI</a><br>7.<a href="https://blog.csdn.net/u014466109/article/details/71311028" target="_blank" rel="noopener">mui.init 和 plusready的区别</a><br>8.<a href="http://www.html5plus.org/doc/zh_cn/ios.html#plus.ios.importClass" target="_blank" rel="noopener">Native.js - iOS</a></p>
 
       
 
@@ -551,7 +577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +589,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,7 +609,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,15 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,6 +630,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,18 +649,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
@@ -643,6 +661,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
@@ -651,11 +673,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
               </li>
              
               <li class="article-tag-list-item">
