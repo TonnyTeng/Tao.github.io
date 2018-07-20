@@ -192,6 +192,1008 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小程序/微信小程序-组件-地图组件和位置API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/24/小程序/微信小程序-组件-地图组件和位置API/">微信小程序-组件-地图组件和位置API</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/24/小程序/微信小程序-组件-地图组件和位置API/" class="archive-article-date">
+  	<time datetime="2018-05-24T08:26:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-24</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、Map组件<br>1.属性        </p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>longitude</td>
+<td>Number</td>
+<td>地图组件的经纬度必填, 如果不填经纬度则默认值是北京的经纬度</td>
+<td>中心经度</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>Number</td>
+<td>地图组件的经纬度必填, 如果不填经纬度则默认值是北京的经纬度</td>
+<td>中心纬度</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>Number</td>
+<td>16</td>
+<td>缩放级别 取值范围5 - 18</td>
+</tr>
+<tr>
+<td>markers</td>
+<td>Array</td>
+<td></td>
+<td>标记点</td>
+</tr>
+<tr>
+<td>covers</td>
+<td>Array</td>
+<td></td>
+<td>即将移除，使用markers</td>
+</tr>
+<tr>
+<td>polyline</td>
+<td>Array</td>
+<td></td>
+<td>路线</td>
+</tr>
+<tr>
+<td>circles</td>
+<td>Array</td>
+<td></td>
+<td>圆</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>Array</td>
+<td></td>
+<td>控件</td>
+</tr>
+<tr>
+<td>include-points</td>
+<td>Array</td>
+<td></td>
+<td>缩放视野以包含所有给定的坐标点</td>
+</tr>
+<tr>
+<td>show-location</td>
+<td>Boolean</td>
+<td></td>
+<td>显示带有方向的当前定位点</td>
+</tr>
+<tr>
+<td>bindmarkertap</td>
+<td>EventHandle</td>
+<td></td>
+<td>点击标记点时触发</td>
+</tr>
+<tr>
+<td>bindcallouttap</td>
+<td>EventHandle</td>
+<td></td>
+<td>点击标记对应的气泡时触发</td>
+</tr>
+<tr>
+<td>bindcontroltap</td>
+<td>EventHandle</td>
+<td></td>
+<td>点击控件时触发</td>
+</tr>
+<tr>
+<td>bindregionchange</td>
+<td>EventHandle</td>
+<td></td>
+<td>视野发生变化时触发</td>
+</tr>
+<tr>
+<td>bindtap</td>
+<td>EventHandle</td>
+<td></td>
+<td>点击地图时触发</td>
+</tr>
+<tr>
+<td>bindupdated</td>
+<td>EventHandle</td>
+<td></td>
+<td>在地图渲染更新完成时触发</td>
+</tr>
+</tbody>
+</table>
+<p>2.makers 标记点用于在地图上显示标记的位置</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>否</td>
+<td>标记点id</td>
+<td>marker点击事件回调会返回此id，建议为每个marker设置上Number类型id，保证更新marker时有更好的性能</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>Number</td>
+<td>是</td>
+<td>纬度</td>
+<td>浮点数 范围-90 ～ 90</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>Number</td>
+<td>是</td>
+<td>经度</td>
+<td>浮点数 范围-180 ～ 180</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>否</td>
+<td>标注点名</td>
+<td></td>
+</tr>
+<tr>
+<td>iconPath</td>
+<td>String</td>
+<td>是</td>
+<td>显示的图标</td>
+<td>项目目录下的图片路径，支持相对路径写法，以’/‘开头则表示小程序根目录，也支持临时路径</td>
+</tr>
+<tr>
+<td>rotate</td>
+<td>Number</td>
+<td>否</td>
+<td>旋转角度</td>
+<td>顺时针旋转的角度 范围 0～360 默认0</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>Number</td>
+<td>否</td>
+<td>标注透明度</td>
+<td>默认1，无透明，范围0～1</td>
+</tr>
+<tr>
+<td>width</td>
+<td>Number</td>
+<td>否</td>
+<td>标注图标宽度</td>
+<td>默认为图片实际宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Number</td>
+<td>否</td>
+<td>标注图标高度</td>
+<td>默认为图片实际高度</td>
+</tr>
+<tr>
+<td>callout</td>
+<td>object</td>
+<td>否</td>
+<td>自定义标记点上方的气泡窗口</td>
+<td>可识别换行符</td>
+</tr>
+<tr>
+<td>label</td>
+<td>object</td>
+<td>否</td>
+<td>为标记点旁边增加标签</td>
+<td>可识别换行符</td>
+</tr>
+<tr>
+<td>anchor</td>
+<td>object</td>
+<td>否</td>
+<td>经纬度在标注图标的锚点，默认在底边中点</td>
+<td>{x, y}，x表示横向(0-1)，y表示竖向(0-1)。{x: .5, y: 1} 表示底边中点</td>
+</tr>
+</tbody>
+</table>
+<p>3.makers 上的气泡 callout</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>文本颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td>Number</td>
+<td>文字大小</td>
+<td></td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td>NUmber</td>
+<td>callout边框圆角</td>
+<td></td>
+</tr>
+<tr>
+<td>bgColor</td>
+<td>String</td>
+<td>背景颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>padding</td>
+<td>Number</td>
+<td>文本边缘留白</td>
+<td></td>
+</tr>
+<tr>
+<td>display</td>
+<td>String</td>
+<td>‘BYCLICK’:点击显示; ‘ALWAYS’:常显</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td>String</td>
+<td>文本对齐方式。有效值: left, right, center</td>
+</tr>
+</tbody>
+</table>
+<p>4.makers 上气泡 label</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>文本颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td>Number</td>
+<td>文字大小</td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td>Number</td>
+<td>label的坐标，原点是marker对应的经纬度</td>
+<td></td>
+</tr>
+<tr>
+<td>y</td>
+<td>Number</td>
+<td>label的坐标，原点是marker对应的经纬度</td>
+<td></td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>Number</td>
+<td>边框宽度</td>
+<td></td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>String</td>
+<td>边框颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td>NUmber</td>
+<td>边框圆角</td>
+<td></td>
+</tr>
+<tr>
+<td>bgColor</td>
+<td>String</td>
+<td>背景颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>padding</td>
+<td>Number</td>
+<td>文本边缘留白</td>
+<td></td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td>String</td>
+<td>文本对齐方式。有效值: left, right, center</td>
+</tr>
+</tbody>
+</table>
+<p>5.polyline 指定一系列坐标系(从数组的第一项连线到最后一项)</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>points</td>
+<td>Array</td>
+<td>是</td>
+<td>经纬度数组</td>
+<td>[{latitude: 0, longitude: 0}]</td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>否</td>
+<td>线的颜色</td>
+<td>8位十六进制表示，后两位表示alpha值，如：#000000AA</td>
+</tr>
+<tr>
+<td>width</td>
+<td>Number</td>
+<td>否</td>
+<td>线的宽度</td>
+</tr>
+<tr>
+<td>dottedLine</td>
+<td>Boolean</td>
+<td>否</td>
+<td>是否虚线</td>
+<td>默认false</td>
+</tr>
+<tr>
+<td>arrowLine</td>
+<td>Boolean</td>
+<td>否</td>
+<td>带箭头的线</td>
+<td>默认false，开发者工具暂不支持该属性</td>
+</tr>
+<tr>
+<td>arrowIconPath</td>
+<td>String</td>
+<td>否</td>
+<td>更换箭头图标</td>
+<td>在arrowLine为true时生效</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>String</td>
+<td>否</td>
+<td>更换箭头图标</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>Number</td>
+<td>否</td>
+<td>线的厚度</td>
+</tr>
+</tbody>
+</table>
+<p>6.circles 在地铁上画圆</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>latitude</td>
+<td>Number</td>
+<td>是</td>
+<td>维度</td>
+<td>浮点数，范围 -90 ~ 90</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>Number</td>
+<td>是</td>
+<td>经度</td>
+<td>浮点数，范围 -180 ~ 180</td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>否</td>
+<td>描边的颜色</td>
+<td>8位十六进制表示，后两位表示alpha值，如：#000000AA</td>
+</tr>
+<tr>
+<td>fillColor</td>
+<td>String</td>
+<td>否</td>
+<td>填充颜色</td>
+<td>8位十六进制表示，后两位表示alpha值，如：#000000AA</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>Number</td>
+<td>是</td>
+<td>半径</td>
+</tr>
+<tr>
+<td>strokeWidth</td>
+<td>Number</td>
+<td>否</td>
+<td>描边的宽度</td>
+</tr>
+</tbody>
+</table>
+<p>7.controls 在地图上显示控件，控件不随着地图移动</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>否</td>
+<td>控件id</td>
+<td>在控件点击事件回调会返回此id</td>
+</tr>
+<tr>
+<td>position</td>
+<td>Object</td>
+<td>是</td>
+<td>控件在地图的位置</td>
+<td>控件相对地图位置</td>
+</tr>
+<tr>
+<td>iconPath</td>
+<td>String</td>
+<td>是</td>
+<td>显示的图标</td>
+<td>项目目录下的图片路径，支持相对路径写法，以’/‘开头则表示相对小程序根目录；也支持临时路径</td>
+</tr>
+<tr>
+<td>clickable</td>
+<td>Boolean</td>
+<td>否</td>
+<td>是否可点击</td>
+<td>默认不可点击</td>
+</tr>
+</tbody>
+</table>
+<p>8.position</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>Number</td>
+<td>否</td>
+<td>距离地图的左边界距离</td>
+<td>默认0</td>
+</tr>
+<tr>
+<td>top</td>
+<td>Number</td>
+<td>否</td>
+<td>距离地图的上边界距离</td>
+<td>默认0</td>
+</tr>
+<tr>
+<td>width</td>
+<td>Number</td>
+<td>否</td>
+<td>控件宽度</td>
+<td>默认为图片宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Number</td>
+<td>否</td>
+<td>控件高度</td>
+<td>默认为图片高度</td>
+</tr>
+</tbody>
+</table>
+<p>9.tips</p>
+<pre><code>map 组件是由客户端创建的原生组件，它的层级是最高的，不能通过 z-index 控制层级；
+请勿在 scroll-view、swiper、picker-view、movable-view 中使用 map 组件；
+css 动画对 map 组件无效；
+map 组件使用的经纬度是火星坐标系，调用 wx.getLocation 接口需要指定 type 为 gcj02；
+地图组件的经纬度必填, 如果不填经纬度则默认值是北京的经纬度；
+</code></pre><p>10.eg</p>
+<pre><code>wxml
+  &lt;view class=&apos;map&apos;&gt;
+    &lt;map id=&apos;map&apos; scale=&apos;16&apos; 
+      longitude=&apos;{{longitude}}&apos;
+      latitude=&apos;{{latitude}}&apos;
+      controls=&apos;{{controls}}&apos;
+      markers=&apos;{{markers}}&apos;
+      polyline=&apos;{{polyline}}&apos;
+      style=&apos;width: 100%; height: 100%&apos;
+      bindcontroltap=&apos;bindcontroltap&apos;
+      bindtap=&apos;bindtap&apos;
+      bindupdated=&apos;bindupdated&apos;
+      bindmarkertap=&apos;bindmarkertap&apos;
+      show-location=&apos;true&apos;
+      bindcallouttap=&apos;bindcallouttap&apos;
+      bindregionchange=&apos;bindregionchange&apos;&gt;
+    &lt;/map&gt;
+  &lt;/view&gt;
+
+ js
+
+       bindregionchange: function(){
+
+        console.log(&apos;视野发生变化时触发...&apos;)
+      },
+      bindcallouttap: function(){
+
+        console.log(&apos;点击标记点对应的气泡时触发...&apos;)
+      },
+      bindtap: function(){
+
+        console.log(&apos;点击地图时触发...&apos;)
+      },
+      bindupdated: function(){
+
+        console.log(&apos;在地图渲染更新完成时触发...&apos;)
+      },
+      bindcontroltap: function(){
+
+        console.log(&apos;点击控件时触发...&apos;)
+      },
+      bindmarkertap: function(){
+
+        console.log(&apos;点击标记点时触发...&apos;)
+      },
+</code></pre><p>二、位置API<br>1.获取位置<br>wx.getLocation(object) - 获取当前的地理位置、速度   </p>
+<pre><code>当用户离开小程序后，此接口无法调用；当用户点击“显示在聊天顶部”时，此接口可继续调用； 
+</code></pre><p>参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object参数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>否</td>
+<td>默认为 wgs84 返回 gps 坐标，gcj02 返回可用于wx.openLocation的坐标</td>
+</tr>
+<tr>
+<td>altitude</td>
+<td>Boolean</td>
+<td>否</td>
+<td>传入 true 会返回高度信息，由于获取高度需要较高精确度，会减慢接口返回速度</td>
+</tr>
+<tr>
+<td>success</td>
+<td>Function</td>
+<td>是</td>
+<td>调用成功的回调函数</td>
+</tr>
+<tr>
+<td>fail</td>
+<td>Function</td>
+<td>否</td>
+<td>调用失败的回调函数</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>Function</td>
+<td>否</td>
+<td>调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+<tr>
+<td>success返回参数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>latitude</td>
+<td></td>
+<td></td>
+<td>纬度，浮点数，范围为-90~90，负数表示南纬</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td></td>
+<td></td>
+<td>经度，浮点数，范围为-180~180，负数表示西经</td>
+</tr>
+<tr>
+<td>speed</td>
+<td></td>
+<td></td>
+<td>速度，浮点数，单位m/s</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td></td>
+<td></td>
+<td>位置的精确度</td>
+</tr>
+<tr>
+<td>altitude</td>
+<td></td>
+<td></td>
+<td>高度，单位 m</td>
+</tr>
+<tr>
+<td>verticalAccuracy</td>
+<td></td>
+<td></td>
+<td>垂直精度，单位 m（Android 无法获取，返回 0）</td>
+</tr>
+<tr>
+<td>horizontalAccuracy</td>
+<td></td>
+<td></td>
+<td>垂直精度，单位 m（Android 无法获取，返回 0）</td>
+</tr>
+</tbody>
+</table>
+<p>wx.chooseLocation(object) - 打开地图选择位置<br>参数说明：        </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object参数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>success</td>
+<td>Function</td>
+<td>是</td>
+<td>调用成功的回调函数</td>
+</tr>
+<tr>
+<td>fail</td>
+<td>Function</td>
+<td>否</td>
+<td>调用失败的回调函数</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>Function</td>
+<td>否</td>
+<td>调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+<tr>
+<td>success返回参数</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>latitude</td>
+<td></td>
+<td></td>
+<td>纬度，浮点数，范围为-90~90，负数表示南纬</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td></td>
+<td></td>
+<td>经度，浮点数，范围为-180~180，负数表示西经</td>
+</tr>
+<tr>
+<td>name</td>
+<td></td>
+<td></td>
+<td>位置名</td>
+</tr>
+<tr>
+<td>address</td>
+<td></td>
+<td></td>
+<td>详细地址</td>
+</tr>
+</tbody>
+</table>
+<p>eg:</p>
+<pre><code>wx.getLocation({
+  type: &apos;wgs84&apos;,
+  success: function(res) {
+    var latitude = res.latitude
+    var longitude = res.longitude
+    var speed = res.speed
+    var accuracy = res.accuracy
+  }
+})
+</code></pre><p>2.查看位置<br>wx.openLocation(object) - 使用微信内置地图查看位置<br>参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale</td>
+<td>INT</td>
+<td>否</td>
+<td>缩放比例，范围5~18，默认为18</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>Float</td>
+<td>是</td>
+<td>纬度，浮点数，范围为-90~90，负数表示南纬</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>Float</td>
+<td>是</td>
+<td>经度，浮点数，范围为-180~180，负数表示西经</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>否</td>
+<td>位置名</td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>否</td>
+<td>详细地址</td>
+</tr>
+<tr>
+<td>success</td>
+<td>Function</td>
+<td>是</td>
+<td>调用成功的回调函数</td>
+</tr>
+<tr>
+<td>fail</td>
+<td>Function</td>
+<td>否</td>
+<td>调用失败的回调函数</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>Function</td>
+<td>否</td>
+<td>调用结束的回调函数（调用成功、失败都会执行）</td>
+</tr>
+</tbody>
+</table>
+<p>eg：</p>
+<pre><code>wx.getLocation({
+  type: &apos;gcj02&apos;, //返回可以用于wx.openLocation的经纬度
+  success: function(res) {
+    var latitude = res.latitude
+    var longitude = res.longitude
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 28
+    })
+  }
+})
+</code></pre><p>3.组图组件控制<br>wx.createMapContext(mapId,this) </p>
+<pre><code>创建并返回 map 上下文 mapContext 对象;
+在自定义组件下，第二个参数传入组件实例this，以操作组件内 &lt;map/&gt; 组件;
+mapContext对象方法列表：
+    getCenterLocation object 获取当前地图中心的经纬度，返回的是gcj02坐标系可用于wx.openLocation;
+    moveToLocation 无参数 将地图中心移动到当前定位点，需要配合map组件的show-location使用
+    translateMarker object  平移marker，带动画
+    includePoints object 缩放视野展示所有经纬度
+    getRegion object 获取当前地图的视野范围
+    getScale object 获取当前地图的缩放级别
+</code></pre><p>eg:</p>
+<pre><code>&lt;!-- map.wxml --&gt;
+&lt;map id=&quot;myMap&quot; show-location /&gt;
+
+&lt;button type=&quot;primary&quot; bindtap=&quot;getCenterLocation&quot;&gt;获取位置&lt;/button&gt;
+&lt;button type=&quot;primary&quot; bindtap=&quot;moveToLocation&quot;&gt;移动位置&lt;/button&gt;
+&lt;button type=&quot;primary&quot; bindtap=&quot;translateMarker&quot;&gt;移动标注&lt;/button&gt;
+&lt;button type=&quot;primary&quot; bindtap=&quot;includePoints&quot;&gt;缩放视野展示所有经纬度&lt;/button&gt;
+
+// map.js
+Page({
+  onReady: function (e) {
+    // 使用 wx.createMapContext 获取 map 上下文
+    this.mapCtx = wx.createMapContext(&apos;myMap&apos;)
+  },
+  getCenterLocation: function () {
+    this.mapCtx.getCenterLocation({
+      success: function(res){
+        console.log(res.longitude)
+        console.log(res.latitude)
+      }
+    })
+  },
+  moveToLocation: function () {
+    this.mapCtx.moveToLocation()
+  },
+  translateMarker: function() {
+    this.mapCtx.translateMarker({
+      markerId: 0,
+      autoRotate: true,
+      duration: 1000,
+      destination: {
+        latitude:23.10229,
+        longitude:113.3345211,
+      },
+      animationEnd() {
+        console.log(&apos;animation end&apos;)
+      }
+    })
+  },
+  includePoints: function() {
+    this.mapCtx.includePoints({
+      padding: [10],
+      points: [{
+        latitude:23.10229,
+        longitude:113.3345211,
+      }, {
+        latitude:23.00229,
+        longitude:113.3345211,
+      }]
+    })
+  }
+})
+</code></pre><p>4.注意</p>
+<pre><code>iOS 6.3.30 type 参数不生效，只会返回 wgs84 类型的坐标信息；
+</code></pre><p>参考资料：<br>1.<a href="https://developers.weixin.qq.com/miniprogram/dev/component/map.html" target="_blank" rel="noopener">地图</a><br>2.<a href="https://developers.weixin.qq.com/miniprogram/dev/api/location.html" target="_blank" rel="noopener">位置</a>        </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/24/小程序/微信小程序-组件-地图组件和位置API/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-iOS/iOS问题/iOS问题-账号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2756,340 +3758,6 @@ Tweak.xm
 
        
   
-    <article id="post-iOS/iOS第三方库/iOS第三方库-SDWebImage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/iOS/iOS第三方库/iOS第三方库-SDWebImage/">iOS第三方库-SDWebImage</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/07/iOS/iOS第三方库/iOS第三方库-SDWebImage/" class="archive-article-date">
-  	<time datetime="2018-05-07T06:23:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、内存缓存和磁盘缓存区别<br>1.缓存        </p>
-<pre><code>分类：内存缓存和磁盘(硬盘)缓存；
-内存：
-    指当前程序的运行空间，缓存速度快容量小，是临时存储文件用的，供CPU直接读取，比如说打开一个程序,他是在内存中存储,关闭程序后内存就又回到原来的空闲空间；
-磁盘：
-    程序的存储空间，缓存容量大速度慢可持久化与内存不同的是磁盘是永久存储东西的，只要里面存放东西,不管运行不运行 ，他都占用空间！磁盘缓存是存在Library/Caches；
-</code></pre><p>2.内存<br><img src="sdw1.png" alt="sdw1">        </p>
-<pre><code>iOS内存分5个区：栈区、堆区、全局区、常量区、代码区；
-栈区(stack)：这一块区域系统会自己管理，我们不用干预，主要存一些局部变量，以及函数跳转时的现场保护。因此大量的局部变量,深递归，函数循环调用都可能导致内存耗尽而运行崩溃;
-堆区(heap)：与栈区相对，这一块一般由我们自己管理，比如alloc，free的操作，存储一些自己创建的对象;
-全局区(静态区static)：全局变量和静态变量都存储在这里，已经初始化的和没有初始化的会分开存储在相邻的区域，程序结束后系统会释放;
-常量区：存储常量字符串和const常量;
-代码区：存储代码;
-</code></pre><p>3.磁盘(硬盘)<br><img src="sdw2.png" alt="sdw2">        </p>
-<pre><code>iOS沙盒机制：
-    iOS应用程序只能在该程序创建的文件系统中读取文件，不可以去其它地方访问，此区域被成为沙盒，所以所有的非代码文件都要保存在此，例如图像，图标，声音，映像，属性列表，文本文件等;
-沙盒：默认情况下，每个沙盒含有3个文件夹：Documents, Library 和 tmp;
-    Documents：苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下，iTunes备份和恢复的时候会包括此目录;
-    Library：存储程序的默认设置或其它状态信息；
-            Library/Caches：存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除.
-           Library/preferences: 存放的是 user default 存储的信息，iTunes会备份此目录， 应用程序重新启动不会丢弃数据，我们使用 NSUserDefaults写的设置数据都会保存到该目录下的一个plist文件中，这就是所谓的写到plist中！
-    tmp：提供一个即时创建临时文件的地方， iTunes不会备份此目录;
-
-用户生成的文件放在documents，自己的文件放在library/cache里面，简单的说明：
-如果你做个记事本的app，那么用户写了东西，总要把东西存起来。那么这个文件则是用户自行生成的，就放在documents文件夹里面。
-如果你有一个app，需要和服务器配合，经常从服务器下载东西，展示给用户看。那么这些下载下来的东西就放在library/cache。
-apple对这个很严格，放错了就会被拒。主要原因是ios的icloud的同步问题。
-</code></pre><p>二、SDWebImage基础<br>1.版本信息:pod ‘SDWebImage’,’~&gt;4.3’<br>2.结构图:<br><img src="sdw3.png" alt="sdw3"><br>3.功能描述:异步图像下载并且带有缓存机制,是UIImageView的一个分类;<br>4.框架特征:</p>
-<pre><code>类别UIImageView，UIButton，MKAnnotationView- - 添加Web图像和高速缓存管理;
-异步图像下载器;
-具有自动缓存、到期处理的异步内存+磁盘映像缓存;
-背景图像解压缩;
-保证相同的URL不会被下载多次;
-保证虚假网址不会重复重试;
-保证主线程永远不会被阻止;
-使用GCD和ARC;
-</code></pre><p>5.支持的图像格式</p>
-<pre><code>UIImage（JPEG，PNG，...）支持的图像格式，包括gif;
-WebP格式，包括动画WebP（使用WebPsuspec）;
-</code></pre><p>6.使用方法:<br>Objective-C:            </p>
-<pre><code>#import &lt;SDWebImage/UIImageView+WebCache.h&gt;
-...
-[imageView sd_setImageWithURL:[NSURL URLWithString:@&quot;http://www.domain.com/path/to/image.jpg&quot;] placeholderImage:[UIImage imageNamed:@&quot;placeholder.png&quot;]];
-</code></pre><p>Swift:</p>
-<pre><code>import SDWebImage
-
-imageView.sd_setImage(with: URL(string: &quot;http://www.domain.com/path/to/image.jpg&quot;), placeholderImage: UIImage(named: &quot;placeholder.png&quot;));
-</code></pre><p>三、SDWebImage原理<br>1.导入类：import  “UIImageView+WebCache.h”<br>2.基本方法：    </p>
-<pre><code>1）- (void)sd_setImageWithURL:(nullable NSURL *)url；
-2）- (void)sd_setImageWithURL:(nullable NSURL *)url  placeholderImage:(nullable UIImage *)placeholder；
-3）- (void)sd_setImageWithURL:(nullable NSURL *)url  placeholderImage:(nullable UIImage *)placeholder    options:(SDWebImageOptions)options；
-...
-...    
-</code></pre><p>3.下载流程:<br><img src="SDW.png" alt="SDW">        </p>
-<pre><code>1.入口：setImageWithURL:placeholderImage:options:会先把 placeholderImage 显示，然后 SDWebImageManager 根据 URL 开始处理图片;
-2.进入：SDWebImageManagerdownloadWithURL:delegate:options:userInfo:，交给 SDImageCache 从缓存查找图片是否已经下载queryDiskCacheForKey:delegate:userInfo:  ；
-3.先从内存图片缓存查找是否有图片，如果内存中已经有图片缓存，SDImageCacheDelegate 回调imageCache:didFindImage:forKey:userInfo: 到 SDWebImageManager；
-4.SDWebImageManagerDelegate 回调webImageManager:didFinishWithImage:到 UIImageView+WebCache 等前端展示图片；
-5.如果内存缓存中没有，生成 NSInvocationOperation添加到队列开始从硬盘查找图片是否已经缓存；
-6.根据 URLKey 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate: ；
-7.如果上一操作从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。 SDImageCacheDelegate 回调 imageCache:didFindImage:forKey:userInfo:。进而回调展示图片；
-8.如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，回调imageCache:didNotFindImageForKey:userInfo: ；
-9.共享或重新生成一个下载器 SDWebImageDownloader 开始下载图片；
-10.图片下载由NSURLSession(NSURLConnection已经被剔除了) 来做，实现相关 delegate 来判断图片下载中、下载完成和下载失败；
-    session:didReceiveData: 中利用 ImageIO做了按图片下载进度加载效果；
-    sessionDidFinishLoading:数据下载完成后交给SDWebImageDecoder 做图片解码处理；
-11图片解码处理在一个NSOperationQueue完成，不会拖慢主线程 UI。如果有需要对下载的图片进行二次处理，最好也在这里完成，效率会好很多。
-12在主线程 notifyDelegateOnMainThreadWithInfo: 宣告解码完成，        imageDecoder:didFinishDecodingImage:userInfo:回调给 SDWebImageDownloader;
-    imageDownloader:didFinishWithImage:回调给 SDWebImageManager 告知图片下载完成;
-13通知所有的 downloadDelegates下载完成，回调给需要的地方展示图片;
-14将图片保存到 SDImageCache 中，内存缓存和硬盘缓存同时保存;
-15写文件到硬盘也在以单独 NSInvocationOperation 完成，避免拖慢主线程;
-16SDImageCache 在初始化的时候会注册一些消息通知，在内存警告或退到后台的时候清理内存图片缓存，应用结束的时候清理过期图片。
-17SDWI 也提供了 UIButton+WebCache 和 MKAnnotationView+WebCache，方便使用；
-18SDWebImagePrefetcher 可以预先下载图片，方便后续使用；
-</code></pre><p>四、SDWebImage图片格式<br>1.格式及代码        </p>
-<pre><code>JPEG 0xFF
-PNG 0x89
-GIF   0x47
-TIFF 0x49或0x4D
-R as RIFF for WEBP 0x52
-</code></pre><p>2.格式枚举SDImageFormat</p>
-<pre><code>SDImageFormatUndefined = -1,
-SDImageFormatJPEG = 0,
-SDImageFormatPNG,
-SDImageFormatGIF,
-SDImageFormatTIFF,
-SDImageFormatWebP,
-SDImageFormatHEIC
-</code></pre><p>3.格式方法:</p>
-<pre><code class="objectivec">+ (SDImageFormat)sd_imageFormatForImageData:(<span class="keyword">nullable</span> <span class="built_in">NSData</span> *)data {
-    <span class="keyword">if</span> (!data) {
-        <span class="keyword">return</span> SDImageFormatUndefined;
-    }
-
-    <span class="comment">// File signatures table: http://www.garykessler.net/library/file_sigs.html</span>
-    uint8_t c;
-    [data getBytes:&amp;c length:<span class="number">1</span>];
-    <span class="keyword">switch</span> (c) {
-        <span class="keyword">case</span> <span class="number">0xFF</span>:
-            <span class="keyword">return</span> SDImageFormatJPEG;
-        <span class="keyword">case</span> <span class="number">0x89</span>:
-            <span class="keyword">return</span> SDImageFormatPNG;
-        <span class="keyword">case</span> <span class="number">0x47</span>:
-            <span class="keyword">return</span> SDImageFormatGIF;
-        <span class="keyword">case</span> <span class="number">0x49</span>:
-        <span class="keyword">case</span> <span class="number">0x4D</span>:
-            <span class="keyword">return</span> SDImageFormatTIFF;
-        <span class="keyword">case</span> <span class="number">0x52</span>: {
-            <span class="keyword">if</span> (data.length &gt;= <span class="number">12</span>) {
-                <span class="comment">//RIFF....WEBP</span>
-                <span class="built_in">NSString</span> *testString = [[<span class="built_in">NSString</span> alloc] initWithData:[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">12</span>)] encoding:<span class="built_in">NSASCIIStringEncoding</span>];
-                <span class="keyword">if</span> ([testString hasPrefix:<span class="string">@"RIFF"</span>] &amp;&amp; [testString hasSuffix:<span class="string">@"WEBP"</span>]) {
-                    <span class="keyword">return</span> SDImageFormatWebP;
-                }
-            }
-            <span class="keyword">break</span>;
-        }
-        <span class="keyword">case</span> <span class="number">0x00</span>: {
-            <span class="keyword">if</span> (data.length &gt;= <span class="number">12</span>) {
-                <span class="comment">//....ftypheic ....ftypheix ....ftyphevc ....ftyphevx</span>
-                <span class="built_in">NSString</span> *testString = [[<span class="built_in">NSString</span> alloc] initWithData:[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">4</span>, <span class="number">8</span>)] encoding:<span class="built_in">NSASCIIStringEncoding</span>];
-                <span class="keyword">if</span> ([testString isEqualToString:<span class="string">@"ftypheic"</span>]
-                    || [testString isEqualToString:<span class="string">@"ftypheix"</span>]
-                    || [testString isEqualToString:<span class="string">@"ftyphevc"</span>]
-                    || [testString isEqualToString:<span class="string">@"ftyphevx"</span>]) {
-                    <span class="keyword">return</span> SDImageFormatHEIC;
-                }
-            }
-            <span class="keyword">break</span>;
-        }
-    }
-    <span class="keyword">return</span> SDImageFormatUndefined;
-}
-</code></pre>
-<p>五、SDWebImage枚举<br>1.SDWebImageOptions    </p>
-<pre><code> //默认的情况下，当一个URL下载失败了，那么这个URL会被放在黑名单里面，不会继续尝试，这个标志位就是使黑名单效果失效，保证失败后可以重新尝试。
-SDWebImageRetryFailed = 1 &lt;&lt; 0,
-
-//默认情况下，在UI交互的情况下就开始图像下载，该标志位使该特性失效，例如在UIScrollView减速时延迟下载。
-SDWebImageLowPriority = 1 &lt;&lt; 1,
-
-//该标志位使磁盘缓存失效，只是内存缓存。
-SDWebImageCacheMemoryOnly = 1 &lt;&lt; 2,
-
-//该标志位可以确保下载的回调，图像可以边下载边显示
-SDWebImageProgressiveDownload = 1 &lt;&lt; 3,
-
-//刷新缓存
-SDWebImageRefreshCached = 1 &lt;&lt; 4,
-
-//后台下载
-SDWebImageContinueInBackground = 1 &lt;&lt; 5,
-
-//处理NSHTTPCookieStore中存储的cookie
-SDWebImageHandleCookies = 1 &lt;&lt; 6,
-
-//允许使用无效的SSL整数，但是仅用于测试，生产环境要小心
-SDWebImageAllowInvalidSSLCertificates = 1 &lt;&lt; 7,
-
-//默认的情况，图像下载都是按照队列内部的顺序进行的，这个标志位就是提高优先级，让其移动到队列的首位。
-SDWebImageHighPriority = 1 &lt;&lt; 8,
-
-//默认的情况下是占位图在下载图像的时候加载，这个标志位延迟占位图的加载，直到图像下载完成。
-SDWebImageDelayPlaceholder = 1 &lt;&lt; 9,
-
-//我们一般不调用transformDownloadedImage代理方法处理动画图片，因为大多数的转换代码会损坏它，使用这个标志位可以转换它们。
-SDWebImageTransformAnimatedImage = 1 &lt;&lt; 10,
-
-//默认情况下，图像在下载完成后都是加载到UIImageview上，但是在一些情况下，我们想要在设置图像之前处理它，比如说加一个滤镜或者褪色的动画效果等等，使用这个标志位，如果你想要手动的在成功完成回调后设置这个图片。
-SDWebImageAvoidAutoSetImage = 1 &lt;&lt; 11,
-
-//默认情况下，图像都是根据他们原始尺寸进行解码，在ios中，这个标志位会缩小图片，以便能够兼容器件内存的限制，如果SDWebImageProgressiveDownload被设置了，那么这个位就失效了。
-SDWebImageScaleDownLargeImages = 1 &lt;&lt; 12，
-
-SDWebImageQueryDataWhenInMemory = 1 &lt;&lt; 13,
-
-/**
- * By default, we query the memory cache synchronously, disk cache asynchronously. This mask can force to query disk cache synchronously to ensure that image is loaded in the same runloop.
- * This flag can avoid flashing during cell reuse if you disable memory cache or in some other cases.
- */
-SDWebImageQueryDiskSync = 1 &lt;&lt; 14,
-
-/**
- * By default, when the cache missed, the image is download from the network. This flag can prevent network to load from cache only.
- */
-SDWebImageFromCacheOnly = 1 &lt;&lt; 15,
-/**
- * By default, when you use `SDWebImageTransition` to do some view transition after the image load finished, this transition is only applied for image download from the network. This mask can force to apply view transition for memory and disk cache as well.
- */
-SDWebImageForceTransition = 1 &lt;&lt; 16
-</code></pre><p>2.SDWebImageDownloaderExecutionOrder - 设置操作的执行顺序    </p>
-<pre><code>//队列模式 先进先出，这个是默认值 
-SDWebImageDownloaderFIFOExecutionOrder, 
-
-//堆栈模式，后进先出 
-SDWebImageDownloaderLIFOExecutionOrder 
-</code></pre><p>3.填充模式UIViewContentMode        </p>
-<pre><code> UIViewContentModeScaleToFill,
-UIViewContentModeScaleAspectFit,      // contents scaled to fit with fixed aspect. remainder is transparent
-UIViewContentModeScaleAspectFill,     // contents scaled to fill with fixed aspect. some portion of content may be clipped.
-UIViewContentModeRedraw,              // redraw on bounds change (calls -setNeedsDisplay)
-UIViewContentModeCenter,              // contents remain same size. positioned adjusted.
-UIViewContentModeTop,
-UIViewContentModeBottom,
-UIViewContentModeLeft,
-UIViewContentModeRight,
-UIViewContentModeTopLeft,
-UIViewContentModeTopRight,
-UIViewContentModeBottomLeft,
-UIViewContentModeBottomRight,
-解析:
-    填充模式的枚举，每次使用的时候我们都只能使用其中的一个元素，比如使用UIViewContentModeScaleToFill，而且在定义枚举值的时候我们可以指定从一个整数值开始，后面的值依次比前一个值加1；如果不指定值，那么第一个成员的值默认为0，后面的值还是依次递增为1， 2......，这个使用起来很简单了，也不用多说;
-</code></pre><p>4.位移枚举<br>eg:UIViewAnimationOptions      </p>
-<pre><code>UIViewAnimationOptionLayoutSubviews            = 1 &lt;&lt;  0,
-UIViewAnimationOptionAllowUserInteraction      = 1 &lt;&lt;  1, // turn on user interaction while animating
-UIViewAnimationOptionBeginFromCurrentState     = 1 &lt;&lt;  2, // start all views from current value, not initial value
-UIViewAnimationOptionRepeat                    = 1 &lt;&lt;  3, // repeat animation indefinitely
-UIViewAnimationOptionAutoreverse               = 1 &lt;&lt;  4, // if repeat, run animation back and forth
-UIViewAnimationOptionOverrideInheritedDuration = 1 &lt;&lt;  5, // ignore nested duration
-UIViewAnimationOptionOverrideInheritedCurve    = 1 &lt;&lt;  6, // ignore nested curve
-UIViewAnimationOptionAllowAnimatedContent      = 1 &lt;&lt;  7, // animate contents (applies to transitions only)
-UIViewAnimationOptionShowHideTransitionViews   = 1 &lt;&lt;  8, // flip to/from hidden state instead of adding/removing
-UIViewAnimationOptionOverrideInheritedOptions  = 1 &lt;&lt;  9, // do not inherit any options or animation type
-
-UIViewAnimationOptionCurveEaseInOut            = 0 &lt;&lt; 16, // default
-UIViewAnimationOptionCurveEaseIn               = 1 &lt;&lt; 16,
-UIViewAnimationOptionCurveEaseOut              = 2 &lt;&lt; 16,
-UIViewAnimationOptionCurveLinear               = 3 &lt;&lt; 16,
-
-UIViewAnimationOptionTransitionNone            = 0 &lt;&lt; 20, // default
-UIViewAnimationOptionTransitionFlipFromLeft    = 1 &lt;&lt; 20,
-UIViewAnimationOptionTransitionFlipFromRight   = 2 &lt;&lt; 20,
-UIViewAnimationOptionTransitionCurlUp          = 3 &lt;&lt; 20,
-UIViewAnimationOptionTransitionCurlDown        = 4 &lt;&lt; 20,
-UIViewAnimationOptionTransitionCrossDissolve   = 5 &lt;&lt; 20,
-UIViewAnimationOptionTransitionFlipFromTop     = 6 &lt;&lt; 20,
-UIViewAnimationOptionTransitionFlipFromBottom  = 7 &lt;&lt; 20,
-
-UIViewAnimationOptionPreferredFramesPerSecondDefault     = 0 &lt;&lt; 24,
-UIViewAnimationOptionPreferredFramesPerSecond60          = 3 &lt;&lt; 24,
-UIViewAnimationOptionPreferredFramesPerSecond30          = 7 &lt;&lt; 24,
-解析:
-    这种枚举我们就可以一次选择多个值，比如说我们可以使用UIViewAnimationOptionLayoutSubviews | UIViewAnimationOptionAllowUserInteraction，这么写我们就是使用该枚举的前两个成员。这样写的作用就是既可以布局子视图，还可以允许用户交互。
-位移枚举的原理:
-    其实给一个枚举变量赋予多个枚举值的时候，原理只是把各个枚举值加起来罢了。当加起来以后，就获取了一个新的值，那么为了保证这个值的唯一性，这个时候就体现了位运算的重要作用。位运算可以确保枚举值组合的唯一性。其实|这个按位或的符号就是将多个枚举值加起来的意思。
-  ● 两个不同的枚举值按位与&amp;其实就是0，相同的按位&amp;就是其本身;
-  ● 两个不同的枚举值按位或|其实就是两个枚举值的相加，相同的按位或|就是其本身;
-</code></pre><p>参考资料：<br>1.<a href="https://www.jianshu.com/p/3b0e290cc049" target="_blank" rel="noopener">内存缓存和磁盘缓存区别</a><br>2.<a href="https://blog.csdn.net/u010958446/article/details/57409138" target="_blank" rel="noopener">内存缓存和磁盘缓存</a><br>3.<a href="https://cocoapods.org/?q=sdwebimage" target="_blank" rel="noopener">SDWebImage</a><br>4.<a href="https://www.jianshu.com/p/189f186f767f" target="_blank" rel="noopener">SDWebImage — 图片类型判断深入研究</a><br>5.<a href="https://www.jianshu.com/p/3a046ae71b59" target="_blank" rel="noopener">位移枚举</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">iOS第三方库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/07/iOS/iOS第三方库/iOS第三方库-SDWebImage/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -3200,14 +3868,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -3216,7 +3876,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3236,19 +3896,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3256,7 +3904,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3264,7 +3916,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3272,7 +3932,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3284,15 +3956,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3300,11 +3968,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

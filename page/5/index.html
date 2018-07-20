@@ -192,6 +192,146 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-其他/搭建本地SVN仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/其他/搭建本地SVN仓库/">搭建本地SVN仓库</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/13/其他/搭建本地SVN仓库/" class="archive-article-date">
+  	<time datetime="2018-06-13T09:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.Mac自带SVN</p>
+<pre><code>查看版本信息:
+    svnserve --version
+</code></pre><p>2.创建代码仓库</p>
+<pre><code>sudo mkdir -p ~/DeskTop/SVNStore
+</code></pre><p>3.初始化代码仓库</p>
+<pre><code>sudo svnadmin create ~/Desktop/SVNStore 
+</code></pre><p><img src="svnstore.png" alt="svnstore"><br></p>
+<p>4.配置SVN权限</p>
+<pre><code>修改SVNStore --&gt; conf 文件夹下内容:
+
+svnserve.conf 配置用户权限
+    anon-access = read
+    auth-access = write
+
+    password-db = passwd
+
+    authz-db = authz
+    解析：
+        代表匿名访问的时候是只读的，若改为anon-access = none代表禁止匿名访问，需要帐号密码才能访问
+        删除前面的注视，不要留空格
+passwd 配置账号信息
+    [users]
+    deng = 123456
+    deng1 = 123456
+    解析：
+        在[users]下添加用户(eg:用户名=密码)
+authz 配置权限
+    [groups]
+    iosdev = deng,deng1
+    ...
+    [/]
+    @iosdev = rw
+
+    解析：
+        配置名为 iosdev 的用户组,组下用户为 deng，deng1(如果多个用户，用‘,’分割)
+        在最下面添加 [/] 表示授权目录路径访问权限, @ioddev = rw 表示给 iosdev 组 读写权限(r - 读,w - 写,rw - 读写)
+        如果只允许用户访问项目下Demo文件目录,则:
+            [/Demo]
+            @iosdev = rw
+        @iosdev 表示授权给iosdev组,不使用 @ 则表示授权给用户
+</code></pre><p>5.启动svn服务</p>
+<pre><code>svnserve -d -r ~/Desktop/SVNStore 
+解析:
+    回直接启动配置好的 SVNStore SVN服务器 默认使用80端口
+    如不使用默认的端口:
+        svnserve -d -r ~/Desktop/SVNStore --listen-port 8080
+</code></pre><p>6.使用Cornerstone等工具连接SVN<br><br><img src="dengSVN.jpg" alt="dengSVN"><br></p>
+<pre><code>在Cornerstone中的Server： 输入为本地电脑IP地址
+</code></pre><p>7.添加内容，提交<br><br><img src="commiterror.png" alt="commiterror"><br></p>
+<pre><code>1.终端: sudo chmod -R a+w ~/Desktop/SVNStore
+2.终端: 输入电脑管理员密码
+
+    即可成功提交!
+</code></pre><p>参考资料:<br><br>1.<a href="https://www.jianshu.com/p/0c06f80a2561" target="_blank" rel="noopener">Mac上搭建本地SVN仓库</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/13/其他/搭建本地SVN仓库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-vue框架/vue框架-基础-介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2196,98 +2336,6 @@ movable-view 默认为绝对定位，top和left属性为0px;
 
        
   
-    <article id="post-其他/博客和其他网站资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/06/其他/博客和其他网站资料/">博客和其他网站资料</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/06/其他/博客和其他网站资料/" class="archive-article-date">
-  	<time datetime="2018-06-06T08:56:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-06</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、博客<br><br>1.<a href="https://tech.meituan.com/archives" target="_blank" rel="noopener">美团点评技术博客</a><br><br>2.<a href="https://onevcat.com/#blog" target="_blank" rel="noopener">王巍-日本 </a><br><br>3.<a href="https://www.jianshu.com/u/8d5b91490ca5" target="_blank" rel="noopener">故胤道长 - Amazon</a><br><br>4.<a href="http://blog.devtang.com" target="_blank" rel="noopener">唐巧-网易、猿题库</a><br><br>5.<a href="http://limboy.me/category/tech.html" target="_blank" rel="noopener">Limboy’s HQ-蘑菇街，组件化</a><br><br>6.<a href="http://mrpeak.cn" target="_blank" rel="noopener">MrPeak-facebook</a><br><br>    <a href="https://www.jianshu.com/subscriptions#/subscriptions/1510733/user" target="_blank" rel="noopener">MrPeak的简书</a><br><br>7.<a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum-iOS 应用架构谈</a><br><br>8.<a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang-JSPatch</a><br><br>9.<a href="https://blog.ibireme.com" target="_blank" rel="noopener">伽蓝之堂——<br>一只魔法师的工坊-YYKit</a><br><br>10.<a href="https://draveness.me/index" target="_blank" rel="noopener">Draveness’s Blog</a><br><br>11.<a href="http://www.gogeeks.cn" target="_blank" rel="noopener">Geek导航</a><br><br>12.<a href="https://tangjz.cc" target="_blank" rel="noopener">Tangjz’s Blog</a><br><br>13.<a href="https://nianxi.net" target="_blank" rel="noopener">念茜</a><br><br>14.<a href="https://imtx.me" target="_blank" rel="noopener">图拉鼎</a><br><br>15.<a href="http://zhowkev.in" target="_blank" rel="noopener">Kevin Blog</a><br><br>16.<a href="https://xiangwangfeng.com" target="_blank" rel="noopener">阿毛的蛋疼地 </a><br><br>17.<a href="http://answerhuang.duapp.com" target="_blank" rel="noopener">answer-huang</a><br><br>18.<a href="http://gracelancy.com/about/" target="_blank" rel="noopener">蓝晨钰（Lancy）</a><br><br>19.<a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a><br><br>20.<a href="http://coderyi.com/about/" target="_blank" rel="noopener">coderyi</a><br><br>21.<a href="http://www.tanhao.me/archives/" target="_blank" rel="noopener">老谭笔记</a><br><br>22.<a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a><br><br>23.<a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a><br><br>24.<a href="http://tutuge.me/archives/" target="_blank" rel="noopener">土土哥的技术Blog</a><br><br><a href="http://zengxianhua.com" target="_blank" rel="noopener">曾宪华 - 阿里</a><br><br><a href="https://github.com/zekunyan" target="_blank" rel="noopener">zekunyan - github</a><br><br><a href="https://github.com/caoping" target="_blank" rel="noopener">caoping - github</a><br><br>25.<a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客 - 腾讯</a><br><br>26.<a href="https://blog.callmewhy.com/archives/" target="_blank" rel="noopener">汪海 - 2016停更</a><br><br>27.<a href="http://msching.github.io" target="_blank" rel="noopener">码农人生</a><br><br>28.<a href="https://www.desgard.com" target="_blank" rel="noopener">瓜地</a><br><br>29.<a href="https://juejin.im/user/57638ad8207703006b06e3ef/posts" target="_blank" rel="noopener">bestswifter - 掘金</a><br></p>
-<p>二、iOS相关<br><br>1.<a href="https://developer.apple.com" target="_blank" rel="noopener">apple开发者中心</a><br><br>2.<a href="https://developer.apple.com/reference" target="_blank" rel="noopener">Apple Documentation</a><br><br>3.<a href="http://www.cocoachina.com" target="_blank" rel="noopener">CocoaChina</a><br><br>4.<a href="https://www.oschina.net" target="_blank" rel="noopener">开源中国社区</a><br><br>5.<a href="https://swift.org/about" target="_blank" rel="noopener">Swift</a><br><br>6.<a href="http://www.swiftv.cn" target="_blank" rel="noopener">Swift课堂</a><br><br>7.<a href="http://www.code4app.com" target="_blank" rel="noopener">Code4App</a><br><br>8.<a href="https://stackoverflow.com" target="_blank" rel="noopener">Stack overflow</a><br><br>9.<a href="https://github.com" target="_blank" rel="noopener">Github</a><br><br>10.<a href="http://bbs.iosre.com" target="_blank" rel="noopener">iOSRE逆向</a><br><br>11.<a href="http://jailbreak.25pp.com" target="_blank" rel="noopener">越狱</a><br></p>
-<p>三、UI<br><br>1.<a href="http://iconfont.cn" target="_blank" rel="noopener">IconFont</a><br>    </p>
-<p>四、产品<br><br>1.<a href="http://www.woshipm.com" target="_blank" rel="noopener">人人都是产品</a><br></p>
-<p>五、API<br><br>1.<a href="http://open.qq.com" target="_blank" rel="noopener">腾讯开放平台</a><br><br>2.<a href="https://open.weixin.qq.com" target="_blank" rel="noopener">微信开放平台</a><br><br>3.<a href="https://open.alipay.com/platform/home.htm" target="_blank" rel="noopener">支付宝(蚂蚁金服)开发平台</a><br><br>4.<a href="https://www.juhe.cn/points" target="_blank" rel="noopener">聚合数据</a><br><br>5.<a href="http://apistore.baidu.com" target="_blank" rel="noopener">百度API</a><br><br>6.<a href="http://ai.qq.com" target="_blank" rel="noopener">腾讯AI开发平台</a><br><br>7.<a href="http://ai.baidu.com" target="_blank" rel="noopener">百度AI开发平台</a><br><br>8.<a href=".http://www.apicloud.com/" target="_blank" rel="noopener">APICloud</a><br><br>9.<a href="http://jiepang.com/" target="_blank" rel="noopener">街旁网API</a><br></p>
-<p>六、前端<br><br>1.<a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">Web Doc</a><br><br>2.<a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue.js</a><br><br>3.<a href="http://w3school.com.cn/" target="_blank" rel="noopener">W3C手册</a><br></p>
-<p>七、其他<br><br>1.<a href="https://www.huxiu.com" target="_blank" rel="noopener">虎嗅</a><br><br>2.<a href="http://weex.apache.org/cn/guide/" target="_blank" rel="noopener">混合开发 - Weex</a><br><br>3.<a href="https://reactnative.cn" target="_blank" rel="noopener">混合开发 - ReactNative</a><br><br>4.<a href="https://www.w3cschool.cn" target="_blank" rel="noopener">W3C school</a><br><br>5.<a href="http://www.runoob.com" target="_blank" rel="noopener">Runoob</a><br><br>6.<a href="https://github.com" target="_blank" rel="noopener">Github</a><br><br>7.<a href="https://www.jianshu.com" target="_blank" rel="noopener">简书</a><br><br>8.<a href="https://blog.csdn.net" target="_blank" rel="noopener">CSDN</a><br><br>9.<a href="http://www.itdaan.com/index.html" target="_blank" rel="noopener">开发知识库</a><br><br>10.<a href="https://www.objccn.io" target="_blank" rel="noopener">ObjectC中国 期刊+书籍</a><br><br>11.<a href="http://www.tairan.com" target="_blank" rel="noopener">泰然网 - 专业游戏开发</a><br><br>12.<a href="http://www.52im.net" target="_blank" rel="noopener">IM-即时通讯</a><br><br>13.<a href="http://www.nowamagic.net" target="_blank" rel="noopener">简明现代魔法 - PHP/Python…</a><br><br>14.<a href="http://www.jb51.net/tools/zhengze.html#introduction" target="_blank" rel="noopener">脚本之家-正则表达式</a><br><br><a href="https://docs.microsoft.com/zh-cn/previous-versions/visualstudio/design-tools/expression-studio-2/cc295435(v=expression.10" target="_blank" rel="noopener">用于查找的正则表达式</a>)<br><br>15.<a href="http://www.mac52ipod.cn" target="_blank" rel="noopener">苹果粉丝博客</a><br><br>16.<a href="https://www.feng.com" target="_blank" rel="noopener">威锋网</a><br><br>17.<a href="http://www.itcast.cn" target="_blank" rel="noopener">传智播客</a><br><br>18.<a href="https://www.jianshu.com/p/3fb490dfa1fe" target="_blank" rel="noopener">iOS资源整合</a><br><br>19.<a href="https://www.jianshu.com/p/e56d98a43e7e" target="_blank" rel="noopener">iOS资源整合2</a><br><br>20.<a href="https://www.jianshu.com/p/35bfb7d463c7" target="_blank" rel="noopener">资源整合</a><br>21.<a href="https://github.com/skyseraph/Soft-Tools/blob/master/docs/LinkBlogs.md" target="_blank" rel="noopener">github - 资料</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资料</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/06/其他/博客和其他网站资料/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -2398,14 +2446,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -2414,7 +2454,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2434,19 +2474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2454,7 +2482,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2462,7 +2494,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2470,7 +2510,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenCV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2482,15 +2534,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2498,11 +2546,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

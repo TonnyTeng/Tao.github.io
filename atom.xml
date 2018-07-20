@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tao1010.github.io/"/>
-  <updated>2018-07-19T05:15:16.716Z</updated>
+  <updated>2018-07-20T17:33:02.104Z</updated>
   <id>http://tao1010.github.io/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac获取ipa</title>
+    <link href="http://tao1010.github.io/2018/07/21/%E5%85%B6%E4%BB%96/Mac%E8%8E%B7%E5%8F%96ipa/"/>
+    <id>http://tao1010.github.io/2018/07/21/其他/Mac获取ipa/</id>
+    <published>2018-07-20T16:49:19.000Z</published>
+    <updated>2018-07-20T17:33:02.104Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.工具准备</p><a id="more"></a><pre><code>Apple Configurator 2   Mac appstore下载即可登录appleId</code></pre><p>2.步骤</p><pre><code>1.在Appstore下载相关App（以xx宝为例）到iPhone或iPad上;2.打开 Apple Configurator 23.选中连接Mac的移动设备后，点击 Apple Configurator 2 工具菜单 ”添加“ --&gt; 应用；4.搜索app-xx宝，选中，点击右下角添加，等待添加完成(如下图)；5.不要操作  Apple Configurator 2,切换到桌面;6.快捷键：command + shift + G 或者在Finder 中前往文件夹...7.输入路径：~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/8.拷贝出 上述路径中的ipa文件，之后在 Apple Configurator 2 工具的弹框中点击停止，即可；</code></pre><p><img src="zhifubao.png" alt="zhifubao"><br><img src="done.png" alt="done"><br>3.获取资源</p><pre><code>1.修改上述获取的ipa文件，修改后缀名 ipa --&gt;zip;2.解压zip文件，在完成的文件夹中打开Payload 文件夹，即可看到应用xx宝应用程序；3.选中该应用程序，右键显示包内容即可查看图片资源等；</code></pre><p>4.获取图片资源</p><pre><code>1.找到包内容中的 Assets.car 文件；2.打开 “Assets提取工具”，导入 Assets.car 文件，添加到处文件夹，点击提取即可获取；</code></pre><p>参考资料:<br>1.<a href="https://www.jianshu.com/p/fdb50d303ad6" target="_blank" rel="noopener">Mac获取ipa和相关资源</a><br>2.<a href="https://github.com/pcjbird/AssetsExtractor" target="_blank" rel="noopener">Assets提取工具</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.工具准备&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://tao1010.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="ipa" scheme="http://tao1010.github.io/tags/ipa/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HBuilder入门-环境</title>
     <link href="http://tao1010.github.io/2018/07/16/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/HBuilder/HBuilder%E5%85%A5%E9%97%A8-%E7%8E%AF%E5%A2%83/"/>
     <id>http://tao1010.github.io/2018/07/16/混合开发/HBuilder/HBuilder入门-环境/</id>
     <published>2018-07-16T07:42:44.000Z</published>
-    <updated>2018-07-19T05:15:16.716Z</updated>
+    <updated>2018-07-20T13:25:54.466Z</updated>
     
-    <content type="html"><![CDATA[<p>一、HBuilder</p><a id="more"></a><p>1.概念</p><pre><code>主要用于开发html、js、css，同时配合HTML的后端脚本语言如php、jsp也可以适用，还有前端的预编译语言如less以及markdown都可以良好的编辑.HBuilder是基于eclipse 3.7 开发的，不兼容eclipse4.x版本的插件</code></pre><p>2.快捷方式</p><pre><code>连续单词的首字母; dg--&gt;document.get整段HTML一般使用tag的名称; sc/st--&gt;script/style同一个tag，有多个代码块输出，则在最后加后缀;    meta    metau如果原始语法超过4个字符，针对常用语法，则第一个单词的激活符使用缩写;    inbu--&gt; input buttonjs的关键字代码块，是在关键字最后加一个重复字母;    iff    --&gt; if(){}    forr --&gt; for(){}    funn --&gt; function代码块    funa --&gt; 函数    func --&gt; 闭包</code></pre><p>3.JSDoc</p><pre><code>作用：导出API文档，明确代码类型，辅助代码提示；标签    @alias  给变量和函数指定别名    @constructor 标识函数是构造函数    @description 代码提示时的描述    @example     提示代码示例    @extends    标识继承于某个类型    @param    描述参数和参数类型    @property    描述对象的属性</code></pre><p>4.扩展语法提示、自定义语法</p><pre><code>JS部分：    1.基于sdocml的框架与法库        选中工程，点击右键，引入框架语法；        常用框架语法库，包括jquery、zepto、mui等    2.jsdoc    3.js代码块HTML部分：    标签和属性</code></pre><p>5.引入JQ等扩展框架语法库</p><pre><code>强烈不推荐使用：jquery mobile是非常卡顿的；在手机端的ui框架，推荐使用mui。</code></pre><p>6.插件</p><pre><code>HBuilder的工具→插件安装中已经集成了svn、git、php等常用的插件；</code></pre><p>二、HTML5 plus 和 Native.js<br>1.HTML5+</p><pre><code>是HBuilder对原生组件的封装，主要展示HBuilder中对各类组件的用法(方法、对象、属性、权限等)</code></pre><p>2.Native.js</p><pre><code>封装一条通道(通过JS语法直接调用Native API    Android -- JAVA    iOS -- Objective CAndroid调用方法：plus.androidiOS调用方法：plus.ios</code></pre><p>3.Native.js - iOS<br>方法</p><p>对象</p><p>权限</p><p>三、5+App(Html 5 Plus app)<br>1.概念</p><pre><code>HTML5 Plus 移动app的简称5+App。mobile web项目在浏览器运行appmobile web 打包成 app</code></pre><p>2.语言</p><pre><code>HTML、JS、CSS</code></pre><p>3.打包</p><pre><code>本地打包云打包证书：    android：使用DCloud生成的公用证书或自己生成的证书，两者不影响安装包的发布，唯一的差别就是证书中开发者和企业信息不同。</code></pre><p>三、wap2app<br>1.概念</p><pre><code>将移动站点，快速发布成App的增强方案；</code></pre><p>四、流应用</p><p>参考资料:<br>1.<a href="http://ask.dcloud.net.cn/article/88" target="_blank" rel="noopener">5+ App开发Native.js入门指南</a><br>2.<a href="http://www.dcloud.io/" target="_blank" rel="noopener">HBuilder架构</a><br>3.<a href="http://ask.dcloud.net.cn/article/91" target="_blank" rel="noopener">HBuilder中的UI-mui</a><br>  <a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">MUI</a><br>4.<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="noopener">HTML5+规范</a><br>5.<a href="http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/104" target="_blank" rel="noopener">HTML5+ SDK</a><br>6.<a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">HBuilder-MUI</a><br>7.<a href="https://blog.csdn.net/u014466109/article/details/71311028" target="_blank" rel="noopener">mui.init 和 plusready的区别</a><br>8.<a href="http://www.html5plus.org/doc/zh_cn/ios.html#plus.ios.importClass" target="_blank" rel="noopener">Native.js - iOS</a></p>]]></content>
+    <content type="html"><![CDATA[<p>一、HBuilder</p><a id="more"></a><p>1.概念</p><pre><code>主要用于开发html、js、css，同时配合HTML的后端脚本语言如php、jsp也可以适用，还有前端的预编译语言如less以及markdown都可以良好的编辑.HBuilder是基于eclipse 3.7 开发的，不兼容eclipse4.x版本的插件</code></pre><p>2.快捷方式</p><pre><code>连续单词的首字母; dg--&gt;document.get整段HTML一般使用tag的名称; sc/st--&gt;script/style同一个tag，有多个代码块输出，则在最后加后缀;    meta    metau如果原始语法超过4个字符，针对常用语法，则第一个单词的激活符使用缩写;    inbu--&gt; input buttonjs的关键字代码块，是在关键字最后加一个重复字母;    iff    --&gt; if(){}    forr --&gt; for(){}    funn --&gt; function代码块    funa --&gt; 函数    func --&gt; 闭包</code></pre><p>3.JSDoc</p><pre><code>作用：导出API文档，明确代码类型，辅助代码提示；标签    @alias  给变量和函数指定别名    @constructor 标识函数是构造函数    @description 代码提示时的描述    @example     提示代码示例    @extends    标识继承于某个类型    @param    描述参数和参数类型    @property    描述对象的属性</code></pre><p>4.扩展语法提示、自定义语法</p><pre><code>JS部分：    1.基于sdocml的框架与法库        选中工程，点击右键，引入框架语法；        常用框架语法库，包括jquery、zepto、mui等    2.jsdoc    3.js代码块HTML部分：    标签和属性</code></pre><p>5.引入JQ等扩展框架语法库</p><pre><code>强烈不推荐使用：jquery mobile是非常卡顿的；在手机端的ui框架，推荐使用mui。</code></pre><p>6.插件</p><pre><code>HBuilder的工具→插件安装中已经集成了svn、git、php等常用的插件；</code></pre><p>二、HTML5 plus 和 Native.js<br>1.HTML5+</p><pre><code>是HBuilder对原生组件的封装，主要展示HBuilder中对各类组件的用法(方法、对象、属性、权限等)</code></pre><p>2.Native.js</p><pre><code>封装一条通道(通过JS语法直接调用Native API    Android -- JAVA    iOS -- Objective CAndroid调用方法：plus.androidiOS调用方法：plus.ios</code></pre><p>3.Native.js - iOS<br>方法</p><p>对象</p><p>权限</p><p>三、5+App(Html 5 Plus app)<br>1.概念</p><pre><code>HTML5 Plus 移动app的简称5+App。mobile web项目在浏览器运行appmobile web 打包成 app</code></pre><p>2.语言</p><pre><code>HTML、JS、CSS</code></pre><p>3.打包</p><pre><code>本地打包云打包证书：    android：使用DCloud生成的公用证书或自己生成的证书，两者不影响安装包的发布，唯一的差别就是证书中开发者和企业信息不同。</code></pre><p>三、wap2app<br>1.概念</p><pre><code>将移动站点，快速发布成App的增强方案；</code></pre><p>四、流应用</p><p>参考资料:<br>1.<a href="http://ask.dcloud.net.cn/article/88" target="_blank" rel="noopener">5+ App开发Native.js入门指南</a><br>2.<a href="http://www.dcloud.io/" target="_blank" rel="noopener">HBuilder架构</a><br>3.<a href="http://ask.dcloud.net.cn/article/91" target="_blank" rel="noopener">HBuilder中的UI-mui</a><br>  <a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">MUI</a><br>4.<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="noopener">HTML5+规范</a><br>5.<a href="http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/104" target="_blank" rel="noopener">HTML5+ SDK</a><br>6.<a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">HBuilder-MUI</a><br>7.<a href="https://blog.csdn.net/u014466109/article/details/71311028" target="_blank" rel="noopener">mui.init 和 plusready的区别</a><br>8.<a href="http://www.html5plus.org/doc/zh_cn/ios.html#plus.ios.importClass" target="_blank" rel="noopener">Native.js - iOS</a><br><a href="http://ask.dcloud.net.cn/article/114" target="_blank" rel="noopener">Native.js - iOS/Android</a>      </p>]]></content>
     
     <summary type="html">
     
@@ -450,30 +472,6 @@
     
     
       <category term="iOS第三方库" scheme="http://tao1010.github.io/tags/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python-python基础-PyCharm的使用</title>
-    <link href="http://tao1010.github.io/2018/06/26/Python/Python%E5%9F%BA%E7%A1%80/Python-python%E5%9F%BA%E7%A1%80-PyCharm%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://tao1010.github.io/2018/06/26/Python/Python基础/Python-python基础-PyCharm的使用/</id>
-    <published>2018-06-26T03:53:53.000Z</published>
-    <updated>2018-06-28T13:14:57.875Z</updated>
-    
-    <content type="html"><![CDATA[<p>一、PyCharm简介</p><pre><code>版本号：2016.2.3</code></pre><a id="more"></a><p>1.特点</p><pre><code>是Python的一款非常优秀的集成开发环境；可以在Windows、Linux、macOS 下使用；适合开发大型项目；    一个项目通常包含很多源文件；    每个源文件的代码行数有限，通常子啊几百行之内；    每个源文件各司其职，共同完成复杂的业务功能；</code></pre><p>2.构成<br><br><img src="pycharm1.png" alt="pycharm1"><br><br>二、PyCharm设置<br><br>1.打开目录</p><pre><code>打开一个项目后，会在目录先新建一个 .idea 的目录，用于保存项目相关信息:    解释器版本    项目包含文件等</code></pre><p><img src="idea.png" alt="idea"><br><br>2.设置项目中运用的 python 解释器版本</p><pre><code>路径:菜单栏PyCharm --&gt; Preferences --&gt;Project... --&gt; Project Interpreter --&gt;选择解释器版本运行配置设置：Run/Debug Configurations --&gt; Python interpreter --&gt; 选择解释器对应的版本</code></pre><p>3.设置字体(控制台和编辑区)</p><pre><code>PyCharm --&gt; Preferences --&gt; Editor --&gt; Colors &amp; Fonts</code></pre><p>4.调试</p><pre><code>Debugger:查看变量信息Console:查看输出信息之前调试未关闭，再次点击调试按钮 会在控制台新开启调试窗口</code></pre><p>三、新建项目<br><br>1.命名规则</p><pre><code>建议只使用小写字母、数字、下划线不能以数字开始</code></pre><p>2.新建项目</p><pre><code>菜单栏：File --&gt; New Project...</code></pre><p>3.注释</p><pre><code>单行注释 # 解释器不会解释 # 号右侧的代码# 放在代码行首 建议在 # 后添加一个空格 或者 command + / 添加注释# 放在代码行尾 建议在 # 空格前空2格多行注视或块注释&quot;&quot;&quot;  这是一个多行注释 &quot;&quot;&quot;</code></pre><p>参考资料:<br><br>1.<a href="">黑马视频</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一、PyCharm简介&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;版本号：2016.2.3
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://tao1010.github.io/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://tao1010.github.io/tags/python%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
