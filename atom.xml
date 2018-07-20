@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tao1010.github.io/"/>
-  <updated>2018-07-20T17:33:02.104Z</updated>
+  <updated>2018-07-20T19:53:04.666Z</updated>
   <id>http://tao1010.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试工具JMeter</title>
+    <link href="http://tao1010.github.io/2018/07/21/%E5%85%B6%E4%BB%96/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7JMeter/"/>
+    <id>http://tao1010.github.io/2018/07/21/其他/测试工具JMeter/</id>
+    <published>2018-07-20T19:33:00.000Z</published>
+    <updated>2018-07-20T19:53:04.666Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、JMeter作用</p><a id="more"></a><pre><code>1.可对软件做压力测试；2.可用于测试静态和动态资源(静态文件、Java小服务程序、CGI脚本、Java对象、数据库、FTP服务器等)；3.可用于对服务器、网络或对象模拟巨大的负载，来自不同压力类别下测试它们的强度和分析整体性能；4.可对应用程序做功能/回归测试</code></pre><p>2.Mac安装            </p><pre><code>1.官网下载JMeter包;        2.解压下载的apache-jmeter-4.0.tar;3.使用命令终端：    cd apache-jmeter-4.0/bin #进入bin目录    sh jmeter #启动桌面工具  - 弹出JMeter软件操作界面4.关闭JMeter 界面即可</code></pre><p>参考资料：<br>1.<a href="http://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">官网下载JMeter4.0</a><br>2.<a href="http://www.51testing.com/zhuanti/jmeter.html" target="_blank" rel="noopener">JMeter的使用 - 51Testing</a><br>3.<a href="http://www.cnblogs.com/0201zcr/p/5046193.html" target="_blank" rel="noopener">JMeter的使用 - Web</a><br>4.<a href="http://www.cnblogs.com/0201zcr/p/5089620.html" target="_blank" rel="noopener">JMeter的使用</a><br>5.<a href="https://baike.baidu.com/item/回归测试/1925732" target="_blank" rel="noopener">回归测试</a><br>6.<a href="https://baike.baidu.com/item/Jmeter/3104456?fr=aladdin" target="_blank" rel="noopener">JMeter介绍</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一、JMeter作用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://tao1010.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="测试" scheme="http://tao1010.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac获取ipa</title>
@@ -450,28 +472,6 @@
     
     
       <category term="模式" scheme="http://tao1010.github.io/tags/%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS第三方库-FMDB</title>
-    <link href="http://tao1010.github.io/2018/06/26/iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93-FMDB/"/>
-    <id>http://tao1010.github.io/2018/06/26/iOS/iOS第三方库/iOS第三方库-FMDB/</id>
-    <published>2018-06-26T05:23:13.000Z</published>
-    <updated>2018-06-26T15:42:29.394Z</updated>
-    
-    <content type="html"><![CDATA[<p>一、FMDB基本信息<br></p><a id="more"></a><p>1.版本信息</p><pre><code>pod &apos;FMDB&apos;, &apos;~&gt; 2.7&apos;</code></pre><p>2.结构<br><br><img src="fmdb.png" alt="fmdb"><br></p><pre><code>FMDatabase    一个 FMDatabase 对象代表一个单独的SQLite数据库(不是表)，用来执行SQL语句(增、删、改、查);FMDatabaseAdditions    扩展 FMDatabase 类 新增对查询结果至返回单个值的方法进行简化,对表、列是否存在、版本号，校验SQL等功能；        FMResultSet    使用 FMDatabase 执行查询后的结果集；FMDatabaseQueue    用于多线程中执行多个查询或更新，使用串行队列，线程安全的；FMDatabasePool    使用任务池，对多线程提供支持，优先选择FMDatabaseQueue；</code></pre><p>3.简介</p><pre><code>FMDB是iOS中对 libsqlite3.tbd 库 的封装；    更加面向对象；    非常轻量、灵活；    线程安全；    存在跨平台的局限性；</code></pre><p>二、libsqlite3 和 FMDB<br></p><pre><code>libsqlite3是iOS中纯C语言操作Sqlite数据库的一个库文件;</code></pre><p>1.SQLite3 操作数据库需要使用3个步骤：</p><pre><code>1.使用sqlite3_open()函数打开数据库;2.使用sqlite3_exec()函数执行非查询的SQL语句:    创建数据库；    创建数据表；    增、删、改、查等操作；3.使用SQLite_close()函数释放资源;</code></pre><p>2.基本使用对比<br><br>数据库操作对象</p><pre><code>C语言方式：    sqlite3 *db;FMDB方式：    FMDatabase *db;</code></pre><p>打开数据库</p><pre><code>//1.获取数据库文件路径NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];NSString *fileName = [doc stringByAppendingPathComponent:@&quot;students.sqlite&quot;];C语言方式：    -(void)openDB{        //2.将OC字符串转换为c语言的字符串        const char *cfileName = fileName.UTF8String;        //3.打开数据库文件（如果数据库文件不存在，那么该函数会自动创建数据库文件）        int result = sqlite3_open(cfileName, &amp;db);        if (result == SQLITE_OK) {//打开成功            NSLog(@&quot;成功打开数据库&quot;);        }else{            NSLog(@&quot;打开数据库失败&quot;);        }    }FMDB方式：        -(void)openDB{        //2、获取数据库连接       db = [FMDatabase databaseWithPath:fileName];        //3、打开数据库连接        if ([db open]) {            NSLog(@&quot;打开数据库成功&quot;);        }else{            NSLog(@&quot;打开数据库失败&quot;);        }    }</code></pre><p>创建表格</p><pre><code>C语言方式    -(void)createTable{        //创建表        const char *sql = &quot;CREATE TABLE IF NOT EXISTS t_student(id integer PRIMARY KEY AUTOINCREMENT,name text NOT NULL,age integer NOT NULL);&quot;;        char *errmsg= NULL;        int result = sqlite3_exec(_db, sql, NULL, NULL, &amp;errmsg);        if (result==SQLITE_OK) {            NSLog(@&quot;创建表成功&quot;);        }else{            NSLog(@&quot;创建表失败---%s&quot;,errmsg);        }    }FMDB方式    -(void)createTable{        BOOL result = [_db executeUpdate:@&quot;CREATE TABLE IF NOT EXISTS t_student (id integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, age integer NOT NULL);&quot;];        if (result) {            NSLog(@&quot;创建表格成功&quot;);        }else{            NSLog(@&quot;创建表格失败&quot;);        }    }</code></pre><p>增加数据</p><pre><code>C语言方式    -(void)insertData{        //插入数据        for (int i=0; i&lt;10; i++) {            //拼接sql语句            NSString *name = [NSString stringWithFormat:@&quot;yixiangboy--%d&quot;,arc4random_uniform(100)];            int age = arc4random_uniform(20)+10;            NSString *sql = [NSString stringWithFormat:@&quot;INSERT INTO t_student (name,age) VALUES (&apos;%@&apos;,%d);&quot;,name,age];             //执行SQL语句            char *errmsg = NULL;            sqlite3_exec(db, sql.UTF8String, NULL, NULL, &amp;errmsg);            if (errmsg) {//如果有错误信息                NSLog(@&quot;插入数据失败--%s&quot;,errmsg);            }else{                NSLog(@&quot;插入数据成功&quot;);            }        }    }FMDB方式    -(void)insertData{        for (int i=0; i&lt;10; i++) {            NSString *name = [NSString stringWithFormat:@&quot;yixiang-%d&quot;,arc4random_uniform(100)];            int age = arc4random_uniform(20)+10;            BOOL result = [_db executeUpdate:@&quot;INSERT INTO t_student (name, age) VALUES (?, ?);&quot;,name, @(age)];            if (result) {                NSLog(@&quot;插入成功&quot;);            }else{                NSLog(@&quot;插入失败&quot;);            }        }    }</code></pre><p>删除数据</p><pre><code>C语言方式    -(void)deleteData{        //删除age小于15的数据        NSString *sql = [NSString stringWithFormat:@&quot;DELETE FROM t_student WHERE age&lt;15&quot;];        char *errmsg = NULL;        sqlite3_exec(_db, sql.UTF8String, NULL, NULL, &amp;errmsg);        if (errmsg) {            NSLog(@&quot;删除数据失败&quot;);        }else{            NSLog(@&quot;删除数据成功&quot;);        }    }FMDB方式    -(void)deleteData{         BOOL result = [_db executeUpdate:@&quot;DELETE FROM t_student WHERE age&lt;15&quot;];        if (result) {            NSLog(@&quot;删除成功&quot;);        }else{            NSLog(@&quot;删除失败&quot;);        }    }</code></pre><p>更新数据</p><pre><code>C语言方式    -(void)updateData{         BOOL result = [_db executeUpdate:@&quot;DELETE FROM t_student WHERE age&lt;15&quot;];        if (result) {            NSLog(@&quot;删除成功&quot;);        }else{            NSLog(@&quot;删除失败&quot;);        }    }FMDB方式    -(void)updateData{         BOOL result = [_db executeUpdate:@&quot;UPDATE t_student set age=20 WHERE age&gt;20&quot;];        if (result) {            NSLog(@&quot;更新成功&quot;);        }else{            NSLog(@&quot;更新失败&quot;);        }    }</code></pre><p>查询数据</p><pre><code>C语言方式    -(void) queryData{         const char *sql = &quot;SELECT id,name,age FROM t_student WHERE age&lt;20&quot;;        sqlite3_stmt *stmt = NULL;        //进行查询前的准备工作        if(sqlite3_prepare_v2(_db, sql, -1, &amp;stmt, NULL)==SQLITE_OK){//SQL语句没有问题            NSLog(@&quot;查询语句没有问题&quot;);            //每调用一次sqlite3_step函数，stmt就会指向下一条记录            while (sqlite3_step(stmt)==SQLITE_ROW) {//找到一条记录                //取出数据                //(1)取出第0个字段的值（int）                int ID=sqlite3_column_int(stmt, 0);                //(2)取出第一列字段的值(text)                const unsigned char *name = sqlite3_column_text(stmt, 1);                //(3)取出第二列字段的值(int)                int age = sqlite3_column_int(stmt, 2);                printf(&quot;%d %s %d\n&quot;,ID,name,age);            }        }else{            NSLog(@&quot;查询语句有问题&quot;);        }    }FMDB方式    -(void)queryData{         FMResultSet *resultSet = [_db executeQuery:@&quot;SELECT * FROM t_student WHERE age &gt; ?&quot;,@(20)];        while ([resultSet next]) {            int ID = [resultSet intForColumn:@&quot;id&quot;];            NSString *name = [resultSet stringForColumn:@&quot;name&quot;];            int age = [resultSet intForColumn:@&quot;age&quot;];            NSLog(@&quot;%d %@ %d&quot;,ID,name,age);        }    }</code></pre><p>参考资料:<br><br>1.<a href="https://cocoapods.org/pods/FMDB" target="_blank" rel="noopener">FMDB-cocoapods</a><br><br>2.<a href="https://blog.csdn.net/yixiangboy/article/details/51072699" target="_blank" rel="noopener">FMDB和SQLite3对比</a><br><br>3.<a href="http://www.cnblogs.com/polobymulberry/category/789988.html" target="_blank" rel="noopener">FMDB源码阅读</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一、FMDB基本信息&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://tao1010.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS第三方库" scheme="http://tao1010.github.io/tags/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
   </entry>
   

@@ -192,6 +192,333 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小程序/微信小程序-组件-视图容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/07/小程序/微信小程序-组件-视图容器/">微信小程序-组件-视图容器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/07/小程序/微信小程序-组件-视图容器/" class="archive-article-date">
+  	<time datetime="2018-06-07T01:21:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、view - 视图容器<br>1.属性容器        </p>
+<pre><code>hover-class     指定按下去的样式类。当 hover-class=&quot;none&quot; 时，没有点击态效果 默认none
+hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态 默认false
+hover-start-time     按住后多久出现点击态，单位毫秒 默认50
+hover-stay-time  手指松开后点击态保留时间，单位毫秒  默认400 
+</code></pre><p>2.如果需要使用滚动视图，请使用 scroll-view</p>
+<p>二、scroll-view - 可滚动视图区域<br>1.属性列表    </p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scroll-x</td>
+<td>Boolean</td>
+<td>false</td>
+<td>允许横向滚动</td>
+</tr>
+<tr>
+<td>scroll-y</td>
+<td></td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>upper-threshold</td>
+<td>Number</td>
+<td>50</td>
+<td>距顶部/左边多远时（单位px），触发 scrolltoupper 事件</td>
+</tr>
+<tr>
+<td>lower-threshold</td>
+<td></td>
+<td>50</td>
+<td>距底部/右边多远时（单位px），触发 scrolltolower 事件</td>
+</tr>
+<tr>
+<td>scroll-top</td>
+<td></td>
+<td></td>
+<td>设置竖向滚动条位置</td>
+</tr>
+<tr>
+<td>scroll-left</td>
+<td></td>
+<td></td>
+<td>设置横向滚动条位置</td>
+</tr>
+<tr>
+<td>scroll-into-view</td>
+<td></td>
+<td></td>
+<td>值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素</td>
+</tr>
+<tr>
+<td>scroll-with-animation</td>
+<td></td>
+<td>false</td>
+<td>在设置滚动条位置时使用动画过渡</td>
+</tr>
+<tr>
+<td>enable-back-to-top</td>
+<td></td>
+<td></td>
+<td>iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向</td>
+</tr>
+<tr>
+<td>bindscrolltoupper</td>
+<td></td>
+<td></td>
+<td>滚动到顶部/左边，会触发 scrolltoupper 事件</td>
+</tr>
+<tr>
+<td>bindscrolltolower</td>
+<td></td>
+<td></td>
+<td>滚动到底部/右边，会触发 scrolltolower 事件</td>
+</tr>
+<tr>
+<td>bindscroll</td>
+<td></td>
+<td></td>
+<td>滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}</td>
+</tr>
+</tbody>
+</table>
+<p>2.tips</p>
+<pre><code>使用竖向滚动时，需要给&lt;scroll-view/&gt;一个固定高度，通过 WXSS 设置 height；
+请勿在 scroll-view 中使用 textarea、map、canvas、video 组件；
+scroll-into-view 的优先级高于 scroll-top；
+在滚动 scroll-view 时会阻止页面回弹，所以在 scroll-view 中滚动，是无法触发 onPullDownRefresh；
+若要使用下拉刷新，请使用页面的滚动，而不是 scroll-view ，这样也能通过点击顶部状态栏回到页面顶部；
+</code></pre><p>3.eg</p>
+<p>三、swiper - 滑块视图容器<br>1.swiper属性        </p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>indicator-dots</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否显示面板指示点</td>
+</tr>
+<tr>
+<td>indicator-color</td>
+<td>Color</td>
+<td>rgba(0,0,0,0.3)</td>
+<td>指示点颜色</td>
+</tr>
+<tr>
+<td>indicator-active-color</td>
+<td>Color</td>
+<td>#000000</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否自动切换</td>
+</tr>
+<tr>
+<td>current</td>
+<td>Number</td>
+<td>0</td>
+<td>当前所在滑块的index</td>
+</tr>
+<tr>
+<td>current-item-id</td>
+<td>String</td>
+<td>‘’</td>
+<td>当前所在滑块的 item-id ，不能与 current 被同时指定</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>Number</td>
+<td>5000</td>
+<td>自动切换时间间隔</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Number</td>
+<td>500</td>
+<td>滑动动画时长</td>
+</tr>
+<tr>
+<td>circular</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否采用衔接滑动</td>
+</tr>
+<tr>
+<td>vertical</td>
+<td>Boolean</td>
+<td>false</td>
+<td>滑动方向是否为纵向</td>
+</tr>
+<tr>
+<td>previous-margin</td>
+<td>String</td>
+<td>0px</td>
+<td>前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值</td>
+</tr>
+<tr>
+<td>next-margin</td>
+<td>String</td>
+<td>0px</td>
+<td>后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值</td>
+</tr>
+<tr>
+<td>display-multiple-tiems</td>
+<td>Number</td>
+<td>1</td>
+<td>同时显示的滑块数量</td>
+</tr>
+<tr>
+<td>skip-hidden-item-layout</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息</td>
+</tr>
+<tr>
+<td>bindchange</td>
+<td>EventHandle</td>
+<td></td>
+<td>current 改变时会触发 change 事件，event.detail = {current: current, source: source}</td>
+</tr>
+<tr>
+<td>bindanimationfinish</td>
+<td>EventHandle</td>
+<td></td>
+<td>动画结束时会触发 animationfinish 事件，event.detail 同上</td>
+</tr>
+</tbody>
+</table>
+<p>2.swiper-item</p>
+<pre><code>仅可放置在&lt;swiper/&gt;组件中,宽高自动设置为100%;
+
+item-id  该 swiper-item 的标识符 String 默认&apos;&apos;
+</code></pre><p>3.tips:</p>
+<pre><code>如果在 bindchange 的事件回调函数中使用 setData 改变 current 值，则有可能导致 setData 被不停地调用，因而通常情况下请在改变 current 值前检测 source 字段来判断是否是由于用户触摸引起;
+</code></pre><p>4.eg:</p>
+<pre><code>home.wxml
+&lt;!-- home banner --&gt;
+  &lt;swiper indicator-dots=&apos;true&apos; autoplay=&apos;true&apos; circular=&apos;true&apos;&gt;
+      &lt;block wx:for=&quot;{{banners}}&quot;&gt;
+        &lt;swiper-item&gt;
+          &lt;image class=&quot;banner-image&quot; style=&quot;width:100%;height:{{wx.getSystemInfoSync().windowWidth * 500 / 750}}&quot; src=&quot;{{item}}&quot; /&gt;
+        &lt;/swiper-item&gt;
+      &lt;/block&gt;
+  &lt;/swiper&gt;
+
+home.js
+ data: {
+    banners:[      
+      &apos;http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg&apos;,
+      &apos;http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg&apos;,
+      &apos;http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg&apos;
+    ]
+  },
+</code></pre><p>四、movable-view - 可移动的视图容器，在页面中可以拖拽滑动</p>
+<pre><code>movable-view 必须设置width和height属性，不设置默认为10px;
+movable-view 默认为绝对定位，top和left属性为0px;
+当movable-view小于movable-area时，movable-view的移动范围是在movable-area内；当movable-view大于movable-area时，movable-view的移动范围必须包含movable-area（x轴方向和y轴方向分开考虑）;
+注意：movable-view必须在&lt;movable-area/&gt;组件中，并且必须是直接子节点，否则不能移动;
+</code></pre><p>五、cover-view<br>1.cover-view        </p>
+<pre><code>覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image；
+</code></pre><p>2.cover-image</p>
+<pre><code>覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里
+</code></pre><p>参考资料:<br>1.<a href="https://developers.weixin.qq.com/miniprogram/dev/component/" target="_blank" rel="noopener">基础组件</a><br><br>2.<a href="https://www.w3cschool.cn/weixinapp/" target="_blank" rel="noopener">W3C-小程序开发文档</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/07/小程序/微信小程序-组件-视图容器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-其他/博客和其他网站资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -3968,208 +4295,6 @@ intersectionObserver对象实例的方法列表:
 
        
   
-    <article id="post-iOS/iOS问题/iOS问题-数据埋点统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/">iOS问题-数据埋点统计</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/" class="archive-article-date">
-  	<time datetime="2018-05-25T01:08:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、场景需求<br>1.统计某个控制器UIViewController家长次数；<br>2.统计某个UIButton点击次数；<br>3.统计某个方法执行次数；<br>4.统计UITableView的Cell点击次数；<br>二、技术选型对比<br>1.手动复制统计代码逻辑粘贴到对应的类、方法中</p>
-<pre><code>工作量大，可维护性差，仅适用于统计埋点较少的情形；
-</code></pre><p>2.通过继承和重写系统方法</p>
-<pre><code>利用写好的统计的一个基类，让需要统计的类继承自该基类，或者调用重写过统计逻辑的按钮基类等；    
-</code></pre><p>3.分类：添加类方法或者示例方法</p>
-<pre><code>将统计逻辑封装在分类方法里面，在需要统计的地方导入并调用分类方法；            
-</code></pre><p>4.替换系统方法分类：通过runtime的方法</p>
-<pre><code>利用Method Swizzling机制进行方法替换：替换 系统方法(原来的需要在里面统计却不含统计逻辑的方法) 为 新方法(新的包含了统计逻辑的方法)        
-</code></pre><p>5.AOP的方法</p>
-<pre><code>利用Aspect框架对需要进行统计的方法进行挂钩(hook)，并注入包含了统计逻辑的代码块(block)        
-</code></pre><p>三、技术实现     </p>
-<pre><code>需求1：监听全局的某一类的统一方法
-</code></pre><p>1.Runtime Method Swizzling方案<br><img src="runtime.png" alt="runtime">    </p>
-<pre><code>方案特点：被监听的方法单一，但会影响全局的所有的类的该方法
-</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span>+Trace</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"UIViewController+Trace.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceHandler.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/objc.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Aspect.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span>(<span class="title">Trace</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 1.自定义实现方法</span></span><br><span class="line">+(<span class="keyword">void</span>)load&#123;</span><br><span class="line"></span><br><span class="line">	swizzleMethod([<span class="keyword">self</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(viewDidAppear:),<span class="keyword">@selector</span>(swizzed_viewDidAppear:));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)swizzled_viewDidAppear:(<span class="built_in">BOOL</span>)animated&#123;   </span><br><span class="line"></span><br><span class="line">	 <span class="comment">// call original implementation</span></span><br><span class="line">    [<span class="keyword">self</span> swizzled_viewDidAppear:animated];    </span><br><span class="line">    <span class="comment">// Begin statistics Event</span></span><br><span class="line">    [TraceHandler statisticsWithEventName:<span class="string">@"UIViewController"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> swizzleMethod(Class <span class="keyword">class</span>,SEL originalSelector,SEL swizzledSelector)&#123;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">// the method might not exist in the class, but in its superclass</span></span><br><span class="line">    Method originalMethod = class_getInstanceMethod(<span class="keyword">class</span>, originalSelector);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// class_addMethod will fail if original method already exists</span></span><br><span class="line">    Method swizzledMethod = class_getInstanceMethod(<span class="keyword">class</span>, swizzledSelector); </span><br><span class="line">      </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">BOOL</span> didAddMethod = class_addMethod(<span class="keyword">class</span>, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod)); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// the method doesn’t exist and we just added one </span></span><br><span class="line">    <span class="keyword">if</span> (didAddMethod) &#123;</span><br><span class="line">    </span><br><span class="line">        class_replaceMethod(<span class="keyword">class</span>, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));</span><br><span class="line">    &#125;    <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">TraceHandle.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceHandler.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TraceHandler</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)statisticsWithEventName:(<span class="built_in">NSString</span> *)eventName&#123;   </span><br><span class="line"></span><br><span class="line">	 <span class="built_in">NSLog</span>(<span class="string">@"-----&gt; %@"</span>,eventName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>2.AOP编程方案 - 为VC设计的分类<br><img src="aop.png" alt="aop">        </p>
-<pre><code>方案特点：被监听的方法单一，但会影响全局的所有的类的该方法
-Aspects 是iOS平台一个轻量级的面向切面编程(AOP)框架，只包括两个方法：一个类方法，一个实例方法;
-</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">id</span>)aspect_hookSelector:(SEL)selector withOptions:(AspectOptions)options usingBlock:(<span class="keyword">id</span>)block error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)aspect_hookSelector:(SEL)selector withOptions:(AspectOptions)options  usingBlock:(<span class="keyword">id</span>)block  error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line"></span><br><span class="line">函数使用方式简单易懂，挂钩的方式为三种：</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, AspectOptions) &#123;</span><br><span class="line">    AspectPositionAfter   = <span class="number">0</span>, <span class="comment">// 在原始方法后调用（默认）</span></span><br><span class="line">    AspectPositionInstead = <span class="number">1</span>, <span class="comment">// 替换原始方法</span></span><br><span class="line">    AspectPositionBefore  = <span class="number">2</span>, <span class="comment">// 在原始方法前调用</span></span><br><span class="line">    AspectOptionAutomaticRemoval = <span class="number">1</span> &lt;&lt; <span class="number">3</span> <span class="comment">// 在执行1次后自动移除</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">调用示例代码：</span><br><span class="line"></span><br><span class="line"><span class="comment">//给UIViewController的viewWillAppear:挂钩一个Block，在原始方法执行完成后，打印字符串</span></span><br><span class="line">[<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo, <span class="built_in">BOOL</span> animated) &#123;   </span><br><span class="line"></span><br><span class="line"> <span class="built_in">NSLog</span>(<span class="string">@"View Controller %@ will appear animated: %tu"</span>, aspectInfo.instance, animated);</span><br><span class="line"> </span><br><span class="line">&#125; error:<span class="literal">NULL</span>];</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span>+Trace</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 2.使用Aspects框架</span></span><br><span class="line">+ (<span class="keyword">void</span>)load&#123;</span><br><span class="line"></span><br><span class="line">    [<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewDidAppear:) withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo)&#123;         </span><br><span class="line"> </span><br><span class="line">        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([[aspectInfo instance] <span class="keyword">class</span>]);</span><br><span class="line">        [TraceHandler statisticsWithEventName:className];</span><br><span class="line">        </span><br><span class="line">     &#125; error:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.AOP编程方案 - 为全局AppDelegate设计的分类<br>方案特点：</p>
-<pre><code>需要监听不同类，不同按钮，系统方法，及表单元点击事件；
-是可代码配置需要监听的清单字典，并且需要注入的统计代码块block也可以写在这个清单里面；
-</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">AppDelegate+Trace.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"AppDelegate+Trace.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceManager.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">AppDelegate</span> (<span class="title">Trace</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)setupLogging&#123;    </span><br><span class="line"></span><br><span class="line">		<span class="built_in">NSDictionary</span> *configDic = @&#123;                                </span><br><span class="line">			<span class="string">@"ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show ViewController"</span>&#125;, 			<span class="string">@"Test1ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show Test1ViewController"</span>,                  										  <span class="string">@"TrackEvents"</span>:@[@&#123;<span class="string">@"EventDes"</span>:<span class="string">@"click action1"</span>, </span><br><span class="line">												             <span class="string">@"EventSelectorName"</span>:<span class="string">@"action1"</span>,</span><br><span class="line">								                          <span class="string">@"block"</span>:^(<span class="keyword">id</span> aspectInfo)&#123;                                                                 </span><br><span class="line">										                        <span class="built_in">NSLog</span>(<span class="string">@"统计 Test1ViewController action1 点击事件"</span>);</span><br><span class="line">										                      &#125;,</span><br><span class="line">										                    &#125;,</span><br><span class="line">												            @&#123;<span class="string">@"EventDes"</span>:<span class="string">@"click action2"</span>, </span><br><span class="line">								                           <span class="string">@"EventSelectorName"</span>:<span class="string">@"action2"</span>, </span><br><span class="line">								                           <span class="string">@"block"</span>:^(<span class="keyword">id</span> aspectInfo)&#123;        </span><br><span class="line">            							                        <span class="built_in">NSLog</span>(<span class="string">@"统计 Test1ViewController action2 点击事件"</span>);</span><br><span class="line">            							                      &#125;,</span><br><span class="line">            					                           &#125;</span><br><span class="line">            					                         ],</span><br><span class="line">           	                    &#125;,                                			<span class="string">@"Test2ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show Test2ViewController"</span>,&#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       </span><br><span class="line">      [TraceManager setUpWithConfig:configDic];</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">TraceManager.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceManager.h"</span></span></span><br><span class="line"><span class="keyword">@import</span> <span class="built_in">UIKit</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^AspectHandlerBlock)(<span class="keyword">id</span> aspectInfo);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TraceManager</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)setUpWithConfig:(<span class="built_in">NSDictionary</span> *)configDic&#123;    </span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">// hook 所有页面的viewDidAppear事件</span></span><br><span class="line">    [<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewDidAppear:) withOptions:AspectPositionAfter  usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo)&#123;                                  </span><br><span class="line"></span><br><span class="line">		 <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>),^&#123;</span><br><span class="line">		       </span><br><span class="line">		       <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([[aspectInfo instance] <span class="keyword">class</span>]);                                       			    <span class="built_in">NSString</span> *des = configDic[className][<span class="string">@"des"</span>];      </span><br><span class="line">		       <span class="keyword">if</span> (des) &#123; </span><br><span class="line">		            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,des);</span><br><span class="line">              &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125; error:<span class="literal">NULL</span>];    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *className <span class="keyword">in</span> configDic) &#123;</span><br><span class="line">    </span><br><span class="line">        Class clazz = <span class="built_in">NSClassFromString</span>(className);     </span><br><span class="line">        <span class="built_in">NSDictionary</span> *config = configDic[className];        </span><br><span class="line">        <span class="keyword">if</span> (config[<span class="string">@"TrackEvents"</span>]) &#123;  </span><br><span class="line">                  </span><br><span class="line">	        <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *event <span class="keyword">in</span> config[<span class="string">@"TrackEvents"</span>]) &#123;</span><br><span class="line">	        </span><br><span class="line">	                SEL selekor = <span class="built_in">NSSelectorFromString</span>(event[<span class="string">@"EventSelectorName"</span>]);</span><br><span class="line">	                AspectHandlerBlock block = event[<span class="string">@"block"</span>];</span><br><span class="line">	                </span><br><span class="line">	                [clazz aspect_hookSelector:selekor withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">	aspectInfo)&#123;                                    </span><br><span class="line">								<span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">										</span><br><span class="line">										block(aspectInfo);</span><br><span class="line">	                       &#125;);</span><br><span class="line">	                 &#125;error:<span class="literal">NULL</span>];</span><br><span class="line">	        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>4.在AppDelegate的类方法中根据Plist监听清单进行HOOK<br>方案特点    </p>
-<pre><code>需要监听不同类，不同按钮，系统方法，及表单元点击事件；
-是可代码配置需要监听的清单Plist，但是不能将需要注入的统计代码块block写在这个清单Plist里面；
-</code></pre><p>EventList.plist<br><img src="plist.png" alt="plist">        </p>
-<pre><code class="objectivec">AspectMananer.m
-
-<span class="meta">#pragma mark --- 监控button的点击事件</span>
-+ (<span class="keyword">void</span>)trackBttonEvent{
-
-    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) ws = <span class="keyword">self</span>;    
-    <span class="comment">//设置事件统计</span>
-    <span class="comment">//放到异步线程去执行</span>
-    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^{        
-         <span class="comment">//读取配置文件，获取需要统计的事件列表</span>
-        <span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"EventList"</span> ofType:<span class="string">@"plist"</span>];
-         <span class="built_in">NSDictionary</span> *eventStatisticsDict = [[<span class="built_in">NSDictionary</span> alloc] initWithContentsOfFile:path];    
-        <span class="keyword">for</span> (<span class="built_in">NSString</span> *classNameString <span class="keyword">in</span> eventStatisticsDict.allKeys) {
-                <span class="comment">//使用运行时创建类对象</span>
-            <span class="keyword">const</span> <span class="keyword">char</span> * className = [classNameString UTF8String];            
-            <span class="comment">//从一个字串返回一个类</span>
-            Class newClass = objc_getClass(className);            
-            <span class="built_in">NSArray</span> *pageEventList = [eventStatisticsDict objectForKey:classNameString];
-            <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *eventDict <span class="keyword">in</span> pageEventList) {
-                    <span class="comment">//事件方法名称</span>
-                <span class="built_in">NSString</span> *eventMethodName = eventDict[<span class="string">@"MethodName"</span>];
-                SEL seletor = <span class="built_in">NSSelectorFromString</span>(eventMethodName);
-                <span class="built_in">NSString</span> *eventId = eventDict[<span class="string">@"EventId"</span>];
-
-                [ws trackEventWithClass:newClass selector:seletor eventID:eventId];
-                [ws trackTableViewEventWithClass:newClass selector:seletor eventID:eventId];
-                [ws trackParameterEventWithClass:newClass selector:seletor eventID:eventId];
-            }
-        }
-    });
-}
-<span class="meta">#pragma mark -- 1.监控button和tap点击事件(不带参数)</span>
-+ (<span class="keyword">void</span>)trackEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
-
-    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
-aspectInfo) { 
-
-        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]); 
-        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);
-        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);
-        <span class="keyword">if</span> ([eventID isEqualToString:<span class="string">@"xxx"</span>]) {<span class="comment">//            </span>
-
-            [EJServiceUserInfo isLogin]?[MobClick event:eventID]:[MobClick event:<span class="string">@"???"</span>];
-        }<span class="keyword">else</span>{<span class="comment">//            </span>
-
-              [MobClick event:eventID];
-        }
-    } error:<span class="literal">NULL</span>];
-}
-<span class="meta">#pragma mark -- 2.监控button和tap点击事件（带参数）</span>
-+ (<span class="keyword">void</span>)trackParameterEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
-
-    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
-aspectInfo,<span class="built_in">UIButton</span> *button) {    
-
-        <span class="built_in">NSLog</span>(<span class="string">@"button----&gt;%@"</span>,button);        
-        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]);        
-        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);        
-        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);
-
-    } error:<span class="literal">NULL</span>];
-}
-<span class="meta">#pragma mark -- 3.监控tableView的点击事件</span>
-+ (<span class="keyword">void</span>)trackTableViewEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
-
-    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
-aspectInfo,<span class="built_in">NSSet</span> *touches, <span class="built_in">UIEvent</span> *event) {     
-
-        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]);        
-        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);        
-        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);        
-        <span class="built_in">NSLog</span>(<span class="string">@"section----&gt;%@"</span>,[event valueForKeyPath:<span class="string">@"section"</span>]);        
-        <span class="built_in">NSLog</span>(<span class="string">@"row----&gt;%@"</span>,[event valueForKeyPath:<span class="string">@"row"</span>]);        
-        <span class="built_in">NSInteger</span> section = [[event valueForKeyPath:<span class="string">@"section"</span>]integerValue];        
-        <span class="built_in">NSInteger</span> row = [[event valueForKeyPath:<span class="string">@"row"</span>]integerValue];        
-        <span class="comment">//统计事件</span>
-        <span class="keyword">if</span> (section == <span class="number">0</span> &amp;&amp; row == <span class="number">1</span>) {<span class="comment">//            </span>
-                [MobClick event:eventID];
-        }
-
-    } error:<span class="literal">NULL</span>];
-}
-
-Appdelegate.m调用
-
-[AspectMananer trackBttonEvent];
-
-</code></pre>
-<p>参考资料：<br>1.<a href="http://www.cocoachina.com/ios/20180524/23500.html" target="_blank" rel="noopener">iOS数据埋点统计方案</a><br>2.<a href="https://www.jianshu.com/p/c27e575f9c0d" target="_blank" rel="noopener">iOS数据埋点</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -4280,11 +4405,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4293,6 +4414,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4308,15 +4441,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4324,11 +4449,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4337,6 +4466,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4356,7 +4489,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4368,7 +4509,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4376,23 +4517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

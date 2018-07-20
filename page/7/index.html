@@ -192,6 +192,208 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iOS/iOS问题/iOS问题-数据埋点统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/">iOS问题-数据埋点统计</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/" class="archive-article-date">
+  	<time datetime="2018-05-25T01:08:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、场景需求<br>1.统计某个控制器UIViewController家长次数；<br>2.统计某个UIButton点击次数；<br>3.统计某个方法执行次数；<br>4.统计UITableView的Cell点击次数；<br>二、技术选型对比<br>1.手动复制统计代码逻辑粘贴到对应的类、方法中</p>
+<pre><code>工作量大，可维护性差，仅适用于统计埋点较少的情形；
+</code></pre><p>2.通过继承和重写系统方法</p>
+<pre><code>利用写好的统计的一个基类，让需要统计的类继承自该基类，或者调用重写过统计逻辑的按钮基类等；    
+</code></pre><p>3.分类：添加类方法或者示例方法</p>
+<pre><code>将统计逻辑封装在分类方法里面，在需要统计的地方导入并调用分类方法；            
+</code></pre><p>4.替换系统方法分类：通过runtime的方法</p>
+<pre><code>利用Method Swizzling机制进行方法替换：替换 系统方法(原来的需要在里面统计却不含统计逻辑的方法) 为 新方法(新的包含了统计逻辑的方法)        
+</code></pre><p>5.AOP的方法</p>
+<pre><code>利用Aspect框架对需要进行统计的方法进行挂钩(hook)，并注入包含了统计逻辑的代码块(block)        
+</code></pre><p>三、技术实现     </p>
+<pre><code>需求1：监听全局的某一类的统一方法
+</code></pre><p>1.Runtime Method Swizzling方案<br><img src="runtime.png" alt="runtime">    </p>
+<pre><code>方案特点：被监听的方法单一，但会影响全局的所有的类的该方法
+</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span>+Trace</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"UIViewController+Trace.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceHandler.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/objc.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Aspect.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span>(<span class="title">Trace</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 1.自定义实现方法</span></span><br><span class="line">+(<span class="keyword">void</span>)load&#123;</span><br><span class="line"></span><br><span class="line">	swizzleMethod([<span class="keyword">self</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(viewDidAppear:),<span class="keyword">@selector</span>(swizzed_viewDidAppear:));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)swizzled_viewDidAppear:(<span class="built_in">BOOL</span>)animated&#123;   </span><br><span class="line"></span><br><span class="line">	 <span class="comment">// call original implementation</span></span><br><span class="line">    [<span class="keyword">self</span> swizzled_viewDidAppear:animated];    </span><br><span class="line">    <span class="comment">// Begin statistics Event</span></span><br><span class="line">    [TraceHandler statisticsWithEventName:<span class="string">@"UIViewController"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> swizzleMethod(Class <span class="keyword">class</span>,SEL originalSelector,SEL swizzledSelector)&#123;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">// the method might not exist in the class, but in its superclass</span></span><br><span class="line">    Method originalMethod = class_getInstanceMethod(<span class="keyword">class</span>, originalSelector);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// class_addMethod will fail if original method already exists</span></span><br><span class="line">    Method swizzledMethod = class_getInstanceMethod(<span class="keyword">class</span>, swizzledSelector); </span><br><span class="line">      </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">BOOL</span> didAddMethod = class_addMethod(<span class="keyword">class</span>, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod)); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// the method doesn’t exist and we just added one </span></span><br><span class="line">    <span class="keyword">if</span> (didAddMethod) &#123;</span><br><span class="line">    </span><br><span class="line">        class_replaceMethod(<span class="keyword">class</span>, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));</span><br><span class="line">    &#125;    <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">TraceHandle.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceHandler.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TraceHandler</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)statisticsWithEventName:(<span class="built_in">NSString</span> *)eventName&#123;   </span><br><span class="line"></span><br><span class="line">	 <span class="built_in">NSLog</span>(<span class="string">@"-----&gt; %@"</span>,eventName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>2.AOP编程方案 - 为VC设计的分类<br><img src="aop.png" alt="aop">        </p>
+<pre><code>方案特点：被监听的方法单一，但会影响全局的所有的类的该方法
+Aspects 是iOS平台一个轻量级的面向切面编程(AOP)框架，只包括两个方法：一个类方法，一个实例方法;
+</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">id</span>)aspect_hookSelector:(SEL)selector withOptions:(AspectOptions)options usingBlock:(<span class="keyword">id</span>)block error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)aspect_hookSelector:(SEL)selector withOptions:(AspectOptions)options  usingBlock:(<span class="keyword">id</span>)block  error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line"></span><br><span class="line">函数使用方式简单易懂，挂钩的方式为三种：</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, AspectOptions) &#123;</span><br><span class="line">    AspectPositionAfter   = <span class="number">0</span>, <span class="comment">// 在原始方法后调用（默认）</span></span><br><span class="line">    AspectPositionInstead = <span class="number">1</span>, <span class="comment">// 替换原始方法</span></span><br><span class="line">    AspectPositionBefore  = <span class="number">2</span>, <span class="comment">// 在原始方法前调用</span></span><br><span class="line">    AspectOptionAutomaticRemoval = <span class="number">1</span> &lt;&lt; <span class="number">3</span> <span class="comment">// 在执行1次后自动移除</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">调用示例代码：</span><br><span class="line"></span><br><span class="line"><span class="comment">//给UIViewController的viewWillAppear:挂钩一个Block，在原始方法执行完成后，打印字符串</span></span><br><span class="line">[<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo, <span class="built_in">BOOL</span> animated) &#123;   </span><br><span class="line"></span><br><span class="line"> <span class="built_in">NSLog</span>(<span class="string">@"View Controller %@ will appear animated: %tu"</span>, aspectInfo.instance, animated);</span><br><span class="line"> </span><br><span class="line">&#125; error:<span class="literal">NULL</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">UIViewController</span>+Trace</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 2.使用Aspects框架</span></span><br><span class="line">+ (<span class="keyword">void</span>)load&#123;</span><br><span class="line"></span><br><span class="line">    [<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewDidAppear:) withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo)&#123;         </span><br><span class="line"> </span><br><span class="line">        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([[aspectInfo instance] <span class="keyword">class</span>]);</span><br><span class="line">        [TraceHandler statisticsWithEventName:className];</span><br><span class="line">        </span><br><span class="line">     &#125; error:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.AOP编程方案 - 为全局AppDelegate设计的分类<br>方案特点：</p>
+<pre><code>需要监听不同类，不同按钮，系统方法，及表单元点击事件；
+是可代码配置需要监听的清单字典，并且需要注入的统计代码块block也可以写在这个清单里面；
+</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">AppDelegate+Trace.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"AppDelegate+Trace.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceManager.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">AppDelegate</span> (<span class="title">Trace</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)setupLogging&#123;    </span><br><span class="line"></span><br><span class="line">		<span class="built_in">NSDictionary</span> *configDic = @&#123;                                </span><br><span class="line">			<span class="string">@"ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show ViewController"</span>&#125;, 			<span class="string">@"Test1ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show Test1ViewController"</span>,                  										  <span class="string">@"TrackEvents"</span>:@[@&#123;<span class="string">@"EventDes"</span>:<span class="string">@"click action1"</span>, </span><br><span class="line">												             <span class="string">@"EventSelectorName"</span>:<span class="string">@"action1"</span>,</span><br><span class="line">								                          <span class="string">@"block"</span>:^(<span class="keyword">id</span> aspectInfo)&#123;                                                                 </span><br><span class="line">										                        <span class="built_in">NSLog</span>(<span class="string">@"统计 Test1ViewController action1 点击事件"</span>);</span><br><span class="line">										                      &#125;,</span><br><span class="line">										                    &#125;,</span><br><span class="line">												            @&#123;<span class="string">@"EventDes"</span>:<span class="string">@"click action2"</span>, </span><br><span class="line">								                           <span class="string">@"EventSelectorName"</span>:<span class="string">@"action2"</span>, </span><br><span class="line">								                           <span class="string">@"block"</span>:^(<span class="keyword">id</span> aspectInfo)&#123;        </span><br><span class="line">            							                        <span class="built_in">NSLog</span>(<span class="string">@"统计 Test1ViewController action2 点击事件"</span>);</span><br><span class="line">            							                      &#125;,</span><br><span class="line">            					                           &#125;</span><br><span class="line">            					                         ],</span><br><span class="line">           	                    &#125;,                                			<span class="string">@"Test2ViewController"</span>:@&#123;<span class="string">@"des"</span>:<span class="string">@"show Test2ViewController"</span>,&#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       </span><br><span class="line">      [TraceManager setUpWithConfig:configDic];</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">TraceManager.m</span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"TraceManager.h"</span></span></span><br><span class="line"><span class="keyword">@import</span> <span class="built_in">UIKit</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^AspectHandlerBlock)(<span class="keyword">id</span> aspectInfo);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TraceManager</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)setUpWithConfig:(<span class="built_in">NSDictionary</span> *)configDic&#123;    </span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">// hook 所有页面的viewDidAppear事件</span></span><br><span class="line">    [<span class="built_in">UIViewController</span> aspect_hookSelector:<span class="keyword">@selector</span>(viewDidAppear:) withOptions:AspectPositionAfter  usingBlock:^(<span class="keyword">id</span></span><br><span class="line">aspectInfo)&#123;                                  </span><br><span class="line"></span><br><span class="line">		 <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>),^&#123;</span><br><span class="line">		       </span><br><span class="line">		       <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([[aspectInfo instance] <span class="keyword">class</span>]);                                       			    <span class="built_in">NSString</span> *des = configDic[className][<span class="string">@"des"</span>];      </span><br><span class="line">		       <span class="keyword">if</span> (des) &#123; </span><br><span class="line">		            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,des);</span><br><span class="line">              &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125; error:<span class="literal">NULL</span>];    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *className <span class="keyword">in</span> configDic) &#123;</span><br><span class="line">    </span><br><span class="line">        Class clazz = <span class="built_in">NSClassFromString</span>(className);     </span><br><span class="line">        <span class="built_in">NSDictionary</span> *config = configDic[className];        </span><br><span class="line">        <span class="keyword">if</span> (config[<span class="string">@"TrackEvents"</span>]) &#123;  </span><br><span class="line">                  </span><br><span class="line">	        <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *event <span class="keyword">in</span> config[<span class="string">@"TrackEvents"</span>]) &#123;</span><br><span class="line">	        </span><br><span class="line">	                SEL selekor = <span class="built_in">NSSelectorFromString</span>(event[<span class="string">@"EventSelectorName"</span>]);</span><br><span class="line">	                AspectHandlerBlock block = event[<span class="string">@"block"</span>];</span><br><span class="line">	                </span><br><span class="line">	                [clazz aspect_hookSelector:selekor withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span></span><br><span class="line">	aspectInfo)&#123;                                    </span><br><span class="line">								<span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">										</span><br><span class="line">										block(aspectInfo);</span><br><span class="line">	                       &#125;);</span><br><span class="line">	                 &#125;error:<span class="literal">NULL</span>];</span><br><span class="line">	        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>4.在AppDelegate的类方法中根据Plist监听清单进行HOOK<br>方案特点    </p>
+<pre><code>需要监听不同类，不同按钮，系统方法，及表单元点击事件；
+是可代码配置需要监听的清单Plist，但是不能将需要注入的统计代码块block写在这个清单Plist里面；
+</code></pre><p>EventList.plist<br><img src="plist.png" alt="plist">        </p>
+<pre><code class="objectivec">AspectMananer.m
+
+<span class="meta">#pragma mark --- 监控button的点击事件</span>
++ (<span class="keyword">void</span>)trackBttonEvent{
+
+    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) ws = <span class="keyword">self</span>;    
+    <span class="comment">//设置事件统计</span>
+    <span class="comment">//放到异步线程去执行</span>
+    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^{        
+         <span class="comment">//读取配置文件，获取需要统计的事件列表</span>
+        <span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"EventList"</span> ofType:<span class="string">@"plist"</span>];
+         <span class="built_in">NSDictionary</span> *eventStatisticsDict = [[<span class="built_in">NSDictionary</span> alloc] initWithContentsOfFile:path];    
+        <span class="keyword">for</span> (<span class="built_in">NSString</span> *classNameString <span class="keyword">in</span> eventStatisticsDict.allKeys) {
+                <span class="comment">//使用运行时创建类对象</span>
+            <span class="keyword">const</span> <span class="keyword">char</span> * className = [classNameString UTF8String];            
+            <span class="comment">//从一个字串返回一个类</span>
+            Class newClass = objc_getClass(className);            
+            <span class="built_in">NSArray</span> *pageEventList = [eventStatisticsDict objectForKey:classNameString];
+            <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *eventDict <span class="keyword">in</span> pageEventList) {
+                    <span class="comment">//事件方法名称</span>
+                <span class="built_in">NSString</span> *eventMethodName = eventDict[<span class="string">@"MethodName"</span>];
+                SEL seletor = <span class="built_in">NSSelectorFromString</span>(eventMethodName);
+                <span class="built_in">NSString</span> *eventId = eventDict[<span class="string">@"EventId"</span>];
+
+                [ws trackEventWithClass:newClass selector:seletor eventID:eventId];
+                [ws trackTableViewEventWithClass:newClass selector:seletor eventID:eventId];
+                [ws trackParameterEventWithClass:newClass selector:seletor eventID:eventId];
+            }
+        }
+    });
+}
+<span class="meta">#pragma mark -- 1.监控button和tap点击事件(不带参数)</span>
++ (<span class="keyword">void</span>)trackEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
+
+    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
+aspectInfo) { 
+
+        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]); 
+        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);
+        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);
+        <span class="keyword">if</span> ([eventID isEqualToString:<span class="string">@"xxx"</span>]) {<span class="comment">//            </span>
+
+            [EJServiceUserInfo isLogin]?[MobClick event:eventID]:[MobClick event:<span class="string">@"???"</span>];
+        }<span class="keyword">else</span>{<span class="comment">//            </span>
+
+              [MobClick event:eventID];
+        }
+    } error:<span class="literal">NULL</span>];
+}
+<span class="meta">#pragma mark -- 2.监控button和tap点击事件（带参数）</span>
++ (<span class="keyword">void</span>)trackParameterEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
+
+    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
+aspectInfo,<span class="built_in">UIButton</span> *button) {    
+
+        <span class="built_in">NSLog</span>(<span class="string">@"button----&gt;%@"</span>,button);        
+        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]);        
+        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);        
+        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);
+
+    } error:<span class="literal">NULL</span>];
+}
+<span class="meta">#pragma mark -- 3.监控tableView的点击事件</span>
++ (<span class="keyword">void</span>)trackTableViewEventWithClass:(Class)klass selector:(SEL)selector eventID:(<span class="built_in">NSString</span>*)eventID{
+
+    [klass aspect_hookSelector:selector withOptions:AspectPositionAfter usingBlock:^(<span class="keyword">id</span>
+aspectInfo,<span class="built_in">NSSet</span> *touches, <span class="built_in">UIEvent</span> *event) {     
+
+        <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>([aspectInfo.instance <span class="keyword">class</span>]);        
+        <span class="built_in">NSLog</span>(<span class="string">@"className---&gt;%@"</span>,className);        
+        <span class="built_in">NSLog</span>(<span class="string">@"event-----&gt;%@"</span>,eventID);        
+        <span class="built_in">NSLog</span>(<span class="string">@"section----&gt;%@"</span>,[event valueForKeyPath:<span class="string">@"section"</span>]);        
+        <span class="built_in">NSLog</span>(<span class="string">@"row----&gt;%@"</span>,[event valueForKeyPath:<span class="string">@"row"</span>]);        
+        <span class="built_in">NSInteger</span> section = [[event valueForKeyPath:<span class="string">@"section"</span>]integerValue];        
+        <span class="built_in">NSInteger</span> row = [[event valueForKeyPath:<span class="string">@"row"</span>]integerValue];        
+        <span class="comment">//统计事件</span>
+        <span class="keyword">if</span> (section == <span class="number">0</span> &amp;&amp; row == <span class="number">1</span>) {<span class="comment">//            </span>
+                [MobClick event:eventID];
+        }
+
+    } error:<span class="literal">NULL</span>];
+}
+
+Appdelegate.m调用
+
+[AspectMananer trackBttonEvent];
+
+</code></pre>
+<p>参考资料：<br>1.<a href="http://www.cocoachina.com/ios/20180524/23500.html" target="_blank" rel="noopener">iOS数据埋点统计方案</a><br>2.<a href="https://www.jianshu.com/p/c27e575f9c0d" target="_blank" rel="noopener">iOS数据埋点</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/25/iOS/iOS问题/iOS问题-数据埋点统计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-小程序/微信小程序-组件-地图组件和位置API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -3437,327 +3639,6 @@ Page({
 
        
   
-    <article id="post-iOS/iOS逆向/iOS逆向-工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/10/iOS/iOS逆向/iOS逆向-工具/">iOS逆向-工具</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/10/iOS/iOS逆向/iOS逆向-工具/" class="archive-article-date">
-  	<time datetime="2018-05-10T06:50:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-10</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、Mac工具集<br>1.<a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="noopener">class-dump</a><br>1.1作用:</p>
-<pre><code>用来dump目标对象的class信息的工具；
-</code></pre><p>1.2原理：</p>
-<pre><code>利用oc语言runtime特性，将存储在Mach-O文件中的@interface 和 @protocol信息提取出来，并生成对应的.h文件；
-</code></pre><p>1.3安装：</p>
-<pre><code>将class-dump.dmg文件中的class-dump文件复制到/usr/bin目录(如果OS X 10.11以上，没有/usr/bin文件夹写权限，将class-dump复制搭配/usr/local/bin目录即可)；
- 在终端执行 sudo chmod 777 /usr/bin/class-dump命令赋予其执行权限；
- 运行class-dump；
-</code></pre><p>1.4使用：</p>
-<pre><code>接上步骤，运行class-dump；
-将ipa包改后缀名为zip，解压获取.app文件;
-终端执行命令:    class-dump -H xxx/xxx/xx.app -o xx/xx/存放生成的h文件的文件夹；
-      eg: 1.sudo chmod 777 /usr/local/bin/class-dump
-           2.class-dump
-           3.class-dump -H /Users/jingxiankeji_tao/Desktop/Payload/Gold.app -o /Users/jingxiankeji_tao/Desktop/hh
-</code></pre><p>1.5补充：</p>
-<pre><code>class-dump执行失败(无法得到想要的.h文件或.h文件内容是加密的密文)
-    由于class-dump对象必须是未经加密的可执行文件，从appstore上下载的App都是经过签名加密的，可执行文件被加上了一层“壳”，因此需要砸壳(工具AppCrackr)
-</code></pre><p>2.Theos<br>2.1简介        </p>
-<pre><code>Theos是一个越狱开发工具包，特点：下载安装简单、Logos语法简单、编译发布简单。
-</code></pre><p>2.2安装和编译                </p>
-<font color="red">配置MobileSubstrate环境未完成</font>
-
-<pre><code>iOS SDK
-    模拟器SDK
-配置环境变量：
-    export THEOS=/opt/theos        
-    通过此命令设置安装路径，/opt/theos是推荐路径
-获取Theos：
-    sudo git clone git://github.com/DHowett/theos.git $THEOS
-    或者https://github.com/DHowett/theos 直接下载至$THEOS
-安装ldid             
-    ldid是专门用来签名iOS文件的工具，用以取代Xcode自带的codesign.
-    下载地址:https://github.com/downloads/rpetrich/ldid/ldid.zip 并将解压缩得到的“ldid”文件放在/opt/theos/bin($THEOS/bin)下
-配置MobileSubstrate环境
-    终端:sudo $THEOS/bin/bootstrap.sh substrate
-    此时命令无效可用以下解决方案:
-        用iFunBox或iTools等软件将iOS设备上的/Library/Frameworks/CydiaSubrate.framework/CydiaSubstrate;
-        文件复制到Mac中;
-        运行命令：sudo mv -f /path/to/CydiaSubstrate $THEOS/lib/libsubstrate.dylib   替换无效的libsubstrate.dylib
-安装dpkg
-    dpkg是专门制作deb(Debian package)的工具，用theos开发出来的插件都将以deb格式发布。
-    下载地址:http://www.macports.org/install.php
-    安装完成，终端命令：sudo port selfupdate
-    确保MacPorts升级搭配最新版本，终端命令：sudo port install dpkg
-    在iOS的命令行中执行 &quot;dpkg -i xxxdeb&quot; 来安装某个deb文件
-        eg：dpkg -i com.hangcom.monitor_0.0.1-40_iphoneos-arm.deb
-安装Theos NIC templates
-    下载地址(获取额外5中模版)：https://github.com/DHowett/theos-nic-templates/archive/master.zip
-    将解压的5个.tar文件复制搭配 $THEOS/templates/iphone下即可
-</code></pre><p>2.3使用<br>创建工程：</p>
-<pre><code>cd 到指定目录；
-启动NIC，终端命令: /Users/jingxiankeji_tao/Desktop/逆向/工具/Theos-master/bin/nic.pl 
-选择模版(choose a Template) - 必填：可见10+种模版，在逆向工程最初阶段所开发程序的类型是tweak，选择对应的数字
-输入工程名(Project Name) - 必填：first-theos
-输入包名(输入deb包的名字，类似于bundle identifier): com.tao1010.firstdeb
-输入tweak作者名字：tao1010
-输入MobileSubstrate Bundle filter(tweak作用对象的bundle identifier)
-输入bundle filter(指定tweak安装完成后需要重启的应用，仍以bundle filter表示)
-
-完成上述步骤后，在指定的文件夹下可见一个firsttheos的工程文件夹（可移动到任意地方）
-</code></pre><p>定制工程文件        </p>
-<pre><code>上述生成的工程文件如下：
-    control
-    firsttheos.plist
-    Makefile
-    Tweak.xm
-control
-    记录了deb包管理系统所需的基本信息，会被打包进deb中，更多解析见文尾；
-firsttheos.plist
-    作用和app中的info.plist类似，记录一些配置信息，描述tweak的作用范围；
-    plist文件支持3中格式：XML、二进制文件、OpenStep(常见property list格式)；
-    plist文件最外层是一个字典，只有一个‘Filter’键，其值为一个数组：
-        Bundles: 指定若干bundle identifier为tweak的作用对象；
-        Classes: 指定若干class为tweak的作用对象；
-        Executables: 指定若干可执行文件为tweak的作用对象；
-Makefile
-    指定编译和链接所涉及的文件、框架、库等信息，将整个过程自动化。
-    在逆向的初始阶段，开发一般是application、Tweak、Tool三种类型的app，对应的文件分别为：application.mk、tweak.mk、tool.mk;
-    指定SDK版本：在Makefile中加入：
-        ARCHS = armv7 //指定开发框架为armv7
-        TARGET = iphone:6.1:4.3 //采用6.1版本SDK，且对发布对象为iOS4.3及以上版本
-    导入framework:
-        firsttheos_FRAMEWORKS = framework名称
-        eg：firsttheos_FRAMEWORKS = UIKit CoreTelephony CoreAudio
-        firsttheos_PRIVATE_FRAMEWORKS = AppSupport ChatKit IMCore//导入私有framework
-    链接lib:
-        firsttheos_LDFLAGS = -lx
-        在终端中输入: man ld 定位到-lx部分
-        -lx代表链接libx.a 或者libx.dylib,若x是‘y.o’的形式，则直接使用如：libsqlite3.0.dylib、libz.dylib、dylizl.o
-Tweak.xm
-    用Theos创建的tweak工程,默认生存的模版源文件是tweak.xm;
-    xm中的‘x’代表这个文件支持Logos语法，后缀名是单独的一个x，表示源文件支持Logos和C语法，后缀名是xm，表示源文件支持Logos和C/C++语法
-    基本的Logos语法包含:%hook、%log 、%orig这3个预处理指令；
-        %hook 指定需要hook的class,必须以 %end结尾
-        eg:
-            %hook SpringBoard
-            - (void)menuButtonDown:(id)down{
-                NSLog(@&quot;你按下了home键&quot;);
-                %orig; //调用menuButtonDown的原始函数
-            }
-            %end
-            解析：hook住SpringBoard类中的menuButtonDown：函数，先将“你按下了home键”写入syslog，再执行函数的原始操作。
-        %log 在%hook内部使用，将函数的类名、参数等信息写入syslog，可以按%log([(&lt;type&gt;)&lt;expr&gt;,...])的格式追加其他打印信息
-        eg:
-            %hook SpringBoard
-            - (void)menuButtonDown:(id)down{
-                %log((NSString *)@&quot;iOSRE&quot;,(NSString *)@&quot;Debug&quot;);
-                %orig; //调用menuButtonDown:的原始函数
-            }
-            %end
-        %orig 在%hook内部使用,执行被hook的函数的原始代码
-            %hook SpringBoard
-            - (BOOL)launchApplicationWithIdentifier:(id)identifier suspended:(BOOL)suspended{
-                NSLog(@&quot;启动%@&quot;,identifier);
-                return %orig; 
-            }
-            %end
-            如果去掉%orig，原始函数不会得到执行：
-            %hook SpringBoard
-            - (void)menuButtonDown:(id)down{
-                //按下home键没反应
-            }
-            %end
-            利用%orig修改原始函数的参数
-            %hook SpringBoard
-            - (BOOL)launchApplicationWithIdentifier:(id)identifier suspended:(BOOL)suspended{
-                NSLog(@&quot;启动MobilePhone&quot;);
-                return %orig(@&quot;com.apple.mobilephone&quot;,suspended); 
-            }
-            %end
-        %group用于将%hook分组，必须以%end结尾，一个%group可以包含多个%hook，所以不属于某个自定义组的%hook被隐式归类到%group_ungrouped中；
-            %group必须配合%init使用才能生效；
-        %init 用于初始化某个%group，必须在%hook或%ctor内调用；
-        %ctor tweak的构造函数完成初始化工作
-        %new 在%hook内部使用，为一个现有的class添加新函数，功能与class_addMethod相同；
-        %c作用等同于objec_getClass(),即获取一个类的定义；
-</code></pre><p>编译+打包+安装</p>
-<pre><code>编译
-    Theos采用与debian相同的make命令来编译tweak工程，若Terminal提示“command not found”表示没有安装CLT(command line tools)
-    终端命令：make 
-打包
-    终端命令：make package
-    最终格式为：.deb的后缀文件
-安装
-    方法一：图形界面安装法
-        1.通过iFunBox、iTools等软件把deb拖到iOS中去；
-        2.然后通iFile安装；
-        3.最后用SBSetting来respring一下；
-
-    方法二：命令行安装法    
-        前提：越狱iOS安装OpenSSH
-        1.在MakeFile的最上行加上&quot;THEOS_DEVICE_IP=本机IP&quot;；
-        2.调用“make package install” 完成编译、打包、安装；
-        通过设置iOS的authorized_keys省略SSH输入密码的步骤：
-        1.删除
-        2.生成authorized_keys
-        3.配置iOS
-清理
-    命令：make clean
-</code></pre><p>2.4tweak示例<br>编辑control        </p>
-<p>编辑xx.plist</p>
-<p>编辑MakeFile</p>
-<p>编辑Tweak.xm</p>
-<p>3.Reveal            </p>
-<p>3.1简介</p>
-<pre><code>Reveal一个UI分析工具，和其他工具(PonyDebugger)比起来更直观。
-界面元素全部以树的形式展现 ，能快速定位到各个UI元素；
-官方的Reveal只能调试自己的APP，对第三方App需要对其做进一步扩展；
-</code></pre><p>3.2安装</p>
-<pre><code>下载地址:http://revealapp.com/;
-</code></pre><p>3.3功能扩展</p>
-<pre><code>使用方法：
-    方法一 Static Library Intergration
-    方法二 Dynamic Library Intergration
-
-官网方法：在代码中注入dylib，对逆向工程无用；
-    - (void)startReveal{
-
-        NSString *revealLibName = @&quot;libReveal.dylib&quot;;
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUerDomainMask,YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *dyLibPath = [NSString stringWithFormat:@&quot;%@%@&quot;, documentsDirectory, revealLibName];
-        _revealLib = NULL;
-        _revealLib = dlopen([dyLibPath cStringUsingEncoding:NSUTF8StringEncoding],RTLD_NOW);
-        if(_revealLib == NULL){
-
-            char *error = dlerror();
-            NSLog(@&quot;dlopen error: %s&quot;,error);
-        }else{
-
-            [[NSNotificationCenter defaultCenter] postNoticficationName:@&quot;IBARevealRequestStart&quot; object:self];
-        }
-    }
-由于Reveal标准模式不支持查看没有源码的App，因此需要扩展：
-    获取libReveal.dylib
-        在Reveal中，点击菜单Help--&gt;Show Reveal Library in Finder,获取libReveal.dylib文件；
-    将libReveal.dylib导入目标App的目录
-        方法一：通过SSH的方式将文件上传；
-        方法二：使用iTools工具；
-        将libReveal.dylib放在Documents目录下；
-    创建RevealUtil
-        ...
-        ...
-    使用Theos
-        ...
-        ...
-    安装monitor插件
-        ...
-        ...
-</code></pre><p>4.IDA<br>4.1简介</p>
-<pre><code>IDA是一个支持Windows、Linux、Mac OS X的多平台反汇编/调试器
-下载地址:https://www.hex-rays.com/products/ida/index.shtml
-</code></pre><p>4.2使用</p>
-<p>4.3分析</p>
-<p>5.其他工具</p>
-<p>5.1iTools</p>
-<pre><code>主要用于逆向时的文件传输，常用目录:/var/mobile/Application 和 /var/root
-</code></pre><p>5.2dyld_decache</p>
-<p>5.3MesaSQLite</p>
-<p>二、iOS工具集<br>1.SBSettings        </p>
-<p>2.MobileSubstrate</p>
-<p>3.OpenSSH</p>
-<p>4.GDB<br>4.1简介</p>
-<p>4.2使用</p>
-<p>5.Cycript</p>
-<p>6.其他常用工具<br>6.1BigBoss Recommended和Tools</p>
-<p>6.2AppCrackr</p>
-<p>6.3iFile</p>
-<p>6.4MobileTerminal</p>
-<p>6.5Vi IMproved</p>
-<p>6.6SQLite</p>
-<p>6.7top</p>
-<p>6.8syslogd</p>
-<p>参考资料：</p>
-<p>1.iOS逆向工程-沙梓社(书籍)<br>2.<a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="noopener">工具下载:class-dump</a><br>3.<a href="https://www.cnblogs.com/chars/p/5312644.html" target="_blank" rel="noopener">class-dump安装和使用</a><br>4.<a href="https://www.jianshu.com/p/b37b19864fd5" target="_blank" rel="noopener">class-dump使用</a><br>5.<a href="https://github.com/DaSens/Theos" target="_blank" rel="noopener">工具下载:Theos</a><br>6.<a href="https://github.com/downloads/rpetrich/ldid/ldid.zip" target="_blank" rel="noopener">下载地址:ldid</a><br>7.<a href="www.saurik.com/id/8">ldid-Saurik</a><br>8.<a href="http://www.macports.org/install.php" target="_blank" rel="noopener">下载地址:dpkg</a><br>9.<a href="http://revealapp.com/" target="_blank" rel="noopener">下载地址:Reveal</a><br>10.<a href="https://www.hex-rays.com/products/ida/index.shtml" target="_blank" rel="noopener">下载地址:IDA</a><br>11.<a href="">工具:PonyDebugger</a><br>12.<a href="http://www.debian.org/doc/debian-policy/ch-controlfields.html" target="_blank" rel="noopener">control更多信息查阅</a><br>13.<a href="http://iphonedecwiki.net/index.php/Logos" target="_blank" rel="noopener">Logos预处理指令</a><br>14.<a href="htt://www/debian.org/doc/debian-policy" target="_blank" rel="noopener">DEBIAN官方文档</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逆向</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/10/iOS/iOS逆向/iOS逆向-工具/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -3868,11 +3749,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3881,6 +3758,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3896,15 +3785,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3912,11 +3793,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3925,6 +3810,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3944,7 +3833,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3956,7 +3853,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3964,23 +3861,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

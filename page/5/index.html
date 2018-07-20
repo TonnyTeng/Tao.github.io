@@ -192,6 +192,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue框架/vue框架-基础-实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/14/vue框架/vue框架-基础-实例/">vue框架-基础-实例</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/14/vue框架/vue框架-基础-实例/" class="archive-article-date">
+  	<time datetime="2018-06-14T06:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.创建Vue实例<br></p>
+        
+          <a class="article-more-a" href="/2018/06/14/vue框架/vue框架-基础-实例/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/14/vue框架/vue框架-基础-实例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-其他/搭建本地SVN仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2009,333 +2097,6 @@ Page({
 
        
   
-    <article id="post-小程序/微信小程序-组件-视图容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/07/小程序/微信小程序-组件-视图容器/">微信小程序-组件-视图容器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/07/小程序/微信小程序-组件-视图容器/" class="archive-article-date">
-  	<time datetime="2018-06-07T01:21:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、view - 视图容器<br>1.属性容器        </p>
-<pre><code>hover-class     指定按下去的样式类。当 hover-class=&quot;none&quot; 时，没有点击态效果 默认none
-hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态 默认false
-hover-start-time     按住后多久出现点击态，单位毫秒 默认50
-hover-stay-time  手指松开后点击态保留时间，单位毫秒  默认400 
-</code></pre><p>2.如果需要使用滚动视图，请使用 scroll-view</p>
-<p>二、scroll-view - 可滚动视图区域<br>1.属性列表    </p>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>类型</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>scroll-x</td>
-<td>Boolean</td>
-<td>false</td>
-<td>允许横向滚动</td>
-</tr>
-<tr>
-<td>scroll-y</td>
-<td></td>
-<td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>upper-threshold</td>
-<td>Number</td>
-<td>50</td>
-<td>距顶部/左边多远时（单位px），触发 scrolltoupper 事件</td>
-</tr>
-<tr>
-<td>lower-threshold</td>
-<td></td>
-<td>50</td>
-<td>距底部/右边多远时（单位px），触发 scrolltolower 事件</td>
-</tr>
-<tr>
-<td>scroll-top</td>
-<td></td>
-<td></td>
-<td>设置竖向滚动条位置</td>
-</tr>
-<tr>
-<td>scroll-left</td>
-<td></td>
-<td></td>
-<td>设置横向滚动条位置</td>
-</tr>
-<tr>
-<td>scroll-into-view</td>
-<td></td>
-<td></td>
-<td>值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素</td>
-</tr>
-<tr>
-<td>scroll-with-animation</td>
-<td></td>
-<td>false</td>
-<td>在设置滚动条位置时使用动画过渡</td>
-</tr>
-<tr>
-<td>enable-back-to-top</td>
-<td></td>
-<td></td>
-<td>iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向</td>
-</tr>
-<tr>
-<td>bindscrolltoupper</td>
-<td></td>
-<td></td>
-<td>滚动到顶部/左边，会触发 scrolltoupper 事件</td>
-</tr>
-<tr>
-<td>bindscrolltolower</td>
-<td></td>
-<td></td>
-<td>滚动到底部/右边，会触发 scrolltolower 事件</td>
-</tr>
-<tr>
-<td>bindscroll</td>
-<td></td>
-<td></td>
-<td>滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}</td>
-</tr>
-</tbody>
-</table>
-<p>2.tips</p>
-<pre><code>使用竖向滚动时，需要给&lt;scroll-view/&gt;一个固定高度，通过 WXSS 设置 height；
-请勿在 scroll-view 中使用 textarea、map、canvas、video 组件；
-scroll-into-view 的优先级高于 scroll-top；
-在滚动 scroll-view 时会阻止页面回弹，所以在 scroll-view 中滚动，是无法触发 onPullDownRefresh；
-若要使用下拉刷新，请使用页面的滚动，而不是 scroll-view ，这样也能通过点击顶部状态栏回到页面顶部；
-</code></pre><p>3.eg</p>
-<p>三、swiper - 滑块视图容器<br>1.swiper属性        </p>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>类型</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>indicator-dots</td>
-<td>Boolean</td>
-<td>false</td>
-<td>是否显示面板指示点</td>
-</tr>
-<tr>
-<td>indicator-color</td>
-<td>Color</td>
-<td>rgba(0,0,0,0.3)</td>
-<td>指示点颜色</td>
-</tr>
-<tr>
-<td>indicator-active-color</td>
-<td>Color</td>
-<td>#000000</td>
-<td>当前选中的指示点颜色</td>
-</tr>
-<tr>
-<td>autoplay</td>
-<td>Boolean</td>
-<td>false</td>
-<td>是否自动切换</td>
-</tr>
-<tr>
-<td>current</td>
-<td>Number</td>
-<td>0</td>
-<td>当前所在滑块的index</td>
-</tr>
-<tr>
-<td>current-item-id</td>
-<td>String</td>
-<td>‘’</td>
-<td>当前所在滑块的 item-id ，不能与 current 被同时指定</td>
-</tr>
-<tr>
-<td>interval</td>
-<td>Number</td>
-<td>5000</td>
-<td>自动切换时间间隔</td>
-</tr>
-<tr>
-<td>duration</td>
-<td>Number</td>
-<td>500</td>
-<td>滑动动画时长</td>
-</tr>
-<tr>
-<td>circular</td>
-<td>Boolean</td>
-<td>false</td>
-<td>是否采用衔接滑动</td>
-</tr>
-<tr>
-<td>vertical</td>
-<td>Boolean</td>
-<td>false</td>
-<td>滑动方向是否为纵向</td>
-</tr>
-<tr>
-<td>previous-margin</td>
-<td>String</td>
-<td>0px</td>
-<td>前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值</td>
-</tr>
-<tr>
-<td>next-margin</td>
-<td>String</td>
-<td>0px</td>
-<td>后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值</td>
-</tr>
-<tr>
-<td>display-multiple-tiems</td>
-<td>Number</td>
-<td>1</td>
-<td>同时显示的滑块数量</td>
-</tr>
-<tr>
-<td>skip-hidden-item-layout</td>
-<td>Boolean</td>
-<td>false</td>
-<td>是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息</td>
-</tr>
-<tr>
-<td>bindchange</td>
-<td>EventHandle</td>
-<td></td>
-<td>current 改变时会触发 change 事件，event.detail = {current: current, source: source}</td>
-</tr>
-<tr>
-<td>bindanimationfinish</td>
-<td>EventHandle</td>
-<td></td>
-<td>动画结束时会触发 animationfinish 事件，event.detail 同上</td>
-</tr>
-</tbody>
-</table>
-<p>2.swiper-item</p>
-<pre><code>仅可放置在&lt;swiper/&gt;组件中,宽高自动设置为100%;
-
-item-id  该 swiper-item 的标识符 String 默认&apos;&apos;
-</code></pre><p>3.tips:</p>
-<pre><code>如果在 bindchange 的事件回调函数中使用 setData 改变 current 值，则有可能导致 setData 被不停地调用，因而通常情况下请在改变 current 值前检测 source 字段来判断是否是由于用户触摸引起;
-</code></pre><p>4.eg:</p>
-<pre><code>home.wxml
-&lt;!-- home banner --&gt;
-  &lt;swiper indicator-dots=&apos;true&apos; autoplay=&apos;true&apos; circular=&apos;true&apos;&gt;
-      &lt;block wx:for=&quot;{{banners}}&quot;&gt;
-        &lt;swiper-item&gt;
-          &lt;image class=&quot;banner-image&quot; style=&quot;width:100%;height:{{wx.getSystemInfoSync().windowWidth * 500 / 750}}&quot; src=&quot;{{item}}&quot; /&gt;
-        &lt;/swiper-item&gt;
-      &lt;/block&gt;
-  &lt;/swiper&gt;
-
-home.js
- data: {
-    banners:[      
-      &apos;http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg&apos;,
-      &apos;http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg&apos;,
-      &apos;http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg&apos;
-    ]
-  },
-</code></pre><p>四、movable-view - 可移动的视图容器，在页面中可以拖拽滑动</p>
-<pre><code>movable-view 必须设置width和height属性，不设置默认为10px;
-movable-view 默认为绝对定位，top和left属性为0px;
-当movable-view小于movable-area时，movable-view的移动范围是在movable-area内；当movable-view大于movable-area时，movable-view的移动范围必须包含movable-area（x轴方向和y轴方向分开考虑）;
-注意：movable-view必须在&lt;movable-area/&gt;组件中，并且必须是直接子节点，否则不能移动;
-</code></pre><p>五、cover-view<br>1.cover-view        </p>
-<pre><code>覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image；
-</code></pre><p>2.cover-image</p>
-<pre><code>覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里
-</code></pre><p>参考资料:<br>1.<a href="https://developers.weixin.qq.com/miniprogram/dev/component/" target="_blank" rel="noopener">基础组件</a><br><br>2.<a href="https://www.w3cschool.cn/weixinapp/" target="_blank" rel="noopener">W3C-小程序开发文档</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/07/小程序/微信小程序-组件-视图容器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -2446,11 +2207,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2459,6 +2216,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2474,15 +2243,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2490,11 +2251,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2503,6 +2268,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2522,7 +2291,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2534,7 +2311,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2542,23 +2319,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

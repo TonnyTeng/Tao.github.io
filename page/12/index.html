@@ -192,6 +192,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mac/Mac相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Mac/Mac相关/">Mac相关</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/27/Mac/Mac相关/" class="archive-article-date">
+  	<time datetime="2018-03-27T06:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、软件安装</p>
+        
+          <a class="article-more-a" href="/2018/03/27/Mac/Mac相关/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mac//" class="article-tag-list-link color4">Mac</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/27/Mac/Mac相关/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-CSS/CSS-CSS布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2622,182 +2710,6 @@ Page({
 
        
   
-    <article id="post-CSS/CSS-样式框-边框" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/CSS/CSS-样式框-边框/">CSS-样式框-边框</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/21/CSS/CSS-样式框-边框/" class="archive-article-date">
-  	<time datetime="2018-03-21T06:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、边界回顾</p>
-<p>1.边界简写</p>
-<pre><code>border:10px solid red;
-</code></pre><p>2.普通写法</p>
-<p>border可以分解成许多不同的属性:</p>
-<pre><code>border-top, border-right, border-bottom, border-left: 设置边界一侧的宽度，样式和颜色。
-border-width, border-style, border-color: 设置边界宽度度、样式或颜色，但是会设置边界的四个边。
-您还可以单独三个属性中的一个并且设置其中一侧边界生效。
-border-top-width, border-top-style, border-top-color等。
-</code></pre><p>当没有明确设置值时，边界会默认使用文本的颜色，宽度为3px.</p>
-<p>二、边界半径</p>
-<p>1.不同的角落放置不同大小的边界半径, 可以指定两个，三个或四个值, 就像使用 padding and margin一样:</p>
-<pre><code>p{
-    border-radius: 20px;
-
-    /* 1st value is top left and bottom right corners,
-       2nd value is top right and bottom left  */
-    border-radius: 20px 10px;
-
-    /* 1st value is top left corner, 2nd value is top right
-       and bottom left, 3rd value is bottom right  */
-    border-radius: 20px 10px 50px;
-
-    /* top left, top right, bottom right, bottom left */
-    border-radius: 20px 10px 50px 0;
-
-}
-</code></pre><p>2.还可以创建椭圆形角（x半径与y半径不同）。两个不同的半径用正斜杠（/）分隔，您可以将其与值的任意组合组合:</p>
-<pre><code>p{
-    border-radius: 10px / 20px;
-    border-radius: 10px 30px / 20px 40px;
-}
-</code></pre><p>可以使用任何长度单位来指定边界半径，例如 ： px, rems, %.</p>
-<p>还可以使用普通写法属性，分别设置框的每个角的边界半径：</p>
-<pre><code>border-top-left-radius,
-border-top-right-radius,
-border-bottom-left-radius,
-border-bottom-right-radius。
-</code></pre><p>三、边界图像</p>
-<p>border-image图像使实现复杂的图形边界变得容易得多，即使必须在现代浏览器中才能实现(IE11+支持它，以及其他现代浏览器).</p>
-<p>1.原理</p>
-<p>需要有一个映像应用到您的浏览器。这通常是3 x 3、4 x 4、5 x 5(等等)网格设计，如下所做的：<br><img src="border-image.png" alt="border-image"></p>
-<p>当这样的图像用于边界图像时，浏览器将图像分割为8个部分：<br><img src="border-slices.png" alt="border-slices"></p>
-<p>这些角的图像会被插入到你的边界的角落里，而顶部、右边、底部和左边的部分将被用来填充你的边界的相应边(通过拉伸或重复)。我们需要告诉浏览器让这些片的大小正确——例如，这个图像是160px，还有一个4 x 4的网格，所以每个片都需要40px.</p>
-<p>1.1需要一个盒子来应用边界。这需要指定一个边界，否则边界图像将没有显示的空间。还将使用background-clip，使任何背景色只填充内容和内边距的区域，并且不扩展到边界。</p>
-<pre><code>border: 30px solid black;
-background-clip: padding-box;
-</code></pre><p>1.2使用 border-image-source指定要使用的源图像作为边界图像。 它的工作原理和background-image一样，能够接受一个url()函数或一个渐变作为一个值.</p>
-<pre><code>border-image-source: url(border-image.png);
-</code></pre><p>1.3将使用border-image-slice来设置所需大小的切片，如上所述：</p>
-<pre><code>border-image-slice: 40;
-</code></pre><p><span></span></p>
-<pre><code>如果所有的片都是相同的大小，那么这个属性可以取一个值，如果需要不同的大小，则可以使用多个值，以相同的方式使用padding和margin：
-    两个值:上和下，左和右。
-    三个值:上、左和右、下。
-    四个值:上、右、下、左。
-如果图像是光栅图形（像 .png 或 .jpg），就用像素来解释这个数字。如果图像是矢量图形（比如，.svg），那么这个数字将被解释为图形中的坐标。也可以使用百分比（使用单位 %)。
-</code></pre><p>1.4将使用border-image-repeat t来指定我们希望图像如何填充边界。选项是：</p>
-<pre><code>stretch：默认;侧面的图像被拉伸来填满边界。这通常看起来很糟糕和像素化，所以不推荐。
-repeat：边图像被重复，直到边界被填满。根据具体情况，这可能看起来不错，但您可能会看到一些难看的图像片段。
-round： 边的图像被重复，直到边界被填满，它们都被稍微拉伸，这样就不会出现碎片。
-space：边图像被重复，直到边界被填满，每个拷贝之间添加了少量的间隔，这样就不会出现任何片段。这个值只在Safari(9+)和Internet Explorer(11+)中得到支持。
-</code></pre><p>决定使用round的值，因为它看起来是最有用和最灵活的：</p>
-<pre><code>border-image-repeat: round;
-
-div {
-  width: 300px;
-  padding: 20px;
-  margin: 10px auto;
-  line-height: 3;
-  background-color: #f66;
-  text-align: center;
-  /* border-related properties */
-  border: 20px solid black;
-  background-clip: padding-box;
-  border-image-source: url(https://mdn.mozillademos.org/files/13060/border-image.png);
-  border-image-slice: 40;
-  border-image-repeat: round;
-}
-</code></pre><p><img src="border-demo.png" alt="border-demo"></p>
-<p>2.其他属性</p>
-<pre><code>border-image-width：只调整边界图像，而不是边界——如果这个设置小于border-width，它会在边界的外面，而不是填满它。如果它更大，那么它就会扩展到边界之外，并开始重叠在内边距/内容上。
-border-image-outset：定义边界内部和内边距之间的额外空间的大小——有点像“边界填充”。如果需要的话，这是一种简单的方法，可以将边界图像移出一点。
-</code></pre><p>3.简写</p>
-<pre><code>border-image-source: url(border-image.png);
-border-image-slice: 40;
-border-image-repeat: round;
-</code></pre><p>等价于</p>
-<pre><code>border-image: url(border-image.png) 40 round;
-</code></pre><p>参考资料：</p>
-<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_boxes/Borders" target="_blank" rel="noopener">CSS样式边框</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/21/CSS/CSS-样式框-边框/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
@@ -2908,11 +2820,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2921,6 +2829,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2936,15 +2856,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2952,11 +2864,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2965,6 +2881,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2984,7 +2904,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2996,7 +2924,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3004,23 +2932,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

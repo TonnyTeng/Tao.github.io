@@ -192,6 +192,182 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS/CSS-样式框-边框" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/CSS/CSS-样式框-边框/">CSS-样式框-边框</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/CSS/CSS-样式框-边框/" class="archive-article-date">
+  	<time datetime="2018-03-21T06:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、边界回顾</p>
+<p>1.边界简写</p>
+<pre><code>border:10px solid red;
+</code></pre><p>2.普通写法</p>
+<p>border可以分解成许多不同的属性:</p>
+<pre><code>border-top, border-right, border-bottom, border-left: 设置边界一侧的宽度，样式和颜色。
+border-width, border-style, border-color: 设置边界宽度度、样式或颜色，但是会设置边界的四个边。
+您还可以单独三个属性中的一个并且设置其中一侧边界生效。
+border-top-width, border-top-style, border-top-color等。
+</code></pre><p>当没有明确设置值时，边界会默认使用文本的颜色，宽度为3px.</p>
+<p>二、边界半径</p>
+<p>1.不同的角落放置不同大小的边界半径, 可以指定两个，三个或四个值, 就像使用 padding and margin一样:</p>
+<pre><code>p{
+    border-radius: 20px;
+
+    /* 1st value is top left and bottom right corners,
+       2nd value is top right and bottom left  */
+    border-radius: 20px 10px;
+
+    /* 1st value is top left corner, 2nd value is top right
+       and bottom left, 3rd value is bottom right  */
+    border-radius: 20px 10px 50px;
+
+    /* top left, top right, bottom right, bottom left */
+    border-radius: 20px 10px 50px 0;
+
+}
+</code></pre><p>2.还可以创建椭圆形角（x半径与y半径不同）。两个不同的半径用正斜杠（/）分隔，您可以将其与值的任意组合组合:</p>
+<pre><code>p{
+    border-radius: 10px / 20px;
+    border-radius: 10px 30px / 20px 40px;
+}
+</code></pre><p>可以使用任何长度单位来指定边界半径，例如 ： px, rems, %.</p>
+<p>还可以使用普通写法属性，分别设置框的每个角的边界半径：</p>
+<pre><code>border-top-left-radius,
+border-top-right-radius,
+border-bottom-left-radius,
+border-bottom-right-radius。
+</code></pre><p>三、边界图像</p>
+<p>border-image图像使实现复杂的图形边界变得容易得多，即使必须在现代浏览器中才能实现(IE11+支持它，以及其他现代浏览器).</p>
+<p>1.原理</p>
+<p>需要有一个映像应用到您的浏览器。这通常是3 x 3、4 x 4、5 x 5(等等)网格设计，如下所做的：<br><img src="border-image.png" alt="border-image"></p>
+<p>当这样的图像用于边界图像时，浏览器将图像分割为8个部分：<br><img src="border-slices.png" alt="border-slices"></p>
+<p>这些角的图像会被插入到你的边界的角落里，而顶部、右边、底部和左边的部分将被用来填充你的边界的相应边(通过拉伸或重复)。我们需要告诉浏览器让这些片的大小正确——例如，这个图像是160px，还有一个4 x 4的网格，所以每个片都需要40px.</p>
+<p>1.1需要一个盒子来应用边界。这需要指定一个边界，否则边界图像将没有显示的空间。还将使用background-clip，使任何背景色只填充内容和内边距的区域，并且不扩展到边界。</p>
+<pre><code>border: 30px solid black;
+background-clip: padding-box;
+</code></pre><p>1.2使用 border-image-source指定要使用的源图像作为边界图像。 它的工作原理和background-image一样，能够接受一个url()函数或一个渐变作为一个值.</p>
+<pre><code>border-image-source: url(border-image.png);
+</code></pre><p>1.3将使用border-image-slice来设置所需大小的切片，如上所述：</p>
+<pre><code>border-image-slice: 40;
+</code></pre><p><span></span></p>
+<pre><code>如果所有的片都是相同的大小，那么这个属性可以取一个值，如果需要不同的大小，则可以使用多个值，以相同的方式使用padding和margin：
+    两个值:上和下，左和右。
+    三个值:上、左和右、下。
+    四个值:上、右、下、左。
+如果图像是光栅图形（像 .png 或 .jpg），就用像素来解释这个数字。如果图像是矢量图形（比如，.svg），那么这个数字将被解释为图形中的坐标。也可以使用百分比（使用单位 %)。
+</code></pre><p>1.4将使用border-image-repeat t来指定我们希望图像如何填充边界。选项是：</p>
+<pre><code>stretch：默认;侧面的图像被拉伸来填满边界。这通常看起来很糟糕和像素化，所以不推荐。
+repeat：边图像被重复，直到边界被填满。根据具体情况，这可能看起来不错，但您可能会看到一些难看的图像片段。
+round： 边的图像被重复，直到边界被填满，它们都被稍微拉伸，这样就不会出现碎片。
+space：边图像被重复，直到边界被填满，每个拷贝之间添加了少量的间隔，这样就不会出现任何片段。这个值只在Safari(9+)和Internet Explorer(11+)中得到支持。
+</code></pre><p>决定使用round的值，因为它看起来是最有用和最灵活的：</p>
+<pre><code>border-image-repeat: round;
+
+div {
+  width: 300px;
+  padding: 20px;
+  margin: 10px auto;
+  line-height: 3;
+  background-color: #f66;
+  text-align: center;
+  /* border-related properties */
+  border: 20px solid black;
+  background-clip: padding-box;
+  border-image-source: url(https://mdn.mozillademos.org/files/13060/border-image.png);
+  border-image-slice: 40;
+  border-image-repeat: round;
+}
+</code></pre><p><img src="border-demo.png" alt="border-demo"></p>
+<p>2.其他属性</p>
+<pre><code>border-image-width：只调整边界图像，而不是边界——如果这个设置小于border-width，它会在边界的外面，而不是填满它。如果它更大，那么它就会扩展到边界之外，并开始重叠在内边距/内容上。
+border-image-outset：定义边界内部和内边距之间的额外空间的大小——有点像“边界填充”。如果需要的话，这是一种简单的方法，可以将边界图像移出一点。
+</code></pre><p>3.简写</p>
+<pre><code>border-image-source: url(border-image.png);
+border-image-slice: 40;
+border-image-repeat: round;
+</code></pre><p>等价于</p>
+<pre><code>border-image: url(border-image.png) 40 round;
+</code></pre><p>参考资料：</p>
+<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_boxes/Borders" target="_blank" rel="noopener">CSS样式边框</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/CSS/CSS-样式框-边框/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-小程序/微信小程序-框架-基本信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1934,252 +2110,6 @@ justify: 使文本展开，改变单词之间的差距，使所有文本行的�
 
        
   
-    <article id="post-CSS/CSS-盒模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/17/CSS/CSS-盒模型/">CSS-盒模型</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/17/CSS/CSS-盒模型/" class="archive-article-date">
-  	<time datetime="2018-03-17T03:25:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、简介</p>
-<p>1.CSS盒模型(框模型）是网页布局的基础 ——每个元素被表示为一个矩形的方框，框的内容、内边距、边界和外边距像洋葱的膜那样，一层包着一层构建起来。</p>
-<p>浏览器渲染网页布局时，它会算出每个框的内容要用什么样式，周围的洋葱层有多大，以及框相对于其它框放在哪里。</p>
-<p>2.框属性</p>
-<p>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。</p>
-<p><img src="box-model-standard-small.png" alt="box-model-standard-small"></p>
-<pre><code>• width和height:设置内容框（content box）的宽度和高度。内容框是框内容显示的区域——包括框内的文本内容，以及表示嵌套子元素的其它框( 还有其他属性可以更巧妙地处理内容的大小——设置大小约束而不是绝对的大小。这些属性包括min-width、max-width、min-height 和 max-height。);
-• padding:表示一个 CSS 框的内边距 ——这一层位于内容框的外边缘与边界的内边缘之间。该层的大小可以通过简写属性padding 一次设置所有四个边，或用 padding-top、padding-right、padding-bottom 和 padding-left 属性一次设置一个边;（顺时针：上、右、下、左）
-• border:CSS 框的边界（border）是一个分隔层，位于内边距的外边缘以及外边距的内边缘之间。边界的默认大小为0——从而让它不可见——不过我们可以设置边界的厚度、风格和颜色让它出现。 border 简写属性可以让我们一次设置所有四个边，例如  border: 1px solid black; 但这个简写可以被各种普通书写的更详细的属性所覆盖：
-    border-top, border-right, border-bottom, border-left: 分别设置某一边的边界厚度／风格／颜色。
-    border-width, border-style, border-color: 分别仅设置边界的厚度／风格／颜色，并应用到全部四边边界。
-    你也可以单独设置某一个边的三个不同属性，如 border-top-width, border-top-style, border-top-color，等。 
-•margin:外边距（margin）代表 CSS 框周围的外部区域，称为外边距，它在布局中推开其它 CSS 框。其表现与 padding 很相似；简写属性为 margin，单个属性分别为 margin-top、margin-right、margin-bottom 和 margin-left。
-</code></pre><p><font color="red">tips:</font> 外边距有一个特别的行为被称作外边距塌陷（margin collapsing）：当两个框彼此接触时，它们的间距将取两个相邻外边界的最大值，而非两者的总和.</p>
-<p>二、玩转框</p>
-<p>1.一些提示及想法:</p>
-<pre><code>默认情况下background-color/background-image 延伸到了边界的边沿（the edge of the border）。该行为可以使用将在Background_clip 章中学到的background-clip 属性来改变。
-如果内容框变得比示例输出的窗口大，它将从窗口溢流，然后滚动条将会出现允许你滚动窗口来查看盒子剩余的内容 。你可以使用overflow属性来控制溢流——参看下边的 Overflow 章节。
-框的高度不监视百分比的长度；框的高度总是采用框内容的高度，除非指定一个绝对的高度（如：px 或者em），它会比在页面上默认是100%高度更实用。
-边界也忽略百分比宽度设置。
-框的总宽度(属性之和) = width + padding-right + padding-left + border-right + border-left。
-在一些情况下比较恼人（例如，假使你想要一个框占窗口宽度的50%，但边界和内边距是用像素来表示时该怎么办？），为了避免这种问题，有可能使用属性box-sizing来调整框模型。使用值border-box，它将框模型更改成这个新的模型：
-</code></pre><p><img src="box-model-alt-small.png" alt="box-model-alt-small"></p>
-<p>三、高级框操作</p>
-<p>在设置框的width, height, border, padding 及margin之外， 还有一些其他的属性可以改变它们的行为。</p>
-<p>1.溢流</p>
-<p>当使用绝对的值设置了一个框的大小（如，固定像素的宽/高），允许的大小可能不适合放置内容，这种情况下内容会从盒子溢流。我们使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow" target="_blank" rel="noopener">overflow</a>属性来控制这种情况的发生。它有一些可能的值，但是最常用的是：</p>
-<pre><code>auto: 当内容过多，溢流的内容被隐藏，然后出现滚动条来让我们滚动查看所有的内容。
-hidden: 当内容过多，溢流的内容被隐藏。
-visible: 当内容过多，溢流的内容被显示在盒子的外边（这个是默认的行为）
-</code></pre><p>eg:</p>
-<pre><code>&lt;div&gt;
-  &lt;p class=&quot;autoscroll&quot;&gt;
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris tempus turpis id ante mollis dignissim. Nam sed
-      dolor non tortor lacinia lobortis id dapibus nunc. Praesent
-      iaculis tincidunt augue. Integer efficitur sem eget risus
-      cursus, ornare venenatis augue hendrerit. Praesent non elit
-      metus. Morbi vel sodales ligula.
-   &lt;/p&gt;
-
-   &lt;p class=&quot;clipped&quot;&gt;
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris tempus turpis id ante mollis dignissim. Nam sed
-      dolor non tortor lacinia lobortis id dapibus nunc. Praesent
-      iaculis tincidunt augue. Integer efficitur sem eget risus
-      cursus, ornare venenatis augue hendrerit. Praesent non elit
-      metus. Morbi vel sodales ligula.
-   &lt;/p&gt;
-
-   &lt;p class=&quot;default&quot;&gt;
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris tempus turpis id ante mollis dignissim. Nam sed
-      dolor non tortor lacinia lobortis id dapibus nunc. Praesent
-      iaculis tincidunt augue. Integer efficitur sem eget risus
-      cursus, ornare venenatis augue hendrerit. Praesent non elit
-      metus. Morbi vel sodales ligula.
-   &lt;/p&gt;
-  &lt;/div&gt;
-
-  CSS
-  /* 溢流 */
-p {
-  width  : 400px;
-  height : 2.5em;
-  padding: 1em 1em 1em 1em;
-  border : 1px solid black;
-}
-
-.autoscroll { overflow: auto;    }
-.clipped    { overflow: hidden;  }
-.default    { overflow: visible; }
-</code></pre><p><img src="overflow.png" alt="overflow"></p>
-<p>2.背景裁剪(Background clip)</p>
-<p>框的背景是由颜色和图片组成的，它们堆叠在一起（background-color, background-image）。 它们被应用到一个盒子里，然后被画在盒子的下面。默认情况下，背景延伸到了边界外沿。这通常是OK的，但是在一些情况下比较讨厌（假使你有一个平铺的背景图，你只想要它延伸到内容的边沿会怎么做？），该行为可以通过设置盒子的background-clip属性来调整。</p>
-<p>eg:</p>
-<pre><code>&lt;div class=&quot;default&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;padding-box&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;content-box&quot;&gt;&lt;/div&gt;
-
-CSS
-/* 背景裁剪 */
-
-div {
-  width  : 60px;
-  height : 60px;
-  border : 20px solid rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  margin : 20px 0;
-
-  background-size    : 140px;
-  background-position: center;
-  background-image   : url(&apos;https://mdn.mozillademos.org/files/11947/ff-logo.png&apos;);
-  background-color   : gold;
-}
-
-.default     { background-clip: border-box;  }
-.padding-box { background-clip: padding-box; }
-.content-box { background-clip: content-box; }
-</code></pre><p><img src="Background-clip.png" alt="Background-clip"></p>
-<p>3.轮廓(Outline)</p>
-<p>一个框的 outline 是一个看起来像是边界但又不属于框模型的东西。它的行为和边界差不多，但是并不改变框的尺寸（更准确的说，轮廓被勾画于在框边界之外，外边距区域之内）;</p>
-<p><font color="red">tips:</font>使用 outline 属性的时候要注意，它一般只在需要可用性的一些情况才被使用，例如在一些用户点击它的时候使用 outline 来表示高亮、可用，如果你要使用 outline，请确保不要因为它看起来像链接的高亮让用户迷惑。</p>
-<pre><code>eg:
-
-HTML
-&lt;p&gt;hell world&lt;/p&gt;
-
- CSS
- /* 宽度 | 样式 | 颜色 */
- p{
-     outline: 1px solid red;
- } 
-</code></pre><p>四、CSS框类型</p>
-<p>所有对于框的应用都表示的是块级元素的，然而，CSS还有一些表现不同的其他框类型。框类型应用通过指定display属性，这个属性有很多的属性值，三个最普遍的类型：block, inline, and inline-block。</p>
-<pre><code>块框（ block box）是定义为堆放在其他框上的框（例如：其内容会独占一行），而且可以设置它的宽高，之前所有对于框模型的应用适用于块框 （ block box）
-行内框（ inline box）与块框是相反的，它随着文档的文字（例如：它将会和周围的文字和其他行内元素出现在同一行，而且它的内容会像一段中的文字一样随着文字部分的流动而打乱），对行内盒设置宽高无效，设置padding, margin 和 border都会更新周围文字的位置，但是对于周围的的块框（ block box）不会有影响。
-行内块状框（inline-block box） 像是上述两种的集合：它不会重新另起一行但会像行内框（ inline box）一样随着周围文字而流动，而且他能够设置宽高，并且像块框一样保持了其块特性的完整性，它不会在段落行中断开。（在下面的示例中，行内块状框会放在第二行文本上，因为第一行没有足够的空间，并且不会突破两行。然而，如果没有足够的空间，行内框会在多条线上断裂，而它会失去一个框的形状。）
-</code></pre><p><font color="red">tips:</font>默认状态下display属性值，块级元素display: block ，行内元素display: inline;</p>
-<p>eg:</p>
-<pre><code>&lt;p&gt;
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-   &lt;span class=&quot;inline&quot;&gt;Mauris tempus turpis id ante mollis dignissim.&lt;/span&gt;
-   Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
-&lt;/p&gt;
-
-&lt;p&gt;
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  &lt;span class=&quot;block&quot;&gt;Mauris tempus turpis id ante mollis dignissim.&lt;/span&gt;
-  Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
-&lt;/p&gt;
-
-&lt;p&gt;
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  &lt;span class=&quot;inline-block&quot;&gt;Mauris tempus turpis id ante mollis dignissim.&lt;/span&gt;
-  Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
-&lt;/p&gt;
-
-CSS
-p {
-  padding : 1em;
-  border  : 1px solid black;
-}
-
-span {
-  padding : 0.5em;
-  border  : 1px solid green;
-
-  /* That makes the box visible, regardless of its type */
-  background-color: yellow;
-}
-
-.inline       { display: inline;       }
-.block        { display: block;        }
-.inline-block { display: inline-block; }
-</code></pre><p><img src="block.png" alt="block">    </p>
-<p>参考资料：</p>
-<p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank" rel="noopener">盒模型</a></p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow" target="_blank" rel="noopener">溢流</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip" target="_blank" rel="noopener">背景裁剪</a></p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline" target="_blank" rel="noopener">Outline</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/17/CSS/CSS-盒模型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -2290,11 +2220,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2303,6 +2229,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2318,15 +2256,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2334,11 +2264,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2347,6 +2281,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2366,7 +2304,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2378,7 +2324,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2386,23 +2332,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">

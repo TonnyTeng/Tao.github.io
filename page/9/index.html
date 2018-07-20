@@ -192,6 +192,141 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HTML/HTML-表单-创建第一个表单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/24/HTML/HTML-表单-创建第一个表单/">HTML-表单-创建第一个表单</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/24/HTML/HTML-表单-创建第一个表单/" class="archive-article-date">
+  	<time datetime="2018-04-24T07:39:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、HTML表单概念<br>1.HTML表单是用户和Web站点或应用程序之间交互的主要内容之一.</p>
+<pre><code>允许用户将数据发送到web站点;
+大多数情况数据被发送到web服务器;
+wenb页面也可以拦截数据并自己使用;
+</code></pre><p>2.HTML表单是由一个或多个小部件组成.</p>
+<pre><code>小部件包含:单行或多行、选择框、按钮、复选框、或单选按钮;
+</code></pre><p>3.HTML表单和常规HTML文档主要区别:</p>
+<pre><code>表单收集的数据发送到web服务器，需要设置web服务器来接收和处理数据。
+</code></pre><p>二、设计表单<br><img src="form-sketch-low.jpg" alt="form-sketch-low"><br>1.&lt;form&gt;元素<br>最佳实践：必须配置action和method属性</p>
+<pre><code>action:定义了在提交表单时所收集的数据的位置(url).
+method:定义了发送数据的HTTP方法(get或post).
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/my-handling-form-page"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">...   </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.&lt;label&gt;,&lt;input&gt;,&lt;textarea&gt;元素   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/my-handling-form-page"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"mail"</span>&gt;</span>E-mail:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"mail"</span> <span class="attr">id</span>=<span class="string">"mail"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"msg"</span>&gt;</span>Message:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"msg"</span> <span class="attr">id</span>=<span class="string">"msg"</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Send your message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"html-basic.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">解析：	</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span>元素可以方便构造代码,使样式更简单；</span><br><span class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span>元素上使用for属性,将标签链接到表单小部件的一种正式方式；</span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span>&gt;</span>元素中，最重要的是type属性，它定义了input属性的行为方式；</span><br><span class="line">		默认值text，表示一个基本的单行文本字段，接受任何类型的文本输入；</span><br><span class="line">		email，它定义了一个只接受格式良好的电子邮件地址的单行文本字段；</span><br><span class="line">	注意<span class="tag">&lt;<span class="name">input</span>  <span class="attr">...</span> /&gt;</span>和<span class="tag">&lt;<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>的语法区别：</span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span>   / &gt;</span> 标签是一个空元素，不需要关闭标签，获取值时必须使用value值；</span><br><span class="line">		<span class="tag">&lt;<span class="name">textarea</span>&gt;</span>不是一个空元素，必须使用适当的结束标记来关闭它；</span><br></pre></td></tr></table></figure>
+<p>3.&lt;button&gt;元素    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"reset"</span>&gt;</span>reset<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Send your message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">解析:	</span><br><span class="line">	单击 submit 按钮 发送表单的数据到<span class="tag">&lt;<span class="name">form</span>&gt;</span>元素的action 属性所定义的网页。</span><br><span class="line">	单击 reset 按钮 将所有表单小部件重新设置为它们的默认值。从用户体验的角度来看，这被认为是一种糟糕的做法。</span><br><span class="line">	单击button 按钮……不会发生任何事！这听起来很傻，但是用JavaScript构建定制按钮非常有用</span><br></pre></td></tr></table></figure>
+<font color="red">tips:</font>
+
+<pre><code>可以使用相应类型的 &lt;input&gt;元素来生成一个按钮，如 &lt;input type=&quot;submit&quot;&gt;,&lt;input&gt;元素只允许纯文本作为其标签。
+&lt;button&gt;元素的主要优点是，&lt;button&gt;元素允许完整的HTML内容，允许更复杂、更有创意的按钮文本。
+</code></pre><p>三、表单基本样式        </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">form</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 表单居中 */</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="comment">/* 显示轮廓 */</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">A,B	匹配满足A（和/或）B的任意元素（参见下方”同一规则集上的多个选择器”）.</span></span><br><span class="line"><span class="comment">A B	匹配任意元素，满足条件：B是A的后代结点（B是A的子节点，或者A的子节点的子节点）</span></span><br><span class="line"><span class="comment">A &gt; B	匹配任意元素，满足条件：B是A的直接子节点</span></span><br><span class="line"><span class="comment">A + B	匹配任意元素，满足条件：B是A的下一个兄弟节点（AB有相同的父结点，并且B紧跟在A的后面）</span></span><br><span class="line"><span class="comment">A ~ B	匹配任意元素，满足条件：B是A之后的兄弟节点中的任意一个（AB有相同的父节点，B在A之后，但不一定是紧挨着A）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-tag">form</span> <span class="selector-tag">div</span> + <span class="selector-tag">div</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">label</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 所有label大小相同正确对齐 */</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">90px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span>, <span class="selector-tag">textarea</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 确保所有文本输入框字体相同</span></span><br><span class="line"><span class="comment">     textarea默认是等宽字体 */</span></span><br><span class="line">  <span class="attribute">font</span>: <span class="number">1em</span> sans-serif;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 使所有文本输入框大小相同 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 调整文本输入框的边框样式 */</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:focus</span>, <span class="selector-tag">textarea</span><span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line">    <span class="comment">/* 给激活的元素一点高亮效果 */</span></span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">textarea</span> &#123;</span><br><span class="line">    <span class="comment">/* 使多行文本输入框和它们的label正确对齐 */</span></span><br><span class="line">    <span class="attribute">vertical-align</span>: top;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 给文本留下足够的空间 */</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">5em</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.button</span> &#123;</span><br><span class="line">    <span class="comment">/* 把按钮放到和文本输入框一样的位置 */</span></span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">90px</span>; <span class="comment">/* 和label的大小一样 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-tag">button</span> &#123;</span><br><span class="line">    <span class="comment">/* 这个外边距的大小与label和文本输入框之间的间距差不多 */</span></span><br><span class="line">    <span class="attribute">margin-left</span>: .<span class="number">5em</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>四、向web服务器发送表单数据        </p>
+<p>1.设置form标签的action和method属性，用以发送数据的位置和方式；<br>2.需要为数据提供一个名称：    </p>
+<pre><code>在浏览器：数据名称告知浏览器哪个名称提供每个数据；
+在服务器：数据名称允许服务器按照名称处理每个数据块；
+</code></pre><p>3.将数据命名为表单，需要在每个表单小部件上使用name属性来收集特定的数据块：</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/my-handling-form-page"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span> 
+  <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">name</span>=<span class="string">"user_name"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"mail"</span>&gt;</span>E-mail:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">id</span>=<span class="string">"mail"</span> <span class="attr">name</span>=<span class="string">"user_email"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"msg"</span>&gt;</span>Message:<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"msg"</span> <span class="attr">name</span>=<span class="string">"user_message"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+
+  ...
+
+解析:
+    表单会发送三个已命名的数据块 "user_name", "user_email", 和 "user_message";
+    这些数据将用使用HTTP POST 方法,把信息发送到URL为 "/my-handling-form-page"目录下;     
+    在服务器端，位于URL"/my-handling-form-page" 上的脚本将接收的数据作为HTTP请求中包含的3个键/值项的列表;
+
+</code></pre>
+<p>参考资料：<br>1.<a href="https://developer.mozilla.org/zh-CN/docs/learn/HTML" target="_blank" rel="noopener">HTML表单</a><br>2.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Forms/Your_first_HTML_form" target="_blank" rel="noopener">创建第一个表单</a><br>3.<a href="http://uxdesign.smashingmagazine.com/tag/forms/" target="_blank" rel="noopener">关于表单用户体验</a><br>4.<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form" target="_blank" rel="noopener">如何构造HTML表单的详细信息</a><br>5.<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data" target="_blank" rel="noopener">向web服务器发送表单数据</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/24/HTML/HTML-表单-创建第一个表单/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-JavaScript/JavaScript基础-客户端WebAPI-客户端内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -976,94 +1111,6 @@
 
        
   
-    <article id="post-JavaScript/JavaScript基础-对象-对象原型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/JavaScript/JavaScript基础-对象-对象原型/">JavaScript基础-对象-对象原型</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/18/JavaScript/JavaScript基础-对象-对象原型/" class="archive-article-date">
-  	<time datetime="2018-04-18T05:30:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、对象原型    </p>
-        
-          <a class="article-more-a" href="/2018/04/18/JavaScript/JavaScript基础-对象-对象原型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/18/JavaScript/JavaScript基础-对象-对象原型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -1174,11 +1221,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,6 +1230,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,15 +1257,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,11 +1265,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,6 +1282,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1250,7 +1305,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,7 +1325,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,23 +1333,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">iOS第三方库</a>
               </li>
              
               <li class="article-tag-list-item">
