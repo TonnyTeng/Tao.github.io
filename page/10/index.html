@@ -192,6 +192,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaScript/JavaScript基础-对象-继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/18/JavaScript/JavaScript基础-对象-继承/">JavaScript基础-对象-继承</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/18/JavaScript/JavaScript基础-对象-继承/" class="archive-article-date">
+  	<time datetime="2018-04-18T06:57:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、原型式继承    </p>
+        
+          <a class="article-more-a" href="/2018/04/18/JavaScript/JavaScript基础-对象-继承/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/18/JavaScript/JavaScript基础-对象-继承/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-JavaScript/JavaScript基础-对象-对象原型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1083,135 +1171,6 @@ eg:对于列宽，上下文是一个960px的容器，目标宽度是60px；
 
        
   
-    <article id="post-CSS/CSS-CSS弹性盒子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/12/CSS/CSS-CSS弹性盒子/">CSS-CSS弹性盒子</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/12/CSS/CSS-CSS弹性盒子/" class="archive-article-date">
-  	<time datetime="2018-04-12T06:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、弹性盒子使用场景        </p>
-<p>浮动floats 和 定位positioning能满足大部分的布局，但也有局限性：</p>
-<pre><code>1.垂直居中父内容的里一块内容。
-2.使容器的所有子项占用等量的可用宽度/高度，而不管有多少宽度/高度可用。
-3.使多列布局中的所有列采用相同的高度，即使它们包含的内容量不同。
-</code></pre><p>二、例子<br><img src="flexbox-example1.png" alt="flexbox-example1"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sample flexbox example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Third article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">background</span>: aqua;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br></pre></td></tr></table></figure>
-<p>1.指定元素布局为flexible<br>需要选择将哪些元素将设置为柔性的盒子。给这些 flexible 元素的父元素 display 设置一个特定值。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span>&#123;</span><br><span class="line"></span><br><span class="line">  display: flex;//三列</span><br><span class="line">  <span class="comment">/* flex-direction: column;  三行*/</span></span><br><span class="line">&#125;</span><br><span class="line">解析：在本例中，我们想要设置 &lt;<span class="selector-tag">article</span>&gt; 元素，因此我们给 &lt;<span class="selector-tag">section</span>&gt;（变成了 <span class="selector-tag">flex</span> 容器）设置 <span class="selector-tag">display</span>。</span><br><span class="line">	多列布局具有大小相等的列，并且列的高度都是一样。 这是因为这样的 <span class="selector-tag">flex</span> 项（<span class="selector-tag">flex</span>容器的子项）的默认值是可以解决这些的常见问题的.</span><br></pre></td></tr></table></figure>
-<p>2.flex模型说明<br>当元素表现为flex框时，它们沿着两个轴来布局:<br><img src="flex_terms.png" alt="flex_terms">        </p>
-<pre><code>主轴（main axis）是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 main start 和 main end。
-交叉轴（cross axis）是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 cross start 和 cross end。
-设置了 display: flex 的父元素（在本例中是 &lt;section&gt;）被称之为 flex 容器（flex container）。
-在 flex 容器中表现为柔性的盒子的元素被称之为 flex 项（flex item）（本例中是 &lt;article&gt; 元素
-</code></pre><p>3.弹性盒子属性：flex-direction 指定主轴的方向(弹性盒子子类放置的地方)默认row,使得它们按照浏览器的默认语言方向排成一排。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex-direction</span>: <span class="selector-tag">column</span>;</span><br><span class="line">```	</span><br><span class="line">4.换行		</span><br><span class="line">当布局中使用定宽或者定高的时候，可能会出现一个问题：处于容器中的弹性盒子子元素会溢出，破坏布局。		</span><br><span class="line">!<span class="selector-attr">[flexbox-example3]</span>(<span class="selector-tag">flexbox-example3</span><span class="selector-class">.png</span>)     </span><br><span class="line">解决方案:</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="flexbox-example4.png" alt="flexbox-example4"></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  flex-direction: row;//默认从左往右开始排列</span><br><span class="line">  flex-direction: row-reverse;//从右往左开始排列</span><br><span class="line">  <span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  flex: 200px;//每个元素的宽度至少是200px</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```	</span><br><span class="line">	多行弹性盒子 <span class="selector-tag">-</span> 任何溢出的元素将被移到下一行；</span><br><span class="line">	最后一行上的最后几个项每个都变得更宽，以便把整个行填满;</span><br><span class="line">5<span class="selector-class">.felx-flow</span>缩写		</span><br><span class="line"><span class="selector-tag">flex-direction</span> 和 <span class="selector-tag">flex-wrap</span> — 的缩写 <span class="selector-tag">flex-flow</span>:</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-tag">flex-direction</span>: <span class="selector-tag">row</span>;</span><br><span class="line"><span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br><span class="line">等价于</span><br><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">row</span> <span class="selector-tag">wrap</span>;</span><br></pre></td></tr></table></figure>
-<p>6.flex项的动态尺寸            </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//无单位的比例值，表示每个flex项沿主轴的可用空间大小</span><br><span class="line"><span class="selector-tag">article</span>&#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析：</span><br><span class="line">	表示每个元素占用空间都是相等的，占用的空间是设置<span class="selector-tag">padding</span>和<span class="selector-tag">margin</span>之后剩余的空间(因为是个比例<span class="selector-tag">flex</span>: 1和<span class="selector-tag">flex</span>: 20的效果一样)</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析：</span><br><span class="line">	第三个 &lt;<span class="selector-tag">article</span>&gt; 元素占用了两倍的可用宽度；</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析:</span><br><span class="line">	每个<span class="selector-tag">flex</span> 项将首先给出200<span class="selector-tag">px</span>的可用空间，然后，剩余的可用空间将根据分配的比例共享</span><br></pre></td></tr></table></figure>
-<p>7.flex:缩写与全写<br>flex 是一个可以指定最多三个不同值的缩写属性：</p>
-<pre><code>第一个就是上面所讨论过的无单位比例。可以单独指定全写 flex-grow 属性的值。
-第二个无单位比例 — flex-shrink — 一般用于溢出容器的 flex 项。这指定了从每个 flex 项中取出多少溢出量，以阻止它们溢出它们的容器。 这是一个相当高级的弹性盒子功能，我们不会在本文中进一步说明。
-第三个是上面讨论的最小值。可以单独指定全写 flex-basis 属性的值
-</code></pre><p>tips:建议不要使用全写属性，除非你真的需要（比如要去覆盖之前写的）。使用全写会多些很多的代码，它们也可能有点让人困惑.<br>三、水平和垂直对齐    </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Smile<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Laugh<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Wink<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Shrug<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Blush<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">70%</span>;</span><br><span class="line">	<span class="attribute">max-width</span>: <span class="number">960px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">15%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br></pre></td></tr></table></figure>
-<p><img src="flex-align1.png" alt="flex-align1"></p>
-<p>1.添加css        </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">align-items</span>: center;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line">解析:	</span><br><span class="line">	<span class="selector-tag">align-items</span> 控制 <span class="selector-tag">flex</span> 项在交叉轴上的位置。</span><br><span class="line"></span><br><span class="line">		默认的值是 <span class="selector-tag">stretch</span>，其会使所有 <span class="selector-tag">flex</span> 项沿着交叉轴的方向拉伸以填充父容器。如果父容器在交叉轴方向上没有固定宽度（即高度），则所有 <span class="selector-tag">flex</span> 项将变得与最长的 <span class="selector-tag">flex</span> 项一样长（即高度保持一致）。</span><br><span class="line">		使用 <span class="selector-tag">center</span> 值会使这些项保持其原有的高度，但是会在交叉轴居中。这就是那些按钮垂直居中的原因。</span><br><span class="line">		也可以设置诸如 <span class="selector-tag">flex-start</span> 或 <span class="selector-tag">flex-end</span> 这样使 <span class="selector-tag">flex</span> 项在交叉轴的开始或结束处对齐所有的值.</span><br><span class="line">		可以用<span class="selector-tag">align-self</span>属性覆盖<span class="selector-tag">align-items</span>属性的行为：</span><br><span class="line">			<span class="selector-tag">button</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">				<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="selector-tag">justify-content</span> 控制 <span class="selector-tag">flex</span> 项在主轴上的位置。</span><br><span class="line"></span><br><span class="line">		默认值是 <span class="selector-tag">flex-start</span>，使所有 <span class="selector-tag">flex</span> 项都位于主轴的开始处。</span><br><span class="line">		也可以用 <span class="selector-tag">flex-end</span> 来让 <span class="selector-tag">flex</span> 项到结尾处。</span><br><span class="line">		<span class="selector-tag">center</span>在<span class="selector-tag">justify-content</span>里也是可用的，可以让 <span class="selector-tag">flex</span> 项在主轴居中。</span><br><span class="line">		用到的值 <span class="selector-tag">space-around</span> 是很有用的——使所有 <span class="selector-tag">flex</span> 项沿着主轴均匀地分布，在任意一端都会留有一点空间。</span><br><span class="line">		还有一个值是 <span class="selector-tag">space-between</span>，它和 <span class="selector-tag">space-around</span> 非常相似，只是它不会在两端留下任何空间。</span><br></pre></td></tr></table></figure>
-<p><img src="flex-aligm2.png" alt="flex-align2.png"><br>2.flex项排序<br>弹性盒子也有可以改变 flex 项的布局位置的功能，而不会影响到源顺序（即 dom 树里元素的顺序）。这也是传统布局方式很难做到的一点。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析<span class="selector-pseudo">:"Smile"</span> 按钮移动到了主轴的末尾</span><br><span class="line">	1.所有 <span class="selector-tag">flex</span> 项默认的 <span class="selector-tag">order</span> 值是 0。</span><br><span class="line">	2<span class="selector-class">.order</span> 值大的 <span class="selector-tag">flex</span> 项比 <span class="selector-tag">order</span> 值小的在显示顺序中更靠后。</span><br><span class="line">	3.相同 <span class="selector-tag">order</span> 值的 <span class="selector-tag">flex</span> 项按源顺序显示。所以假如你有四个元素，其 <span class="selector-tag">order</span> 值分别是2，1，1和0，那么它们的显示顺序就分别是第四，第二，第三，和第一。</span><br><span class="line">	4.第三个元素显示在第二个后面是因为它们的 <span class="selector-tag">order</span> 值一样，且第三个元素在源顺序中排在第二个后面.</span><br><span class="line">	5.也可以给 <span class="selector-tag">order</span> 设置负值使它们比值为 0 的元素排得更前面。比如，你可以设置 "<span class="selector-tag">Blush</span>" 按钮排在主轴的最前面;</span><br><span class="line">		<span class="selector-tag">button</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">		  <span class="attribute">order</span>: -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>3.flex嵌套<br><img src="flexbox-example7.png" alt="flexbox-example7.png">    </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Complex flexbox example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Smile<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Laugh<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Wink<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Shrug<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Blush<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">background</span>: aqua;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  display: flex;//设置&lt;section&gt;的子代布局为flexible box；</span><br><span class="line">&#125;</span><br><span class="line">//设置一些 flex 值</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//设置第三个 &lt;article&gt; 元素里的子元素同样表现为 flex 项，但是这次我们使它们放置为列</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">3</span> <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//选择了第一个 &lt;div&gt;。首先使用 flex: 1 100px; 简单的给它一个最小的高度 100px，</span><br><span class="line">然后设置它的子代（&lt;<span class="selector-tag">button</span>&gt; 元素）为 <span class="selector-tag">flex</span> 项。在这里我们将它们放在一个包装行中，使它们居中对齐;</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: row wrap;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//给按钮设置大小 给它一个值为1的 flex 属性。</span><br><span class="line">如果调整浏览器窗口宽度，会看到按钮将占用尽可能多的空间，尽可能多的坐在同一条线上;</span><br><span class="line">但是当它们不再适合在同一条线上，他们会到下一行去;</span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结构如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">-</span> <span class="selector-tag">article</span></span><br><span class="line">          <span class="selector-tag">article</span></span><br><span class="line">          <span class="selector-tag">article</span> <span class="selector-tag">-</span> <span class="selector-tag">div</span> <span class="selector-tag">-</span> <span class="selector-tag">button</span>   </span><br><span class="line">                    <span class="selector-tag">div</span>   <span class="selector-tag">button</span></span><br><span class="line">                    <span class="selector-tag">div</span>   <span class="selector-tag">button</span></span><br><span class="line">                          <span class="selector-tag">button</span></span><br><span class="line">                          <span class="selector-tag">button</span></span><br></pre></td></tr></table></figure>
-<p>四、跨浏览器兼容性</p>
-<p>在真实网站中使用弹性盒子，则需要进行测试，并确保在尽可能多的浏览器中用户体验仍然可以接受。</p>
-<p>如果浏览器缺少 CSS 阴影，则该网站可能仍然可用。 但是假如不支持 弹性盒子功能就会完全打破布局，使其不可用。</p>
-<p>参考资料:<br>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" rel="noopener">弹性盒子</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/12/CSS/CSS-CSS弹性盒子/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
@@ -1318,11 +1277,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,19 +1289,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,42 +1317,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1406,6 +1329,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1414,19 +1373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,7 +1381,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,7 +1393,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HBuilder基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hbuilde问题</a>
               </li>
             
             <div class="clearfix"></div>

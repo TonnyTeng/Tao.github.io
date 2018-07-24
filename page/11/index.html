@@ -192,6 +192,135 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS/CSS-CSS弹性盒子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/12/CSS/CSS-CSS弹性盒子/">CSS-CSS弹性盒子</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/12/CSS/CSS-CSS弹性盒子/" class="archive-article-date">
+  	<time datetime="2018-04-12T06:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、弹性盒子使用场景        </p>
+<p>浮动floats 和 定位positioning能满足大部分的布局，但也有局限性：</p>
+<pre><code>1.垂直居中父内容的里一块内容。
+2.使容器的所有子项占用等量的可用宽度/高度，而不管有多少宽度/高度可用。
+3.使多列布局中的所有列采用相同的高度，即使它们包含的内容量不同。
+</code></pre><p>二、例子<br><img src="flexbox-example1.png" alt="flexbox-example1"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Sample flexbox example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Third article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">background</span>: aqua;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br></pre></td></tr></table></figure>
+<p>1.指定元素布局为flexible<br>需要选择将哪些元素将设置为柔性的盒子。给这些 flexible 元素的父元素 display 设置一个特定值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span>&#123;</span><br><span class="line"></span><br><span class="line">  display: flex;//三列</span><br><span class="line">  <span class="comment">/* flex-direction: column;  三行*/</span></span><br><span class="line">&#125;</span><br><span class="line">解析：在本例中，我们想要设置 &lt;<span class="selector-tag">article</span>&gt; 元素，因此我们给 &lt;<span class="selector-tag">section</span>&gt;（变成了 <span class="selector-tag">flex</span> 容器）设置 <span class="selector-tag">display</span>。</span><br><span class="line">	多列布局具有大小相等的列，并且列的高度都是一样。 这是因为这样的 <span class="selector-tag">flex</span> 项（<span class="selector-tag">flex</span>容器的子项）的默认值是可以解决这些的常见问题的.</span><br></pre></td></tr></table></figure>
+<p>2.flex模型说明<br>当元素表现为flex框时，它们沿着两个轴来布局:<br><img src="flex_terms.png" alt="flex_terms">        </p>
+<pre><code>主轴（main axis）是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 main start 和 main end。
+交叉轴（cross axis）是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 cross start 和 cross end。
+设置了 display: flex 的父元素（在本例中是 &lt;section&gt;）被称之为 flex 容器（flex container）。
+在 flex 容器中表现为柔性的盒子的元素被称之为 flex 项（flex item）（本例中是 &lt;article&gt; 元素
+</code></pre><p>3.弹性盒子属性：flex-direction 指定主轴的方向(弹性盒子子类放置的地方)默认row,使得它们按照浏览器的默认语言方向排成一排。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex-direction</span>: <span class="selector-tag">column</span>;</span><br><span class="line">```	</span><br><span class="line">4.换行		</span><br><span class="line">当布局中使用定宽或者定高的时候，可能会出现一个问题：处于容器中的弹性盒子子元素会溢出，破坏布局。		</span><br><span class="line">!<span class="selector-attr">[flexbox-example3]</span>(<span class="selector-tag">flexbox-example3</span><span class="selector-class">.png</span>)     </span><br><span class="line">解决方案:</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="flexbox-example4.png" alt="flexbox-example4"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  flex-direction: row;//默认从左往右开始排列</span><br><span class="line">  flex-direction: row-reverse;//从右往左开始排列</span><br><span class="line">  <span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  flex: 200px;//每个元素的宽度至少是200px</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```	</span><br><span class="line">	多行弹性盒子 <span class="selector-tag">-</span> 任何溢出的元素将被移到下一行；</span><br><span class="line">	最后一行上的最后几个项每个都变得更宽，以便把整个行填满;</span><br><span class="line">5<span class="selector-class">.felx-flow</span>缩写		</span><br><span class="line"><span class="selector-tag">flex-direction</span> 和 <span class="selector-tag">flex-wrap</span> — 的缩写 <span class="selector-tag">flex-flow</span>:</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line"><span class="selector-tag">flex-direction</span>: <span class="selector-tag">row</span>;</span><br><span class="line"><span class="selector-tag">flex-wrap</span>: <span class="selector-tag">wrap</span>;</span><br><span class="line">等价于</span><br><span class="line"><span class="selector-tag">flex-flow</span>: <span class="selector-tag">row</span> <span class="selector-tag">wrap</span>;</span><br></pre></td></tr></table></figure>
+<p>6.flex项的动态尺寸            </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//无单位的比例值，表示每个flex项沿主轴的可用空间大小</span><br><span class="line"><span class="selector-tag">article</span>&#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析：</span><br><span class="line">	表示每个元素占用空间都是相等的，占用的空间是设置<span class="selector-tag">padding</span>和<span class="selector-tag">margin</span>之后剩余的空间(因为是个比例<span class="selector-tag">flex</span>: 1和<span class="selector-tag">flex</span>: 20的效果一样)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析：</span><br><span class="line">	第三个 &lt;<span class="selector-tag">article</span>&gt; 元素占用了两倍的可用宽度；</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析:</span><br><span class="line">	每个<span class="selector-tag">flex</span> 项将首先给出200<span class="selector-tag">px</span>的可用空间，然后，剩余的可用空间将根据分配的比例共享</span><br></pre></td></tr></table></figure>
+<p>7.flex:缩写与全写<br>flex 是一个可以指定最多三个不同值的缩写属性：</p>
+<pre><code>第一个就是上面所讨论过的无单位比例。可以单独指定全写 flex-grow 属性的值。
+第二个无单位比例 — flex-shrink — 一般用于溢出容器的 flex 项。这指定了从每个 flex 项中取出多少溢出量，以阻止它们溢出它们的容器。 这是一个相当高级的弹性盒子功能，我们不会在本文中进一步说明。
+第三个是上面讨论的最小值。可以单独指定全写 flex-basis 属性的值
+</code></pre><p>tips:建议不要使用全写属性，除非你真的需要（比如要去覆盖之前写的）。使用全写会多些很多的代码，它们也可能有点让人困惑.<br>三、水平和垂直对齐    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Smile<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Laugh<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Wink<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Shrug<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Blush<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">70%</span>;</span><br><span class="line">	<span class="attribute">max-width</span>: <span class="number">960px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">20px</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">15%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br></pre></td></tr></table></figure>
+<p><img src="flex-align1.png" alt="flex-align1"></p>
+<p>1.添加css        </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">align-items</span>: center;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line">解析:	</span><br><span class="line">	<span class="selector-tag">align-items</span> 控制 <span class="selector-tag">flex</span> 项在交叉轴上的位置。</span><br><span class="line"></span><br><span class="line">		默认的值是 <span class="selector-tag">stretch</span>，其会使所有 <span class="selector-tag">flex</span> 项沿着交叉轴的方向拉伸以填充父容器。如果父容器在交叉轴方向上没有固定宽度（即高度），则所有 <span class="selector-tag">flex</span> 项将变得与最长的 <span class="selector-tag">flex</span> 项一样长（即高度保持一致）。</span><br><span class="line">		使用 <span class="selector-tag">center</span> 值会使这些项保持其原有的高度，但是会在交叉轴居中。这就是那些按钮垂直居中的原因。</span><br><span class="line">		也可以设置诸如 <span class="selector-tag">flex-start</span> 或 <span class="selector-tag">flex-end</span> 这样使 <span class="selector-tag">flex</span> 项在交叉轴的开始或结束处对齐所有的值.</span><br><span class="line">		可以用<span class="selector-tag">align-self</span>属性覆盖<span class="selector-tag">align-items</span>属性的行为：</span><br><span class="line">			<span class="selector-tag">button</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">				<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="selector-tag">justify-content</span> 控制 <span class="selector-tag">flex</span> 项在主轴上的位置。</span><br><span class="line"></span><br><span class="line">		默认值是 <span class="selector-tag">flex-start</span>，使所有 <span class="selector-tag">flex</span> 项都位于主轴的开始处。</span><br><span class="line">		也可以用 <span class="selector-tag">flex-end</span> 来让 <span class="selector-tag">flex</span> 项到结尾处。</span><br><span class="line">		<span class="selector-tag">center</span>在<span class="selector-tag">justify-content</span>里也是可用的，可以让 <span class="selector-tag">flex</span> 项在主轴居中。</span><br><span class="line">		用到的值 <span class="selector-tag">space-around</span> 是很有用的——使所有 <span class="selector-tag">flex</span> 项沿着主轴均匀地分布，在任意一端都会留有一点空间。</span><br><span class="line">		还有一个值是 <span class="selector-tag">space-between</span>，它和 <span class="selector-tag">space-around</span> 非常相似，只是它不会在两端留下任何空间。</span><br></pre></td></tr></table></figure>
+<p><img src="flex-aligm2.png" alt="flex-align2.png"><br>2.flex项排序<br>弹性盒子也有可以改变 flex 项的布局位置的功能，而不会影响到源顺序（即 dom 树里元素的顺序）。这也是传统布局方式很难做到的一点。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">解析<span class="selector-pseudo">:"Smile"</span> 按钮移动到了主轴的末尾</span><br><span class="line">	1.所有 <span class="selector-tag">flex</span> 项默认的 <span class="selector-tag">order</span> 值是 0。</span><br><span class="line">	2<span class="selector-class">.order</span> 值大的 <span class="selector-tag">flex</span> 项比 <span class="selector-tag">order</span> 值小的在显示顺序中更靠后。</span><br><span class="line">	3.相同 <span class="selector-tag">order</span> 值的 <span class="selector-tag">flex</span> 项按源顺序显示。所以假如你有四个元素，其 <span class="selector-tag">order</span> 值分别是2，1，1和0，那么它们的显示顺序就分别是第四，第二，第三，和第一。</span><br><span class="line">	4.第三个元素显示在第二个后面是因为它们的 <span class="selector-tag">order</span> 值一样，且第三个元素在源顺序中排在第二个后面.</span><br><span class="line">	5.也可以给 <span class="selector-tag">order</span> 设置负值使它们比值为 0 的元素排得更前面。比如，你可以设置 "<span class="selector-tag">Blush</span>" 按钮排在主轴的最前面;</span><br><span class="line">		<span class="selector-tag">button</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">		  <span class="attribute">order</span>: -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>3.flex嵌套<br><img src="flexbox-example7.png" alt="flexbox-example7.png">    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Complex flexbox example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second article<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Smile<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Laugh<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Wink<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Shrug<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Blush<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tacos actually microdosing, pour-over semiotics banjo chicharrones retro fanny pack portland everyday carry vinyl typewriter. Tacos PBR&amp;B pork belly, everyday carry ennui pickled sriracha normcore hashtag polaroid single-origin coffee cold-pressed. PBR&amp;B tattooed trust fund twee, leggings salvia iPhone photo booth health goth gastropub hammock.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat ennui. Organic small batch paleo 8-bit. Intelligentsia umami wayfarers pickled, asymmetrical kombucha letterpress kitsch leggings cold-pressed squid chartreuse put a bird on it. Listicle pickled man bun cornhole heirloom art party.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">background</span>: aqua;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Add your flexbox CSS below here */</span></span><br><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  display: flex;//设置&lt;section&gt;的子代布局为flexible box；</span><br><span class="line">&#125;</span><br><span class="line">//设置一些 flex 值</span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//设置第三个 &lt;article&gt; 元素里的子元素同样表现为 flex 项，但是这次我们使它们放置为列</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">3</span> <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//选择了第一个 &lt;div&gt;。首先使用 flex: 1 100px; 简单的给它一个最小的高度 100px，</span><br><span class="line">然后设置它的子代（&lt;<span class="selector-tag">button</span>&gt; 元素）为 <span class="selector-tag">flex</span> 项。在这里我们将它们放在一个包装行中，使它们居中对齐;</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-of-type(3)</span> <span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: row wrap;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//给按钮设置大小 给它一个值为1的 flex 属性。</span><br><span class="line">如果调整浏览器窗口宽度，会看到按钮将占用尽可能多的空间，尽可能多的坐在同一条线上;</span><br><span class="line">但是当它们不再适合在同一条线上，他们会到下一行去;</span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">-</span> <span class="selector-tag">article</span></span><br><span class="line">          <span class="selector-tag">article</span></span><br><span class="line">          <span class="selector-tag">article</span> <span class="selector-tag">-</span> <span class="selector-tag">div</span> <span class="selector-tag">-</span> <span class="selector-tag">button</span>   </span><br><span class="line">                    <span class="selector-tag">div</span>   <span class="selector-tag">button</span></span><br><span class="line">                    <span class="selector-tag">div</span>   <span class="selector-tag">button</span></span><br><span class="line">                          <span class="selector-tag">button</span></span><br><span class="line">                          <span class="selector-tag">button</span></span><br></pre></td></tr></table></figure>
+<p>四、跨浏览器兼容性</p>
+<p>在真实网站中使用弹性盒子，则需要进行测试，并确保在尽可能多的浏览器中用户体验仍然可以接受。</p>
+<p>如果浏览器缺少 CSS 阴影，则该网站可能仍然可用。 但是假如不支持 弹性盒子功能就会完全打破布局，使其不可用。</p>
+<p>参考资料:<br>1.<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" rel="noopener">弹性盒子</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/12/CSS/CSS-CSS弹性盒子/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+       
+  
     <article id="post-CSS/CSS-CSS定位Demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1939,731 +2068,6 @@ Component({
 
        
   
-    <article id="post-iOS/iOS模块/iOS模块-多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/iOS/iOS模块/iOS模块-多线程/">iOS模块 - 多线程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/27/iOS/iOS模块/iOS模块-多线程/" class="archive-article-date">
-  	<time datetime="2018-03-27T07:12:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、多线程概述</p>
-<p>1.基本概念</p>
-<p>1.1 进程：在系统中正在运行的一个应用程序，每个进程均运行在其专用且受保护的内存空间内。</p>
-<pre><code>是系统进行资源分配和调度的基本单位；
-是操作系统结构的基础，主要管理资源。
-</code></pre><p>1.2 线程：一个进程(程序)的所有任务都在线程中执行，每个进程都至少有一个线程(主线程);</p>
-<pre><code>线程是进程的基本执行单元，一个进程对应多个线程。
-</code></pre><p>1.3 主线程：一个iOS程序运行后，默认会开启1条线程，称为“主线程”或“UI线程”；</p>
-<pre><code>处理UI事件(eg:点击、滚动、拖拽事件等);
-显示或刷新UI界面 - 不要把耗时操作放在主线程，会卡界面。
-</code></pre><p>1.4 多线程：一个进程中可以开启多条线程，多条线程可以并行(同时)执行不同的任务，多线程并发(同时)执行，其实是CPU快速地在多条线程之间调度(切换)</p>
-<pre><code>在同一时刻，一个CPU只能处理1条线程，但CPU可以在多条线程之间快速的切换，只要切换的足够快，就造成了多线程一同执行的假象。
-多线程是通过提高资源使用率来提高系统总体的效率。  
-线程就像火车的一节车厢，进程则是火车。车厢（线程）离开火车（进程）是无法跑动的，而火车（进程）至少有一节车厢（主线程）。多线程可以看做多个车厢，它的出现是为了提高效率。
-</code></pre><p>1.5线程和进程的区别</p>
-<pre><code>线程:
-    一个进程中的不同执行路径
-    有自己的堆栈和局部变量，
-    线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮
-
-进程:
-    进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响;
-    进程切换时，耗费资源较大，效率要差一些;
-
-对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程
-</code></pre><p>2.生命周期<br><img src="lifecircle.png" alt="lifecircle"><br>2.1 从图中可以看出线程的生命周期:新建–&gt;就绪–&gt;运行–&gt;阻塞–&gt;死亡;<br>2.2 阐述：</p>
-<pre><code>● 新建：实例化线程对象
-● 就绪：向线程对象发送start消息，线程对象被加入可调度线程池等待CPU调度。
-● 运行：CPU 负责调度可调度线程池中线程的执行。线程执行完成之前，状态可能会在就绪和运行之间来回切换。就绪和运行之间的状态变化由CPU负责，程序员不能干预。
-● 阻塞：当满足某个预定条件时，可以使用休眠或锁，阻塞线程执行。sleepForTimeInterval（休眠指定时长），sleepUntilDate（休眠到指定日期），@synchronized(self)：（互斥锁）。
-● 死亡：正常死亡，线程执行完毕。非正常死亡，当满足某个条件后，在线程内部中止执行/在主线程中止线程对象
-● 还有线程的exit和cancel
-● [NSThread exit]：一旦强行终止线程，后续的所有代码都不会被执行。
-● [thread cancel]取消：并不会直接取消线程，只是给线程对象添加 isCancelled 标记。
-</code></pre><p>3.优缺点</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>多线程</td>
-<td>1.能适当提高程序的执行效率;<br>2.能适当提高资源利用率(CPU、内存利用率)</td>
-<td>1.创建线程是有开销的，iOS下主要包括:内核数据结构(大约1KB)、栈空间、创建时间90ms;<br>2.如果开启大量的线程，会减低程序的性能;<br>3.线程越多,CPU在调度线程上的开销就越大;<br>4.程序设计更加复杂:比如线程之间的通信,多线程的数据共享;</td>
-</tr>
-</tbody>
-</table>
-<p>4.多线程安全<br>当多个线程访问同一块资源时,容易引发数据错乱和数据安全问题.解决方法：<br>方法一：自旋锁atomic（效率最高）</p>
-<pre><code>属性修饰atomic本身就有一把自旋锁：
-
-nonatomic 非原子属性,同一时间可以有很多线程读和写
-atomic 原子属性，保证同一时间只有一个线程能够写入(但是同一个时间多个线程都可以取值)，atomic 本身就有一把锁(自旋锁)
-
-nonatomic：非线程安全，不过效率更高，一般使用nonatomic
-atomic: 原子性，它仅限于getter,setter时的线程安全,所以对于一般数据类型如int，float它是可以保证线程安全的，对于NSString这种不可变字符串也能保证线程安全。对于NSMutable类型的属性，atmoic无法保证线程安全，对于这种属性往往都是对于数据块的读写操作，atmoic无法保证对于指针指向的数据库的线程安全。这种属性时使用nonatomic，自己处理线程安全。同样的对于NSMutable开头的一些类，使用atmoic还是会导致线程问题的
-
-解析：
-加了自旋锁，当新线程访问代码时，如果发现有其他线程正在锁定代码，新线程会用死循环的方式，一直等待锁定的代码执行完成。相当于不停尝试执行代码，比较消耗性能CPU资源
-</code></pre><p>方法二：信号锁dispatch_semaphore是gcd中通过信号量来实现共享数据的数据安全。（效率第二）</p>
-<p>方法三:互斥锁(同步锁 - pthread_mutex ，nslock ，synchronized)(效率最低)</p>
-<pre><code>- (void)setName:(NSString *)name
- { 
-     //互斥锁
-     @synchronized(self) 
-        { 
-              _name = [name copy]; 
-         } 
-}
-解析：
-若是在self对象上频繁加锁，那么程序可能要等另一段与此无关的代码执行完毕，才能继续执行当前代码，这样做其实并没有必要。
-判断的时候锁对象要存在，如果代码中只有一个地方需要加锁，大多都使用self作为锁对象，这样可以避免单独再创建一个锁对象。
-加了互斥做的代码，当新线程访问时，如果发现其他线程正在执行锁定的代码，新线程就会进入休眠
-</code></pre><p>方法四：递归锁 pthread_mutex(recursive)与NSRecursiveLock ， 多次调用不会阻塞已获取该锁的线程。</p>
-<p>方法五：条件锁 nsconditionlock 满足一定的条件的加锁和解锁，可以实现依赖关系。nscondition条件锁，也是通过信号量来解锁，主要用来实现生产者消费者模式。</p>
-<p>5.多线程的四种解决方案对比</p>
-<table>
-<thead>
-<tr>
-<th>方案</th>
-<th>简介</th>
-<th>语言</th>
-<th>线程生命周期</th>
-<th>使用频率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pthread</td>
-<td>1.一套通用的多线程API;<br>2.适用于Unix、Linux、Windows等系统;<br>3.跨平台、可移植;<br>4.使用难度大</td>
-<td>C</td>
-<td>程序员管理</td>
-<td>几乎不用</td>
-</tr>
-<tr>
-<td>NSThread</td>
-<td>1.使用更加面向对象;<br>2.简单易用,可直接操作线程对象</td>
-<td>OC</td>
-<td>程序员管理</td>
-<td>偶尔使用</td>
-</tr>
-<tr>
-<td>GCD</td>
-<td>1.旨在替代NSThread等线程技术<br>2.充分利用设备的多核</td>
-<td>C</td>
-<td>自动管理</td>
-<td>经常使用</td>
-</tr>
-<tr>
-<td>NSOperation</td>
-<td>1.基于GCD(底层GCD)<br>2.比GCD多了一些更简单的实用功能<br>3.使用更加面向对象</td>
-<td>OC</td>
-<td>自动管理</td>
-<td>经常使用</td>
-</tr>
-</tbody>
-</table>
-<p>二、NSThread的使用</p>
-<p><img src="NSThread.png" alt="NSThread">   </p>
-<p>1.创建方式：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一：对象方法,需要手动开启</span></span><br><span class="line"><span class="built_in">NSThread</span> *thread1 = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(startNSTreadAction:) object:<span class="string">@"NSThread_1"</span>];</span><br><span class="line"><span class="comment">//线程加入线程池等待CPU调度，时间很快，几乎是立刻执行</span></span><br><span class="line">[thread1 start];</span><br><span class="line">    </span><br><span class="line"><span class="comment">//方法二：类方法，创建之后，自动开启</span></span><br><span class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(startNSTreadAction:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"NSThread_2"</span>];</span><br><span class="line">    </span><br><span class="line"><span class="comment">//方法三：隐视创建，自动开启</span></span><br><span class="line">[<span class="keyword">self</span> performSelectorInBackground:<span class="keyword">@selector</span>(startNSTreadAction:) withObject:<span class="string">@"NSThread_3"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK:Methods</span></span><br><span class="line">- (<span class="keyword">void</span>)startNSTreadAction:(<span class="built_in">NSObject</span> *)object&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,object);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"doSomething1：%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.类方法</p>
-<pre><code>//当前线程 打印结果为：{number = 1,name = main} 表示主线程，其他表示子线程
-[NSThread currentThread];
-
-//阻塞主线程
-[NSThread sleepForTimeInterval:10.0];//时间
-[NSThread sleepUntilDate:[NSDate date]];//日期
-//退出线程
-[NSThread exit];
-//是否为主线程
-[NSThread isMainThread];
-//是否是多线程
-[NSThread isMultiThreaded];
-</code></pre><p>3.属性</p>
-<pre><code>//主线程对象
-NSThread *thread = [NSThread mainThread];
-//线程是否在执行
-thread.isExecuting;
-//线程是否被取消
-thread.isCancelled;
-//线程是否完成
-thread.isFinished;
-//线程是否主线程
-thread.isMainThread;
-//线程的优先级，取值范围0.0到1.0，默认优先级0.5，1.0表示最高优先级，优先级高，CPU调度的频率高
-thread.threadPriority;
-</code></pre><p>三、GCD的使用<br><img src="GCD.png" alt="GCD"><br>1.基本概念       </p>
-<ul>
-<li>任务（block）：任务就是将要在线程中执行的代码，将这段代码用block封装好，然后将这个任务添加到指定的执行方式（同步执行和异步执行），等待CPU从队列中取出任务放到对应的线程中执行。</li>
-<li>同步（sync）：一个接着一个，前一个没有执行完，后面不能执行，不开线程。</li>
-<li>异步（async）：开启多个新线程，任务同一时间可以一起执行。异步是多线程的代名词</li>
-<li>队列：装载线程任务的队形结构。(系统以先进先出的方式调度队列中的任务执行)。在GCD中有两种队列：串行队列和并发队列。</li>
-<li>并发队列：线程可以同时一起进行执行。实际上是CPU在多条线程之间快速的切换。（并发功能只有在异步（dispatch_async）函数下才有效）</li>
-<li>串行队列：线程只能依次有序的执行。</li>
-<li><p>GCD总结：将任务(要在线程中执行的操作block)添加到队列(自己创建或使用全局并发队列)，并且指定执行任务的方式(异步dispatch_async，同步dispatch_sync)<br>2.特点</p>
-</li>
-<li><p>GCD会自动利用更多的CPU内核</p>
-</li>
-<li>GCD自动管理线程的生命周期（创建线程，调度任务，销毁线程等）</li>
-<li>程序员只需要告诉 GCD 想要如何执行什么任务，不需要编写任何线程管理代码</li>
-</ul>
-<p>3.队列创建方法</p>
-<p>方法一：串行队列|并行队列dispatch_queue_create(@”xx”,x);</p>
-<pre><code>dispatch_queue_create:
-// 串行队列 - FIFO
-dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_SERIAL);
-// 并发队列
-dispatch_queue_t queue1 = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_CONCURRENT);
-解析:
-使用dispatch_queue_create来创建队列对象，传入两个参数:
-第一个参数表示队列的唯一标识符，可为空。
-第二个参数用来表示串行队列（DISPATCH_QUEUE_SERIAL）或
-                  并发队列（DISPATCH_QUEUE_CONCURRENT);
-</code></pre><p>方法二：主队列dispatch_get_main_queue()</p>
-<pre><code>dispatch_async(dispatch_get_global_queue(0, 0), ^{
-      // 耗时操作放在这
-
-     dispatch_async(dispatch_get_main_queue(), ^{
-         // 回到主线程进行UI操作
-
-     });
- });
- 解析:
- 主队列负责在主线程上调度任务，如果在主线程上已经有任务正在执行，主队列会等到主线程空闲后再调度任务。通常是返回主线程更新UI的时候使用。
-</code></pre><p>方法三：全局并发队列 dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);</p>
-<pre><code>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//全局并发队列的优先级
-#define DISPATCH_QUEUE_PRIORITY_HIGH 2 // 高优先级
-#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0 // 默认（中）优先级
-#define DISPATCH_QUEUE_PRIORITY_LOW (-2) // 低优先级
-#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后台优先级
-//iOS8开始使用服务质量，现在获取全局并发队列时，可以直接传0
-dispatch_get_global_queue(0, 0);
-解析：
-全局并发队列是就是一个并发队列，是为了让我们更方便的使用多线程。dispatch_get_global_queue(0, 0)
-</code></pre><p>4.同步|异步|任务 - 创建方式<br>同步（sync）使用dispatch_sync来表示。<br>异步（async）使用dispatch_async。<br>任务就是将要在线程中执行的代码，将这段代码用block封装好。    </p>
-<pre><code>    // 同步执行任务
-dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-    // 任务放在这个block里
-    NSLog(@&quot;我是同步执行的任务&quot;);
-
-});
-// 异步执行任务
-dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    // 任务放在这个block里
-    NSLog(@&quot;我是异步执行的任务&quot;);
-
-});
-</code></pre><p>5.多种组合方式:队列(串行|并发|主队列) + 执行方式(同步|异步)     </p>
-<p>串行同步：主线程顺序执行    </p>
-<pre><code>// 串行队列
-dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_SERIAL);
-
-// 同步执行
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行同步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行同步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行同步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-解析：执行完一个任务，再执行下一个任务。不开启新线程，打印结果验证为顺序在主线程执行。
-</code></pre><p>串行异步：多线程顺序执行</p>
-<pre><code>// 串行队列
-dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_SERIAL);
-
-// 异步执行
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行异步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行异步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;串行异步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-解析：开启新线程，顺序执行任务
-</code></pre><p>并发同步：主线程顺序执行</p>
-<pre><code> // 并发队列
- dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_CONCURRENT);
-
- // 同步执行
- dispatch_sync(queue, ^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;并发同步1 %@&quot;,[NSThread currentThread]);
-     }
- });
- dispatch_sync(queue, ^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;并发同步2 %@&quot;,[NSThread currentThread]);
-     }
- });
- dispatch_sync(queue, ^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;并发同步3 %@&quot;,[NSThread currentThread]);
-     }
- });
-解析：主线程，顺序执行
-</code></pre><p>并发异步：多线程交替无序执行</p>
-<pre><code>// 并发队列
-dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_CONCURRENT);
-
-// 异步执行
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;并发异步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;并发异步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;并发异步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-解析：开启多线程，任务交替进行，无序执行
-</code></pre><p>主队列同步：主线程中运行，发生死锁，crash</p>
-<pre><code>// 主队列
-dispatch_queue_t queue = dispatch_get_main_queue();
-
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列同步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列同步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_sync(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列同步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-解析：主队列同步死锁原因:
-1. 如果在主线程中运用主队列同步，也就是把任务放到了主线程的队列中。
-2. 而同步对于任务是立刻执行的，那么当把第一个任务放进主队列时，它就会立马执行。
-3. 可是主线程现在正在处理syncMain方法，任务需要等syncMain执行完才能执行。
-4. syncMain执行到第一个任务的时候，又要等第一个任务执行完才能往下执行第二个和第三个任务。
-5. 这样syncMain方法和第一个任务就开始了互相等待，形成了死锁。
-</code></pre><p>主队列异步：主线程顺序执行</p>
-<pre><code>// 主队列
-dispatch_queue_t queue = dispatch_get_main_queue();
-
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列异步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列异步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;主队列异步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-</code></pre><p>6.GCD线程间通讯</p>
-<p>eg1:图片下载刷新</p>
-<pre><code>子线程下载图片，完成后主线程刷新UI
- // 异步
-dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    // 耗时操作放在这里，例如下载图片。（运用线程休眠两秒来模拟耗时操作）
-    [NSThread sleepForTimeInterval:2];
-    NSURL *picURL = [NSURL URLWithString:@&quot;http://www.bangmangxuan.net/xxx.jpg&quot;];
-    NSData *picData = [NSData dataWithContentsOfURL:picURL];
-    UIImage *image = [UIImage imageWithData:picData];
-
-    // 回到主线程处理UI
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // 在主线程上添加图片
-        self.imageView.image = image;
-    });
-});
-</code></pre><p>eg2:下载视频和音频，必须是视频下载完成后再下载音频 - GCD栅栏dispatch_barrier_async|dispatch_barrier_sync<br><img src="dispatch_barrier.png" alt="dispatch_barrier"> </p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>dispatch_barrier_sync</th>
-<th>dispatch_barrier_async</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>相同</td>
-<td>1.都会等待在它前面插入队列的任务（1、2、3）先执行完 <br>2.都会等待他们自己的任务（0）执行完再执行后面的任务（4、5、6）</td>
-<td></td>
-</tr>
-<tr>
-<td>不同</td>
-<td>在将任务插入到queue的时候，dispatch_barrier_sync需要等待自己的任务（0）结束之后才会继续程序，然后插入被写在它后面的任务（4、5、6），然后执行后面的任务</td>
-<td>dispatch_barrier_async将自己的任务（0）插入到queue之后，不会等待自己的任务结束，它会继续把后面的任务（4、5、6）插入到queue</td>
-</tr>
-</tbody>
-</table>
-<p>所以，dispatch_barrier_async的不等待（异步）特性体现在将任务插入队列的过程，它的等待特性体现在任务真正执行的过程</p>
-<pre><code>// 并发队列
-dispatch_queue_t queue = dispatch_queue_create(&quot;test&quot;, DISPATCH_QUEUE_CONCURRENT);
-
-// 异步执行
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;栅栏：并发异步1 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;栅栏：并发异步2 %@&quot;,[NSThread currentThread]);
-    }
-});
-
-dispatch_barrier_async(queue, ^{
-    NSLog(@&quot;------------barrier------------%@&quot;, [NSThread currentThread]);
-    NSLog(@&quot;******* 并发异步执行，但是34一定在12后面 *********&quot;);
-});
-
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;栅栏：并发异步3 %@&quot;,[NSThread currentThread]);
-    }
-});
-dispatch_async(queue, ^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;栅栏：并发异步4 %@&quot;,[NSThread currentThread]);
-    }
-});
-解析：开启多条线程，所有任务并发异步进行
-适用场景：当任务需要异步进行,但是这些任务需要分多步执行，第一组完成后才能进行第二组操作。
-</code></pre><p>eg3:延时dispatch_after</p>
-<pre><code>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    // 5秒后异步执行
-    NSLog(@&quot;我已经等待了5秒！&quot;);
-});
-</code></pre><p>eg4:只执行一次dispatch_once</p>
-<pre><code>//使用dispatch_once能保证某段代码在程序运行过程中只被执行1次。可以用来设计单例。
-
-static dispatch_once_t onceToken;
-dispatch_once(&amp;onceToken, ^{
-    NSLog(@&quot;程序运行过程中我只执行了一次！&quot;);
-});
-</code></pre><p>eg5:快速迭代dispatch_apply</p>
-<pre><code>// 并发队列
-dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-
-// dispatch_apply几乎同时遍历多个数字
-dispatch_apply(7, queue, ^(size_t index) {
-
-    NSLog(@&quot;dispatch_apply：%zd======%@&quot;,index, [NSThread currentThread]);
-});
-</code></pre><p>eg6:GCD队列组</p>
-<pre><code>dispatch_group_t group = dispatch_group_create();
-
-dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-    NSLog(@&quot;队列组：有一个耗时操作完成！&quot;);
-});
-
-dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-    NSLog(@&quot;队列组：有一个耗时操作完成！&quot;);
-});
-
-dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-    NSLog(@&quot;队列组：前面的耗时操作都完成了，回到主线程进行相关操作&quot;);
-});
-解析:异步执行几个耗时操作，当这几个操作都完成之后再回到主线程进行操作，就可以用到队列组了。
-
-队列组有下面几个特点：
- 1.所有的任务会并发的执行(不按序)。
- 2.所有的异步函数都添加到队列中，然后再纳入队列组的监听范围。
- 3.使用dispatch_group_notify函数，来监听上面的任务是否完成，如果完成, 就会调用这个方法。
-</code></pre><p>四、NSOperation的使用<br><!--![Operation](Operation.png)--><br><img src="NSOperation.png" alt="NSOperation"><br>NSOperation是基于GCD之上的更高一层的封装,需要配合NSOperationQueue来实现多线程。</p>
-<p>1.NSOperation实现步骤:</p>
-<pre><code>1)创建任务：先将需要执行的操作封装到NSOperation对象中；
-2)创建队列：创建NSOperationQueue；
-3)将任务加入到队列中：将NSOperation对象添加到NSOperationQueue中；
-</code></pre><p>2.NSOperation的三种创建方式:(NSOperation是个抽象类，运用时需要使用其子类)</p>
-<p>方式一:NSInvocationOperation; </p>
-<pre><code> NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationAction:) object:@&quot;helloworld&quot;];
-[invocationOperation start];
-
-//Method
-- (void)invocationOperationAction:(NSObject *)object{
-    NSLog(@&quot;包含的任务，没有加入队列====%@====%@&quot;,object,[NSThread currentThread]);
-}
-解析：程序在主线程中执行，没有开启新线程，因为需要配合NSOperationQueue使用;
-</code></pre><p>方式二:NSBlockOperation;</p>
-<p>不加入子线程方法：</p>
-<pre><code> NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
-    NSLog(@&quot;NSBlockOperation包含的任务，没有加入队列====%@&quot;,[NSThread currentThread]);
-}];
-[blockOperation start];
-解析：程序在主线程中执行，没有开启新线程，因为需要配合NSOperationQueue使用;
-</code></pre><p>加入子线程方法：</p>
-<pre><code>NSBlockOperation *blockOperation = [[NSBlockOperation alloc] init];
-[blockOperation addExecutionBlock:^{
-    NSLog(@&quot;NSBlockOperation运用addExecutionBlock方法添加任务1========%@&quot;, [NSThread currentThread]);
-}];
-[blockOperation addExecutionBlock:^{
-    NSLog(@&quot;NSBlockOperation运用addExecutionBlock方法添加任务2========%@&quot;, [NSThread currentThread]);
-}];
-[blockOperation addExecutionBlock:^{
-    NSLog(@&quot;NSBlockOperation运用addExecutionBlock方法添加任务3========%@&quot;, [NSThread currentThread]);
-}];
-[blockOperation start];
-解析：添加addExecutionBlock：可以使NSBlockOperation实现多线程
-</code></pre><p>方式三:定义继承自NSOperation的子类,通过实现内部相应的方法来封装任务;</p>
-<p>定义一个继承NSOperation的类：（重写main方法，之后就可以使用这个子类进行相关操作）</p>
-<pre><code>DTOperation.h
-#import &lt;Foundation/Foundation.h&gt;
-
-@interface DTOperation : NSOperation
-
-@end
----------------------------------------
-DTOperation.m
-#import &quot;DTOperation.h&quot;
-
-@implementation DTOperation
-
-- (void)main {
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;NSOperation的子类WHOperation======%@&quot;,[NSThread currentThread]);
-     }
-}
-@end
-</code></pre><p>使用方式（在需要的控制器中）</p>
-<pre><code>#import &quot;DTOperation.h&quot;
-
-DTHomeController.m
-
-DTOperation *operation = [[DTOperation alloc] init];
-[operation start];
-
-解析：添加addExecutionBlock：可以使NSBlockOperation实现多线程
-</code></pre><p>3.队列NSOperationQueue:主队列+其他队列(串行队列+并行队列)</p>
-<pre><code>//主队列
-NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-
-//其他队列
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-</code></pre><p>最大并发数: maxConcurrentOperationCount</p>
-<pre><code> 默认为-1，直接并发执行，所以加入到‘非队列’中的任务默认就是并发，开启多线程。
-当maxConcurrentOperationCount为1时，则表示不开线程，也就是串行。
-当maxConcurrentOperationCount大于1时，进行并发执行。
-系统对最大并发数有一个限制，所以即使程序员把maxConcurrentOperationCount设置的很大，系统也会自动调整。所以把最大并发数设置的很大是没有意义的。
-</code></pre><p>4.NSOperation的常规使用方式：把任务加入队列（NSOperation + NSOperationQueue） </p>
-<p>addOperation添加任务到队列</p>
-<pre><code>// 创建队列，默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-
-// 创建操作，NSInvocationOperation
-NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationAddOperation) object:nil];
-
-// 创建操作，NSBlockOperation
-NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
-
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;addOperation把任务添加到队列======%@&quot;, [NSThread currentThread]);
-    }
-}];
-[queue addOperation:invocationOperation];
-[queue addOperation:blockOperation];
-
-//Method
-- (void)invocationOperationAddOperation {
-    NSLog(@&quot;===aaddOperation把任务添加到队列====%@&quot;, [NSThread currentThread]);
-}
-解析：开启了新线程
-</code></pre><p>addOperationWithBlock添加任务到队列</p>
-<pre><code> // 创建队列，默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-
-// 添加操作到队列
-[queue addOperationWithBlock:^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;addOperationWithBlock把任务添加到队列======%@&quot;, [NSThread currentThread]);
-    }
-}];
-</code></pre><p>运用最大并发数实现串行</p>
-<pre><code>// 创建队列，默认并发
- NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-
- // 最大并发数为1，串行
- queue.maxConcurrentOperationCount = 1;
-
- // 最大并发数为2，并发
- // queue.maxConcurrentOperationCount = 2;
-
- // 添加操作到队列
- [queue addOperationWithBlock:^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;addOperationWithBlock把任务添加到队列1======%@&quot;, [NSThread currentThread]);
-     }
- }];
- // 添加操作到队列
- [queue addOperationWithBlock:^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;addOperationWithBlock把任务添加到队列2======%@&quot;, [NSThread currentThread]);
-     }
- }];
-
- // 添加操作到队列
- [queue addOperationWithBlock:^{
-     for (int i = 0; i &lt; 3; i++) {
-         NSLog(@&quot;addOperationWithBlock把任务添加到队列3======%@&quot;, [NSThread currentThread]);
-     }
- }];
-解析:
-默认maxConcurrentOperationCount = -1，启了线程，无序执行，并发。
-maxConcurrentOperationCount = 1时，开启了线程，顺序执行，串行。
-maxConcurrentOperationCount = 2时，开启了线程，无序执行，并发。
-</code></pre><p>5.NSOperation其他操作</p>
-<p>对象方法：</p>
-<pre><code>//取消队列NSOperationQueue所有操作
-- (void)cancelAllOperations;
-
-//取消NSOperation某个操作
-- (void)cancel
-
-//完成后的回调方法
-operation.completionBlock = &lt;#^(void)#&gt;
-
-//使队列暂停    
-[queue setSuspended:YES];
-
-//判断队列是否暂停
-- (BOOL)isSuspended
-
-暂停和取消不是立刻取消当前操作，而是等当前的操作执行完之后不再进行新的操作；
-</code></pre><p>6.NSOperation的操作依赖</p>
-<p>使用场景:某一个操作（operation2）依赖于另一个操作（operation1），只有当operation1执行完毕，才能执行operation2;</p>
-<pre><code>// 并发队列
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-
-// 操作1
-NSBlockOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;operation1======%@&quot;, [NSThread currentThread]);
-    }
-}];
-
-// 操作2
-NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
-
-    NSLog(@&quot;****operation2依赖于operation1，只有当operation1执行完毕，operation2才会执行****&quot;);
-    for (int i = 0; i &lt; 3; i++) {
-        NSLog(@&quot;operation2======%@&quot;, [NSThread currentThread]);
-    }
-}];
-
-// 使操作2依赖于操作1
-[operation2 addDependency:operation1];
-// 把操作加入队列
-[queue addOperation:operation1];
-[queue addOperation:operation2];
-</code></pre><p>参考资料：<br>1.<a href="https://www.jianshu.com/p/7649fad15cdb" target="_blank" rel="noopener">多线程全套</a><br>2.<a href="https://www.cnblogs.com/Yogurshine/p/3640206.html" target="_blank" rel="noopener">多线程和多进程的优缺点</a><br>3.<a href="https://www.jianshu.com/p/27af7fae9947" target="_blank" rel="noopener">多线程安全</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS模块</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/iOS//" class="article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/27/iOS/iOS模块/iOS模块-多线程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-       
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
@@ -2770,11 +2174,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android环境</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2782,19 +2186,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2810,42 +2214,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -2858,6 +2226,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">内存条</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -2866,19 +2270,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2886,7 +2278,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+                <a href="javascript:void(0)" class="js-tag color1">iOS模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">iOS其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2894,7 +2290,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HBuilder基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hbuilde问题</a>
               </li>
             
             <div class="clearfix"></div>
