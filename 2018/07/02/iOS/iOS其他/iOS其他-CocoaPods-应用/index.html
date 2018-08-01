@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Tao的博客">
 <meta property="og:description" content="CocoaPods是ruby写的，用于管理Xcode开发时第三方开源的工具。 Mac自带Ruby环境 一、环境配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-02T12:22:04.137Z">
+<meta property="og:updated_time" content="2018-08-01T06:49:46.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS其他-CocoaPods-应用">
 <meta name="twitter:description" content="CocoaPods是ruby写的，用于管理Xcode开发时第三方开源的工具。 Mac自带Ruby环境 一、环境配置">
@@ -360,6 +360,10 @@ pod update 更新已存在Pod
     执行命令 sudo gem install cocoapods 报错  
 处理:
     sudo gem install -n /usr/local/bin cocoapods
+</code></pre><p>2.[!] Oh no, an error occurred.<br>Search for existing github issues similar to yours:<br>…</p>
+<pre><code>解决方案:
+sudo rm -rf ~/.cocoapods/repos/master
+pod setup        
 </code></pre><p>参考资料:<br><br>1.<a href="https://www.jianshu.com/p/8a0fd6150159" target="_blank" rel="noopener">Podfile配置</a><br><br>2.<a href="https://blog.csdn.net/cwf19860527/article/details/54139214" target="_blank" rel="noopener">pod install 和 pod update区别</a></p>
 
       
